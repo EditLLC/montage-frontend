@@ -2,6 +2,7 @@ var gulp             = require('gulp'),
 	babel            = require('gulp-babel'),
 	concat           = require('gulp-concat'),
 	copy             = require('gulp-copy'),
+	del              = require('del'),
 	file             = require('gulp-file'),
 	inject           = require('gulp-inject'),
 	naturalSort      = require('gulp-natural-sort'),
@@ -10,9 +11,14 @@ var gulp             = require('gulp'),
 
 var buildPath = 'build/';
 
+gulp.task('clean', removeBuildFiles);
 gulp.task('dev:assets', copyAssets);
 gulp.task('dev:styles', compileStyles);
 gulp.task('dev:scripts', compileScripts);
+
+function removeBuildFiles() {
+	return del(buildPath);
+}
 
 function copyAssets() {
 	var assets = [
