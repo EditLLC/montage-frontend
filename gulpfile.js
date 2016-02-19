@@ -1,4 +1,6 @@
 var gulp             = require('gulp'),
+	babel            = require('gulp-babel'),
+	concat           = require('gulp-concat'),
 	file             = require('gulp-file'),
 	inject           = require('gulp-inject'),
 	naturalSort      = require('gulp-natural-sort'),
@@ -8,6 +10,7 @@ var gulp             = require('gulp'),
 var buildPath = 'build/';
 
 gulp.task('dev:styles', compileStyles);
+gulp.task('dev:scripts', compileScripts);
 
 function compileStyles() {
 
@@ -33,6 +36,20 @@ function compileStyles() {
 	return file('montage.scss', '/* inject:scss */\n/* endinject */', { src: true })
 		.pipe(inject(createOrderedStream(sources, { read: false }), { relative: true }))
 		.pipe(sass())
+		.pipe(gulp.dest(buildPath));
+}
+
+function compileScripts() {
+	var sources = [
+		['src/**/*.module.js'],
+		['src/**/*.service.js'],
+		['src/**/*.filter.js'],
+		['src/**/*.component.js']
+	];
+
+	return createOrderedStream(sources)
+		.pipe(concat('app.js'))
+		.pipe(babel({ presets: ['es2015'] }))
 		.pipe(gulp.dest(buildPath));
 }
 
