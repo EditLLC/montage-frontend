@@ -14,5 +14,13 @@
   "bugs": {
     "url": "https://github.com/EditLLC/montage-frontend/issues"
   },
-  "homepage": "https://github.com/EditLLC/montage-frontend#readme"
+  "homepage": "https://github.com/EditLLC/montage-frontend#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-file": "^0.2.0",
+    "gulp-inject": "^3.0.0",
+    "gulp-natural-sort": "^0.1.1",
+    "gulp-sass": "^2.2.0",
+    "stream-series": "^0.1.1"
+  }
 }
