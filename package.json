@@ -26,6 +26,7 @@
     "gulp-inject": "^3.0.0",
     "gulp-natural-sort": "^0.1.1",
     "gulp-sass": "^2.2.0",
+    "run-sequence": "^1.1.5",
     "stream-series": "^0.1.1"
   }
 }

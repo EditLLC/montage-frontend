@@ -6,18 +6,24 @@ var gulp             = require('gulp'),
 	file             = require('gulp-file'),
 	inject           = require('gulp-inject'),
 	naturalSort      = require('gulp-natural-sort'),
+	runSequence      = require('run-sequence'),
 	sass             = require('gulp-sass'),
 	streamSeries     = require('stream-series');
 
 var buildPath = 'build/';
 
 gulp.task('clean', removeBuildFiles);
+gulp.task('dev', buildDevFiles);
 gulp.task('dev:assets', copyAssets);
 gulp.task('dev:styles', compileStyles);
 gulp.task('dev:scripts', compileScripts);
 
 function removeBuildFiles() {
 	return del(buildPath);
+}
+
+function buildDevFiles(doneCallback) {
+	runSequence('clean', ['dev:assets', 'dev:styles', 'dev:scripts'], doneCallback);
 }
 
 function copyAssets() {
