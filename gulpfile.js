@@ -1,6 +1,7 @@
 var gulp             = require('gulp'),
 	babel            = require('gulp-babel'),
 	concat           = require('gulp-concat'),
+	copy             = require('gulp-copy'),
 	file             = require('gulp-file'),
 	inject           = require('gulp-inject'),
 	naturalSort      = require('gulp-natural-sort'),
@@ -9,8 +10,20 @@ var gulp             = require('gulp'),
 
 var buildPath = 'build/';
 
+gulp.task('dev:assets', copyAssets);
 gulp.task('dev:styles', compileStyles);
 gulp.task('dev:scripts', compileScripts);
+
+function copyAssets() {
+	var assets = [
+		'src/index.html',
+		'src/assets/**/*',
+		'!src/assets/styles/*'
+	];
+
+	return gulp.src(assets)
+		.pipe(copy(buildPath, { prefix: 1 }));
+}
 
 function compileStyles() {
 
