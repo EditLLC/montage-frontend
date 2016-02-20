@@ -14,6 +14,7 @@ var gulp             = require('gulp'),
 
 var buildPath = 'build/';
 
+gulp.task('default', ['dev:serve']);
 gulp.task('clean', removeBuildFiles);
 gulp.task('dev', buildDevFiles);
 gulp.task('dev:assets', copyAssets);
