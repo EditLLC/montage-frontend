@@ -1,16 +1,16 @@
-var gulp             = require('gulp'),
-	babel            = require('gulp-babel'),
-	browserSync      = require('browser-sync'),
-	concat           = require('gulp-concat'),
-	copy             = require('gulp-copy'),
-	del              = require('del'),
+var gulp               = require('gulp'),
+	babel              = require('gulp-babel'),
+	browserSync        = require('browser-sync'),
+	concat             = require('gulp-concat'),
+	copy               = require('gulp-copy'),
+	del                = require('del'),
 	historyApiFallback = require('connect-history-api-fallback'),
-	file             = require('gulp-file'),
-	inject           = require('gulp-inject'),
-	naturalSort      = require('gulp-natural-sort'),
-	runSequence      = require('run-sequence'),
-	sass             = require('gulp-sass'),
-	streamSeries     = require('stream-series');
+	file               = require('gulp-file'),
+	inject             = require('gulp-inject'),
+	naturalSort        = require('gulp-natural-sort'),
+	runSequence        = require('run-sequence'),
+	sass               = require('gulp-sass'),
+	streamSeries       = require('stream-series');
 
 var buildPath = 'build/';
 
