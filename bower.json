@@ -4,5 +4,11 @@
   "main": "./src/main.js",
   "license": "SEE LICENSE IN LICENSE",
   "homepage": "https://github.com/EditLLC/montage-frontend",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-ui-router": "^0.2.18",
+    "javascript-montage": "https://github.com/EditLLC/javascript-montage.git",
+    "normalize-css": "^3.0.3"
+  }
 }
