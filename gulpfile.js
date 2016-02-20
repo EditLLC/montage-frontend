@@ -30,7 +30,7 @@ function copyAssets() {
 	var assets = [
 		'src/index.html',
 		'src/assets/**/*',
-		'!src/assets/styles/*'
+		'!src/assets/styles/**/*'
 	];
 
 	return gulp.src(assets)
