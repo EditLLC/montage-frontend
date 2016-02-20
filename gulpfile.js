@@ -66,10 +66,16 @@ function compileStyles() {
 
 function compileScripts() {
 	var sources = [
-		['src/**/*.module.js'],
-		['src/**/*.service.js'],
-		['src/**/*.filter.js'],
-		['src/**/*.component.js']
+		[
+			'src/**/*.module.js',
+			'!src/assets/lib/**/*'
+		],[
+			'src/**/*.config.js',
+			'src/**/*.service.js',
+			'src/**/*.filter.js',
+			'src/**/*.component.js',
+			'!src/assets/lib/**/*'
+		]
 	];
 
 	return createOrderedStream(sources)
