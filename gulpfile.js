@@ -1,8 +1,10 @@
 var gulp             = require('gulp'),
 	babel            = require('gulp-babel'),
+	browserSync      = require('browser-sync'),
 	concat           = require('gulp-concat'),
 	copy             = require('gulp-copy'),
 	del              = require('del'),
+	historyApiFallback = require('connect-history-api-fallback'),
 	file             = require('gulp-file'),
 	inject           = require('gulp-inject'),
 	naturalSort      = require('gulp-natural-sort'),
@@ -17,6 +19,7 @@ gulp.task('dev', buildDevFiles);
 gulp.task('dev:assets', copyAssets);
 gulp.task('dev:styles', compileStyles);
 gulp.task('dev:scripts', compileScripts);
+gulp.task('dev:serve', ['dev'], serveDevFiles);
 
 function removeBuildFiles() {
 	return del(buildPath);
@@ -62,7 +65,8 @@ function compileStyles() {
 	return file('montage.scss', '/* inject:scss */\n/* endinject */', { src: true })
 		.pipe(inject(createOrderedStream(sources, { read: false }), { relative: true }))
 		.pipe(sass())
-		.pipe(gulp.dest(buildPath));
+		.pipe(gulp.dest(buildPath))
+		.pipe(browserSync.stream()); // Inject styles into the browser when serving files though `browserSync`
 }
 
 function compileScripts() {
@@ -83,6 +87,34 @@ function compileScripts() {
 		.pipe(babel({ presets: ['es2015'] }))
 		.pipe(concat('app.js'))
 		.pipe(gulp.dest(buildPath));
+}
+
+/**
+ * Continuously build and serve the development version of the app.
+ */
+function serveDevFiles() {
+	browserSync.init({
+		open: false,
+		server: {
+			baseDir: buildPath,
+			middleware: [historyApiFallback()],
+			ghostMode: {
+				clicks: true,
+				forms: true,
+				scroll: true
+			}
+		}
+	});
+
+	gulp.watch('src/**/*.scss', ['dev:styles']);
+	gulp.watch('src/**/*.js', ['dev:scripts']);
+	gulp.watch([
+		'src/index.html',
+		'src/assets/**/*',
+		'!src/assets/styles/**/*',
+		'src/views/**/*.html'
+	], ['dev:assets']);
+	gulp.watch(['build/**/*', '!build/assets/styles/montage.css']).on('change', browserSync.reload);
 }
 
 /**
