@@ -1,0 +1,8 @@
+{
+  "name": "montage-frontend",
+  "description": "Montage front end",
+  "main": "./src/main.js",
+  "license": "SEE LICENSE IN LICENSE",
+  "homepage": "https://github.com/EditLLC/montage-frontend",
+  "private": true
+}
