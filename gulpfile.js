@@ -73,8 +73,8 @@ function compileScripts() {
 	];
 
 	return createOrderedStream(sources)
-		.pipe(concat('app.js'))
 		.pipe(babel({ presets: ['es2015'] }))
+		.pipe(concat('app.js'))
 		.pipe(gulp.dest(buildPath));
 }
 
