@@ -114,7 +114,12 @@ function serveDevFiles() {
 		'src/assets/**/*',
 		'!src/assets/styles/**/*',
 		'src/views/**/*.html'
-	], ['dev:assets']);
+	], function(event) {
+		if(event.type === 'added' || event.type === 'changed') {
+			return gulp.src(event.path)
+				.pipe(copy(buildPath, { prefix: 1 }));
+		}
+	});
 	gulp.watch(['build/**/*', '!build/assets/styles/montage.css']).on('change', browserSync.reload);
 }
 
