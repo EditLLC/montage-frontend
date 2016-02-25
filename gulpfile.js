@@ -43,28 +43,11 @@ function copyAssets() {
 }
 
 function compileStyles() {
+	var target = gulp.src('src/assets/styles/main.scss');
+	var sources = gulp.src('src/views/**/*.scss', { read: false });
 
-	// Create a stream of SCSS files that preserves ITCSS ordering
-	var sources = [
-		['src/assets/styles/*.settings.scss'],
-		['src/assets/styles/*.tools.scss'],
-		['src/assets/styles/*.generic.scss'],
-		['src/assets/styles/*.base.scss'],
-		['src/assets/styles/*.object.scss'],
-		[ // Catch any SCSS files that do not follow the ITCSS naming convention
-			'src/assets/styles/*.scss',
-			'!src/assets/styles/*.settings.scss',
-			'!src/assets/styles/*.tools.scss',
-			'!src/assets/styles/*.generic.scss',
-			'!src/assets/styles/*.base.scss',
-			'!src/assets/styles/*.object.scss'
-		],
-		['src/views/**/*.scss'],
-		['src/assets/styles/*.trump.scss']
-	];
-
-	return file('montage.scss', '/* inject:scss */\n/* endinject */', { src: true })
-		.pipe(inject(createOrderedStream(sources, { read: false }), { relative: true }))
+	return target
+		.pipe(inject(sources), { relative: true })
 		.pipe(sass())
 		.pipe(gulp.dest(buildPath))
 		.pipe(browserSync.stream()); // Inject styles into the browser when serving files though `browserSync`
