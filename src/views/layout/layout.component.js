@@ -9,8 +9,11 @@
 			controller: layoutController
 		});
 
-	function layoutController() {
+	function layoutController($state) {
 		var vm = this;
 
+		vm.isStateActive = function (route) {
+			return $state.includes(route);
+		};
 	}
 })(angular);
