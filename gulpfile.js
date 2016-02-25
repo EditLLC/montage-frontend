@@ -47,7 +47,7 @@ function compileStyles() {
 	var sources = gulp.src('src/views/**/*.scss', { read: false });
 
 	return target
-		.pipe(inject(sources), { relative: true })
+		.pipe(inject(sources, { relative: true }))
 		.pipe(sass())
 		.pipe(gulp.dest(buildPath))
 		.pipe(browserSync.stream()); // Inject styles into the browser when serving files though `browserSync`
