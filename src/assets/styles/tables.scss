@@ -1,0 +1,36 @@
+@import 'variables';
+@import 'mixins';
+
+table {
+	width: 100%;
+}
+
+tbody tr {
+	border-bottom: 1px solid $gray-light;
+
+	&:nth-child(even) {
+		background-color: $gray-lightest;
+	}
+}
+
+th, td {
+	line-height: 40px;
+	padding: 0 15px;
+
+	&:last-child {
+		border-right: 0;
+	}
+}
+
+th {
+	color: $blue-gray;
+	background: $blue-gray-light;
+	border-bottom: 2px solid $blue-gray;
+	border-right: 1px solid white;
+}
+
+td {
+	max-width: 250px;
+	@include ellipsis();
+	border-right: 1px solid $gray-light;
+}
