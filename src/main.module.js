@@ -3,6 +3,7 @@
 
 	angular
 		.module('montage', [
+			'ngMaterial',
 			'ui.router'
 		]);
 })(angular);
