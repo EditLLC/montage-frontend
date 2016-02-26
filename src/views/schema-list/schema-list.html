@@ -36,7 +36,7 @@
 				<tr ng-repeat="field in schema.fields">
 					<td>{{ field.name }}</td>
 					<td>{{ field.datatype }}</td>
-					<td class="center-text">
+					<td>
 						<i ng-if="field.indexed" class="fa fa-check"></i>
 						<i ng-if="!field.indexed" class="fa fa-times"></i>
 					</td>
