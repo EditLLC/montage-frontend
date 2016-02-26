@@ -17,6 +17,10 @@
 				.login(credentials)
 				.then(()=> $state.go('dashboard'))
 				.catch((error) => {
+
+					// Clear credentials on authentication errors
+					vm.credentials = {};
+
 					switch(error.status) {
 						case 401:
 							return vm.errorMessage = "Invalid credentials. Please try again.";
