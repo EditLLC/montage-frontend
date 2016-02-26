@@ -17,8 +17,8 @@ th, td {
 	line-height: 40px;
 	padding: 0 15px;
 
-	&:last-child {
-		border-right: 0;
+	&:first-child {
+		border-left: 0;
 	}
 }
 
@@ -27,11 +27,11 @@ th {
 	color: $blue-gray;
 	background: $blue-gray-light;
 	border-bottom: 2px solid $blue-gray;
-	border-right: 1px solid white;
+	border-left: 1px solid white;
 }
 
 td {
 	max-width: 250px;
 	@include ellipsis();
-	border-right: 1px solid $gray-light;
+	border-left: 1px solid $gray-light;
 }
