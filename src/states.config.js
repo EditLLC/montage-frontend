@@ -114,19 +114,21 @@
 			 * Users
 			 ************/
 
-			.state('userCreate', {
-				url: '/users/create',
+			.state('user', {
+				abstract: true,
 				parent: 'layout',
+				template: '<empty-parent />'
+			})
+			.state('user.create', {
+				url: '/users/create',
 				template: '<user-create />'
 			})
-			.state('userDetail', {
+			.state('user.detail', {
 				url: '/users/:user_id',
-				parent: 'layout',
 				template: '<user-detail />'
 			})
-			.state('userList', {
+			.state('user.list', {
 				url: '/users',
-				parent: 'layout',
 				template: '<user-list />'
 			})
 	}
