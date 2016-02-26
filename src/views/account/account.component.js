@@ -10,8 +10,6 @@
 		});
 
 	function accountController() {
-		var vm = this;
 
-		
 	}
 })(angular);
