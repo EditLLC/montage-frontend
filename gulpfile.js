@@ -103,7 +103,7 @@ function serveDevFiles() {
 				.pipe(copy(buildPath, { prefix: 1 }));
 		}
 	});
-	gulp.watch(['build/**/*', '!build/assets/styles/montage.css']).on('change', browserSync.reload);
+	gulp.watch(['build/**/*', '!build/main.css']).on('change', browserSync.reload);
 }
 
 /**
