@@ -20,7 +20,11 @@
 			var client = new montageData.Client(credentials);
 
 			return $q.when(client.auth())
-				.then(returnData);
+				.then(returnData)
+				.then(user => {
+					user.domain = credentials.domain;
+					return user;
+				});
 		}
 	}
 })(angular);

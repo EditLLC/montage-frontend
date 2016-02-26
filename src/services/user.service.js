@@ -32,8 +32,6 @@
 		function login(credentials) {
 			return montage.auth(credentials)
 				.then(user => {
-					user.domain = credentials.domain;
-
 					_user = user;
 					$cookies.putObject('user', user);
 				});
