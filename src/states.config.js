@@ -3,7 +3,19 @@
 
 	angular
 		.module('montage')
-		.config(stateConfig);
+		.config(stateConfig)
+		.run(redirectConfig);
+
+	function redirectConfig($rootScope, $location, userService) {
+
+		$rootScope.$on('$stateChangeStart', function(event, toState) {
+			if(!userService.isAuthenticated() && toState.name !== 'login') {
+
+				// Use `$location.path()` instead of `$state.go()` to avoid an infinite routing loop
+				$location.path('/login');
+			}
+		})
+	}
 
 	function stateConfig($stateProvider, $locationProvider, $urlRouterProvider) {
 		$locationProvider.html5Mode(true);
