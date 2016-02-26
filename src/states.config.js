@@ -113,7 +113,7 @@
 				template: '<schema-create />'
 			})
 			.state('schema.detail', {
-				url: '/schemas/:schema_id',
+				url: '/schemas/:schemaName',
 				template: '<schema-detail />'
 			})
 			.state('schema.list', {
