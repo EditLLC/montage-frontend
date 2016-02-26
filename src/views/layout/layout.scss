@@ -88,3 +88,33 @@
 	@include scrollable();
 	background: $gray-lightest;
 }
+
+.view {
+	&.md-whiteframe-2dp {
+		background: $white;
+		width: 960px;
+		padding: $padding-large;
+		margin: 0 auto;
+	}
+}
+
+.view-header {
+	overflow: hidden;
+	margin-bottom: $padding-medium;
+
+	h1 {
+		float: left;
+	}
+
+	a {
+		float: right;
+		margin: 11px 0 0;
+		padding: 0 13px;
+		text-transform: none;
+
+		.fa {
+			color: white;
+			margin-right: 3px;
+		}
+	}
+}
