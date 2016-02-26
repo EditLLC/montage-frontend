@@ -1,4 +1,30 @@
-<div class="role-list-view">
-	<h1>Roles</h1>
-	<a ui-sref="role.create">Create Role</a>
+<div class="role-list-view view-frame" md-whiteframe="2">
+	<div class="view-header">
+		<h1>Roles</h1>
+
+		<md-button class="md-primary md-raised" ui-sref="role.create">
+			<i class="fa fa-plus"></i>
+			Add Role
+		</md-button>
+	</div>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Role</th>
+				<th>Members</th>
+				<th class="actions"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="role in roleList.roleList">
+				<td><a ui-sref="role.detail({ roleName: role.name })">{{ role.name }}</a></td>
+				<td>{{ role.memberCount }}</td>
+				<td class="actions">
+					<a ui-sref="role.edit({ roleName: role.name })"><i class="fa fa-pencil"></i></a>
+					<a ng-click="roleList.delete(role.name)"><i class="fa fa-times"></i></a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
