@@ -12,6 +12,9 @@
 	function accountPasswordController() {
 		var vm = this;
 
-
+		// TODO: implement
+		vm.changePassword = function(passwords) {
+			console.log('Not implemented');
+		}
 	}
 })(angular);
