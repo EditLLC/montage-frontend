@@ -1,4 +1,5 @@
 @import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
 
 .app-nav {
 	position: fixed;
@@ -71,4 +72,19 @@
 		width: 20px;
 		margin-right: 5px;
 	}
+}
+
+/** TODO: revisit
+ * - remove fixed positioning (angular-material's 100% min-height on body screws things up)
+ * - the current implementation prevents the address bar from hiding on mobile
+ */
+.content-wrapper {
+	position: fixed;
+	top: $header-height;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: $padding;
+	@include scrollable();
+	background: $gray-lightest;
 }
