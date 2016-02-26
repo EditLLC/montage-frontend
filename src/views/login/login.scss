@@ -1,0 +1,52 @@
+@import '../../assets/styles/variables';
+
+.login-view {
+	display: table;
+	height: 100%;
+	width: 100%;
+	background: $gray-lightest;
+
+	.form-wrapper {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	form {
+		text-align: center;
+		width: 400px;
+		padding: 40px;
+		margin: -80px auto 0;
+		background: $white;
+	}
+
+	.login-header {
+		margin: 0 0 20px -15px;
+	}
+
+	.logo {
+		width: 25%;
+		vertical-align: middle;
+	}
+
+	.company-name {
+		font-family: 'Stoke', serif;
+		font-size: 44px;
+		color: #636466;
+		vertical-align: middle;
+	}
+
+	.error-message {
+		color: $danger;
+		height: 20px;
+		line-height: 20px;
+	}
+
+	.input-wrapper {
+		overflow: hidden;
+	}
+
+	.md-button {
+		width: 100%;
+		margin: 0;
+	}
+}
