@@ -4,4 +4,9 @@
 	margin: 0 0 $padding-medium;
 	padding: 0 $padding;
 	text-transform: none;
+
+	.fa {
+		color: $white;
+		margin-right: 3px;
+	}
 }
