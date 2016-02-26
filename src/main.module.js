@@ -3,6 +3,7 @@
 
 	angular
 		.module('montage', [
+			'ngCookies',
 			'ngMaterial',
 			'ui.router'
 		])
