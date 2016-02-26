@@ -1,7 +1,7 @@
 <div class="layout-view">
 	<ul>
 		<li><a ui-sref-active="active" ui-sref="dashboard">Dashboard</a></li>
-		<li><a ui-sref-active="active" ui-sref="schemaList">Schemas</a></li>
+		<li><a ng-class="{active: layout.isStateActive('schema')}" ui-sref="schema.list">Schemas</a></li>
 		<li><a ui-sref-active="active" ui-sref="recordBrowser">Data</a></li>
 		<li><a ui-sref-active="active" ui-sref="fileBrowser">File</a></li>
 		<li><a ng-class="{active: layout.isStateActive('role')}" ui-sref="role.list">Roles</a></li>

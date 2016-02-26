@@ -91,19 +91,21 @@
 			 * Schemas
 			 ************/
 
-			.state('schemaCreate', {
-				url: '/schemas/create',
+			.state('schema', {
+				abstract: true,
 				parent: 'layout',
+				template: '<empty-parent />'
+			})
+			.state('schema.create', {
+				url: '/schemas/create',
 				template: '<schema-create />'
 			})
-			.state('schemaDetail', {
+			.state('schema.detail', {
 				url: '/schemas/:schema_id',
-				parent: 'layout',
 				template: '<schema-detail />'
 			})
-			.state('schemaList', {
+			.state('schema.list', {
 				url: '/schemas',
-				parent: 'layout',
 				template: '<schema-list />'
 			})
 
