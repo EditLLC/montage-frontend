@@ -17,7 +17,8 @@ th, td {
 	line-height: 40px;
 	padding: 0 15px;
 
-	&:first-child {
+	&:first-child,
+	&.actions {
 		border-left: 0;
 	}
 }
@@ -34,4 +35,21 @@ td {
 	max-width: 250px;
 	@include ellipsis();
 	border-left: 1px solid $gray-light;
+
+	&.actions {
+		text-align: right;
+		padding: 0;
+
+		a {
+			display: inline-block;
+			line-height: 40px;
+			width: 30px;
+			text-align: center;
+			color: $gray-mid;
+
+			&:hover {
+				color: $gray-dark;
+			}
+		}
+	}
 }
