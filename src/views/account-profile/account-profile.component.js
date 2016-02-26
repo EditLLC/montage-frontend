@@ -16,7 +16,7 @@
 
 		// TODO: implement
 		vm.save = function(user) {
-			console.log('Not implemented');
+			console.log('Saving account profiles is not implemented');
 		}
 	}
 })(angular);
