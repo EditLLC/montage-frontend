@@ -6,8 +6,16 @@
 	text-transform: none;
 
 	.fa {
-		color: $white;
+		color: #212121; // TODO: don't hard-code this
 		margin-right: 3px;
+	}
+
+	&.md-primary .fa {
+		color: $white;
+	}
+
+	&[disabled] .fa {
+		color: rgba(0, 0, 0, .26); // TODO: don't hard-code this
 	}
 }
 
