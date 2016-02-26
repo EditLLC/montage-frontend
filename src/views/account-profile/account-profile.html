@@ -1,3 +1,20 @@
 <div class="account-profile-view">
 	<h1>Profile</h1>
+
+	<form>
+		<md-input-container class="md-block">
+			<label>Name*</label>
+			<input type="text" ng-model="accountProfile.currentUser.name" required>
+		</md-input-container>
+
+		<md-input-container class="md-block">
+			<label>Email*</label>
+			<input type="text" ng-model="accountProfile.currentUser.email" required>
+		</md-input-container>
+
+		<md-button
+			class="md-raised md-primary pull-right"
+			ng-click="accountProfile.save(accountProfile.currentUser)"
+		>Save</md-button>
+	</form>
 </div>

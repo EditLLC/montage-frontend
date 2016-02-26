@@ -9,9 +9,14 @@
 			controller: accountProfileController
 		});
 
-	function accountProfileController() {
+	function accountProfileController(userService) {
 		var vm = this;
 
+		vm.currentUser = userService.getUser();
 
+		// TODO: implement
+		vm.save = function(user) {
+			console.log('Not implemented');
+		}
 	}
 })(angular);
