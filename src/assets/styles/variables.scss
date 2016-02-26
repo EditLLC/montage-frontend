@@ -5,9 +5,22 @@ $danger: #d4411d;
 $blue-gray: #4b6c86;
 $blue-gray-light: #d0d8de;
 
+$gray-dark: #444;
+$gray-medium: #555;
 $gray-light: #e5e5e5;
 $gray-lightest: #fafafa;
 
 $white: #fff;
 
+// Text
 $text-color: #444;
+
+// Header
+$header-height: 60px;
+$header-bg: $gray-dark;
+
+// Padding
+$padding: 20px;
+
+// Z-index
+$z-index-header: 1000;

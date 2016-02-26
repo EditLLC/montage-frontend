@@ -1,0 +1,74 @@
+@import '../../assets/styles/variables';
+
+.app-nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: $header-height;
+	background: $header-bg;
+
+	li {
+		float: left;
+	}
+
+	.logo {
+		a {
+			padding: 10px;
+			line-height: 0;
+		}
+
+		img {
+			width: 61px;
+			height: 40px;
+		}
+	}
+
+	a {
+		display: inline-block;
+		color: white;
+		text-decoration: none;
+		line-height: $header-height;
+		padding: 0 20px;
+
+		&:hover {
+			background: $gray-medium;
+		}
+
+		&.active {
+			background: $primary;
+		}
+	}
+
+	.account {
+		float: right;
+	}
+
+	.md-menu {
+		color: white;
+	}
+
+	.md-button {
+		text-transform: none;
+		font-weight: normal;
+		line-height: 60px;
+		padding: 0 15px;
+		margin: 0;
+		border-radius: 0;
+
+		& * {
+			vertical-align: middle;
+		}
+	}
+
+	.fa-angle-down {
+		margin-left: 5px;
+		display: inline-block;
+		padding-top: 2px;
+	}
+
+	.user-photo {
+		width: 20px;
+		margin-right: 5px;
+	}
+}

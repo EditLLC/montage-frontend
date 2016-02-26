@@ -1,13 +1,33 @@
-<div class="layout-view">
-	<ul>
-		<li><a ui-sref-active="active" ui-sref="dashboard">Dashboard</a></li>
-		<li><a ng-class="{active: layout.isStateActive('schema')}" ui-sref="schema.list">Schemas</a></li>
-		<li><a ui-sref-active="active" ui-sref="recordBrowser">Data</a></li>
-		<li><a ui-sref-active="active" ui-sref="fileBrowser">File</a></li>
-		<li><a ng-class="{active: layout.isStateActive('role')}" ui-sref="role.list">Roles</a></li>
-		<li><a ng-class="{active: layout.isStateActive('user')}" ui-sref="user.list">Users</a></li>
-		<li><a ui-sref-active="active" ui-sref="account.profile">Account</a></li>
-	</ul>
+<ul class="app-nav">
+	<li class="logo">
+		<a ui-sref-active="active" ui-sref="dashboard"><img src="assets/images/montage-mark.png"></a>
+	</li>
 
-	<ui-view></ui-view>
-</div>
+	<li><a ng-class="{active: layout.isStateActive('schema')}" ui-sref="schema.list">Schemas</a></li>
+	<li><a ui-sref-active="active" ui-sref="recordBrowser">Data</a></li>
+	<li><a ui-sref-active="active" ui-sref="fileBrowser">File</a></li>
+	<li><a ng-class="{active: layout.isStateActive('role')}" ui-sref="role.list">Roles</a></li>
+	<li><a ng-class="{active: layout.isStateActive('user')}" ui-sref="user.list">Users</a></li>
+
+	<li class="account">
+		<md-menu md-position-mode="target-right target">
+			<md-button ng-click="$mdOpenMenu($event)">
+				<img class="user-photo" ng-src="{{ layout.currentUser.photo }}">
+				{{ layout.currentUser.name }}
+				<i class="fa fa-angle-down"></i>
+			</md-button>
+
+			<md-menu-content width="3">
+				<md-menu-item>
+					<md-button ui-sref="account.profile">Account Profile</md-button>
+				</md-menu-item>
+
+				<md-menu-item>
+					<md-button ng-click="layout.logout()">Logout</md-button>
+				</md-menu-item>
+			</md-menu-content>
+		</md-menu>
+	</li>
+</ul>
+
+<ui-view class="content-wrapper"></ui-view>

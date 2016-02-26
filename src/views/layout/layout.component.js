@@ -9,8 +9,11 @@
 			controller: layoutController
 		});
 
-	function layoutController($state) {
+	function layoutController($state, userService) {
 		var vm = this;
+
+		vm.currentUser = userService.getUser();
+		vm.logout = userService.logout;
 
 		vm.isStateActive = function (route) {
 			return $state.includes(route);
