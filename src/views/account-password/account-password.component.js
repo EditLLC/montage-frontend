@@ -14,7 +14,7 @@
 
 		// TODO: implement
 		vm.changePassword = function(passwords) {
-			console.log('Not implemented');
+			console.log('Changing passwords is not implemented');
 		}
 	}
 })(angular);
