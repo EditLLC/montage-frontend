@@ -13,6 +13,11 @@
 		var vm = this;
 
 		vm.login = function(credentials) {
+			// Blur all inputs
+			document.getElementById('domain').blur();
+			document.getElementById('email').blur();
+			document.getElementById('password').blur();
+
 			userService
 				.login(credentials)
 				.then(()=> $state.go('dashboard'))
