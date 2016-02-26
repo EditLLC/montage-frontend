@@ -5,6 +5,15 @@ table {
 	width: 100%;
 }
 
+thead {
+	th {
+		color: $blue-gray;
+		background: $blue-gray-light;
+		border-bottom: 2px solid $blue-gray;
+		border-left: 1px solid white;
+	}
+}
+
 tbody {
 	tr {
 		border-bottom: 1px solid $gray-light;
@@ -28,15 +37,6 @@ th, td {
 	&:first-child,
 	&.actions {
 		border-left: 0;
-	}
-}
-
-thead {
-	th {
-		color: $blue-gray;
-		background: $blue-gray-light;
-		border-bottom: 2px solid $blue-gray;
-		border-left: 1px solid white;
 	}
 }
 
