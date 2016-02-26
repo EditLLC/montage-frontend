@@ -68,19 +68,21 @@
 			 * Roles
 			 ************/
 
-			.state('roleCreate', {
-				url: '/roles/create',
+			.state('role', {
+				abstract: true,
 				parent: 'layout',
+				template: '<empty-parent />'
+			})
+			.state('role.create', {
+				url: '/roles/create',
 				template: '<role-create />'
 			})
-			.state('roleDetail', {
+			.state('role.detail', {
 				url: '/roles/:role_id',
-				parent: 'layout',
 				template: '<role-detail />'
 			})
-			.state('roleList', {
+			.state('role.list', {
 				url: '/roles',
-				parent: 'layout',
 				template: '<role-list />'
 			})
 
