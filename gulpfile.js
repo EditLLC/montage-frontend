@@ -72,7 +72,18 @@ function compileScripts() {
 	];
 
 	return createOrderedStream(sources)
-		.pipe(babel({ presets: ['es2015'] }))
+		.pipe(babel({ presets: ['es2015'] })
+		.on('error', function(error) {
+
+			console.log('\n');
+			console.log(error.name);
+			console.log('------------');
+			console.log(error.message);
+			console.log(error.codeFrame);
+			console.log('\n');
+
+			this.emit('end'); // Allow watches to continue by swallowing errors
+		}))
 		.pipe(concat('app.js'))
 		.pipe(gulp.dest(buildPath));
 }
