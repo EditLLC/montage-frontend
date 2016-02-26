@@ -49,6 +49,10 @@ function compileStyles() {
 	return target
 		.pipe(inject(sources, { relative: true }))
 		.pipe(sass())
+		.on('error', function(error) {
+			console.log('\n', error.formatted, '\n');
+			this.emit('end'); // Allow watches to continue by swallowing errors
+		})
 		.pipe(gulp.dest(buildPath))
 		.pipe(browserSync.stream()); // Inject styles into the browser when serving files though `browserSync`
 }
