@@ -1,9 +1,10 @@
 // Colors
-$primary: #01579B;
-$danger: #d4411d;
+$blue: #01579B;
 
 $blue-gray: #4b6c86;
 $blue-gray-light: #d0d8de;
+
+$red: #d4411d;
 
 $gray-dark: #444;
 $gray-medium: #555;
@@ -12,6 +13,10 @@ $gray-light: #e5e5e5;
 $gray-lightest: #fafafa;
 
 $white: #fff;
+
+// Semantic Color Names
+$primary: $blue;
+$danger: $red;
 
 // Text
 $text-color: $gray-dark;
