@@ -1,7 +1,7 @@
 <div class="account-profile-view">
 	<h1>Profile</h1>
 
-	<form>
+	<form name="profileForm">
 		<md-input-container class="md-block">
 			<label>Name*</label>
 			<input type="text" ng-model="accountProfile.currentUser.name" required>
@@ -15,6 +15,7 @@
 		<md-button
 			class="md-raised md-primary pull-right"
 			ng-click="accountProfile.save(accountProfile.currentUser)"
+			ng-disabled="profileForm.$invalid"
 		>Save</md-button>
 	</form>
 </div>
