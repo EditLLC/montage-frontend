@@ -90,7 +90,7 @@
 				template: '<role-create />'
 			})
 			.state('role.detail', {
-				url: '/roles/:role_id',
+				url: '/roles/:roleName',
 				template: '<role-detail />'
 			})
 			.state('role.list', {
