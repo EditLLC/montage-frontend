@@ -1,0 +1,29 @@
+@import '../../assets/styles/variables';
+
+.account-view {
+	$sidebar-width: 200px;
+
+	ul {
+		width: $sidebar-width;
+		float: left;
+	}
+
+	li {
+		line-height: 40px;
+		padding: 0 20px;
+
+		&.active {
+			background: $gray-light;
+		}
+	}
+
+	a {
+		text-decoration: none;
+		display: block;
+	}
+
+	ui-view {
+		display: block;
+		margin-left: $sidebar-width + $padding-medium;
+	}
+}
