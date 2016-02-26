@@ -1,3 +1,59 @@
-<div class="role-create-view">
+<form name="roleForm" class="role-create-view view-frame" md-whiteframe="2">
 	<h1>Create Role</h1>
-</div>
+
+	<md-input-container class="md-block">
+		<label>Role Name</label>
+		<input type="text" ng-model="roleCreate.role.name" required>
+	</md-input-container>
+
+	<h2>Permissions</h2>
+
+	<table>
+		<thead>
+			<tr>
+				<th></th>
+				<th>Can view</th>
+				<th>Can change</th>
+				<th>Can delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>Members</th>
+				<td><md-checkbox ng-model="roleCreate.role.permissions.members.canView"></md-checkbox></td>
+				<td><md-checkbox ng-model="roleCreate.role.permissions.members.canChange"></md-checkbox></td>
+				<td><md-checkbox ng-model="roleCreate.role.permissions.members.canDelete"></md-checkbox></td>
+			</tr>
+			<tr>
+				<th>Roles</th>
+				<td><md-checkbox ng-model="roleCreate.role.permissions.roles.canView"></md-checkbox></td>
+				<td><md-checkbox ng-model="roleCreate.role.permissions.roles.canChange"></md-checkbox></td>
+				<td><md-checkbox ng-model="roleCreate.role.permissions.roles.canDelete"></md-checkbox></td>
+			</tr>
+			<tr>
+				<th>Access Keys</th>
+				<td><md-checkbox ng-model="roleCreate.role.permissions.accessKeys.canView"></md-checkbox></td>
+				<td><md-checkbox ng-model="roleCreate.role.permissions.accessKeys.canChange"></md-checkbox></td>
+				<td><md-checkbox ng-model="roleCreate.role.permissions.accessKeys.canDelete"></md-checkbox></td>
+			</tr>
+			<tr>
+				<th>Scheduler</th>
+				<td><md-checkbox ng-model="roleCreate.role.permissions.scheduler.canView"></md-checkbox></td>
+				<td><md-checkbox ng-model="roleCreate.role.permissions.scheduler.canChange"></md-checkbox></td>
+				<td><md-checkbox ng-model="roleCreate.role.permissions.scheduler.canDelete"></md-checkbox></td>
+			</tr>
+			<tr>
+				<th>Data</th>
+				<td><md-checkbox ng-model="roleCreate.role.permissions.data.canView"></md-checkbox></td>
+				<td><md-checkbox ng-model="roleCreate.role.permissions.data.canChange"></md-checkbox></td>
+				<td><md-checkbox ng-model="roleCreate.role.permissions.data.canDelete"></md-checkbox></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<md-button
+		class="md-raised md-primary pull-right"
+		ng-click="roleCreate.createRole(roleCreate.role)"
+		ng-disabled="roleForm.$invalid"
+	>Create Role</md-button>
+</form>

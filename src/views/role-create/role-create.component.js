@@ -12,6 +12,9 @@
 	function roleCreateController() {
 		var vm = this;
 
-
+		// TODO: implement
+		vm.createRole = function(role) {
+			console.log('Role creation is not implemented');
+		}
 	}
 })(angular);
