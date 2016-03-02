@@ -1,3 +1,79 @@
-<div class="role-detail-view">
-	<h1>Role Detail</h1>
+<div class="role-detail-view view-frame" md-whiteframe="2">
+	<div class="view-header">
+		<h1>{{ roleDetail.role.name }} <small>Role</small></h1>
+
+		<md-button class="md-raised md-primary" ng-click="roleDetail.editRole()">
+			<i class="fa fa-pencil"></i> Edit Role
+		</md-button>
+
+		<md-button class="md-raised" ng-click="roleDetail.deleteRole()">
+			<i class="fa fa-times"></i> Delete Role
+		</md-button>
+	</div>
+
+	<section class="members">
+		<h2>Team Members</h2>
+
+		<ul>
+			<li class="user" ng-repeat="user in roleDetail.userList">
+				<img class="user-image" ng-src="{{ user.image }}" alt="{{ user.name }}">
+
+				<a class="remove-user" ng-click="roleDetail.removeUser(user)">
+					<i class="fa fa-times"></i>
+				</a>
+
+				<div class="user-info">
+					<a ui-sref="user.detail({ user_id: user.id })">{{ user.name }}</a>
+					<div class="email">{{ user.email }}</div>
+				</div>
+			</li>
+		</ul>
+	</section>
+
+	<section class="permissions">
+		<h2>Permissions</h2>
+
+		<table>
+			<thead>
+			<tr>
+				<th></th>
+				<th>Can view</th>
+				<th>Can change</th>
+				<th>Can delete</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>Members</td>
+				<td><i class="fa" ng-class="roleDetail.role.permissions.members.canView ? 'fa-check' : 'fa-times'"></i></td>
+				<td><i class="fa" ng-class="roleDetail.role.permissions.members.canChange ? 'fa-check' : 'fa-times'"></i></td>
+				<td><i class="fa" ng-class="roleDetail.role.permissions.members.canDelete ? 'fa-check' : 'fa-times'"></i></td>
+			</tr>
+			<tr>
+				<td>Roles</td>
+				<td><i class="fa" ng-class="roleDetail.role.permissions.roles.canView ? 'fa-check' : 'fa-times'"></i></td>
+				<td><i class="fa" ng-class="roleDetail.role.permissions.roles.canChange ? 'fa-check' : 'fa-times'"></i></td>
+				<td><i class="fa" ng-class="roleDetail.role.permissions.roles.canDelete ? 'fa-check' : 'fa-times'"></i></td>
+			</tr>
+			<tr>
+				<td>Access Keys</td>
+				<td><i class="fa" ng-class="roleDetail.role.permissions.accessKeys.canView ? 'fa-check' : 'fa-times'"></i></td>
+				<td><i class="fa" ng-class="roleDetail.role.permissions.accessKeys.canChange ? 'fa-check' : 'fa-times'"></i></td>
+				<td><i class="fa" ng-class="roleDetail.role.permissions.accessKeys.canDelete ? 'fa-check' : 'fa-times'"></i></td>
+			</tr>
+			<tr>
+				<td>Scheduler</td>
+				<td><i class="fa" ng-class="roleDetail.role.permissions.scheduler.canView ? 'fa-check' : 'fa-times'"></i></td>
+				<td><i class="fa" ng-class="roleDetail.role.permissions.scheduler.canChange ? 'fa-check' : 'fa-times'"></i></td>
+				<td><i class="fa" ng-class="roleDetail.role.permissions.scheduler.canDelete ? 'fa-check' : 'fa-times'"></i></td>
+			</tr>
+			<tr>
+				<td>Data</td>
+				<td><i class="fa" ng-class="roleDetail.role.permissions.data.canView ? 'fa-check' : 'fa-times'"></i></td>
+				<td><i class="fa" ng-class="roleDetail.role.permissions.data.canChange ? 'fa-check' : 'fa-times'"></i></td>
+				<td><i class="fa" ng-class="roleDetail.role.permissions.data.canDelete ? 'fa-check' : 'fa-times'"></i></td>
+			</tr>
+			</tbody>
+		</table>
+	</section>
 </div>

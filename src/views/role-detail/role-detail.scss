@@ -1,0 +1,54 @@
+@import '../../assets/styles/variables';
+
+$image-size: 50px;
+$member-width: 35%;
+$section-gutter: 7%;
+
+.role-detail-view {
+	small {
+		color: $gray-mid;
+		font-size: .72em;
+	}
+
+	.user {
+		overflow: hidden;
+		margin-bottom: 30px;
+	}
+
+	.user-image {
+		float: left;
+		width: $image-size;
+		height: $image-size;
+	}
+
+	.user-info {
+		margin-left: $image-size + $padding;
+		margin-right: 40px;
+	}
+
+	.remove-user {
+		width: 40px;
+		text-align: center;
+		float: right;
+	}
+
+	section {
+		float: left;
+	}
+
+	.members {
+		width: $member-width;
+		margin-right: $section-gutter;
+	}
+
+	.permissions {
+		width: 100 - $member-width - $section-gutter;
+		td, th {
+			text-align: center;
+
+			&:first-child {
+				text-align: left;
+			}
+		}
+	}
+}
