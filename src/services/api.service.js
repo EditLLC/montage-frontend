@@ -5,8 +5,12 @@
 		.module('montage')
 		.factory('api', apiService);
 
-	function apiService(userService) {
+	function apiService(
+		roleService,
+		userService
+	) {
 		return {
+			role: roleService,
 			user: userService
 		};
 	}
