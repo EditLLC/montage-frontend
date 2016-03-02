@@ -3,9 +3,9 @@
 
 	angular
 		.module('montage')
-		.factory('userService', userService);
+		.factory('authService', authService);
 
-	function userService(montage, $cookies, $state) {
+	function authService(montage, $cookies, $state) {
 		var _user;
 
 		return {

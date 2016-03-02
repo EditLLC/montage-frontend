@@ -6,10 +6,10 @@
 		.config(stateConfig)
 		.run(redirectConfig);
 
-	function redirectConfig($rootScope, $location, userService) {
+	function redirectConfig($rootScope, $location, authService) {
 
 		$rootScope.$on('$stateChangeStart', function(event, toState) {
-			if(!userService.isAuthenticated() && toState.name !== 'login') {
+			if(!authService.isAuthenticated() && toState.name !== 'login') {
 
 				// Use `$location.path()` instead of `$state.go()` to avoid an infinite routing loop
 				$location.path('/login');

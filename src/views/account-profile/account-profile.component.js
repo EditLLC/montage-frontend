@@ -9,10 +9,10 @@
 			controller: accountProfileController
 		});
 
-	function accountProfileController(userService) {
+	function accountProfileController(authService) {
 		var vm = this;
 
-		vm.currentUser = userService.getUser();
+		vm.currentUser = authService.getUser();
 
 		// TODO: implement
 		vm.save = function(user) {

@@ -9,7 +9,7 @@
 			controller: loginController
 		});
 
-	function loginController($state, userService) {
+	function loginController($state, authService) {
 		var vm = this;
 
 		vm.login = function(credentials) {
@@ -19,7 +19,7 @@
 			document.getElementById('email').blur();
 			document.getElementById('password').blur();
 
-			userService
+			authService
 				.login(credentials)
 				.then(()=> $state.go('dashboard'))
 				.catch((error) => {
