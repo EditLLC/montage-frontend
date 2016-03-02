@@ -9,9 +9,14 @@
 			controller: userListController
 		});
 
-	function userListController() {
+	function userListController(api) {
 		var vm = this;
 
-
+		api.user.list().then(userList => vm.userList = userList);
+		
+		// TODO: implement
+		vm.deleteUser = function(user_id) {
+			console.log('deleteUser() has not yet been implemented'); // TODO: REMOVE ME
+		};
 	}
 })(angular);

@@ -1,4 +1,39 @@
-<div class="user-list-view">
-	<h1>Users</h1>
-	<a ui-sref="user.create">Create User</a>
+<div class="user-list-view view-frame" md-whiteframe="2">
+	<div class="view-header">
+		<h1>Users</h1>
+
+		<md-button class="md-primary md-raised" ui-sref="user.create">
+			<i class="fa fa-plus"></i>
+			Create User
+		</md-button>
+	</div>
+
+	<table>
+		<thead>
+		<tr>
+			<th>Name</th>
+			<th>Role</th>
+			<th class="actions"></th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="user in userList.userList">
+			<td>
+				<img ng-src="{{ user.image }}" alt="{{ user.name }}">
+				<div class="user-info">
+					<div><a ui-sref="user.detail({ user_id: user.id })">{{ user.name }}</a></div>
+					<div class="email">{{ user.email }}</div>
+				</div>
+			</td>
+
+			<td>{{ user.role }}</td>
+
+			<td class="actions">
+				<a ng-click="userList.deleteUser(user.id)">
+					<i class="fa fa-times"></i>
+				</a>
+			</td>
+		</tr>
+		</tbody>
+	</table>
 </div>

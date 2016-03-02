@@ -1,0 +1,25 @@
+@import '../../assets/styles/variables';
+
+.user-list-view {
+	td {
+		padding: 15px;
+		width: 50%;
+	}
+
+	img {
+		float: left;
+		margin-right: $padding;
+	}
+
+	.user-info {
+		float: left;
+
+		a, div {
+			line-height: 24px;
+		}
+
+		.email {
+			color: $gray-mid;
+		}
+	}
+}
