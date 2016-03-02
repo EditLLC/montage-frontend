@@ -12,7 +12,7 @@
 	function accountProfileController(authService) {
 		var vm = this;
 
-		vm.currentUser = authService.getUser();
+		vm.currentUser = authService.getCurrentUser();
 
 		// TODO: implement
 		vm.save = function(user) {

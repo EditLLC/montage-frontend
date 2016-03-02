@@ -12,7 +12,7 @@
 	function layoutController($state, authService) {
 		var vm = this;
 
-		vm.currentUser = authService.getUser();
+		vm.currentUser = authService.getCurrentUser();
 		vm.logout = authService.logout;
 
 		vm.isStateActive = function (route) {

@@ -10,7 +10,7 @@
 
 		return {
 			isAuthenticated,
-			getUser,
+			getCurrentUser,
 			login,
 			logout
 		};
@@ -25,7 +25,7 @@
 			return !!_user;
 		}
 
-		function getUser() {
+		function getCurrentUser() {
 			return _user;
 		}
 

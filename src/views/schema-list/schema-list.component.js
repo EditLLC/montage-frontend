@@ -12,7 +12,7 @@
 	function schemaListController(montage, authService) {
 		var vm = this;
 
-		montage.getSchemaList(authService.getUser())
+		montage.getSchemaList(authService.getCurrentUser())
 			.then(schemaList => vm.schemaList = schemaList);
 	}
 })(angular);
