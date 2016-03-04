@@ -1,3 +1,43 @@
-<div class="schema-detail-view">
-	<h1>Schema Detail</h1>
+<div class="schema-detail-view view-frame" md-whiteframe="2">
+	<div class="view-header">
+		<h1>Schema Detail</h1>
+	</div>
+
+	<table ng-if="schemaDetail.fields">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Type</th>
+				<th>Required</th>
+				<th>Indexed</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="field in schemaDetail.fields">
+				<td>
+					<md-input-container>
+						<input type="text" ng-model="field.name">
+					</md-input-container>
+				</td>
+
+				<td>
+					<md-input-container class="md-block">
+						<md-select ng-model="field.datatype">
+							<md-optgroup ng-repeat="group in schemaDetail.datatypeGroups" label="{{ group.name }}">
+								<md-option
+									ng-repeat="type in group.types"
+									value="{{ type }}"
+								>{{ type }}</md-option>
+							</md-optgroup>
+						</md-select>
+					</md-input-container>
+				</td>
+
+				<td class="text-center"><md-checkbox ng-model="field.required"></md-checkbox></td>
+				<td class="text-center"><md-checkbox ng-model="field.indexed"></md-checkbox></td>
+				<td class="text-center"><i class="fa fa-times"></i></td>
+			</tr>
+		</tbody>
+	</table>
 </div>

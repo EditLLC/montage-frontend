@@ -9,9 +9,21 @@
 			controller: schemaDetailController
 		});
 
-	function schemaDetailController() {
+	function schemaDetailController(api, $stateParams) {
 		var vm = this;
 
+		api.schema.getSchema($stateParams.schemaName)
+			.then(schema => vm.fields = schema.fields);
 
+		vm.datatypeGroups = [{
+			name: 'Primitives',
+			types: ['text', 'numeric', 'boolean']
+		}, {
+			name: 'Dates & Times',
+			types: ['date', 'time', 'datetime']
+		}, {
+			name: 'Geospatial',
+			types: ['point', 'line', 'polygon']
+		}];
 	}
 })(angular);
