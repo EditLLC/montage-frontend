@@ -1,3 +1,35 @@
 <div class="file-browser-view">
-	<h1>File Browser</h1>
+	<div class="view-header">
+		<h1>File Browser</h1>
+
+		<md-button class="md-primary md-raised" ng-click="fileBrowser.toggleDropZone()">
+			<span ng-if="!fileBrowser.isDropZoneVisible">
+				<i class="fa fa-upload"></i> Upload File
+			</span>
+			<span ng-if="fileBrowser.isDropZoneVisible">Done</span>
+		</md-button>
+	</div>
+
+	<div class="drop-zone" ng-if="fileBrowser.isDropZoneVisible">
+		<h2>Drop files here to upload</h2>
+	</div>
+
+	<table ng-if="fileBrowser.fileList">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Size</th>
+				<th>Checksum</th>
+				<th>ID</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="file in fileBrowser.fileList">
+				<td><a href="{{ file.url }}" target="_blank">{{ file.name }}</a></td>
+				<td>{{ file.size }}</td>
+				<td>{{ file.checksum }}</td>
+				<td>{{ file.id }}</td>
+			</tr>
+		</tbody>
+	</table>
 </div>

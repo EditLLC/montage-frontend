@@ -1,0 +1,17 @@
+@import '../../assets/styles/variables';
+
+.file-browser-view {
+	.drop-zone {
+		background: $gray-light;
+		border: 3px dashed rgba(0,0,0, .13);
+		text-align: center;
+		border-radius: 10px;
+		margin-bottom: 30px;
+		padding: 40px;
+
+		h2 {
+			color: $gray-mid;
+			margin: 0;
+		}
+	}
+}

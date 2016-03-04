@@ -9,9 +9,14 @@
 			controller: fileBrowserController
 		});
 
-	function fileBrowserController() {
+	function fileBrowserController(api) {
 		var vm = this;
 
+		api.file.getFileList()
+			.then(fileList => vm.fileList = fileList);
 
+		vm.toggleDropZone = function() {
+			vm.isDropZoneVisible = !vm.isDropZoneVisible;
+		};
 	}
 })(angular);
