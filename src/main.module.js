@@ -4,6 +4,7 @@
 	angular
 		.module('montage', [
 			'ngCookies',
+			'ngFileUpload',
 			'ngMaterial',
 			'ui.router'
 		])

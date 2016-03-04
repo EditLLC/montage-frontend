@@ -11,6 +11,7 @@
     "javascript-montage": "https://github.com/EditLLC/javascript-montage.git",
     "normalize-css": "^3.0.3",
     "angular-material": "^1.0.5",
-    "angular-cookies": "^1.5.0"
+    "angular-cookies": "^1.5.0",
+    "ng-file-upload": "^12.0.1"
   }
 }
