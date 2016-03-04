@@ -8,11 +8,13 @@
 	function apiService(
 		fileService,
 		roleService,
+		schemaService,
 		userService
 	) {
 		return {
 			file: fileService,
 			role: roleService,
+			schema: schemaService,
 			user: userService
 		};
 	}

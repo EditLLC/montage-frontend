@@ -8,7 +8,6 @@
 	function montage(montageData, $q) {
 		return {
 			auth,
-			getSchemaList
 		};
 
 		////////////
@@ -26,18 +25,6 @@
 					user.domain = credentials.domain;
 					return user;
 				});
-		}
-
-		function getSchemaList(user) {
-			var credentials = {
-				token: user.token,
-				domain: user.domain
-			};
-
-			var client = new montageData.Client(credentials);
-
-			return $q.when(client.schemas())
-				.then(returnData);
 		}
 	}
 })(angular);

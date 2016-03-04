@@ -9,10 +9,10 @@
 			controller: schemaListController
 		});
 
-	function schemaListController(montage, authService) {
+	function schemaListController(api, authService) {
 		var vm = this;
 
-		montage.getSchemaList(authService.getCurrentUser())
+		api.schema.getSchemaList(authService.getCurrentUser())
 			.then(schemaList => vm.schemaList = schemaList);
 	}
 })(angular);
