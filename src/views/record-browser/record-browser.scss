@@ -12,4 +12,8 @@ $sidebar-width: 300px;
 		padding: $padding;
 		background: $white;
 	}
+
+	md-tabs {
+		margin-left: $sidebar-width;
+	}
 }
