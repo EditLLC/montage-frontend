@@ -1,0 +1,42 @@
+<table class="permissions-table">
+	<thead>
+	<tr>
+		<th></th>
+		<th>Can view</th>
+		<th>Can change</th>
+		<th>Can delete</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>Members</td>
+		<td><i class="fa" ng-class="permissionsTable.permissions.members.canView ? 'fa-check' : 'fa-times'"></i></td>
+		<td><i class="fa" ng-class="permissionsTable.permissions.members.canChange ? 'fa-check' : 'fa-times'"></i></td>
+		<td><i class="fa" ng-class="permissionsTable.permissions.members.canDelete ? 'fa-check' : 'fa-times'"></i></td>
+	</tr>
+	<tr>
+		<td>Roles</td>
+		<td><i class="fa" ng-class="permissionsTable.permissions.roles.canView ? 'fa-check' : 'fa-times'"></i></td>
+		<td><i class="fa" ng-class="permissionsTable.permissions.roles.canChange ? 'fa-check' : 'fa-times'"></i></td>
+		<td><i class="fa" ng-class="permissionsTable.permissions.roles.canDelete ? 'fa-check' : 'fa-times'"></i></td>
+	</tr>
+	<tr>
+		<td>Access Keys</td>
+		<td><i class="fa" ng-class="permissionsTable.permissions.accessKeys.canView ? 'fa-check' : 'fa-times'"></i></td>
+		<td><i class="fa" ng-class="permissionsTable.permissions.accessKeys.canChange ? 'fa-check' : 'fa-times'"></i></td>
+		<td><i class="fa" ng-class="permissionsTable.permissions.accessKeys.canDelete ? 'fa-check' : 'fa-times'"></i></td>
+	</tr>
+	<tr>
+		<td>Scheduler</td>
+		<td><i class="fa" ng-class="permissionsTable.permissions.scheduler.canView ? 'fa-check' : 'fa-times'"></i></td>
+		<td><i class="fa" ng-class="permissionsTable.permissions.scheduler.canChange ? 'fa-check' : 'fa-times'"></i></td>
+		<td><i class="fa" ng-class="permissionsTable.permissions.scheduler.canDelete ? 'fa-check' : 'fa-times'"></i></td>
+	</tr>
+	<tr>
+		<td>Data</td>
+		<td><i class="fa" ng-class="permissionsTable.permissions.data.canView ? 'fa-check' : 'fa-times'"></i></td>
+		<td><i class="fa" ng-class="permissionsTable.permissions.data.canChange ? 'fa-check' : 'fa-times'"></i></td>
+		<td><i class="fa" ng-class="permissionsTable.permissions.data.canDelete ? 'fa-check' : 'fa-times'"></i></td>
+	</tr>
+	</tbody>
+</table>

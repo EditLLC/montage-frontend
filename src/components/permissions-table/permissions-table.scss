@@ -1,0 +1,9 @@
+.permissions-table {
+	td, th {
+		text-align: center;
+
+		&:first-child {
+			text-align: left;
+		}
+	}
+}
