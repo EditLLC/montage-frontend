@@ -7,10 +7,49 @@
 
 	function userService($q) {
 		return {
+			get,
 			list
 		};
 
 		////////////
+
+		function get(id) {
+			return $q.when({
+				id: "7",
+				image: 'https://secure.gravatar.com/avatar/872e2bd6b9820cb5bd5440b1892ee59e.jpg?d=retro&s=50&r=pg',
+				token: '208419cdaf04381df4901f5cba8bf1179cfa54fb',
+				name: 'Nick Herrera',
+				email: 'nherrera@editllc.com',
+				role: 'Admin',
+				permissions: {
+					members: {
+						canView: true,
+						canChange: true,
+						canDelete: true
+					},
+					roles: {
+						canView: true,
+						canChange: true,
+						canDelete: true
+					},
+					accessKeys: {
+						canView: true,
+						canChange: true,
+						canDelete: true
+					},
+					scheduler: {
+						canView: true,
+						canChange: true,
+						canDelete: true
+					},
+					data: {
+						canView: true,
+						canChange: true,
+						canDelete: true
+					}
+				}
+			});
+		}
 
 		function list() {
 			return $q.when([{
