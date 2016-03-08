@@ -107,10 +107,9 @@ function serveDevFiles() {
 	gulp.watch('src/**/*.scss', ['dev:styles']);
 	gulp.watch('src/**/*.js', ['dev:scripts']);
 	gulp.watch([
-		'src/index.html',
+		'src/**/*.html',
 		'src/assets/**/*',
-		'!src/assets/styles/**/*',
-		'src/views/**/*.html'
+		'!src/assets/styles/**/*'
 	], function(event) {
 		if(event.type === 'added' || event.type === 'changed') {
 			return gulp.src(event.path)
