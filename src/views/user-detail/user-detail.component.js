@@ -9,9 +9,9 @@
 			controller: userDetailController
 		});
 
-	function userDetailController() {
+	function userDetailController($stateParams, api) {
 		var vm = this;
 
-
+		api.user.get($stateParams.user_id).then(user => vm.user = user);
 	}
 })(angular);

@@ -1,3 +1,16 @@
-<div class="user-detail-view">
-	<h1>User Detail</h1>
+<div class="user-detail-view view-frame" md-whiteframe="2">
+	<div class="header">
+		<img ng-src="{{ userDetail.user.image }}">
+
+		<h1>
+			{{ userDetail.user.name }}
+			<small>{{ userDetail.user.email }}</small>
+		</h1>
+	</div>
+
+	<h2>Your API Token</h2>
+	<div class="token">{{ userDetail.user.token }}</div>
+
+	<h2>Permissions</h2>
+	<permissions-table permissions="userDetail.user.permissions"></permissions-table>
 </div>

@@ -1,0 +1,30 @@
+@import '../../assets/styles/variables';
+
+.user-detail-view {
+	.header {
+		overflow: hidden;
+		margin-bottom: $padding-medium;
+		margin-top: $padding;
+	}
+
+	h1, img {
+		float: left;
+	}
+
+	img {
+		margin-right: $padding-medium;
+		height: 86px;
+		width: 86px;
+	}
+
+	small {
+		display: block;
+		color: $gray-mid;
+	}
+
+	.token {
+		padding: $padding $padding;
+		margin-bottom: $padding-medium;
+		color: $gray-medium;
+	}
+}
