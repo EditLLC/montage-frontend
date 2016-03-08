@@ -12,7 +12,7 @@
 	function schemaDetailController(api, $stateParams) {
 		var vm = this;
 
-		api.schema.getSchema($stateParams.schemaName)
+		api.schema.get($stateParams.schemaName)
 			.then(schema => vm.fields = schema.fields);
 
 		vm.datatypeGroups = [{

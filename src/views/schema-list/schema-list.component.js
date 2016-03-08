@@ -12,7 +12,7 @@
 	function schemaListController(api, authService) {
 		var vm = this;
 
-		api.schema.getSchemaList(authService.getCurrentUser())
+		api.schema.list(authService.getCurrentUser())
 			.then(schemaList => vm.schemaList = schemaList);
 	}
 })(angular);

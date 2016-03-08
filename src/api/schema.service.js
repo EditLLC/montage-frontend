@@ -7,18 +7,18 @@
 
 	function schemaService($q, requestHelper) {
 		return {
-			getSchema,
-			getSchemaList
+			get,
+			list
 		};
 
 		////////////
 
-		function getSchema(schemaName) {
+		function get(schemaName) {
 			return $q.when(requestHelper.getMontageClient().schema(schemaName))
 				.then(requestHelper.returnData);
 		}
 
-		function getSchemaList() {
+		function list() {
 			return $q.when(requestHelper.getMontageClient().schemas())
 				.then(requestHelper.returnData);
 		}
