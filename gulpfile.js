@@ -32,10 +32,9 @@ function buildDevFiles(doneCallback) {
 
 function copyAssets() {
 	var assets = [
-		'src/index.html',
+		'src/**/*.html',
 		'src/assets/**/*',
-		'!src/assets/styles/**/*',
-		'src/views/**/*.html'
+		'!src/assets/styles/**/*'
 	];
 
 	return gulp.src(assets)
