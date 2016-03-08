@@ -9,9 +9,10 @@
 			controller: recordBrowserController
 		});
 
-	function recordBrowserController() {
+	function recordBrowserController(api) {
 		var vm = this;
 
+		api.schema.list().then(schemaList => vm.schemaList = schemaList);
 
 	}
 })(angular);

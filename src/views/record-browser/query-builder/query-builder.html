@@ -1,3 +1,18 @@
 <div class="query-builder">
 	<h3>Query Builder</h3>
+
+
+	<!-- ~~~~~~~~~~~ -->
+	<!-- Schema list -->
+	<!-- ~~~~~~~~~~~ -->
+
+	<md-input-container class="md-block">
+		<label>Schema</label>
+
+		<md-select ng-model="queryBuilder.query.schema">
+			<md-option ng-repeat="schema in queryBuilder.schemaList" value="{{ schema.name }}">
+				{{ schema.name }}
+			</md-option>
+		</md-select>
+	</md-input-container>
 </div>
