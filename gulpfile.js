@@ -43,7 +43,7 @@ function copyAssets() {
 
 function compileStyles() {
 	var target = gulp.src('src/assets/styles/main.scss');
-	var sources = gulp.src('src/views/**/*.scss', { read: false });
+	var sources = gulp.src(['src/views/**/*.scss', 'src/components/**/*.scss'], { read: false });
 
 	return target
 		.pipe(inject(sources, { relative: true }))
