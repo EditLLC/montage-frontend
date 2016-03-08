@@ -25,5 +25,10 @@
 			name: 'Geospatial',
 			types: ['point', 'line', 'polygon']
 		}];
+
+		// TODO: implement
+		vm.update = function(fields) {
+			console.log('schemaDetail.update() is not implemented', fields);
+		};
 	}
 })(angular);
