@@ -32,48 +32,6 @@
 
 	<section class="permissions">
 		<h2>Permissions</h2>
-
-		<table>
-			<thead>
-			<tr>
-				<th></th>
-				<th>Can view</th>
-				<th>Can change</th>
-				<th>Can delete</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-				<td>Members</td>
-				<td><i class="fa" ng-class="roleDetail.role.permissions.members.canView ? 'fa-check' : 'fa-times'"></i></td>
-				<td><i class="fa" ng-class="roleDetail.role.permissions.members.canChange ? 'fa-check' : 'fa-times'"></i></td>
-				<td><i class="fa" ng-class="roleDetail.role.permissions.members.canDelete ? 'fa-check' : 'fa-times'"></i></td>
-			</tr>
-			<tr>
-				<td>Roles</td>
-				<td><i class="fa" ng-class="roleDetail.role.permissions.roles.canView ? 'fa-check' : 'fa-times'"></i></td>
-				<td><i class="fa" ng-class="roleDetail.role.permissions.roles.canChange ? 'fa-check' : 'fa-times'"></i></td>
-				<td><i class="fa" ng-class="roleDetail.role.permissions.roles.canDelete ? 'fa-check' : 'fa-times'"></i></td>
-			</tr>
-			<tr>
-				<td>Access Keys</td>
-				<td><i class="fa" ng-class="roleDetail.role.permissions.accessKeys.canView ? 'fa-check' : 'fa-times'"></i></td>
-				<td><i class="fa" ng-class="roleDetail.role.permissions.accessKeys.canChange ? 'fa-check' : 'fa-times'"></i></td>
-				<td><i class="fa" ng-class="roleDetail.role.permissions.accessKeys.canDelete ? 'fa-check' : 'fa-times'"></i></td>
-			</tr>
-			<tr>
-				<td>Scheduler</td>
-				<td><i class="fa" ng-class="roleDetail.role.permissions.scheduler.canView ? 'fa-check' : 'fa-times'"></i></td>
-				<td><i class="fa" ng-class="roleDetail.role.permissions.scheduler.canChange ? 'fa-check' : 'fa-times'"></i></td>
-				<td><i class="fa" ng-class="roleDetail.role.permissions.scheduler.canDelete ? 'fa-check' : 'fa-times'"></i></td>
-			</tr>
-			<tr>
-				<td>Data</td>
-				<td><i class="fa" ng-class="roleDetail.role.permissions.data.canView ? 'fa-check' : 'fa-times'"></i></td>
-				<td><i class="fa" ng-class="roleDetail.role.permissions.data.canChange ? 'fa-check' : 'fa-times'"></i></td>
-				<td><i class="fa" ng-class="roleDetail.role.permissions.data.canDelete ? 'fa-check' : 'fa-times'"></i></td>
-			</tr>
-			</tbody>
-		</table>
+		<permissions-table permissions="roleDetail.role.permissions"></permissions-table>
 	</section>
 </div>

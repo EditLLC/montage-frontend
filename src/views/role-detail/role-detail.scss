@@ -43,12 +43,5 @@ $section-gutter: 7%;
 
 	.permissions {
 		width: 100 - $member-width - $section-gutter;
-		td, th {
-			text-align: center;
-
-			&:first-child {
-				text-align: left;
-			}
-		}
 	}
 }
