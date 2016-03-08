@@ -1,3 +1,5 @@
+@import '../../assets/styles/variables';
+
 .schema-detail-view {
 	md-input-container {
 		margin: 0 !important;
@@ -7,5 +9,9 @@
 
 	md-checkbox {
 		margin: 0;
+	}
+
+	button {
+		margin-top: $padding-medium;
 	}
 }
