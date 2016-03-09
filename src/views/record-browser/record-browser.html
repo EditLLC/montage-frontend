@@ -7,7 +7,10 @@
 
 	<md-tabs md-dynamic-height>
 		<md-tab label="Table">
-			<table-data></table-data>
+			<table-data
+				schema-fields="recordBrowser.results.schema.fields"
+				data="recordBrowser.results.documentList"
+			></table-data>
 		</md-tab>
 
 		<md-tab label="JSON">
