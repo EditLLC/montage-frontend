@@ -14,13 +14,13 @@
 		////////////
 
 		function get(schemaName) {
-			return $q.when(montageHelper.getMontageClient().schema(schemaName))
+			return $q.when(montageHelper.getClient().schema(schemaName))
 				.then(montageHelper.returnData)
 				.then(addIdField);
 		}
 
 		function list() {
-			return $q.when(montageHelper.getMontageClient().schemas())
+			return $q.when(montageHelper.getClient().schemas())
 				.then(montageHelper.returnData)
 				.then(schemaList => schemaList.map(addIdField));
 		}

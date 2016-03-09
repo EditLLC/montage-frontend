@@ -7,13 +7,13 @@
 
 	function montageHelper(montageData, authService) {
 		return {
-			getMontageClient,
+			getClient,
 			returnData
 		};
 
 		////////////
 
-		function getMontageClient() {
+		function getClient() {
 			return new montageData.Client(authService.getCurrentUser());
 		}
 
