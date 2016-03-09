@@ -22,7 +22,7 @@
 			}
 
 			api.document.list(query.schema)
-				.then(documentList => { vm.results = { schema: schema.fields, documentList }});
+				.then(documentList => { vm.results = { schema, documentList }});
 		};
 	}
 })(angular);
