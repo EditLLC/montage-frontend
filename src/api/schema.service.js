@@ -5,7 +5,7 @@
 		.module('montage')
 		.factory('schemaService', schemaService);
 
-	function schemaService($q, requestHelper) {
+	function schemaService($q, montageHelper) {
 		return {
 			get,
 			list
@@ -14,14 +14,14 @@
 		////////////
 
 		function get(schemaName) {
-			return $q.when(requestHelper.getMontageClient().schema(schemaName))
-				.then(requestHelper.returnData)
+			return $q.when(montageHelper.getMontageClient().schema(schemaName))
+				.then(montageHelper.returnData)
 				.then(addIdField);
 		}
 
 		function list() {
-			return $q.when(requestHelper.getMontageClient().schemas())
-				.then(requestHelper.returnData)
+			return $q.when(montageHelper.getMontageClient().schemas())
+				.then(montageHelper.returnData)
 				.then(schemaList => schemaList.map(addIdField));
 		}
 

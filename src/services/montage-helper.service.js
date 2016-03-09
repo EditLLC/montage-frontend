@@ -3,9 +3,9 @@
 
 	angular
 		.module('montage')
-		.factory('requestHelper', requestHelper);
+		.factory('montageHelper', montageHelper);
 
-	function requestHelper(montageData, authService) {
+	function montageHelper(montageData, authService) {
 		return {
 			getMontageClient,
 			returnData
