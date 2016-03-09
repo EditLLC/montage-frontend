@@ -6,12 +6,14 @@
 		.factory('api', apiService);
 
 	function apiService(
+		documentService,
 		fileService,
 		roleService,
 		schemaService,
 		userService
 	) {
 		return {
+			document: documentService,
 			file: fileService,
 			role: roleService,
 			schema: schemaService,
