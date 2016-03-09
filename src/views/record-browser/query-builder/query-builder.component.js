@@ -8,12 +8,18 @@
 			controllerAs: 'queryBuilder',
 			controller: queryBuilderController,
 			bindings: {
+				onChange: '=',
 				schemaList: '='
 			}
 		});
 
-	function queryBuilderController() {
+	function queryBuilderController($scope) {
 		var vm = this;
 
+		$scope.$watch(() => vm.query, query => {
+			if(query && query.schema) {
+				vm.onChange(query);
+			}
+		}, true);
 	}
 })(angular);
