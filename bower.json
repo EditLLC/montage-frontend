@@ -12,6 +12,7 @@
     "normalize-css": "^3.0.3",
     "angular-material": "^1.0.5",
     "angular-cookies": "^1.5.0",
-    "ng-file-upload": "^12.0.1"
+    "ng-file-upload": "^12.0.1",
+    "ng-prettyjson": "^0.2.0"
   }
 }

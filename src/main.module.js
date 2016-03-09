@@ -6,6 +6,7 @@
 			'ngCookies',
 			'ngFileUpload',
 			'ngMaterial',
+			'ngPrettyJson',
 			'ui.router'
 		])
 		.constant('montageData', window.Montage);
