@@ -12,6 +12,10 @@ thead {
 		border-bottom: 2px solid $blue-gray;
 		border-left: 1px solid white;
 		white-space: nowrap;
+
+		&.secondary {
+			background: $gray-light;
+		}
 	}
 }
 
