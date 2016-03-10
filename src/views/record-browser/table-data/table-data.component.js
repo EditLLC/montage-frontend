@@ -71,6 +71,5 @@
 			// Convert document objects into arrays with the same order as `columns`
 			return data.map(document => columns.map(column => document[column.name]));
 		}
-
 	}
 })(angular);
