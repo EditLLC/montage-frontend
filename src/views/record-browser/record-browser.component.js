@@ -21,7 +21,7 @@
 				throw new Error("Schema not found.");
 			}
 
-			api.document.list(query.schema)
+			api.document.list(query.schema, query)
 				.then(documentList => { vm.results = { schema, documentList }});
 		};
 	}
