@@ -127,4 +127,19 @@
 		<label>Offset</label>
 		<input type="text" ng-model="queryBuilder.query.offset">
 	</md-input-container>
+
+
+	<!-- ~~~~~ -->
+	<!-- Index -->
+	<!-- ~~~~~ -->
+
+	<md-input-container class="md-block">
+		<label>Index</label>
+		<md-select ng-model="queryBuilder.query.index" ng-disabled="!queryBuilder.schemaDetails.indices.length">
+			<md-option ng-repeat="index in queryBuilder.schemaDetails.indices" value="{{ index.name }}">
+				{{ index.name }}
+			</md-option>
+		</md-select>
+	</md-input-container>
+
 </div>

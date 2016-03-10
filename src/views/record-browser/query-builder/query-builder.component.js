@@ -43,7 +43,8 @@
 			var schema = vm.schemaList.filter(schema => schema.name === schemaName)[0];
 
 			vm.schemaDetails = {
-				fields: schema.fields
+				fields: schema.fields,
+				indices: schema.fields.filter(field => field.indexed)
 			};
 		};
 
