@@ -101,6 +101,7 @@
 				order_by: query.order_by,
 				ordering: query.ordering,
 				limit: query.limit,
+				offset: query.offset,
 			};
 		}
 	}
