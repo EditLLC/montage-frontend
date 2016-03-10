@@ -1,0 +1,71 @@
+@import '../../../assets/styles/variables';
+
+.query-builder {
+	.filter-form {
+		background: $gray-light;
+		margin: 0 (-$padding) $padding;
+		padding: $padding;
+		overflow: hidden;
+
+		h4 {
+			color: $secondary;
+		}
+
+		button {
+			width: 100%;
+			margin-left: 0;
+			margin-bottom: $padding;
+		}
+	}
+
+	.add-filter-button {
+		background: $blue-gray;
+		height: 22px;
+		width: 22px;
+		line-height: 22px;
+		text-align: center;
+		border: 0;
+		border-radius: 50%;
+		color: white;
+		float: right;
+
+		span {
+			vertical-align: 2px;
+		}
+
+		&:disabled {
+			background: $blue-gray-light;
+		}
+	}
+
+	.filter-group {
+		margin-bottom: 15px;
+	}
+
+	.field-name {
+		color: $blue-gray;
+		font-size: .9em;
+		font-weight: bold;
+	}
+
+	.filter {
+		border-left: 2px solid $blue-gray;
+		padding: 0 0 3px 3px;
+		margin-left: 1px;
+		font-size: .8em;
+
+		&:last-child {
+			padding-bottom: 0;
+		}
+	}
+
+	.operator {
+		color: $blue-gray;
+		background: $blue-gray-light;
+		font-size: .8em;
+		font-weight: bold;
+		padding: 2px 4px;
+		border-radius: 4px;
+		margin-right: 5px;
+	}
+}

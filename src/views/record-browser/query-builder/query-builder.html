@@ -9,10 +9,78 @@
 	<md-input-container class="md-block">
 		<label>Schema</label>
 
-		<md-select ng-model="queryBuilder.query.schema">
+		<md-select
+			ng-model="queryBuilder.query.schema"
+			ng-change="queryBuilder.getSchemaDetails(queryBuilder.query.schema)"
+		>
 			<md-option ng-repeat="schema in queryBuilder.schemaList" value="{{ schema.name }}">
 				{{ schema.name }}
 			</md-option>
 		</md-select>
 	</md-input-container>
+
+	<!-- ~~~~~~~~~~~ -->
+	<!-- Filter Form -->
+	<!-- ~~~~~~~~~~~ -->
+
+	<form
+		class="filter-form"
+		name="filterForm"
+		ng-if="queryBuilder.isAddingFilter"
+		ng-submit="queryBuilder.applyFilter(pendingFilter)"
+		autocomplete="off"
+		novalidate
+	>
+		<h4>Add a filter</h4>
+
+		<md-input-container class="md-block">
+			<label>Field</label>
+			<md-select ng-model="pendingFilter.field" required>
+				<md-option ng-repeat="field in queryBuilder.schemaDetails.fields" value="{{ field.name }}">
+					{{ field.name }}
+				</md-option>
+			</md-select>
+		</md-input-container>
+
+		<md-input-container class="md-block">
+			<label>Filter Type</label>
+			<md-select ng-model="pendingFilter.operator" required>
+				<md-option ng-repeat="(operator, value) in queryBuilder.operatorDictionary" value="{{ operator }}">
+					{{ operator }}
+				</md-option>
+			</md-select>
+		</md-input-container>
+
+		<md-input-container class="md-block">
+			<label>Value</label>
+			<input type="text" ng-model="pendingFilter.value" required>
+		</md-input-container>
+
+		<md-button type="submit" class="md-raised md-primary" ng-disabled="filterForm.$invalid">Apply Filter</md-button>
+		<md-button ng-click="queryBuilder.cancelFilter()">Cancel</md-button>
+	</form>
+
+
+	<!-- ~~~~~~~~~~~~~~~ -->
+	<!-- Applied Filters -->
+	<!-- ~~~~~~~~~~~~~~~ -->
+
+	<label>Filters</label>
+
+	<button
+		type="button"
+		class="add-filter-button"
+		ng-hide="queryBuilder.isAddingFilter"
+		ng-click="queryBuilder.showFilterForm()"
+		ng-disabled="!queryBuilder.schemaDetails"
+	><span>+</span></button>
+
+	<div class="filter-group" ng-repeat="(field, filterList) in queryBuilder.query.filterGroups">
+		<span class="field-name">{{ field }}</span>
+		<div class="filter" ng-repeat="filter in filterList">
+			<span class="operator">{{ filter.operator }}</span>
+			<span class="value">{{ filter.value }}</span>
+			<i class="fa fa-times" ng-click="queryBuilder.removeFilter(field, filter)"></i>
+		</div>
+	</div>
 </div>

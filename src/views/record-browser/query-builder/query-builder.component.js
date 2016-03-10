@@ -16,6 +16,68 @@
 	function queryBuilderController($scope) {
 		var vm = this;
 
+		vm.operatorDictionary = {
+			'='           : '',
+			'ieq'         : '__ieq',
+			'!='          : '__not',
+			'not'         : '__not', // todo: not in field lookups docs
+			'contains'    : '__contains',
+			'icontains'   : '__icontains',
+			'in'          : '__in',
+			'notin'       : '__notin',
+			'>'           : '__gt',
+			'>='          : '__gte',
+			'<'           : '__lt',
+			'<='          : '__lte',
+			'startswith'  : '__startswith',
+			'istartswith' : '__istartswith',
+			'endswith'    : '__endswith',
+			'iendswith'   : '__iendswith',
+			'regex'       : '__regex',
+			'iregex'      : '__iregex',
+			'includes'    : '__includes',
+			'intersects'  : '__intersects',
+		};
+
+		vm.getSchemaDetails = function(schemaName) {
+			var schema = vm.schemaList.filter(schema => schema.name === schemaName)[0];
+
+			vm.schemaDetails = {
+				fields: schema.fields
+			};
+		};
+
+		vm.showFilterForm = () => vm.isAddingFilter = true;
+		vm.cancelFilter = () => vm.isAddingFilter = false;
+
+		vm.applyFilter = function(pendingFilter) {
+			if(!vm.query.filterGroups) {
+				vm.query.filterGroups = {};
+			}
+
+			if(!vm.query.filterGroups[pendingFilter.field]) {
+				vm.query.filterGroups[pendingFilter.field] = [];
+			}
+
+			vm.query.filterGroups[pendingFilter.field].push({
+				operator: pendingFilter.operator,
+				value: pendingFilter.value
+			});
+
+			vm.isAddingFilter = false;
+		};
+
+		vm.removeFilter = function(field, filter) {
+
+			// Remove the filter from the filterGroup
+			vm.filterGroups[field] = vm.filterGroups[field].filter((currentFilter => currentFilter !== filter));
+
+			// Remove the filterGroup if it is empty
+			if(!vm.filterGroups[field].length) {
+				delete vm.filterGroups[field];
+			}
+		};
+
 		$scope.$watch(() => vm.query, query => {
 			if(query && query.schema) {
 				vm.onChange(query);
