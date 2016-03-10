@@ -97,7 +97,9 @@
 
 			return {
 				schema: query.schema,
-				filter: filters
+				filter: filters,
+				order_by: query.order_by,
+				ordering: query.ordering,
 			};
 		}
 	}

@@ -83,4 +83,28 @@
 			<i class="fa fa-times" ng-click="queryBuilder.removeFilter(field, filter)"></i>
 		</div>
 	</div>
+
+
+	<!-- ~~~~~~~~ -->
+	<!-- Ordering -->
+	<!-- ~~~~~~~~ -->
+
+	<div layout="row">
+		<md-input-container flex>
+			<label>Order</label>
+			<md-select ng-model="queryBuilder.query.order_by" ng-disabled="!queryBuilder.schemaDetails.fields.length">
+				<md-option ng-repeat="field in queryBuilder.schemaDetails.fields" value="{{ field.name }}">
+					{{ field.name }}
+				</md-option>
+			</md-select>
+		</md-input-container>
+
+		<md-input-container flex>
+			<label>Ordering</label>
+			<md-select ng-model="queryBuilder.query.ordering" ng-disabled="!queryBuilder.query.order_by">
+				<md-option value="asc" selected>Ascending</md-option>
+				<md-option value="desc">Descending</md-option>
+			</md-select>
+		</md-input-container>
+	</div>
 </div>
