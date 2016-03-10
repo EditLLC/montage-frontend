@@ -3,6 +3,7 @@
 
 	angular
 		.module('montage', [
+			'jsonFormatter',
 			'ngCookies',
 			'ngFileUpload',
 			'ngMaterial',
