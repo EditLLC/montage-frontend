@@ -20,6 +20,10 @@
 
 		$scope.$watch(() => vm.data, formatData);
 
+		vm.isJson = function(value) {
+			return value && typeof value === 'object';
+		};
+
 		function formatData() {
 			if(vm.data && vm.schemaFields) {
 				vm.columns = getColumns(vm.schemaFields, vm.data);

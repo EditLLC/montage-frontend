@@ -9,8 +9,9 @@
 	</thead>
 	<tbody>
 	<tr ng-repeat="row in tableData.rows">
-		<td ng-repeat="cell in ::row track by $index">
-			{{ ::cell }}
+		<td ng-if="!tableData.isJson(cell)" ng-repeat="cell in ::row track by $index">{{ ::cell }}</td>
+		<td ng-if="tableData.isJson(cell)" ng-repeat="cell in ::row track by $index">
+			<json-formatter json="cell"></json-formatter>
 		</td>
 	</tr>
 	</tbody>
