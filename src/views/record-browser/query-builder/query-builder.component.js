@@ -80,8 +80,25 @@
 
 		$scope.$watch(() => vm.query, query => {
 			if(query && query.schema) {
-				vm.onChange(query);
+				vm.onChange(buildQuery(query));
 			}
 		}, true);
+
+		function buildQuery(query) {
+			var filters = {};
+
+			// TODO: only supports one of each type
+			for(var field in query.filterGroups) {
+				query.filterGroups[field].forEach(filter => {
+					var filterName = field + vm.operatorDictionary[filter.operator];
+					filters[filterName] = filter.value;
+				});
+			}
+
+			return {
+				schema: query.schema,
+				filter: filters
+			};
+		}
 	}
 })(angular);
