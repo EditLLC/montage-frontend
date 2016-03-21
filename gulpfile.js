@@ -8,9 +8,11 @@ var gulp               = require('gulp'),
 	file               = require('gulp-file'),
 	inject             = require('gulp-inject'),
 	naturalSort        = require('gulp-natural-sort'),
+	ngAnnotate         = require('gulp-ng-annotate'),
 	runSequence        = require('run-sequence'),
 	sass               = require('gulp-sass'),
-	streamSeries       = require('stream-series');
+	streamSeries       = require('stream-series'),
+	uglify             = require('gulp-uglify');
 
 var buildPath = 'build/';
 
@@ -22,6 +24,7 @@ gulp.task('dev:styles', compileStyles);
 gulp.task('dev:scripts', compileScripts);
 gulp.task('dev:serve', ['dev'], serveDevFiles);
 
+gulp.task('build:scripts', minifyScripts);
 gulp.task('build:serve', ['build'], serveBuild);
 
 function removeBuildFiles() {
@@ -138,4 +141,13 @@ function createOrderedStream(globGroups, options) {
 	});
 
 	return streamSeries.apply(null, streams);
+}
+
+function minifyScripts() {
+	var src = buildPath + 'app.js';
+
+	return gulp.src(src)
+		.pipe(ngAnnotate())
+		.pipe(uglify())
+		.pipe(gulp.dest(buildPath));
 }
