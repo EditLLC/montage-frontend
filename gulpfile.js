@@ -87,10 +87,7 @@ function compileScripts() {
 		.pipe(gulp.dest(buildPath));
 }
 
-/**
- * Continuously build and serve the development version of the app.
- */
-function serveDevFiles() {
+function serveBuild() {
 	browserSync.init({
 		open: false,
 		server: {
@@ -103,6 +100,13 @@ function serveDevFiles() {
 			}
 		}
 	});
+}
+
+/**
+ * Continuously build and serve the development version of the app.
+ */
+function serveDevFiles() {
+	serveBuild();
 
 	gulp.watch('src/**/*.scss', ['dev:styles']);
 	gulp.watch('src/**/*.js', ['dev:scripts']);
