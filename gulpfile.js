@@ -24,6 +24,7 @@ gulp.task('dev:styles', compileStyles);
 gulp.task('dev:scripts', compileScripts);
 gulp.task('dev:serve', ['dev'], serveDevFiles);
 
+gulp.task('build', buildDevFiles);
 gulp.task('build:scripts', minifyScripts);
 gulp.task('build:serve', ['build'], serveBuild);
 
