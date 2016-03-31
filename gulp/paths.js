@@ -6,6 +6,11 @@ module.exports = {
 	to: {
 		destination: destination,
 
+		assets: {
+			source: ['src/assets/**/*', '!src/assets/styles{,/**}'],
+			destination: destination
+		},
+
 		templates: {
 			source: ['src/**/*.html', '!src/index.html'],
 			destination: destination

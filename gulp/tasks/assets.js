@@ -11,3 +11,8 @@ gulp.task('copy-templates', function() {
 	return gulp.src(path.to.templates.source)
 		.pipe(gulp.dest(path.to.templates.destination));
 });
+
+gulp.task('copy-assets', function() {
+	return gulp.src(path.to.assets.source)
+		.pipe(gulp.dest(path.to.assets.destination));
+});
