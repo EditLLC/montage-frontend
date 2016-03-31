@@ -6,6 +6,11 @@ module.exports = {
 	to: {
 		destination: destination,
 
+		index: {
+			source: 'src/index.html',
+			destination: 'src/'
+		},
+
 		sass: {
 			main: {
 				source: 'src/assets/styles/main.scss',
@@ -17,5 +22,11 @@ module.exports = {
 			],
 			destination: destination
 		},
+
+		scripts: {
+			source: 'src/**/*.js',
+			modules: 'src/**/*.module.js',
+			destination: destination
+		}
 	}
 };
