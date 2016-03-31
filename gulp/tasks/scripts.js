@@ -11,7 +11,7 @@ var path = require('../paths.js');
 
 gulp.task('inject-scripts', function() {
 	var target = gulp.src(path.to.index.source);
-	var sources = getScriptSources();
+	var sources = getSortedSources();
 
 	var options = {
 		relative: true,
@@ -44,7 +44,7 @@ function handleError(error) {
 	this.emit('end');
 }
 
-function getScriptSources(read) {
+function getSortedSources(read) {
 	var moduleStream = gulp.src(path.to.scripts.modules, { read: read })
 		.pipe(naturalSort());
 
