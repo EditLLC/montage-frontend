@@ -6,6 +6,11 @@ module.exports = {
 	to: {
 		destination: destination,
 
+		templates: {
+			source: ['src/**/*.html', '!src/index.html'],
+			destination: destination
+		},
+
 		index: {
 			source: 'src/index.html',
 			destination: 'src/'

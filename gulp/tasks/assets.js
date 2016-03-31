@@ -6,3 +6,8 @@ gulp.task('copy-index', function() {
 	return gulp.src(path.to.index.source)
 		.pipe(gulp.dest(path.to.destination));
 });
+
+gulp.task('copy-templates', function() {
+	return gulp.src(path.to.templates.source)
+		.pipe(gulp.dest(path.to.templates.destination));
+});
