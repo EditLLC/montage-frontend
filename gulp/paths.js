@@ -21,6 +21,10 @@ module.exports = {
 			destination: 'src/'
 		},
 
+		libs: {
+			destination: destination + 'assets/libs'
+		},
+
 		sass: {
 			main: {
 				source: 'src/assets/styles/app.scss',
