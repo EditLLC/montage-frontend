@@ -12,8 +12,8 @@ gulp.task('inject-libs', function() {
 			html: {
 				block: /(([ \t]*)<!--\s*build:*(\S*)\slib\.(?:css|js)\s*-->)(\n|\r|.)*?(<!--\s*endbuild\s*-->)/gi,
 				replace: {
-					js: '<script src="assets/libs/{{filePath}}"></script>',
-					css: '<link rel="stylesheet" href="assets/libs/{{filePath}}" />'
+					js: '<script src="libs/{{filePath}}"></script>',
+					css: '<link rel="stylesheet" href="libs/{{filePath}}" />'
 				}
 			}
 		}

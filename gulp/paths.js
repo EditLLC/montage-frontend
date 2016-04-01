@@ -22,7 +22,7 @@ module.exports = {
 		},
 
 		libs: {
-			destination: destination + 'assets/libs'
+			destination: destination + 'libs/'
 		},
 
 		sass: {
