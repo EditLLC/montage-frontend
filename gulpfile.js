@@ -6,6 +6,8 @@ var runSequence = require('run-sequence');
 requireDir('./gulp/tasks', { recurse: true });
 
 
+gulp.task('default', ['develop:serve']);
+
 gulp.task('develop', function() {
 	runSequence(
 		'clean',
