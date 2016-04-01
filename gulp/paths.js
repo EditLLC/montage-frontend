@@ -30,7 +30,7 @@ module.exports = {
 				source: 'src/assets/styles/app.scss',
 				destination: 'src/assets/styles/'
 			},
-			sources: [
+			components: [
 				'src/views/**/*.scss',
 				'src/components/**/*.scss'
 			],
