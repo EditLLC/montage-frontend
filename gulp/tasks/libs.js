@@ -24,7 +24,7 @@ gulp.task('inject-libs', function() {
 		.pipe(gulp.dest(path.to.index.destination));
 });
 
-gulp.task('copy-libs', function() {
+gulp.task('copy-libs', ['inject-libs'], function() {
 	var sourceFiles = wiredep();
 	sourceFiles = [].concat(sourceFiles.js, sourceFiles.css);
 
