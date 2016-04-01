@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 
 var htmlmin = require('gulp-htmlmin');
+var inject = require('gulp-inject');
 var templateCache = require('gulp-angular-templatecache');
 
 var path = require('../paths.js');
@@ -13,6 +14,14 @@ gulp.task('copy-index', function() {
 gulp.task('copy-templates', function() {
 	return gulp.src(path.to.templates.source)
 		.pipe(gulp.dest(path.to.templates.destination));
+});
+
+gulp.task('inject-templates', ['compile-templates'], function() {
+	var source = gulp.src(path.to.destination + 'templates.js', { read: false });
+
+	return gulp.src(path.to.destination + 'index.html')
+		.pipe(inject(source, { name: 'templates', relative: true }))
+		.pipe(gulp.dest(path.to.destination));
 });
 
 gulp.task('compile-templates', ['copy-templates'], function() {
