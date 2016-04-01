@@ -5,6 +5,7 @@ var babel = require('gulp-babel');
 var inject = require('gulp-inject');
 var naturalSort = require('gulp-natural-sort');
 var streamSeries = require('stream-series');
+var replace = require('gulp-replace');
 
 var path = require('../paths.js');
 
@@ -28,6 +29,7 @@ gulp.task('compile-scripts', ['inject-scripts'], function() {
 	return gulp.src(path.to.scripts.source)
 		.pipe(babel({ presets: ['es2015'] }))
 		.on('error', handleError)
+		.pipe(replace(/templateUrl:\s*(?:'|")(.*?)(?:'|"),?/, "templateUrl: 'templates/$1',"))
 		.pipe(gulp.dest(path.to.scripts.destination));
 });
 

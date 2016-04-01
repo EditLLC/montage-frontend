@@ -13,7 +13,7 @@ module.exports = {
 
 		templates: {
 			source: ['src/**/*.html', '!src/index.html'],
-			destination: destination
+			destination: destination + 'templates/'
 		},
 
 		index: {
