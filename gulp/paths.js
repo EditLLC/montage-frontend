@@ -8,7 +8,7 @@ module.exports = {
 
 		assets: {
 			source: ['src/assets/**/*', '!src/assets/styles{,/**}'],
-			destination: destination
+			destination: destination + 'assets/'
 		},
 
 		templates: {
