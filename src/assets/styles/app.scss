@@ -5,6 +5,20 @@
 
 // Inject Component Styles
 /* inject:scss */
+@import "../../views/account/account.scss";
+@import "../../views/account-password/account-password.scss";
+@import "../../views/file-browser/file-browser.scss";
+@import "../../views/layout/layout.scss";
+@import "../../views/login/login.scss";
+@import "../../components/permissions-table/permissions-table.scss";
+@import "../../views/record-browser/query-builder/query-builder.scss";
+@import "../../views/record-browser/record-browser.scss";
+@import "../../views/role-create/role-create.scss";
+@import "../../views/role-detail/role-detail.scss";
+@import "../../views/schema-detail/schema-detail.scss";
+@import "../../views/schema-list/schema-list.scss";
+@import "../../views/user-detail/user-detail.scss";
+@import "../../views/user-list/user-list.scss";
 /* endinject */
 
 @import 'trumps';
