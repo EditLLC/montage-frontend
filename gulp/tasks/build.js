@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 
 var cssmin     = require('gulp-cssmin');
+var del        = require('del');
 var gulpif     = require('gulp-if');
 var htmlmin    = require('gulp-htmlmin');
 var ngAnnotate = require('gulp-ng-annotate');
@@ -31,4 +32,14 @@ gulp.task('make-build', function() {
 		.pipe(gulpif('*.css', cssmin({ keepSpecialComments: 0 })))
 		.pipe(gulpif('*.html', htmlmin(htmlminOptions)))
 		.pipe(gulp.dest(path.to.destination));
+});
+
+gulp.task('post-build', function() {
+	var sourceFiles = [].concat(
+		path.to.templates.destination,
+		path.to.scripts.destination,
+		path.to.libs.destination
+	);
+
+	return del(sourceFiles);
 });
