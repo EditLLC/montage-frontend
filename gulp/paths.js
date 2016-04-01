@@ -40,7 +40,7 @@ module.exports = {
 		scripts: {
 			source: 'src/**/*.js',
 			modules: 'src/**/*.module.js',
-			destination: destination
+			destination: destination + 'scripts/'
 		}
 	}
 };

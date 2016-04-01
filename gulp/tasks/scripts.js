@@ -5,6 +5,7 @@ var babel = require('gulp-babel');
 var inject = require('gulp-inject');
 var naturalSort = require('gulp-natural-sort');
 var streamSeries = require('stream-series');
+var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 
 var path = require('../paths.js');
@@ -12,7 +13,8 @@ var path = require('../paths.js');
 
 gulp.task('inject-scripts', function() {
 	var target = gulp.src(path.to.index.source);
-	var sources = getSortedSources();
+	var sources = getSortedSources()
+		.pipe(rename(path => path.dirname = 'scripts/' + path.dirname));
 
 	var options = {
 		relative: true,
