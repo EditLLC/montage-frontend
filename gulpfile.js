@@ -16,3 +16,13 @@ gulp.task('develop', function() {
 		'copy-all'
 	);
 });
+
+
+gulp.task('build', function() {
+	runSequence(
+		'clean',
+		'pre-build',
+		'make-build',
+		'post-build'
+	);
+});
