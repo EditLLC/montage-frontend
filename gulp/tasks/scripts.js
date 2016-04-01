@@ -20,7 +20,7 @@ gulp.task('inject-scripts', function() {
 		relative: true,
 		starttag: '<!-- build:js app.js -->',
 		endtag: '<!-- endbuild -->'
-	}
+	};
 
 	return target
 		.pipe(inject(sources, options))
