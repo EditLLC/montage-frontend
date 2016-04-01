@@ -46,3 +46,5 @@ gulp.task('copy-assets', function() {
 	return gulp.src(path.to.assets.source)
 		.pipe(gulp.dest(path.to.assets.destination));
 });
+
+gulp.task('copy-all', ['copy-index', 'copy-templates', 'copy-assets']);
