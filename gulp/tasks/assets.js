@@ -36,7 +36,7 @@ gulp.task('compile-templates', ['copy-templates'], function() {
 		minifyCSS: true
 	};
 
-	return gulp.src(path.to.template.destination + '**/*.html')
+	return gulp.src(path.to.templates.destination + '**/*.html')
 		.pipe(htmlmin(htmlminOptions))
 		.pipe(templateCache({ module: 'montage', root: 'templates/' }))
 		.pipe(gulp.dest(path.to.destination));
