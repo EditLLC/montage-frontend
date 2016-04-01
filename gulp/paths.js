@@ -23,7 +23,7 @@ module.exports = {
 
 		sass: {
 			main: {
-				source: 'src/assets/styles/main.scss',
+				source: 'src/assets/styles/app.scss',
 				destination: 'src/assets/styles/'
 			},
 			sources: [
