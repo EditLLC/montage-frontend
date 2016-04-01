@@ -26,3 +26,7 @@ gulp.task('build', function() {
 		'post-build'
 	);
 });
+
+gulp.task('build:serve', function() {
+	runSequence('build', 'serve');
+});
