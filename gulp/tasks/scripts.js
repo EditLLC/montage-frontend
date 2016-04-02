@@ -18,8 +18,7 @@ gulp.task('inject-scripts', function() {
 
 	var options = {
 		relative: true,
-		starttag: '<!-- build:js app.js -->',
-		endtag: '<!-- endbuild -->'
+		name: 'app'
 	};
 
 	return target
