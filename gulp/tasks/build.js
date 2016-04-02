@@ -38,7 +38,8 @@ gulp.task('post-build', function() {
 	var sourceFiles = [].concat(
 		path.to.templates.destination,
 		path.to.scripts.destination,
-		path.to.libs.destination
+		path.to.libs.destination,
+		path.to.destination + 'templates.js'
 	);
 
 	return del(sourceFiles);
