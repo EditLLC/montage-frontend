@@ -5,7 +5,7 @@
 		.module('montage')
 		.factory('authService', authService);
 
-	function authService($q, montageData, $cookies, $state) {
+	function authService($cookies, $state, montage) {
 		var _user;
 
 		return {
@@ -30,9 +30,9 @@
 		}
 
 		function login(credentials) {
-			var client = new montageData.Client(credentials);
+			var client = new montage.Client(MONTAGE_SUBDOMAIN, null, MONTAGE_HOST);
 
-			return $q.when(client.auth())
+			return client.authenticate(credentials.username, credentials.password)
 				.then(response => {
 					var user = response.data;
 					user.domain = credentials.domain;
