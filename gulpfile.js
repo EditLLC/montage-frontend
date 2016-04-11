@@ -13,7 +13,6 @@ gulp.task('develop', function() {
 		'clean',
 		'compile-sass',
 		'compile-scripts',
-		'inject-libs',
 		'copy-libs',
 		'copy-all'
 	);
