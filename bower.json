@@ -8,6 +8,7 @@
   "dependencies": {
     "angular": "^1.5.0",
     "angular-ui-router": "^0.2.18",
+    "angular-montage": "https://github.com/EditLLC/angular-montage.git#36b64af9e01ff948142ee6ef1108a1c9ea0d54a9",
     "normalize-css": "^3.0.3",
     "angular-material": "^1.0.5",
     "angular-cookies": "^1.5.0",
@@ -17,5 +18,10 @@
   },
   "resolutions": {
     "angular": "^1.5.0"
+  },
+  "overrides": {
+    "angular-montage": {
+      "main": "dist/angular-montage.js"
+    }
   }
 }

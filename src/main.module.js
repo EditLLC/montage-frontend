@@ -6,6 +6,7 @@
 			'jsonFormatter',
 			'ngCookies',
 			'ngFileUpload',
+			'ngMontage',
 			'ngMaterial',
 			'ngPrettyJson',
 			'ui.router'
