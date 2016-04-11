@@ -9,5 +9,5 @@
 			'ngMaterial',
 			'ngPrettyJson',
 			'ui.router'
-		])
+		]);
 })(angular);
