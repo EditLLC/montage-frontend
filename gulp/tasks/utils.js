@@ -25,3 +25,13 @@ gulp.task('serve', function() {
 		}
 	});
 });
+
+gulp.task('watch', function() {
+	gulp.watch('src/**/*.scss', ['compile-sass']);
+	gulp.watch('src/**/*.js', ['compile-scripts']);
+	gulp.watch('../../bower_components/**/*', ['copy-libs']);
+	gulp.watch('src/index.html', ['copy-index']);
+	gulp.watch('src/**/*.html', ['copy-templates']);
+	gulp.watch(['src/assets/**/*', '!src/assets/styles/**'], ['copy-assets']);
+	gulp.watch(['build/**/*', '!build/app.css']).on('change', browserSync.reload);
+});

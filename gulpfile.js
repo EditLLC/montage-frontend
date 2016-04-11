@@ -20,7 +20,7 @@ gulp.task('develop', function() {
 });
 
 gulp.task('develop:serve', function() {
-	runSequence('develop', 'serve');
+	runSequence('develop', 'serve', 'watch');
 });
 
 gulp.task('build', function() {
