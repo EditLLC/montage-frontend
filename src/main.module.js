@@ -10,5 +10,4 @@
 			'ngPrettyJson',
 			'ui.router'
 		])
-		.constant('montageData', window.Montage);
 })(angular);
