@@ -5,7 +5,7 @@
 		.module('montage')
 		.factory('montageHelper', montageHelper);
 
-	function montageHelper(montageData, authService) {
+	function montageHelper(montage, authService) {
 		return {
 			getClient,
 			returnData
@@ -14,7 +14,8 @@
 		////////////
 
 		function getClient() {
-			return new montageData.Client(authService.getCurrentUser());
+			var currentUser = authService.getCurrentUser();
+			return new montage.Client(MONTAGE_SUBDOMAIN, currentUser.token, MONTAGE_HOST);
 		}
 
 		function returnData(response) {
