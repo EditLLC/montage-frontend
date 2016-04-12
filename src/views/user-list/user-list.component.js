@@ -15,9 +15,10 @@
 		api.user.list()
 			.then(userList => vm.userList = userList);
 
-		// TODO: implement
-		vm.deleteUser = function(user_id) {
-			console.log('deleteUser() has not yet been implemented'); // TODO: REMOVE ME
-			};
+		vm.removeUser = function (user_id) {
+			api.user.removeUser(user_id)
+			.then (user.splice(index, 1));
+			//TODO add a catch for failure of this function and a modal to confirm
+		};
 	}
 })(angular);
