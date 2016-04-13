@@ -40,7 +40,7 @@
 				url: fileUri,
 				data: { file: file },
 				headers: authHeader
-			}).then(returnData);
+			}).then(response => response.data.data);
 		}
 	}
 })(angular);
