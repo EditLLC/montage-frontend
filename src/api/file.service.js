@@ -5,11 +5,7 @@
 		.module('montage')
 		.factory('fileService', fileService);
 
-	function fileService($http, authService, Upload) {
-
-		// TODO: reset these on login
-		var fileUri = `https://${authService.getCurrentUser().domain}.mntge.com/api/v1/files/`;
-		var authHeader = { Authorization: 'Token ' + authService.getCurrentUser().token };
+	function fileService(montageHelper, authService, Upload) {
 
 		return {
 			deleteFile: deleteFile,
@@ -19,28 +15,27 @@
 		};
 
 		function returnData(response) {
-			return response.data.data;
+			return response.data;
 		}
 
 		function deleteFile(id) {
-			return $http.delete(fileUri + id + '/', {
-				headers: authHeader
-			}).then(returnData);
+			return montageHelper.getClient().files.remove(id);
 		}
 
 		function getFileInfo(id) {
-			return $http.get(fileUri + id + '/', {
-				headers: authHeader
-			}).then(returnData);
+			return montageHelper.getClient().files.get(id)
+				.then(returnData);
 		}
 
 		function getFileList() {
-			return $http.get(fileUri, {
-				headers: authHeader
-			}).then(returnData);
+			return montageHelper.getClient().files.list()
+				.then(returnData);
 		}
 
 		function uploadFile(file) {
+			var fileUri = `https://${MONTAGE_SUBDOMAIN}.${MONTAGE_HOST}/api/v1/files/`;
+			var authHeader = { Authorization: 'Token ' + authService.getCurrentUser().token };
+
 			return Upload.upload({
 				url: fileUri,
 				data: { file: file },
