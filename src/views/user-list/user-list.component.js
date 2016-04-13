@@ -16,8 +16,9 @@
 			.then(userList => vm.userList = userList);
 
 		vm.removeUser = function (user_id) {
-			api.user.removeUser(user_id)
-			.then (user.splice(index, 1));
+			console.log(user_id);
+			api.user.remove(user_id)
+			.then ((user) => console.log(user.id));
 			//TODO add a catch for failure of this function and a modal to confirm
 		};
 	}

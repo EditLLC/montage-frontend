@@ -1,3 +1,40 @@
 <div class="user-create-view">
-	<h1>Create User</h1>
+	<md-content md-whiteframe="2" class="white-frame">
+		<h1>Create User</h1>
+		<form action="create"
+		      class="create-form">
+			<md-content layout-gt-lg="row" layout-padding>
+				<div>
+					<md-input-container>
+						<label>User Full Name</label>
+						<input ng-model="full_name">
+					</md-input-container>
+					<md-input-container>
+						<label>Email</label>
+						<input ng-model="email"
+						       type="email">
+					</md-input-container>
+					<md-input-container>
+						<label>Password</label>
+						<input ng-model="password"
+						       type="password">
+					</md-input-container>
+				</div>
+			</md-content>
+			<!--<input type="text"-->
+			       <!--ng-model="full_name"-->
+			       <!--placeholder="User Full Name">-->
+			<!--<input type="text"-->
+			       <!--ng-model="email"-->
+			       <!--placeholder="User Email">-->
+			<!--<input type="password"-->
+			       <!--ng-model="password"-->
+			       <!--placeholder="Password">-->
+			<md-button class="md-primary  md-raised create-btn pull-right"
+			           ng-click="userCreate.createUser(full_name, email, password)">
+				Create User
+			</md-button>
+
+		</form>
+	</md-content>
 </div>

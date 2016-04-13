@@ -2,8 +2,7 @@
 	<div class="view-header">
 		<h1>Users</h1>
 
-		<md-button class="md-primary md-raised"
-		           ui-sref="user.create">
+		<md-button class="md-primary md-raised" ui-sref="user.create">
 			<i class="fa fa-plus"></i>
 			Create User
 		</md-button>
@@ -30,7 +29,7 @@
 			<td>{{ user.role }}</td>
 
 			<td class="actions">
-				<a ng-click="userList.deleteUser(user.id)">
+				<a ng-click="userList.removeUser(user.id)">
 					<i class="fa fa-times"></i>
 				</a>
 			</td>

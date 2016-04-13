@@ -9,9 +9,14 @@
 			controller: userCreateController
 		});
 
-	function userCreateController() {
+	function userCreateController(api) {
 		var vm = this;
+		vm.success = false;
 
-
+		vm.createUser = function (full_name, email, password) {
+			api.user.create(full_name, email, password)
+				.then(user => vm.newUser = user)
+				.then(vm.success = true);
+		}
 	}
 })(angular);
