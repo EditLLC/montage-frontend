@@ -17,7 +17,7 @@
 		api.file.getFileList()
 			.then(fileList => vm.fileList = fileList);
 
-		vm.toggleDropZone = function() {
+		vm.toggleDropZone = () => {
 			vm.isDropZoneVisible = !vm.isDropZoneVisible;
 			vm.totalCount = vm.pendingCount = vm.doneCount = 0;
 		};
