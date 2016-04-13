@@ -9,7 +9,7 @@
 			controller: fileBrowserController
 		});
 
-	function fileBrowserController($scope, api) {
+	function fileBrowserController($scope, api, modalHelper) {
 		var vm = this;
 
 		vm.totalCount = vm.pendingCount = vm.doneCount = 0;
@@ -33,7 +33,16 @@
 					});
 			});
 		};
-		
+
+		vm.delete = file => {
+			modalHelper.confirmDelete('file')
+				.then(() => api.file.deleteFile(file.id))
+				.then(() => {
+					var index = vm.fileList.indexOf(file);
+					vm.fileList.splice(index, 1);
+				});
+		};
+
 		$scope.$watch(() => vm.pendingFiles, (pendingFiles) => {
 			if(pendingFiles) {
 				vm.upload(pendingFiles);

@@ -56,6 +56,7 @@
 				<th>Size</th>
 				<th>Checksum</th>
 				<th>ID</th>
+				<th class="actions"></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -64,6 +65,7 @@
 				<td>{{ file.size }}</td>
 				<td>{{ file.checksum }}</td>
 				<td>{{ file.id }}</td>
+				<td class="actions"><a ng-click="fileBrowser.delete(file)"><i class="fa fa-times"></i></a></td>
 			</tr>
 		</tbody>
 	</table>

@@ -35,4 +35,18 @@
 	.dragover {
 		background: darken($gray-light, 4%);
 	}
+
+	tr {
+		.actions a {
+			display: none;
+		}
+
+		&:hover {
+			background: $gray-light;
+
+			.actions a {
+				display: inline-block;
+			}
+		}
+	}
 }
