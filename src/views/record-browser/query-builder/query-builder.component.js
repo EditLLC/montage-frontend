@@ -30,7 +30,7 @@
 			'starts with'                    : 'starts',
 			'starts with (case insensitive)' : 'istarts',
 			'ends with'                      : 'ends',
-			'ends with (case insenstive)'    : 'iends',
+			'ends with (case insensitive)'   : 'iends',
 			'intersects (geometry)'          : 'intersects',
 			'includes (geometry)'            : 'includes'
 		};
