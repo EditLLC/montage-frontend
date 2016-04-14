@@ -14,9 +14,23 @@
 
 		api.role.list().then(roleList => vm.roleList = roleList);
 
-		// TODO: implement
 		vm.delete = function(roleName) {
-			console.log('Role deletion is not implemented');
+			modalHelper.confirmDelete('role')
+				.then(() => api.role.remove(roleName))
+				.then(() => {
+					var index;
+
+					for(var i = 0; i < vm.roleList.length; i++) {
+						if(vm.roleList[i].name === roleName) {
+							index = i;
+							break;
+						}
+					}
+
+					if(index) {
+						vm.roleList.splice(index, 1);
+					}
+				});
 		};
 	}
 })(angular);
