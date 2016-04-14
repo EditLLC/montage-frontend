@@ -46,6 +46,10 @@
 
 			.actions a {
 				display: inline-block;
+
+				&:hover {
+					background: darken($gray-light, 10%);
+				}
 			}
 		}
 	}
