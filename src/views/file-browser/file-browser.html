@@ -10,9 +10,44 @@
 		</md-button>
 	</div>
 
-	<div class="drop-zone" ng-if="fileBrowser.isDropZoneVisible">
+
+	<!-- ~~~~~~~~~ -->
+	<!-- Drop Zone -->
+	<!-- ~~~~~~~~~ -->
+
+	<div class="drop-zone"
+	     ng-if="fileBrowser.isDropZoneVisible"
+	     ngf-drop
+	     ngf-multiple="true"
+	     ngf-select
+	     ng-model="fileBrowser.pendingFiles"
+	>
 		<h2>Drop files here to upload</h2>
+		<h4>or click to browse your filesystem</h4>
+
+		<!-- Upload pending -->
+		<div ng-if="fileBrowser.pendingCount">
+
+			<!-- Uploading a single file -->
+			<h6 ng-if="fileBrowser.totalCount === 1">Uploading file</h6>
+
+			<!-- Uploading multiple files -->
+			<div ng-if="fileBrowser.totalCount > 1">
+				<h6>{{ fileBrowser.doneCount }} of {{ fileBrowser.totalCount}} files uploaded</h6>
+				<h6>{{ fileBrowser.pendingCount }} file{{ fileBrowser.pendingCount === 1 ? '' : 's' }} remaining</h6>
+			</div>
+		</div>
+
+		<!-- Upload complete -->
+		<h6 ng-if="!fileBrowser.pendingCount && fileBrowser.totalCount">
+			{{ fileBrowser.doneCount }} file{{ fileBrowser.doneCount === 1 ? '' : 's' }} uploaded
+		</h6>
 	</div>
+
+
+	<!-- ~~~~~~~~~ -->
+	<!-- File List -->
+	<!-- ~~~~~~~~~ -->
 
 	<table ng-if="fileBrowser.fileList">
 		<thead>
@@ -21,6 +56,7 @@
 				<th>Size</th>
 				<th>Checksum</th>
 				<th>ID</th>
+				<th class="actions"></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -29,6 +65,7 @@
 				<td>{{ file.size }}</td>
 				<td>{{ file.checksum }}</td>
 				<td>{{ file.id }}</td>
+				<td class="actions"><a ng-click="fileBrowser.delete(file)"><i class="fa fa-times"></i></a></td>
 			</tr>
 		</tbody>
 	</table>

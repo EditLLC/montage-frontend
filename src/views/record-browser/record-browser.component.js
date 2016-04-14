@@ -9,20 +9,24 @@
 			controller: recordBrowserController
 		});
 
-	function recordBrowserController(api) {
+	function recordBrowserController(api, montageHelper) {
 		var vm = this;
 
 		api.schema.list().then(schemaList => vm.schemaList = schemaList);
 
 		vm.executeQuery = function(query) {
-			var schema = vm.schemaList.filter(schema => query.schema === schema.name)[0];
-
-			if(!schema) {
-				throw new Error("Schema not found.");
-			}
-
-			api.document.list(query.schema, query)
-				.then(documentList => { vm.results = { schema, documentList }});
+			montageHelper.getClient()
+				.execute({ query })
+				.then(response => {
+					return vm.results = {
+						schema: getSchema(query.schema),
+						documentList: response.data.query
+					};
+				});
 		};
+
+		function getSchema(schemaName) {
+			return vm.schemaList.filter(schema => schema.name === schemaName)[0];
+		}
 	}
 })(angular);

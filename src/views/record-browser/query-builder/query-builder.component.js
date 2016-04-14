@@ -13,30 +13,26 @@
 			}
 		});
 
-	function queryBuilderController($scope) {
+	function queryBuilderController($scope, montage) {
 		var vm = this;
 
 		vm.operatorDictionary = {
-			'='           : '',
-			'ieq'         : '__ieq',
-			'!='          : '__not',
-			'not'         : '__not', // todo: not in field lookups docs
-			'contains'    : '__contains',
-			'icontains'   : '__icontains',
-			'in'          : '__in',
-			'notin'       : '__notin',
-			'>'           : '__gt',
-			'>='          : '__gte',
-			'<'           : '__lt',
-			'<='          : '__lte',
-			'startswith'  : '__startswith',
-			'istartswith' : '__istartswith',
-			'endswith'    : '__endswith',
-			'iendswith'   : '__iendswith',
-			'regex'       : '__regex',
-			'iregex'      : '__iregex',
-			'includes'    : '__includes',
-			'intersects'  : '__intersects',
+			'='                              : 'eq',
+			'= (case insensitive)'           : 'ieq',
+			'!='                             : 'ne',
+			'<'                              : 'lt',
+			'<='                             : 'le',
+			'>'                              : 'gt',
+			'>='                             : 'ge',
+			'in'                             : 'inSet',
+			'contains'                       : 'contains',
+			'regex'                          : 'regex',
+			'starts with'                    : 'starts',
+			'starts with (case insensitive)' : 'istarts',
+			'ends with'                      : 'ends',
+			'ends with (case insenstive)'    : 'iends',
+			'intersects (geometry)'          : 'intersects',
+			'includes (geometry)'            : 'includes'
 		};
 
 		vm.getSchemaDetails = function(schemaName) {
@@ -85,25 +81,30 @@
 			}
 		}, true);
 
-		function buildQuery(query) {
-			var filters = {};
+		function buildQuery({ schema, filterGroups, order, limit, offset }) {
+			if(!schema) return;
 
-			// TODO: only supports one of each type
-			for(var field in query.filterGroups) {
-				query.filterGroups[field].forEach(filter => {
-					var filterName = field + vm.operatorDictionary[filter.operator];
-					filters[filterName] = filter.value;
-				});
+			var query = new montage.Query(schema);
+
+			if(filterGroups) {
+				let filters = [];
+
+				for(var field in filterGroups) {
+					if(filterGroups.hasOwnProperty(field)) {
+						filterGroups[field].forEach(({operator, value}) => {
+							filters.push(new montage.Field(field)[operator](value));
+						});
+					}
+				}
+
+				query.filter.apply(query, filters);
 			}
 
-			return {
-				schema: query.schema,
-				filter: filters,
-				order_by: query.order_by,
-				ordering: query.ordering,
-				limit: query.limit,
-				offset: query.offset,
-			};
+			if(order) { query.order(order.field, order.direction); }
+			if(offset) { query.skip(parseInt(offset)); }
+			if(limit) { query.limit(parseInt(limit)); }
+
+			return query;
 		}
 	}
 })(angular);
