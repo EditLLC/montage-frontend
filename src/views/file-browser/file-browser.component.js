@@ -27,9 +27,11 @@
 
 			files.forEach(file => {
 				api.file.uploadFile(file)
-					.then(fileInfo => {
+					.then(fileInfoList => {
 						vm.doneCount++;
 						vm.pendingCount--;
+
+						fileInfoList.forEach(fileInfo => vm.fileList.push(fileInfo));
 					});
 			});
 		};
