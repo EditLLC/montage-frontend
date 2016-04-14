@@ -11,6 +11,7 @@
 		return {
 			isAuthenticated,
 			getCurrentUser,
+			setCurrentUser,
 			login,
 			logout
 		};
@@ -27,6 +28,11 @@
 
 		function getCurrentUser() {
 			return _user;
+		}
+
+		function setCurrentUser(user) {
+			angular.extend(_user, user);
+			$cookies.putObject('user', _user);
 		}
 
 		function login(credentials) {
