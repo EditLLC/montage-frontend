@@ -1,6 +1,13 @@
 <div class="account-profile-view">
 	<h1>Profile</h1>
 
+	<div class="message" ng-if="accountProfile.status" ng-class="accountProfile.status">
+		{{ accountProfile.status === 'success'
+			? 'Successfully saved'
+			: 'There was an error saving your changes. Please try again.'
+		}}
+	</div>
+
 	<form name="profileForm" ng-submit="accountProfile.save(accountProfile.currentUser)">
 		<md-input-container class="md-block">
 			<label>Name*</label>
@@ -15,7 +22,7 @@
 		<md-button
 			class="md-raised md-primary pull-right"
 			type="submit"
-			ng-disabled="profileForm.$invalid"
-		>Update Profile</md-button>
+			ng-disabled="profileForm.$invalid || accountProfile.isSaving"
+		>{{ accountProfile.isSaving ? "Saving..." : "Update Profile" }}</md-button>
 	</form>
 </div>
