@@ -20,7 +20,7 @@
 
 			authService
 				.login(credentials)
-				.then(()=> $state.go('dashboard'))
+				.then(()=> $state.go('schema.list'))
 				.catch((error) => {
 
 					// Clear credentials on authentication errors

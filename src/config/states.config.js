@@ -35,11 +35,6 @@
 				abstract: true,
 				template: '<layout />'
 			})
-			.state('dashboard', {
-				url: '/',
-				parent: 'layout',
-				template: '<dashboard />'
-			})
 
 
 			/************
