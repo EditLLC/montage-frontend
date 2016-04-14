@@ -5,10 +5,11 @@
 		.module('montage')
 		.factory('userService', userService);
 
-	function userService($q) {
+	function userService($q, montageHelper) {
 		return {
 			get,
-			list
+			list,
+			update
 		};
 
 		////////////
@@ -106,6 +107,11 @@
 				name: 'Z',
 				email: 'zackify+test@gmail.com'
 			}]);
+		}
+
+		function update(id, full_name, email, password) {
+			return montageHelper.getClient().users.update(id, full_name, email, password)
+				.then(montageHelper.returnData);
 		}
 	}
 })(angular);
