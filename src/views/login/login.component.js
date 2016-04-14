@@ -12,14 +12,14 @@
 	function loginController($state, authService) {
 		var vm = this;
 
-		vm.login = function(credentials) {
+		vm.login = function({ username, password }) {
 
 			// Blur all inputs
 			document.getElementById('email').blur();
 			document.getElementById('password').blur();
 
 			authService
-				.login(credentials)
+				.login(username, password)
 				.then(()=> $state.go('schema.list'))
 				.catch((error) => {
 

@@ -35,10 +35,10 @@
 			$cookies.putObject('user', _user);
 		}
 
-		function login(credentials) {
+		function login(username, password) {
 			var client = new montage.Client(MONTAGE_SUBDOMAIN, null, MONTAGE_HOST);
 
-			return client.authenticate(credentials.username, credentials.password)
+			return client.authenticate(username, password)
 				.then(response => {
 					var user = response.data;
 
