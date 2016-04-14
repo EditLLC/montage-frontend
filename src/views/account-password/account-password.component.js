@@ -23,7 +23,7 @@
 				.then(() => vm.status = 'success')
 				.catch(() => vm.status = 'error')
 				.finally(() => {
-					vm.isSaving = false
+					vm.isSaving = false;
 
 					// Reset the form
 					vm.currentPassword = vm.newPassword = vm.confirmedPassword = '';
