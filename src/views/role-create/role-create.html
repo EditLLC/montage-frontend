@@ -1,6 +1,13 @@
 <form name="roleForm" class="role-create-view view-frame" md-whiteframe="2">
 	<h1>Create Role</h1>
 
+	<div class="message" ng-if="roleCreate.status" ng-class="roleCreate.status">
+		{{ roleCreate.status === 'success'
+		? 'Successfully saved'
+		: 'There was an error saving your changes. Please try again.'
+		}}
+	</div>
+
 	<md-input-container class="md-block">
 		<label>Role Name</label>
 		<input type="text" ng-model="roleCreate.role.name" required>
@@ -53,7 +60,8 @@
 
 	<md-button
 		class="md-raised md-primary pull-right"
-		ng-click="roleCreate.createRole(roleCreate.role)"
-		ng-disabled="roleForm.$invalid"
-	>Create Role</md-button>
+		type="submit"
+		ng-click="roleCreate.createRole(roleCreate.role.name)"
+		ng-disabled="roleForm.$invalid || roleCreate.isSaving"
+	>{{ roleCreate.isSaving ? 'Saving...' : 'Create Role' }}</md-button>
 </form>

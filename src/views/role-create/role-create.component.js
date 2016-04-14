@@ -9,12 +9,16 @@
 			controller: roleCreateController
 		});
 
-	function roleCreateController() {
+	function roleCreateController(api) {
 		var vm = this;
 
-		// TODO: implement
-		vm.createRole = function(role) {
-			console.log('Role creation is not implemented');
+		vm.createRole = function(roleName) {
+			vm.isSaving = true;
+
+			api.role.create(roleName)
+				.then(() => vm.status = 'success')
+				.catch(() => vm.status = 'error')
+				.finally(() => vm.isSaving = false);
 		}
 	}
 })(angular);
