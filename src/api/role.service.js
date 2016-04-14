@@ -5,45 +5,39 @@
 		.module('montage')
 		.factory('roleService', roleService);
 
-	function roleService($q) {
+	function roleService(montageHelper) {
 		return {
-			get
+			create,
+			get,
+			list,
+			update,
+			remove
 		};
 
 		////////////
 
-		// TODO: implement
+		function create(role, users) {
+			return montageHelper.getClient().roles.create(role, users)
+				.then(montageHelper.returnData);
+		}
+
 		function get(roleName) {
-			return $q.when({
-				name: roleName,
-				permissions: {
-					members: {
-						canView: true,
-						canChange: true,
-						canDelete: true
-					},
-					roles: {
-						canView: true,
-						canChange: true,
-						canDelete: true
-					},
-					accessKeys: {
-						canView: true,
-						canChange: true,
-						canDelete: true
-					},
-					scheduler: {
-						canView: true,
-						canChange: true,
-						canDelete: true
-					},
-					data: {
-						canView: true,
-						canChange: true,
-						canDelete: true
-					}
-				}
-			});
+			return montageHelper.getClient().roles.get(roleName)
+				.then(montageHelper.returnData);
+		}
+
+		function list() {
+			return montageHelper.getClient().roles.list()
+				.then(montageHelper.returnData);
+		}
+
+		function update(role, name, addUsers, removeUsers) {
+			return montageHelper.getClient().roles.update(role, name, addUsers, removeUsers)
+				.then(montageHelper.returnData);
+		}
+
+		function remove(roleName) {
+			return montageHelper.getClient().roles.remove(roleName);
 		}
 	}
 })(angular);
