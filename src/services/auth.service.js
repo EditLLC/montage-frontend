@@ -41,7 +41,6 @@
 			return client.authenticate(credentials.username, credentials.password)
 				.then(response => {
 					var user = response.data;
-					user.domain = credentials.domain;
 
 					_user = user;
 					$cookies.putObject('user', user);
