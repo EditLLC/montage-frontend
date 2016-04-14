@@ -19,7 +19,7 @@
 		<tbody>
 			<tr ng-repeat="role in roleList.roleList">
 				<td><a ui-sref="role.detail({ roleName: role.name })">{{ role.name }}</a></td>
-				<td>{{ role.memberCount }}</td>
+				<td>{{ role.users.length }}</td>
 				<td class="actions">
 					<a ui-sref="role.edit({ roleName: role.name })"><i class="fa fa-pencil"></i></a>
 					<a ng-click="roleList.delete(role.name)"><i class="fa fa-times"></i></a>

@@ -9,14 +9,10 @@
 			controller: roleListController
 		});
 
-	function roleListController() {
+	function roleListController(api) {
 		var vm = this;
 
-		// TODO: get the roleList from the montage backend
-		vm.roleList = [{
-			name: 'Admin',
-			memberCount: 8
-		}];
+		api.role.list().then(roleList => vm.roleList = roleList);
 
 		// TODO: implement
 		vm.delete = function(roleName) {
