@@ -38,7 +38,7 @@
 
 		function remove(id) {
 			return montageHelper.getClient().users.remove(id)
-				.then(montageHelper.returnData);
+				// .then(montageHelper.returnData);
 		}
 	}
 })(angular);

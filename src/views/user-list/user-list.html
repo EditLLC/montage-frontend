@@ -23,6 +23,11 @@
 				<div class="user-info">
 					<div><a ui-sref="user.detail({ user_id: user.id })">{{ user.full_name }}</a></div>
 					<div class="email">{{ user.email }}</div>
+					<md-button class="md-fab md-primary md-raised edit"
+					           aria-label="FAB"
+					           ui-sref="user.edit(user_id)">
+						<i class="material-icons">mode_edit</i>
+					</md-button>
 				</div>
 			</td>
 
