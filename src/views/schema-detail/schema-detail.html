@@ -49,5 +49,6 @@
 	<md-button
 		class="md-raised md-primary pull-right"
 		type="submit"
-	>{{ schemaDetail.isUpdate ? 'Update Schema' : 'Create Schema' }}</md-button>
+		ng-disabled="schemaDetail.isSaving"
+	>{{ schemaDetail.isSaving ? 'Saving...' : schemaDetail.isUpdate ? 'Update Schema' : 'Create Schema' }}</md-button>
 </form>
