@@ -39,9 +39,31 @@
 			types: ['point', 'line', 'polygon']
 		}];
 
-		// TODO: implement
-		vm.update = function(fields) {
-			console.log('schemaDetail.update() is not implemented', fields);
+		vm.save = function({originalName, newName, fields}) {
+			vm.isSaving = true;
+
+			// Use `angular.copy()` to remove $$hashKey
+			fields = angular.copy(fields);
+
+			// Remove the last field if it is empty
+			// todo: refactor to account for falsey checkboxes, with empty name & type
+			// todo: should we remove empty fields that are not at the end of the list or show validation errors?
+			if(!Object.keys(fields[fields.length - 1]).length) {
+				fields.pop();
+			}
+
+			// Remove the "id" field from the list
+			fields = fields.filter(field => field.name !== 'id');
+
+			if(vm.isUpdate) {
+				api.schema.update(originalName, newName, fields)
+					.then(() => vm.status = 'success')
+					.catch(() => vm.status = 'error')
+					.finally(() => vm.isSaving = false);
+			} else {
+				api.schema.create(newName, fields)
+					.then(() => $state.go('schema.detail', { schemaName: newName }));
+			}
 		};
 	}
 })(angular);
