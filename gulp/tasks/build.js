@@ -39,7 +39,8 @@ gulp.task('post-build', function() {
 		path.to.templates.destination,
 		path.to.scripts.destination,
 		path.to.libs.destination,
-		path.to.destination + 'templates.js'
+		path.to.destination + 'templates.js',
+		path.to.sass.destination + 'app.css'
 	);
 
 	return del(sourceFiles);
