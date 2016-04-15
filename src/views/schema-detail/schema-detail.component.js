@@ -12,8 +12,21 @@
 	function schemaDetailController(api, $stateParams) {
 		var vm = this;
 
-		api.schema.get($stateParams.schemaName)
-			.then(schema => vm.fields = schema.fields);
+		if($stateParams.schemaName) {
+			vm.isUpdate = true;
+
+			api.schema.get($stateParams.schemaName).then(setSchema);
+		} else {
+			setSchema({ fields: [{}] });
+		}
+
+		function setSchema(schema) {
+			vm.schema = {
+				originalName : schema.name,
+				newName      : schema.name,
+				fields       : schema.fields
+			};
+		}
 
 		vm.datatypeGroups = [{
 			name: 'Primitives',

@@ -1,9 +1,14 @@
-<form class="schema-detail-view view-frame" md-whiteframe="2" ng-submit="schemaDetail.update(schemaDetail.fields)">
+<form class="schema-detail-view view-frame" md-whiteframe="2" ng-submit="schemaDetail.update(schemaDetail.schema)">
 	<div class="view-header">
 		<h1>Schema Detail</h1>
 	</div>
 
-	<table ng-if="schemaDetail.fields">
+	<md-input-container class="md-block">
+		<label>Schema Name</label>
+		<input type="text" ng-model="schemaDetail.schema.newName">
+	</md-input-container>
+
+	<table ng-show="schemaDetail.schema.fields">
 		<thead>
 			<tr>
 				<th>Name</th>
@@ -14,7 +19,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="field in schemaDetail.fields">
+			<tr ng-repeat="field in schemaDetail.schema.fields">
 				<td>
 					<md-input-container>
 						<input type="text" ng-model="field.name">
@@ -41,5 +46,8 @@
 		</tbody>
 	</table>
 
-	<md-button class="md-raised md-primary pull-right" type="submit">Update Schema</md-button>
+	<md-button
+		class="md-raised md-primary pull-right"
+		type="submit"
+	>{{ schemaDetail.isUpdate ? 'Update Schema' : 'Create Schema' }}</md-button>
 </form>
