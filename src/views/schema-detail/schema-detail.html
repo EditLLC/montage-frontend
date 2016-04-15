@@ -12,6 +12,13 @@
 		Existing documents will have the old field name.
 	</div>
 
+	<div class="message" ng-if="schemaDetail.status" ng-class="schemaDetail.status">
+		{{ schemaDetail.status === 'success'
+			? 'Successfully saved'
+			: 'There was an error saving your changes. Please try again.'
+		}}
+	</div>
+
 	<md-input-container class="md-block">
 		<label>Schema Name</label>
 		<input type="text" ng-model="schemaDetail.schema.newName">
