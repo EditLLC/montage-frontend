@@ -7,8 +7,8 @@ module.exports = {
 		destination: destination,
 
 		assets: {
-			source: ['src/assets/**/*', '!src/assets/styles{,/**}'],
-			destination: destination + 'assets/'
+			source: ['src/static/**/*', '!src/static/styles{,/**}'],
+			destination: destination + 'static/'
 		},
 
 		templates: {
@@ -27,8 +27,8 @@ module.exports = {
 
 		sass: {
 			main: {
-				source: 'src/assets/styles/app.scss',
-				destination: 'src/assets/styles/'
+				source: 'src/static/styles/app.scss',
+				destination: 'src/static/styles/'
 			},
 			components: [
 				'src/views/**/*.scss',

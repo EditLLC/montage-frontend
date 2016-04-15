@@ -35,7 +35,7 @@ gulp.task('watch', function() {
 		gulp.watch('../../bower_components/**/*', ['copy-libs']);
 		gulp.watch('src/index.html', ['copy-index']);
 		gulp.watch('src/**/*.html', ['copy-templates']);
-		gulp.watch(['src/assets/**/*', '!src/assets/styles/**'], ['copy-assets']);
+		gulp.watch(['src/static/**/*', '!src/static/styles/**'], ['copy-static']);
 		gulp.watch(['build/**/*', '!build/app.css']).on('change', browserSync.reload);
 
 		// todo: DEBUG
