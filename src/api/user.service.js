@@ -32,7 +32,7 @@
 		}
 
 		function update(full_name, email, password) {
-			return montageHelper.getClient().users.update(full_name, email, password)
+			return montageHelper.getClient().users.update(user_id, full_name, email, password)
 				.then(montageHelper.returnData);
 		}
 
