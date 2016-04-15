@@ -9,7 +9,7 @@
 			controller: schemaDetailController
 		});
 
-	function schemaDetailController(api, $stateParams) {
+	function schemaDetailController(api, $stateParams, $state, modalHelper) {
 		var vm = this;
 
 		if($stateParams.schemaName) {
@@ -64,6 +64,12 @@
 				api.schema.create(newName, fields)
 					.then(() => $state.go('schema.detail', { schemaName: newName }));
 			}
+		};
+
+		vm.deleteSchema = function(schemaName) {
+			modalHelper.confirmDelete('schema')
+				.then(() => api.schema.remove(schemaName))
+				.then(() => $state.go('schema.list'));
 		};
 	}
 })(angular);

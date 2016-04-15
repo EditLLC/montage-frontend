@@ -1,6 +1,10 @@
 <form class="schema-detail-view view-frame" md-whiteframe="2" ng-submit="schemaDetail.save(schemaDetail.schema)">
 	<div class="view-header">
 		<h1>Schema Detail</h1>
+
+		<md-button class="md-raised" ng-click="schemaDetail.deleteSchema(schemaDetail.schema.originalName)">
+			<i class="fa fa-times"></i> Delete Schema
+		</md-button>
 	</div>
 
 	<md-input-container class="md-block">
