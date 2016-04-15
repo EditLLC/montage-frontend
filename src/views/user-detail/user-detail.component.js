@@ -11,7 +11,9 @@
 
 	function userDetailController($stateParams, api, authService) {
 		var vm = this;
+
 		api.user.get($stateParams.user_id)
+			// .then(() => authService.getCurrentUser())
 			.then(user => vm.user = user);
 	}
 })(angular);
