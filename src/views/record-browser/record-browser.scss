@@ -13,8 +13,18 @@ $sidebar-width: 300px;
 		background: $white;
 	}
 
+	.help-text,
 	md-tabs {
 		margin-left: $sidebar-width;
+	}
+
+	.help-text h1 {
+		display: block;
+		text-align: center;
+		color: $gray-mid-light;
+		max-width: 750px;
+		margin: auto;
+		padding: $padding-large $padding-medium 0;
 	}
 
 	table {
