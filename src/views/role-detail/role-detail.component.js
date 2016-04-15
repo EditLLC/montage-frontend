@@ -9,13 +9,17 @@
 			controller: roleDetailController
 		});
 
-	function roleDetailController($stateParams, api) {
+	function roleDetailController($q, $stateParams, api) {
 		var vm = this;
 
-		// todo: the userList should come from role api once implemented
-		api.user.list().then(userList => vm.userList = userList);
+		var rolePromise = api.role.get($stateParams.roleName);
+		var userListPromise = api.user.list();
 
-		api.role.get($stateParams.roleName).then(role => vm.role = role);
+		$q.all([rolePromise, userListPromise])
+			.then(([role, userList]) => {
+				vm.role = role;
+				vm.userList = userList.filter(user => role.users.indexOf(user.id) !== -1);
+			});
 
 		// todo: implement
 		vm.editRole = function() {
