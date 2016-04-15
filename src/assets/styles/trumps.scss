@@ -19,6 +19,10 @@
 	background: $gray-mid !important;
 	color: $white !important;
 
+	&.info {
+		background: $info !important;
+	}
+
 	&.success {
 		background: $success !important;
 	}
