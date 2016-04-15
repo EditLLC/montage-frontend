@@ -27,7 +27,7 @@ gulp.task('make-build', function() {
 
 	return gulp.src(path.to.destination + 'index.html')
 		.pipe(useref({ searchPath: [path.to.destination] }))
-		.pipe(gulpif('app.js', ngAnnotate()))
+		.pipe(gulpif('static/app.js', ngAnnotate()))
 		.pipe(gulpif('*.js', uglify()))
 		.pipe(gulpif('*.css', cssmin({ keepSpecialComments: 0 })))
 		.pipe(gulpif('*.html', htmlmin(htmlminOptions)))
