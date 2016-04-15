@@ -57,7 +57,7 @@
 		vm.save = function({originalName, newName, fields}) {
 			vm.isSaving = true;
 
-			// Use `angular.copy()` to remove $$hashKey
+			// Use `angular.copy()` to remove `$$hashKey`
 			fields = angular.copy(fields);
 
 			// Remove the last field if it is empty
