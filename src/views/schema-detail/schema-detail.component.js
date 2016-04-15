@@ -62,7 +62,8 @@
 					.finally(() => vm.isSaving = false);
 			} else {
 				api.schema.create(newName, fields)
-					.then(() => $state.go('schema.detail', { schemaName: newName }));
+					.then(() => $state.go('schema.detail', { schemaName: newName }))
+					.catch(() => vm.status = 'error');
 			}
 		};
 
