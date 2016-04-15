@@ -1,0 +1,32 @@
+<div class="user-edit-view">
+	<md-content md-whiteframe="2"
+	            class="white-frame">
+		<h1>Edit User</h1>
+		<form action="create"
+		      class="create-form">
+			<md-content layout-gt-lg="row" layout-padding>
+				<div>
+					<md-input-container>
+						<label>User Full Name</label>
+						<input ng-model="full_name">
+					</md-input-container>
+					<md-input-container>
+						<label>Email</label>
+						<input ng-model="email"
+						       type="email">
+					</md-input-container>
+					<md-input-container>
+						<label>Password</label>
+						<input ng-model="password"
+						       type="text">
+					</md-input-container>
+				</div>
+			</md-content>
+			<md-button class="md-primary  md-raised create-btn pull-right"
+			           ng-click="userEdit.editUser">
+				Edit User
+			</md-button>
+
+		</form>
+	</md-content>
+</div>

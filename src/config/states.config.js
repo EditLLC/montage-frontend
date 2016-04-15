@@ -143,5 +143,9 @@
 				url: '/users',
 				template: '<user-list />'
 			})
+			.state('user.edit', {
+				url: '/users/edit/:user_id',
+				template: '<user-edit />'
+			})
 	}
 })(angular);
