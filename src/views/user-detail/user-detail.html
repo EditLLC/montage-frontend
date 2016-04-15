@@ -1,16 +1,16 @@
 <div class="user-detail-view view-frame" md-whiteframe="2">
 	<div class="header">
-		<img ng-src="{{ userDetail.user.photo }}">
+		<img ng-src="{{ userDetail.retrieveUser.photo }}">
 
 		<h1>
-			{{ userDetail.user.full_name }}
-			<small>{{ userDetail.user.email }}</small>
+			{{ userDetail.retrieveUser.full_name }}
+			<small>{{ userDetail.retrieveUser.email }}</small>
 		</h1>
 	</div>
 
 	<h2>Your Token</h2>
-	<div class="token">{{ userDetail.user.token }}</div>
+	<div class="token">{{ userDetail.retrieveUser.token }}</div>
 
 	<h2>Permissions</h2>
-	<permissions-table permissions="userDetail.user.permissions"></permissions-table>
+	<permissions-table permissions="userDetail.retrieveUser.permissions"></permissions-table>
 </div>

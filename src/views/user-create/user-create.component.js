@@ -17,9 +17,8 @@
 			api.user.create(full_name, email, password)
 				.then(user => vm.newUser = user)
 				.then(vm.success = true)
-				.finally($state.go('user.edit'));
+				// .finally($state.go('user.edit, {newUser.user_id: user.id}'));
 		}
-
 	}
 })(angular);
 

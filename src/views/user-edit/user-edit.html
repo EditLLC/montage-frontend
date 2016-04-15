@@ -8,25 +8,24 @@
 				<div>
 					<md-input-container>
 						<label>User Full Name</label>
-						<input ng-model="full_name">
+						<input ng-model="userEdit.editUser.full_name">
 					</md-input-container>
 					<md-input-container>
 						<label>Email</label>
-						<input ng-model="email"
+						<input ng-model="userEdit.editUser.email"
 						       type="email">
 					</md-input-container>
 					<md-input-container>
-						<label>Password</label>
-						<input ng-model="password"
+						<label>New Password</label>
+						<input ng-model="userEdit.editUser.password"
 						       type="text">
 					</md-input-container>
 				</div>
 			</md-content>
 			<md-button class="md-primary  md-raised create-btn pull-right"
-			           ng-click="userEdit.editUser">
+			           ng-click="userEdit.editUser.updateUser(full_name, email, password)">
 				Edit User
 			</md-button>
-
 		</form>
 	</md-content>
 </div>

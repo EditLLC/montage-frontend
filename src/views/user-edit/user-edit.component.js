@@ -10,10 +10,14 @@
 		});
 	function userEditController($stateParams, api, authService) {
 		var vm = this;
+		vm.updateUser = updateUser;
 
-		vm.editUser = function (user_id, full_name, email, password) {
-			api.user.update($stateParams.user_id, full_name, email, password)
-				.then(user => vm.updatedUser = user);
+		api.user.get($stateParams.user_id)
+			.then(user => vm.editUser = user);
+		
+		function updateUser(full_name, email, password) {
+			debugger
+			api.user.update(full_name, email, password)
 		}
 	}
 })(angular)

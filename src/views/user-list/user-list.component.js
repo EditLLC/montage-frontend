@@ -18,6 +18,8 @@
 		vm.confirmRemove = function (id) {
 			modalHelper.confirmDelete(id)
 				.then(() => api.user.remove(id))
+				.then(api.user.list())
+				// .then(userList => vm.userList = userList);
 		};
 	}
 })(angular);

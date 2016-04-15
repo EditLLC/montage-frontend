@@ -14,6 +14,6 @@
 
 		api.user.get($stateParams.user_id)
 			// .then(() => authService.getCurrentUser())
-			.then(user => vm.user = user);
+			.then(user => vm.retrieveUser = user);
 	}
 })(angular);
