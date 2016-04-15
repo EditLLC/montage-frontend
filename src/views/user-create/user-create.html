@@ -1,5 +1,5 @@
 <div class="user-create-view">
-	<md-content md-whiteframe="2" class="white-frame">
+	<md-content md-whiteframe="2" class="white-frame" ng-hide="userCreate.success">
 		<h1>Create User</h1>
 		<form action="create"
 		      class="create-form">
@@ -21,15 +21,6 @@
 					</md-input-container>
 				</div>
 			</md-content>
-			<!--<input type="text"-->
-			       <!--ng-model="full_name"-->
-			       <!--placeholder="User Full Name">-->
-			<!--<input type="text"-->
-			       <!--ng-model="email"-->
-			       <!--placeholder="User Email">-->
-			<!--<input type="password"-->
-			       <!--ng-model="password"-->
-			       <!--placeholder="Password">-->
 			<md-button class="md-primary  md-raised create-btn pull-right"
 			           ng-click="userCreate.createUser(full_name, email, password)">
 				Create User
