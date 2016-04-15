@@ -82,6 +82,10 @@
 			}
 		};
 
+		vm.removeField = function(index) {
+			vm.schema.fields.splice(index, 1);
+		};
+
 		vm.deleteSchema = function(schemaName) {
 			modalHelper.confirmDelete('schema')
 				.then(() => api.schema.remove(schemaName))

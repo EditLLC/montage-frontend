@@ -35,7 +35,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="field in schemaDetail.schema.fields">
+			<tr ng-repeat="(index, field) in schemaDetail.schema.fields">
 				<td>
 					<md-input-container>
 						<input type="text" ng-model="field.name">
@@ -57,7 +57,9 @@
 
 				<td class="text-center"><md-checkbox ng-model="field.required"></md-checkbox></td>
 				<td class="text-center"><md-checkbox ng-model="field.indexed"></md-checkbox></td>
-				<td class="text-center"><i class="fa fa-times"></i></td>
+				<td class="text-center">
+					<a ng-click="schemaDetail.removeField(index)"><i class="fa fa-times"></i></a>
+				</td>
 			</tr>
 		</tbody>
 	</table>
