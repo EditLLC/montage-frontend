@@ -9,16 +9,13 @@
 			controller: userCreateController
 		});
 
-	function userCreateController(api, $state) {
-		var vm = this;
-		vm.success = false;
+		function userCreateController(api, $state) {
+			var vm = this;
 
-		vm.createUser = function (full_name, email, password) {
-			api.user.create(full_name, email, password)
-				.then(user => vm.newUser = user)
-				.then(vm.success = true)
-				// .finally($state.go('user.edit, {newUser.user_id: user.id}'));
-		}
-	}
-})(angular);
-
+			vm.createUser = function (user_id, full_name, email, password) {
+				api.user.create(user_id, full_name, email, password)
+					.then((user) => vm.newUser = user)
+					.then((user) => $state.go('user.edit', ({ user_id: user.id })));
+				}
+			}
+	})(angular)
