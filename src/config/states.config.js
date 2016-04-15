@@ -105,7 +105,7 @@
 			})
 			.state('schema.create', {
 				url: '/schemas/create',
-				template: '<schema-create />'
+				template: '<schema-detail />'
 			})
 			.state('schema.detail', {
 				url: '/schemas/:schemaName',
