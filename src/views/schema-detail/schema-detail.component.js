@@ -9,7 +9,7 @@
 			controller: schemaDetailController
 		});
 
-	function schemaDetailController(api, $stateParams, $state, modalHelper) {
+	function schemaDetailController($scope, api, $stateParams, $state, modalHelper) {
 		var vm = this;
 
 		if($stateParams.schemaName) {
@@ -27,6 +27,21 @@
 				fields       : schema.fields
 			};
 		}
+
+		$scope.$watch(() => {
+			return vm.schema ? vm.schema.fields : null;
+		}, () => {
+			if(!vm.schema || !vm.schema.fields) { return; }
+
+			var fields = vm.schema.fields;
+
+			// Note: use `angular.copy()` to remove `$$hashKey`
+			var lastField = angular.copy(fields[fields.length - 1]);
+
+			if(Object.keys(lastField).length) {
+				fields.push({});
+			}
+		}, true);
 
 		vm.datatypeGroups = [{
 			name: 'Primitives',
