@@ -36,7 +36,7 @@
 		}
 
 		function login(username, password) {
-			var client = new montage.Client(MONTAGE_SUBDOMAIN, null, MONTAGE_HOST);
+			var client = new montage.Client(MONTAGE_PROJECT, null, MONTAGE_HOST);
 
 			return client.authenticate(username, password)
 				.then(response => {

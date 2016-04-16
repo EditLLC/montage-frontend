@@ -24,18 +24,18 @@
 
 	<!-- build:remove -->
 	<script>
-		const DEV_SUBDOMAIN = 'testco';
+		const DEV_PROJECT = 'testco';
 		const DEV_HOST = 'dev.montagehot.club';
 	</script>
 	<!-- endbuild -->
 
 	<script>
 		try{
-			window.MONTAGE_SUBDOMAIN = DEV_SUBDOMAIN;
+			window.MONTAGE_PROJECT = DEV_SUBDOMAIN;
 			window.MONTAGE_HOST = DEV_HOST;
 		} catch(error) {
 			var hostnameParts = window.location.hostname.split('.');
-			window.MONTAGE_SUBDOMAIN = hostnameParts.shift();
+			window.MONTAGE_PROJECT = hostnameParts.shift();
 			window.MONTAGE_HOST = hostnameParts.join('.');
 		}
 	</script>
