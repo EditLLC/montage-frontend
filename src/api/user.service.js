@@ -31,14 +31,13 @@
 				.then(montageHelper.returnData);
 		}
 
-		function update(full_name, email, password) {
+		function update(user_id, full_name, email, password) {
 			return montageHelper.getClient().users.update(user_id, full_name, email, password)
 				.then(montageHelper.returnData);
 		}
 
 		function remove(id) {
 			return montageHelper.getClient().users.remove(id)
-				// .then(montageHelper.returnData);
 		}
 	}
 })(angular);
