@@ -46,7 +46,7 @@
 			schema.fields.unshift({
 				name: "id",
 				datatype: "text",
-				indexed: true,
+				index: true,
 				required: true
 			});
 

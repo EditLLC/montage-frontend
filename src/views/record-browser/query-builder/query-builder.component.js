@@ -40,7 +40,7 @@
 
 			vm.schemaDetails = {
 				fields: schema.fields,
-				indices: schema.fields.filter(field => field.indexed)
+				indices: schema.fields.filter(field => field.index)
 			};
 		};
 
