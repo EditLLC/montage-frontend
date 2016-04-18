@@ -2,30 +2,30 @@
 	<md-content md-whiteframe="2"
 	            class="white-frame">
 		<h1>Edit User</h1>
-		<form action="create"
-		      class="create-form">
-			<md-content layout-gt-lg="row" layout-padding>
-				<div>
+		<md-content class="edit-body" layout-gt-lg="row" layout-padding>
+			<div>
+				<img ng-src="{{ editUser.editUser.photo }}">
+				<form action="create"
+				      class="create-form">
 					<md-input-container>
 						<label>User Full Name</label>
-						<input ng-model="userEdit.editUser.full_name">
+						<input ng-model="editUser.editUser.full_name">
 					</md-input-container>
 					<md-input-container>
 						<label>Email</label>
-						<input ng-model="userEdit.editUser.email"
+						<input ng-model="editUser.editUser.email"
 						       type="email">
 					</md-input-container>
-					<md-input-container>
-						<label>New Password</label>
-						<input ng-model="userEdit.editUser.password"
-						       type="text">
-					</md-input-container>
-				</div>
-			</md-content>
-			<md-button class="md-primary  md-raised create-btn pull-right"
-			           ng-click="userEdit.editUser.updateUser(full_name, email, password)">
+					<h2>Your Token</h2>
+					<div class="token">{{ editUser.editUser.token }}</div>
+				</form>
+			</div>
+			<h2>Permissions</h2>
+			<permissions-table permissions="userDetail.retrieveUser.permissions"></permissions-table>
+			<md-button class="md-primary md-raised create-btn pull-right"
+			           ng-click="editUser.updateUser(editUser.editUser.id, editUser.editUser.full_name, editUser.editUser.email)">
 				Edit User
 			</md-button>
-		</form>
+		</md-content>
 	</md-content>
 </div>

@@ -5,19 +5,21 @@
 		.module('montage')
 		.component('userEdit', {
 			templateUrl: 'views/user-edit/user-edit.html',
-			controllerAs: 'userEdit',
-			controller: userEditController
+			controllerAs: 'editUser',
+			controller: editUserController
 		});
-	function userEditController($stateParams, api, authService) {
+
+	function editUserController($stateParams, api, $state) {
 		var vm = this;
+		vm.user_id = $stateParams.user_id;
 		vm.updateUser = updateUser;
 
 		api.user.get($stateParams.user_id)
-			.then(user => vm.editUser = user);
-		
-		function updateUser(full_name, email, password) {
-			debugger
-			api.user.update(full_name, email, password)
+			.then((user) => vm.editUser = user);
+
+		function updateUser(id, full_name, email, password) {
+			api.user.update(id, full_name, email, password)
+				.then(() => $state.go('user.list'));
 		}
 	}
 })(angular)

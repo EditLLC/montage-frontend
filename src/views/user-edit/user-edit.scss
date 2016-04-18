@@ -1,9 +1,33 @@
 .user-edit-view {
 
-	md-content {
-		width:70%;
-		margin-left:15%;
-		padding:2% 1%;
+	h1, img {
+		float: left;
+	}
+
+	.edit-body {
+		clear: both;
+	}
+	
+	img {
+		margin-right: $padding-medium;
+		height: 86px;
+		width: 86px;
+	}
+
+	.white-frame {
+		padding: $padding $padding-medium;
+		margin: 40px 80px;
+	}
+
+	small {
+		display: block;
+		color: $gray-mid;
+	}
+
+	.token {
+		padding: $padding $padding;
+		margin-bottom: $padding-medium;
+		color: $gray-medium;
 	}
 
 	.md-button.md-primary {
