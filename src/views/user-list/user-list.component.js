@@ -9,17 +9,15 @@
 			controller: userListController
 		});
 
-	function userListController(api, modalHelper) {
+	function userListController(api, modalHelper, $state) {
 		var vm = this;
-
-		api.user.list()
-			.then(userList => vm.userList = userList);
+		vm.userList = api.user.list()
+			.then((userList) => vm.userList = userList);
 
 		vm.confirmRemove = function (id) {
-			modalHelper.confirmDelete(id)
+ 			modalHelper.confirmDelete(id)
 				.then(() => api.user.remove(id))
-				.then(api.user.list())
-				// .then(userList => vm.userList = userList);
+				.then(() => $state.go("user.list", {}, {reload: true}));
 		};
 	}
 })(angular);
