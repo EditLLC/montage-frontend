@@ -5,7 +5,7 @@
 		.module('montage')
 		.factory('roleService', roleService);
 
-	function roleService(montageHelper) {
+	function roleService($q, montageHelper) {
 		return {
 			create,
 			get,
@@ -22,8 +22,12 @@
 		}
 
 		function get(roleName) {
-			return montageHelper.getClient().roles.get(roleName)
-				.then(montageHelper.returnData);
+			return montageHelper.getClient().roles.get(roleName);
+		}
+
+		// TODO: implement
+		function get(role) {
+			return montageHelper.getClient().roles.get(role)
 		}
 
 		function list() {
