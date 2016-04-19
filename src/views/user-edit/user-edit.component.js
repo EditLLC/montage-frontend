@@ -9,7 +9,7 @@
 			controller: editUserController
 		});
 
-	function editUserController($stateParams, api, $state) {
+	function editUserController($stateParams, api, $state, authService) {
 		var vm = this;
 		vm.user_id = $stateParams.user_id;
 		vm.updateUser = updateUser;
@@ -21,5 +21,9 @@
 			api.user.update(id, full_name, email, password)
 				.then(() => $state.go('user.list'));
 		}
+
+		api.user.get($stateParams.user_id)
+			.then(() => authService.getCurrentUser())
+			.then(user => vm.retrieveUser = user);
 	}
 })(angular)
