@@ -9,6 +9,9 @@
 			'ngMontage',
 			'ngMaterial',
 			'ngPrettyJson',
-			'ui.router'
-		]);
+			'ui.router',
+			'angular-loading-bar'
+			]).config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+					cfpLoadingBarProvider.includeSpinner = false
+				}])
 })(angular);
