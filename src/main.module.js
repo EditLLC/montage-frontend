@@ -9,7 +9,6 @@
 			'ngMontage',
 			'ngMaterial',
 			'ngPrettyJson',
-			'ngProgress',
 			'ui.router'
 		]);
 })(angular);
