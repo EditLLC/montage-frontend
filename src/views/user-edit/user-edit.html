@@ -1,12 +1,14 @@
 <div class="user-edit-view">
 	<md-content md-whiteframe="2"
 	            class="white-frame">
-		<h1>Edit User</h1>
+		<h1>{{ editUser.editUser.full_name }}
+		<small>{{ editUser.editUser.email }}</small>
+		</h1>
 		<md-content class="edit-body" layout-gt-lg="row" layout-padding>
 			<div>
 				<img ng-src="{{ editUser.editUser.photo }}">
 				<form action="create"
-				      class="create-form">
+				      class="edit-form">
 					<md-input-container>
 						<label>User Full Name</label>
 						<input ng-model="editUser.editUser.full_name">
@@ -17,12 +19,13 @@
 						       type="email">
 					</md-input-container>
 					<h2>Your Token</h2>
-					<div class="token">{{ editUser.editUser.token }}</div>
+					<div class="token">{{ editUser.retrieveUser.token }}</div>
 				</form>
 			</div>
 			<h2>Permissions</h2>
-			<permissions-table permissions="userDetail.retrieveUser.permissions"></permissions-table>
+			<permissions-table permissions="editUser.retrieveUser.permissions"></permissions-table>
 			<md-button class="md-primary md-raised create-btn pull-right"
+			           type="submit"
 			           ng-click="editUser.updateUser(editUser.editUser.id, editUser.editUser.full_name, editUser.editUser.email)">
 				Edit User
 			</md-button>
