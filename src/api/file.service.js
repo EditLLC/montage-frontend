@@ -33,7 +33,7 @@
 		}
 
 		function uploadFile(file) {
-			var fileUri = `https://${MONTAGE_PROJECT}.${MONTAGE_HOST}/api/v1/files/`;
+			var fileUri = `${MONTAGE_PROTOCOL}://${MONTAGE_PROJECT}.${MONTAGE_HOST}/api/v1/files/`;
 			var authHeader = { Authorization: 'Token ' + authService.getCurrentUser().token };
 
 			return Upload.upload({

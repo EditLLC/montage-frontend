@@ -37,6 +37,7 @@
 
 		function login(username, password) {
 			var client = new montage.Client(MONTAGE_PROJECT);
+			client.protocol = MONTAGE_PROTOCOL;
 			client.host = MONTAGE_HOST;
 
 			return client.authenticate(username, password)
