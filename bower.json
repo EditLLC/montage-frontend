@@ -8,7 +8,7 @@
   "dependencies": {
     "angular": "^1.5.0",
     "angular-ui-router": "^0.2.18",
-    "angular-montage": "https://github.com/EditLLC/angular-montage.git#3a87db0dd744661f8585e38ac2f588e02c2c2680",
+    "angular-montage": "https://github.com/EditLLC/angular-montage.git#209fb6dc9e6499c9cce002c7c472b035ceedceff",
     "normalize-css": "^3.0.3",
     "angular-material": "^1.0.5",
     "angular-cookies": "^1.5.0",
