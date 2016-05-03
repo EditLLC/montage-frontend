@@ -15,7 +15,10 @@
 
 		function getClient() {
 			var currentUser = authService.getCurrentUser();
-			return new montage.Client(MONTAGE_PROJECT, currentUser.token, MONTAGE_HOST);
+			var client = new montage.Client(MONTAGE_PROJECT, currentUser.token);
+			client.host = MONTAGE_HOST;
+
+			return client;
 		}
 
 		function returnData(response) {
