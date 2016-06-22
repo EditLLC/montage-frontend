@@ -37,10 +37,6 @@ $sidebar-width: 300px;
 		top: 48px !important;
 	}
 
-	md-tab-content {
-		overflow: auto !important;
-	}
-
 	.help-text h1 {
 		display: block;
 		text-align: center;
@@ -51,11 +47,22 @@ $sidebar-width: 300px;
 	}
 
 	table {
-		margin-top: 5px
+		margin-top: 5px;
+		border-right: solid 30px rgba(0, 0, 0, 0); /* added transparent border to make up for material design table not accepting padding */
+		overflow: hidden;
 	}
 
   	.scroll-table{
-	  	overflow-x: auto;
+		overflow-x: auto;
+		position:absolute;
+		top:0;
+		left:0;
+		bottom:0;
+		right:0;
+	}
+
+  	.table-padding{
+		border-right: solid 20px rgba(0, 0, 0, 0);
 	}
 
 
@@ -80,7 +87,6 @@ $sidebar-width: 300px;
 			$yellow: #F9A825;
 			$indigo: #283593;
 			$lime: #AFB42B;
-
 			&.number { color: $teal; }
 			&.boolean { color: $deep-orange; }
 			&.key { color: $primary; }
