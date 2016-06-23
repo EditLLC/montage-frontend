@@ -5,12 +5,19 @@
 		.module('montage')
 		.factory('documentService', documentService);
 
-	function documentService($http, authService) {
+	function documentService($http, authService, montageHelper) {
+		// console.log(montageHelper.getClient());
+
 		var service = {
-			list
+			list,
+			remove
 		};
 
 		////////////
+
+		function remove(schema, id) {
+			return montageHelper.getClient().documents.remove(schema, id);
+		}
 
 		// TODO: reset these on login
 		var apiUri = `https://${authService.getCurrentUser().domain}.mntge.com/api/v1/schemas/`;

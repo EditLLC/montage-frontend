@@ -44,6 +44,8 @@
 			};
 		};
 
+
+
 		vm.showFilterForm = () => vm.isAddingFilter = true;
 		vm.cancelFilter = () => vm.isAddingFilter = false;
 
@@ -85,6 +87,8 @@
 			if(!schema) return;
 
 			var query = new montage.Query(schema);
+
+			$scope.schemaName = schema;
 
 			if(filterGroups) {
 				let filters = [];
