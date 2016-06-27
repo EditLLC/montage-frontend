@@ -12,7 +12,7 @@
 	<tr ng-repeat="row in tableData.rows">
 		<td class="actions">
 			<div class="delete-record-button" aria-label="delete record button" ng-click="showConfirm(row)">
-				<i class="fa fa-times delete-record-button"></i>
+				<i class="fa fa-times"></i>
 			</div>
 		</td>
 		<td ng-if="!tableData.isJson(cell)" ng-repeat="cell in ::row track by $index">
