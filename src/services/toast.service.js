@@ -11,9 +11,10 @@
 		}
 
 		function simple(message){
-			$mdToast.show($mdToast.simple()
-			.textContent(message)
-			.action("OK"));
+			$mdToast.show(
+				$mdToast.simple()
+				.textContent(message)
+				.action("OK"));
 		}
 	}
 })(angular);
