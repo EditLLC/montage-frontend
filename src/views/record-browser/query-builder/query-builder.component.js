@@ -86,8 +86,6 @@
 
 			var query = new montage.Query(schema);
 
-			$scope.schemaName = schema;
-
 			if(filterGroups) {
 				let filters = [];
 
