@@ -80,7 +80,7 @@
 					// deletes row from database but not the view
 					api.document.remove(vm.schemaName, row_id)
 					// deletes row from view but not the database
-						.then(function (response) {
+						.then(function() {
 							var row_idIndex = vm.rows.indexOf(row);
 							if (row_idIndex > -1) {
 								vm.rows.splice(row_idIndex, 1);
