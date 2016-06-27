@@ -91,10 +91,6 @@
 							console.error("Error during delete: " + error);
 							toast.simple("There was an error deleting the record.");
 						});
-				})
-				.catch(function() {
-					// If user clicks cancel button this happens
-					toast.simple("Delete record cancelled.");
 				});
 		}
 	}
