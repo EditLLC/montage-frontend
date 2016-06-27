@@ -6,7 +6,6 @@
 		.factory('documentService', documentService);
 
 	function documentService($http, authService, montageHelper) {
-		// console.log(montageHelper.getClient());
 
 		var service = {
 			list,
