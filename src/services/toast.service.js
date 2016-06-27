@@ -8,7 +8,7 @@
 	function toastService($mdToast) {
 		return {
 			simple
-		}
+		};
 
 		function simple(message){
 			$mdToast.show(
