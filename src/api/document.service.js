@@ -14,10 +14,6 @@
 
 		////////////
 
-		function remove(schema, id) {
-			return montageHelper.getClient().documents.remove(schema, id);
-		}
-
 		// TODO: reset these on login
 		var apiUri = `https://${authService.getCurrentUser().domain}.mntge.com/api/v1/schemas/`;
 		var authHeader = { Authorization: 'Token ' + authService.getCurrentUser().token };
@@ -45,6 +41,10 @@
 			};
 
 			return $http.get(documentListUri, config).then(response => response.data.data);
+		}
+
+		function remove(schema, id) {
+			return montageHelper.getClient().documents.remove(schema, id);
 		}
 
 		return service;
