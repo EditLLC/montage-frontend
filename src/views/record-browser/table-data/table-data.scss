@@ -3,7 +3,7 @@
 .table-data {
 	thead {
 		/* remove formatting for delete button column header cell */
-		th:first-child {
+		.actions {
 			color: transparent;
 			background: transparent;
 			border-bottom: 0;
