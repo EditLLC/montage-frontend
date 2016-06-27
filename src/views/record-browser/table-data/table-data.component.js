@@ -14,7 +14,7 @@
 			}
 		});
 
-	function tableDataController($scope, $mdDialog, modalHelper, api, toast) {
+	function tableDataController($scope, modalHelper, api, toast) {
 		var vm = this;
 		vm.columns = [];
 		vm.rows = [];
