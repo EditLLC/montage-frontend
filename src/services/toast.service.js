@@ -7,7 +7,7 @@
 
 	function toastService($mdToast) {
 		return {
-	  	simple
+			simple
 		}
 
 		function simple(message){
