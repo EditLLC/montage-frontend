@@ -27,15 +27,14 @@
 	}
 
 	/* format actions cell */
-	td:first-child {
+	.actions {
 		padding: 0px;
 		border-bottom: transparent;
 		border-top: 0px;
 		text-align: center;
-	}
-
-	td:first-child:hover {
 		background: $gray-light;
+		/* fixes bug in table if there is no table data */
+		width: 30px;
 	}
 
 	/* format delete button icon */
