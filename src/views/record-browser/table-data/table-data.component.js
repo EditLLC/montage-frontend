@@ -79,7 +79,7 @@
 				.then(function() {
 					// deletes row from database but not the view
 					api.document.remove(vm.schemaName, row_id)
-					// deletes row from view but not the database
+						// deletes row from view but not the database
 						.then(function() {
 							var row_idIndex = vm.rows.indexOf(row);
 							if (row_idIndex > -1) {
@@ -91,7 +91,8 @@
 							console.error("Error during delete: " + error);
 							toast.simple("There was an error deleting the record.");
 						});
-				}, function() {
+				})
+				.catch(function() {
 					// If user clicks cancel button this happens
 					toast.simple("Delete record cancelled.");
 				});
