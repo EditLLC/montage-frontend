@@ -26,7 +26,6 @@
 		};
 
 		function getSchema(schemaName) {
-			// $scope.schemaName = vm.schemaList.filter(schema => schema.name === schemaName)[0];
 			return vm.schemaList.filter(schema => schema.name === schemaName)[0];
 		}
 	}
