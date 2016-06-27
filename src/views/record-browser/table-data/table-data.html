@@ -9,9 +9,9 @@
 	</tr>
 	</thead>
 	<tbody>
-	<tr ng-repeat="row in tableData.rows" ng-mouseenter="showDeleteButton = true" ng-mouseleave="showDeleteButton = false">
+	<tr ng-repeat="row in tableData.rows">
 		<td class="actions">
-			<div class="delete-record-button" aria-label="delete record button" ng-show="showDeleteButton" ng-click="showConfirm(row)">
+			<div class="delete-record-button" aria-label="delete record button" ng-click="showConfirm(row)">
 				<i class="fa fa-times delete-record-button"></i>
 			</div>
 		</td>

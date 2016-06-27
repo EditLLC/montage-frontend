@@ -16,14 +16,30 @@
 		}
 	}
 
-	/* remove border from row, so it can be applied per cell */
 	tbody {
 		tr {
+			/* remove border from row, so it can be applied per cell */
 			border-bottom: 0;
+			&:hover {
+				/* format delete button icon */
+				.delete-record-button {
+					display: block;
+				}
+				.actions {
+					background: $gray-light;
+					border-bottom: 1px solid $gray-light;
+				}
+			}
 		}
 		td {
+			/* remove border from row, so it can be applied per cell */
 			border-bottom: 1px solid $gray-light;
 		}
+	}
+
+	tr > th:first-child {
+		/* fixes bug in table if there is no table data */
+		min-width: 30px;
 	}
 
 	/* format actions cell */
@@ -32,12 +48,12 @@
 		border-bottom: transparent;
 		border-top: 0;
 		text-align: center;
-		background: $gray-light;
-		/* fixes bug in table if there is no table data */
-		width: 30px;
 	}
 
-	/* format delete button icon */
+	.delete-record-button {
+		display: none;
+	}
+
 	.fa {
 		color: $gray-mid !important;
 	}
