@@ -85,7 +85,6 @@
 							if (row_idIndex > -1) {
 								vm.rows.splice(row_idIndex, 1);
 							}
-							// see src/services/toast.service.js
 							toast.simple("Record deleted successfully");
 						})
 						.catch(function (error) {
