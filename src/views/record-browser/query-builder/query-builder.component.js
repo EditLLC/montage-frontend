@@ -44,8 +44,6 @@
 			};
 		};
 
-
-
 		vm.showFilterForm = () => vm.isAddingFilter = true;
 		vm.cancelFilter = () => vm.isAddingFilter = false;
 
