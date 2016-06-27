@@ -74,29 +74,28 @@
 
 		// Modal that pops up when clicking on delete row icon
 		$scope.showConfirm = function(row) {
-			var result = modalHelper.confirmDelete('record');
 			var row_id = row[0];
-			result.then(function() {
-				// deletes row from database but not the view
-				api.document.remove(vm.schemaName, row_id)
-				// deletes row from view but not the database
-					.then(function (response) {
-						var row_idIndex = vm.rows.indexOf(row);
-						if (row_idIndex > -1) {
-							vm.rows.splice(row_idIndex, 1);
-						}
-						// see src/services/toast.service.js
-						toast.simple("Record deleted successfully");
-					})
-					.catch(function (error) {
-						console.error("Error during delete: " + error);
-						toast.simple("There was an error deleting the record.");
-					});
-			}
-			, function() {
-				// If user clicks cancel button this happens
-				toast.simple("Delete record cancelled.");
-			});
+			modalHelper.confirmDelete('record')
+				.then(function() {
+					// deletes row from database but not the view
+					api.document.remove(vm.schemaName, row_id)
+					// deletes row from view but not the database
+						.then(function (response) {
+							var row_idIndex = vm.rows.indexOf(row);
+							if (row_idIndex > -1) {
+								vm.rows.splice(row_idIndex, 1);
+							}
+							// see src/services/toast.service.js
+							toast.simple("Record deleted successfully");
+						})
+						.catch(function (error) {
+							console.error("Error during delete: " + error);
+							toast.simple("There was an error deleting the record.");
+						});
+				}, function() {
+					// If user clicks cancel button this happens
+					toast.simple("Delete record cancelled.");
+				});
 		}
 	}
 })(angular);
