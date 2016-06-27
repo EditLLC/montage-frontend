@@ -71,6 +71,7 @@ $sidebar-width: 300px;
 			border-bottom: 0px;
 			border-left: 0px;
 		}
+
 		/* aligns column seperator line for the 2nd column header cell */
 		th:nth-child(2) {
 			border-left: $blue-gray-light;
@@ -103,9 +104,11 @@ $sidebar-width: 300px;
 	.fa {
 		color: $gray-mid !important;
 	}
+
 	.actions:hover .fa {
 		color: $gray-dark !important;
 	}
+
 	.actions:active .fa {
 		color: $blue !important;
 		border: transparent;
