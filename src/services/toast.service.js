@@ -14,7 +14,8 @@
 			$mdToast.show(
 				$mdToast.simple()
 				.textContent(message)
-				.action("OK"));
+				.action("OK")
+			);
 		}
 	}
 })(angular);
