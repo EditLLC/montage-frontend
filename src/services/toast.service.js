@@ -13,7 +13,7 @@
 		function simple(message){
 			$mdToast.show($mdToast.simple()
 			.textContent(message)
-			.action("Dismiss"));
+			.action("OK"));
 		}
 	}
 })(angular);
