@@ -21,8 +21,6 @@ thead {
 
 tbody {
 	tr {
-		border-bottom: 1px solid $gray-light;
-
 		&:nth-child(even) {
 			background-color: $gray-lightest;
 		}
@@ -38,6 +36,7 @@ th, td {
 	text-align: left;
 	line-height: 40px;
 	padding: 0 15px;
+	border-bottom: 1px solid $gray-light;
 
 	&:first-child,
 	&.actions {

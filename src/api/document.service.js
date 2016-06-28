@@ -5,9 +5,11 @@
 		.module('montage')
 		.factory('documentService', documentService);
 
-	function documentService($http, authService) {
+	function documentService($http, authService, montageHelper) {
+
 		var service = {
-			list
+			list,
+			remove
 		};
 
 		////////////
@@ -39,6 +41,10 @@
 			};
 
 			return $http.get(documentListUri, config).then(response => response.data.data);
+		}
+
+		function remove(schema, id) {
+			return montageHelper.getClient().documents.remove(schema, id);
 		}
 
 		return service;

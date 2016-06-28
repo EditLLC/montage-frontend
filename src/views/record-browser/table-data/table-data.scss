@@ -1,0 +1,66 @@
+@import '../../static/styles/variables';
+
+.table-data {
+	thead {
+		/* remove formatting for delete button column header cell */
+		.actions {
+			color: transparent;
+			background: transparent;
+			border-bottom: 0;
+			border-left: 0;
+		}
+
+		/* aligns column separator line for the 2nd column header cell */
+		th:nth-child(2) {
+			border-left: $blue-gray-light;
+		}
+	}
+
+	tbody {
+		tr {
+			&:hover {
+				/* format delete button icon */
+				.delete-record-button {
+					display: block;
+				}
+				.actions {
+					background: $gray-light;
+					border-bottom: 1px solid $gray-light;
+				}
+			}
+		}
+	}
+
+	/* format actions cell */
+	.actions {
+		padding: 0;
+		border-bottom: transparent;
+		border-top: 0;
+		text-align: center;
+		width: 30px;
+		display: block;
+		border-top-left-radius: 3px;
+		border-bottom-left-radius: 3px;
+	}
+
+	.fa {
+		color: $gray-mid !important;
+	}
+
+	.actions:hover .fa {
+		color: $gray-dark !important;
+	}
+
+	.actions:active {
+		.fa {
+			color: $blue !important;
+		}
+	}
+
+	/* not actually a button because of a bug */
+	.delete-record-button {
+		display: none;
+		outline: 0;
+		cursor: pointer;
+	}
+}
