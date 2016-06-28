@@ -18,8 +18,6 @@
 
 	tbody {
 		tr {
-			/* remove border from row, so it can be applied per cell */
-			border-bottom: 0;
 			&:hover {
 				/* format delete button icon */
 				.delete-record-button {
@@ -30,10 +28,6 @@
 					border-bottom: 1px solid $gray-light;
 				}
 			}
-		}
-		td {
-			/* remove border from row, so it can be applied per cell */
-			border-bottom: 1px solid $gray-light;
 		}
 	}
 
