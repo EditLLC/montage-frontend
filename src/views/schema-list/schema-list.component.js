@@ -9,8 +9,8 @@
 			controller: schemaListController
 		});
 
-	function schemaListController(api, authService) {
-		var vm = this;
+	function schemaListController($scope, api, authService) {
+		var vm = $scope;
 
 		api.schema.list(authService.getCurrentUser())
 			.then(schemaList => vm.schemaList = schemaList);
