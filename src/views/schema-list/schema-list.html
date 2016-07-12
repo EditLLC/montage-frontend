@@ -30,40 +30,23 @@
 		</md-button>
 	</div>
 
-	<md-input-container class="md-icon-float md-block">
-		<label>Search</label>
-		<md-icon md-font-icon="fa fa-search"></md-icon>
-		<input type="text" ng-model="schemaList.searchTerm">
-	</md-input-container>
-
-	<div ng-repeat="schema in schemaList.schemaList | filter:{ name: schemaList.searchTerm }">
-		<div class="schema-name">
-			<a ui-sref="schema.detail({ schemaName: schema.name })">
-				<h2>
-					{{ schema.name }}
-					<i class="fa fa-pencil"></i>
-				</h2>
-			</a>
-		</div>
-
-		<table>
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Type</th>
-					<th>Indexed</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="field in schema.fields">
-					<td>{{ field.name }}</td>
-					<td>{{ field.datatype }}</td>
-					<td>
-						<i ng-if="field.index" class="fa fa-check"></i>
-						<i ng-if="!field.index" class="fa fa-times"></i>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Type</th>
+				<th>Indexed</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="field in selectedSchema.fields">
+				<td>{{ field.name }}</td>
+				<td>{{ field.datatype }}</td>
+				<td>
+					<i ng-if="field.index" class="fa fa-check"></i>
+					<i ng-if="!field.index" class="fa fa-times"></i>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
