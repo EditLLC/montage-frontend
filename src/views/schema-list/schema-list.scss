@@ -1,6 +1,11 @@
 @import '../../static/styles/variables';
 
 .schema-list-view {
+		ul {
+			max-height: calc(100% - 70px);
+			width: 100%;
+			overflow: auto;
+		}
 	.fa-search {
 		line-height: 26px;
 		padding-top: 2px;
