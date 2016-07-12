@@ -3,6 +3,27 @@
 .schema-list-view {
 	margin-left: 272px;
 	background: transparent;
+
+	.sidenav-left {
+		width: 272px;
+		top: 60px;
+		bottom: 0;
+		left: 0;
+		position: fixed !important;
+		overflow: hidden;
+
+		.sidenav-toolbar {
+			overflow: hidden;
+			z-index: 9;
+			width: 100%;
+			background: #01579B;
+
+			& > * {
+				color: #fff;
+				max-height: 1.5em;
+				line-height: 1.5em;
+			}
+		}
 		ul {
 			max-height: calc(100% - 70px);
 			width: 100%;
