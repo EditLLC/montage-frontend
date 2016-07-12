@@ -8,7 +8,7 @@
 			controllerAs: 'queryBuilder',
 			controller: queryBuilderController,
 			bindings: {
-				onChange: '=',
+				onSubmit: '=',
 				schemaList: '='
 			}
 		});
