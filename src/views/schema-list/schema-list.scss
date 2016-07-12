@@ -1,6 +1,8 @@
 @import '../../static/styles/variables';
 
 .schema-list-view {
+	margin-left: 272px;
+	background: transparent;
 		ul {
 			max-height: calc(100% - 70px);
 			width: 100%;
