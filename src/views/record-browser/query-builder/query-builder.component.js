@@ -75,11 +75,11 @@
 			}
 		};
 
-		$scope.$watch(() => vm.query, query => {
+		vm.executeQuery = (query) => {
 			if(query && query.schema) {
 				vm.onSubmit(buildQuery(query));
 			}
-		}, true);
+		};
 
 		function buildQuery({ schema, filterGroups, order, limit, offset }) {
 			if(!schema) return;
