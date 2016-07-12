@@ -77,7 +77,7 @@
 
 		$scope.$watch(() => vm.query, query => {
 			if(query && query.schema) {
-				vm.onChange(buildQuery(query));
+				vm.onSubmit(buildQuery(query));
 			}
 		}, true);
 
