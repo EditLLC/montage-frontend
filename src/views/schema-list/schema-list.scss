@@ -8,6 +8,18 @@
 			width: 100%;
 			overflow: auto;
 		}
+
+		.md-button {
+			line-height: 40px;
+			max-height: 40px;
+			overflow: hidden;
+			text-align: left;
+			width: 100%;
+
+			&.active { background-color: rgba(158, 158, 158, 0.2); }
+		}
+	}
+
 	.fa-search {
 		line-height: 26px;
 		padding-top: 2px;
