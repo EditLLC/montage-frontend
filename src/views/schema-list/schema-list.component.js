@@ -12,7 +12,7 @@
 	function schemaListController($scope, api, authService) {
 		var vm = $scope;
 
-		vm.focusSelection = (schema) => {
+		vm.selectSchema = (schema) => {
 			vm.selectedSchema = schema;
 		};
 
