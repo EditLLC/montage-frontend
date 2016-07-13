@@ -8,7 +8,7 @@
 			controllerAs: 'queryBuilder',
 			controller: queryBuilderController,
 			bindings: {
-				onChange: '=',
+				onSubmit: '=',
 				schemaList: '='
 			}
 		});
@@ -75,13 +75,7 @@
 			}
 		};
 
-		$scope.$watch(() => vm.query, query => {
-			if(query && query.schema) {
-				vm.onChange(buildQuery(query));
-			}
-		}, true);
-
-		function buildQuery({ schema, filterGroups, order, limit, offset }) {
+		vm.buildQuery = ({ schema, filterGroups, order, limit, offset }) => {
 			if(!schema) return;
 
 			var query = new montage.Query(schema);
