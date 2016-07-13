@@ -18,7 +18,7 @@
 
 		api.schema.list(authService.getCurrentUser())
 			.then(schemaList => {
-				vm.schemaList = schemaList;
+				vm.schemaList = schemaList.sort((a, b) => a.name.localeCompare(b.name));
 				vm.selectSchema(schemaList[0]);
 			});
 	}
