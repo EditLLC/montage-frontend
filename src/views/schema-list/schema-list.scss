@@ -15,12 +15,11 @@
 			overflow: hidden;
 			width: 100%;
 			background: $blue;
-
-			& > * {
-				color: #fff;
-				max-height: 1.5em;
-				line-height: 1.5em;
-			}
+			color: #fff;
+			height: 64px;
+			line-height: 64px;
+			margin: 0;
+			padding: 0 20px;
 		}
 
 		ul {
