@@ -6,7 +6,7 @@
 		</div>
 		<ul>
 			<li ng-repeat="schema in schemaList">
-				<a class="md-button md-ink-ripple"
+				<a class="md-button md-ink-ripple ellipsis"
 				   aria-label="{{ schema.name }}"
 				   ng-class="{ 'active': schema === selectedSchema }"
 				   ng-click="selectSchema(schema)">
