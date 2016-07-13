@@ -7,10 +7,10 @@
 		<ul>
 			<li ng-repeat="schema in schemaList">
 				<a href="#"
-					 class="md-button md-ink-ripple"
-					 aria-label="{{ schema.name }}"
-					 ng-class="{ 'active': schema === selectedSchema }"
-					 ng-click="focusSelection(schema)">
+				   class="md-button md-ink-ripple"
+				   aria-label="{{ schema.name }}"
+				   ng-class="{ 'active': schema === selectedSchema }"
+				   ng-click="focusSelection(schema)">
 					{{ schema.name }}
 				</a>
 			</li>
