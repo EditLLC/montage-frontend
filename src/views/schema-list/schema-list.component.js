@@ -19,7 +19,7 @@
 		api.schema.list(authService.getCurrentUser())
 			.then(schemaList => {
 				vm.schemaList = schemaList;
-				vm.selectedSchema = schemaList[0];
+				vm.selectSchema(schemaList[0]);
 			});
 	}
 })(angular);
