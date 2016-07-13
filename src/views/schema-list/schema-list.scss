@@ -1,6 +1,8 @@
 @import '../../static/styles/variables';
 
 .schema-list-view {
+	$sidenav-toolbar-height: 64px;
+
 	margin-left: $sidebar-width;
 
 	.sidenav-left {
@@ -16,8 +18,8 @@
 			width: 100%;
 			background: $blue;
 			color: #fff;
-			height: 64px;
-			line-height: 64px;
+			height: $sidenav-toolbar-height;
+			line-height: $sidenav-toolbar-height;
 			margin: 0;
 			padding: 0 20px;
 		}
