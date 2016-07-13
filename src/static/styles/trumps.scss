@@ -14,6 +14,13 @@
 	text-align: center;
 }
 
+// Ellipsis
+.ellipsis {
+	overflow: hidden !important;
+	white-space: nowrap !important;
+	text-overflow: ellipsis !important;
+}
+
 // Messages
 .message {
 	display: block !important;
