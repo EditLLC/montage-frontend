@@ -25,8 +25,11 @@
 		}
 
 		ul {
-			max-height: calc(100% - 70px);
-			width: 100%;
+			position: absolute;
+			top: $sidenav-toolbar-height;
+			bottom: 0;
+			left: 0;
+			right: 0;
 			overflow: auto;
 		}
 
