@@ -14,11 +14,11 @@
 
 		vm.focusSelection = (schema) => {
 			vm.selectedSchema = schema;
-		}
+		};
 
 		api.schema.list(authService.getCurrentUser())
 			.then(schemaList => {
-				vm.schemaList = schemaList
+				vm.schemaList = schemaList;
 				vm.selectedSchema = schemaList[0];
 			});
 	}
