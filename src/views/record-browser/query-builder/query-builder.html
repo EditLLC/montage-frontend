@@ -129,6 +129,7 @@
 	</md-input-container>
 
 	<md-button class="md-raised md-primary"
+	           ng-disabled="!queryBuilder.query.schema"
 	           ng-click="queryBuilder.executeQuery(queryBuilder.query)">
 		Execute Query
 	</md-button>
