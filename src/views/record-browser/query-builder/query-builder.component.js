@@ -75,13 +75,7 @@
 			}
 		};
 
-		vm.executeQuery = (query) => {
-			if(query && query.schema) {
-				vm.onSubmit(buildQuery(query));
-			}
-		};
-
-		function buildQuery({ schema, filterGroups, order, limit, offset }) {
+		vm.buildQuery = ({ schema, filterGroups, order, limit, offset }) => {
 			if(!schema) return;
 
 			var query = new montage.Query(schema);
