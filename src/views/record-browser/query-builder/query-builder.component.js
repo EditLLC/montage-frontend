@@ -13,7 +13,7 @@
 			}
 		});
 
-	function queryBuilderController($scope, montage) {
+	function queryBuilderController(montage) {
 		var vm = this;
 
 		vm.operatorDictionary = {
