@@ -1,18 +1,22 @@
 <table>
 	<thead>
-	<tr>
-		<th
-			ng-repeat="column in tableData.columns"
-			ng-class="{ secondary : column.nonSchema }"
-		>{{ ::column.name }}</th>
-	</tr>
+		<tr>
+			<th ng-repeat="column in tableData.columns"
+			    ng-class="{ secondary : column.nonSchema }">
+				{{ ::column.name }}
+			</th>
+		</tr>
 	</thead>
 	<tbody>
-	<tr ng-repeat="row in tableData.rows">
-		<td ng-if="!tableData.isJson(cell)" ng-repeat="cell in ::row track by $index">{{ ::cell }}</td>
-		<td ng-if="tableData.isJson(cell)" ng-repeat="cell in ::row track by $index">
-			<json-formatter json="cell"></json-formatter>
-		</td>
-	</tr>
+		<tr ng-repeat="row in tableData.rows">
+			<td ng-repeat="cell in ::row track by $index">
+				<ng-transclude ng-if="!tableData.isJson(cell)">
+					{{ ::cell }}
+				</ng-transclude>
+				<ng-transclude ng-if="tableData.isJson(cell)">
+					<json-formatter json="cell"></json-formatter>
+				</ng-transclude>
+			</td>
+		</tr>
 	</tbody>
 </table>
