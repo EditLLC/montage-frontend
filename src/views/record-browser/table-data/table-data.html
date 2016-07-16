@@ -10,7 +10,7 @@
 	<tbody>
 		<tr ng-repeat="row in tableData.rows">
 			<td ng-repeat="cell in ::row track by $index">
-				<div ng-if="!tableData.isJson(cell)">
+				<div class="ellipsis" ng-if="!tableData.isJson(cell)">
 					{{ ::cell }}
 				</div>
 				<div ng-if="tableData.isJson(cell)">
