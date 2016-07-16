@@ -10,12 +10,12 @@
 	<tbody>
 		<tr ng-repeat="row in tableData.rows">
 			<td ng-repeat="cell in ::row track by $index">
-				<ng-transclude ng-if="!tableData.isJson(cell)">
+				<div ng-if="!tableData.isJson(cell)">
 					{{ ::cell }}
-				</ng-transclude>
-				<ng-transclude ng-if="tableData.isJson(cell)">
+				</div>
+				<div ng-if="tableData.isJson(cell)">
 					<json-formatter json="cell"></json-formatter>
-				</ng-transclude>
+				</div>
 			</td>
 		</tr>
 	</tbody>
