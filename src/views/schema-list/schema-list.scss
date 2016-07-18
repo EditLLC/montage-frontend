@@ -4,6 +4,13 @@
 	$sidenav-toolbar-height: 64px;
 
 	margin-left: $sidebar-width;
+	.schema-list-empty-container {
+		text-align: center;
+		margin: 30px auto 0;
+		width: 350px;
+		background: $white;
+		padding: 35px;
+	}
 
 	.sidenav-left {
 		width: $sidebar-width;
