@@ -11,6 +11,7 @@
 
 	function schemaListController($scope, api, authService) {
 		var vm = $scope;
+		vm.schemaListEmpty = true;
 
 		vm.selectSchema = (schema) => {
 			vm.selectedSchema = schema;
@@ -18,6 +19,9 @@
 
 		api.schema.list(authService.getCurrentUser())
 			.then(schemaList => {
+				if (schemaList.length > 0) {
+					vm.schemaListEmpty = false;
+				}
 				vm.schemaList = schemaList.sort((a, b) => a.name.localeCompare(b.name));
 				vm.selectSchema(schemaList[0]);
 			});
