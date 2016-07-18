@@ -1,6 +1,17 @@
-<div class="schema-list-view">
+<div class="schema-list-view" ng-class="{ 'sidenav-closed': schemaListEmpty }">
 
-	<div class="sidenav-left" md-whiteframe="4">
+	<div class="schema-list-empty-container"
+			 ng-show="schemaListEmpty"
+			 md-whiteframe="4">
+		<h3>Let's get started!</h3>
+		<p>Add your first Schema</p>
+		<md-button class="md-primary md-raised" ui-sref="schema.create">
+			<i class="fa fa-plus"></i>
+			Create Schema
+		</md-button>
+	</div>
+
+	<div class="sidenav-left" md-whiteframe="4" ng-hide="schemaListEmpty">
 		<h2 class="sidenav-toolbar">
 			Schemas
 		</h2>
