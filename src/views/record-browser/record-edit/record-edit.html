@@ -1,0 +1,29 @@
+<div class="record-edit-view view-frame" md-whiteframe="4">
+  <div class="view-header">
+    <h1 class="ellipsis"> {{ document_id }}</h1>
+
+    <md-button class="md-raised md-secondary" ng-click="">
+      <i class="fa fa-times"></i>
+      Delete Record
+    </md-button>
+    <md-button class="md-raised md-primary" ng-click="">
+      <i class="fa fa-plus"></i>
+      Add Field
+    </md-button>
+  </div>
+
+  <div>
+    {{ schemaName }}
+  </div>
+
+  <div>
+    <md-button class="md-raised md-primary" ng-click="">
+      <i class="fa fa-check"></i>
+      Save
+    </md-button>
+    <md-button class="md-raised md-secondary" ng-click="">
+      <i class="fa fa-circle-thin"></i>
+      Cancel
+    </md-button>
+  </div>
+</div>
