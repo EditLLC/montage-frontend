@@ -59,11 +59,22 @@
 			 * Browsers
 			 ************/
 
-			.state('recordBrowser', {
-				url: '/data',
+			.state('data', {
+				abstract: true,
 				parent: 'layout',
+				template: '<empty-parent />'
+			})
+			.state('data.list', {
+				url: '/data',
+				parent: 'data',
 				template: '<record-browser />'
 			})
+			.state('data.edit', {
+				url: '/data/:schemaName/:document_id',
+				parent: 'data',
+				template: '<record-edit />'
+			})
+
 			.state('fileBrowser', {
 				url: '/files',
 				parent: 'layout',
