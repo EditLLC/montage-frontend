@@ -8,6 +8,7 @@
 			controllerAs: 'tableData',
 			controller: tableDataController,
 			bindings: {
+				schemaName: '=',
 				schemaFields: '=',
 				data: '='
 			}
