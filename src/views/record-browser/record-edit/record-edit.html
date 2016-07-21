@@ -12,8 +12,11 @@
     </md-button>
   </div>
 
-  <div>
-    {{ schemaName }}
+  <div ng-repeat="(key, value) in data">
+    <md-input-container ng-hide="key === 'id' || key === '_meta'">
+      <label>{{ key }}</label>
+      <input type="text" ng-model="data[key]">
+    </md-input-container>
   </div>
 
   <div>
