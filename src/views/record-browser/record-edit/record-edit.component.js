@@ -12,6 +12,12 @@
     $scope.document_id = $stateParams.document_id;
     $scope.schemaName = $stateParams.schemaName;
 
-    return;
+    api
+      .document
+      .get($scope.schemaName, $scope.document_id)
+      .then(response => {
+        $scope.data = response;
+      });
+
   }
 })(angular);
