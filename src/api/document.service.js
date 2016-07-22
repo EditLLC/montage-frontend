@@ -7,7 +7,7 @@
 
 	function documentService(montageHelper) {
 		return {
-			get
+			get,
 		};
 
 		////////////
@@ -15,8 +15,7 @@
 		function get(schema, document_id) {
 			return montageHelper
 				.getClient()
-				.documents
-				.get(schema, document_id)
+				.documents.get(schema, document_id)
 				.then(montageHelper.returnData);
 		}
 	}
