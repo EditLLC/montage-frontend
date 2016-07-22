@@ -19,5 +19,15 @@
         $scope.data = response;
       });
 
+    $scope.update = () => {
+      api
+        .document.update($scope.schemaName, $scope.data)
+        .then(() => {
+          $scope.showSuccessToast();
+        })
+        .catch(() => {
+          $scope.showUnsuccessToast();
+        });
+    };
   }
 })(angular);
