@@ -8,6 +8,7 @@
 	function documentService(montageHelper) {
 		return {
 			get,
+			update,
 		};
 
 		////////////
@@ -16,6 +17,13 @@
 			return montageHelper
 				.getClient()
 				.documents.get(schema, document_id)
+				.then(montageHelper.returnData);
+		}
+
+		function update(schema, document) {
+			return montageHelper
+				.getClient()
+				.documents.update(schema, document)
 				.then(montageHelper.returnData);
 		}
 	}
