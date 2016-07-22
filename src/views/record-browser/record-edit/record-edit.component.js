@@ -8,7 +8,7 @@
       controller  : recordEditController
     });
 
-  function recordEditController($stateParams, $scope, api, montageHelper) {
+  function recordEditController($stateParams, $state, $scope, $mdToast, $mdDialog, api, montageHelper) {
     $scope.document_id = $stateParams.document_id;
     $scope.schemaName = $stateParams.schemaName;
 
@@ -30,6 +30,17 @@
             .hideDelay(3000)
         );
     };
+
+
+    $scope.showDialog = function(ev) {
+      $mdDialog.show({
+        contentElement: '#myDialog',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        clickOutsideToClose: true,
+      });
+    };
+
 
     api
       .document

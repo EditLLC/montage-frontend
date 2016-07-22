@@ -6,7 +6,7 @@
       <i class="fa fa-times"></i>
       Delete record
     </md-button>
-    <md-button class="md-raised md-primary" ng-click="">
+    <md-button class="md-raised md-primary" ng-click="showDialog($event)">
       <i class="fa fa-plus"></i>
       Add field
     </md-button>
@@ -28,5 +28,29 @@
       <i class="fa fa-circle-thin"></i>
       Cancel
     </md-button>
+  </div>
+
+  <div style="visibility: hidden">
+    <div class="md-dialog-container" id="myDialog">
+      <md-dialog layout-padding>
+        <h2>Add field</h2>
+
+        <div>
+          <md-input-container>
+            <label for="">Field name</label>
+            <input type="text" ng-model="newKey">
+          </md-input-container>
+        </div>
+        <div>
+          <md-input-container>
+            <label for="">Field value</label>
+            <input type="text" ng-model="newValue">
+          </md-input-container>
+        </div>
+
+        <md-button class="md-raised md-primary">Add</md-button>
+        <md-button class="md-raised md-secondary">Cancel</md-button>
+      </md-dialog>
+    </div>
   </div>
 </div>
