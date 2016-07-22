@@ -12,6 +12,25 @@
     $scope.document_id = $stateParams.document_id;
     $scope.schemaName = $stateParams.schemaName;
 
+
+    $scope.showSuccessToast = function() {
+      $mdToast.show(
+        $mdToast.simple()
+          .textContent('Changes saved')
+          .position('bottom right')
+          .hideDelay(3000)
+      );
+    };
+
+    $scope.showUnsuccessToast = () => {
+      $mdToast.show(
+          $mdToast.simple()
+            .textContent('Changes unsuccessful')
+            .position('bottom right')
+            .hideDelay(3000)
+        );
+    };
+
     api
       .document
       .get($scope.schemaName, $scope.document_id)
