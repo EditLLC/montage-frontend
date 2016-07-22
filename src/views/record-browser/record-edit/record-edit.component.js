@@ -29,5 +29,14 @@
           $scope.showUnsuccessToast();
         });
     };
+
+    $scope.remove = () => {
+      api
+        .document.remove($scope.schemaName, $scope.document_id)
+        .then(response => {
+          $state.go('data.list');
+        });
+    };
+
   }
 })(angular);
