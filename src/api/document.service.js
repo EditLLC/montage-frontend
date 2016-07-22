@@ -9,6 +9,7 @@
 		return {
 			get,
 			update,
+			remove,
 		};
 
 		////////////
@@ -25,6 +26,12 @@
 				.getClient()
 				.documents.update(schema, document)
 				.then(montageHelper.returnData);
+		}
+
+		function remove(schema, document_id) {
+			return montageHelper
+				.getClient()
+				.documents.remove(schema, document_id);
 		}
 	}
 })(angular);
