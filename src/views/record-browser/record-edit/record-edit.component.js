@@ -4,8 +4,8 @@
   angular
     .module('montage')
     .component('recordEdit', {
-      templateUrl: 'views/record-browser/record-edit/record-edit.html',
-      controller: recordEditController
+      templateUrl : 'views/record-browser/record-edit/record-edit.html',
+      controller  : recordEditController
     });
 
   function recordEditController($stateParams, $scope, api, montageHelper) {
