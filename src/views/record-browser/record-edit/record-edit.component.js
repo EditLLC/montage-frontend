@@ -67,6 +67,10 @@
         $scope.data = response;
       });
 
+    $scope.return = () => {
+      $state.go('data.list');
+    };
+
     $scope.update = () => {
       api
         .document.update($scope.schemaName, $scope.data)
