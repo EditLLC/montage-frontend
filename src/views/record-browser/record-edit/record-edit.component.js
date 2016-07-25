@@ -11,6 +11,8 @@
   function recordEditController($stateParams, $state, $scope, $mdToast, $mdDialog, api, montageHelper) {
     $scope.document_id = $stateParams.document_id;
     $scope.schemaName = $stateParams.schemaName;
+    $scope.newKey = '';
+    $scope.newValue = '';
 
 
     $scope.showSuccessToast = function() {
@@ -32,12 +34,35 @@
     };
 
 
-    $scope.showDialog = function(ev) {
+    $scope.showDialog = (ev) => {
       $mdDialog.show({
-        contentElement: '#myDialog',
-        parent: angular.element(document.body),
-        targetEvent: ev,
-        clickOutsideToClose: true,
+        scope: $scope,
+        preserveScope: true,
+        controller : [
+          '$scope',
+          '$mdDialog',
+          ($scope, $mdDialog) => {
+
+            $scope.hide = () => {
+              $mdDialog.hide();
+            };
+            $scope.cancel = () => {
+              $mdDialog.cancel();
+            };
+            $scope.answer = () => {
+              $mdDialog.hide();
+            };
+          }
+        ],
+        contentElement      : '#myDialog',
+        parent              : angular.element(document.body),
+        targetEvent         : ev,
+        clickOutsideToClose : true,
+      })
+      .then(() => {
+        $scope.data[$scope.newKey] = $scope.newValue;
+        $scope.newKey = '';
+        $scope.newValue = '';
       });
     };
 
