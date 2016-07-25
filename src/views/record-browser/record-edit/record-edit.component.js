@@ -42,20 +42,20 @@
         scope               : $scope,
         preserveScope       : true,
         controller          : ($scope, $mdDialog) => {
+          $scope.cancel = () => {
+            $mdDialog.cancel();
+          };
 
-            $scope.cancel = () => {
-              $mdDialog.cancel();
-            };
-            $scope.answer = () => {
-              $mdDialog.hide();
-            };
-          }
-        ],
+          $scope.answer = () => {
+            $mdDialog.hide({
+              field : $scope.newKey,
+              value : $scope.newValue,
+            });
+          };
+        }
       })
-      .then(() => {
-        $scope.data[$scope.newKey] = $scope.newValue;
-        $scope.newKey = '';
-        $scope.newValue = '';
+      .then(answer => {
+        $scope.data[answer.field] = answer.value;
       });
     };
 
