@@ -14,8 +14,7 @@
     $scope.newKey = '';
     $scope.newValue = '';
 
-
-    $scope.showSuccessToast = function() {
+    $scope.showSuccessToast = () => {
       $mdToast.show(
         $mdToast.simple()
           .textContent('Changes saved')
@@ -92,6 +91,5 @@
           $state.go('data.list');
         });
     };
-
   }
 })(angular);
