@@ -42,9 +42,6 @@
           '$mdDialog',
           ($scope, $mdDialog) => {
 
-            $scope.hide = () => {
-              $mdDialog.hide();
-            };
             $scope.cancel = () => {
               $mdDialog.cancel();
             };
