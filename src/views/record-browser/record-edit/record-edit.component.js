@@ -35,16 +35,16 @@
 
     $scope.showDialog = (ev) => {
       $mdDialog.show({
-      contentElement      : '#myDialog',
-      parent              : angular.element(document.body),
-      targetEvent         : ev,
-      clickOutsideToClose : true,
-        scope             : $scope,
-        preserveScope     : true,
         controller        : [
           '$scope',
           '$mdDialog',
           ($scope, $mdDialog) => {
+        contentElement      : '#myDialog',
+        parent              : angular.element(document.body),
+        targetEvent         : ev,
+        clickOutsideToClose : true,
+        scope               : $scope,
+        preserveScope       : true,
 
             $scope.cancel = () => {
               $mdDialog.cancel();
