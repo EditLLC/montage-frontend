@@ -59,6 +59,20 @@
       });
     };
 
+    $scope.showRemoveDialog = (ev) => {
+      var confirm = $mdDialog.confirm()
+        .title('Would you like to delete this record?')
+        .textContent('All of the banks have agreed to forgive you your debts.')
+        .ariaLabel('Lucky day')
+        .targetEvent(ev)
+        .ok('Okay')
+        .cancel('Cancel');
+      $mdDialog.show(confirm).then(() => {
+        $scope.remove();
+      }, () => {
+        $mdDialog.cancel();
+      });
+    };
 
     api
       .document
