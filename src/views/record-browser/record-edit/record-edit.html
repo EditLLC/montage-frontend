@@ -12,6 +12,13 @@
     </md-button>
   </div>
 
+  <div>
+    <md-input-container>
+      <label>ID</label>
+      <input type="text" disabled ng-model="document_id">
+    </md-input-container>
+  </div>
+
   <div ng-repeat="(key, value) in data">
     <md-input-container ng-hide="key === 'id' || key === '_meta'">
       <label>{{ key }}</label>
