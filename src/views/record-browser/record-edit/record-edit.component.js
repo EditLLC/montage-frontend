@@ -33,7 +33,7 @@
     };
 
 
-    $scope.showDialog = (ev) => {
+    $scope.showAddFieldDialog = (ev) => {
       $mdDialog.show({
         contentElement      : '#myDialog',
         parent              : angular.element(document.body),
