@@ -5,7 +5,27 @@
 		.module('montage')
 		.factory('montageHelper', montageHelper);
 
-	function montageHelper(montage, authService) {
+	function montageHelper(montage, authService, ngProgressFactory) {
+
+		var count = 0;
+		var progress = ngProgressFactory.createInstance();
+		progress.setColor('#01579B');
+
+		var _request = montage.Client.prototype.request;
+
+		montage.Client.prototype.request = function(...args) {
+			count++;
+			progress.start();
+
+			return _request.bind(this)(...args).then(response => {
+				count--;
+
+				if (!count) { progress.complete(); }
+
+				return response;
+			});
+		};
+
 		return {
 			getClient,
 			returnData
