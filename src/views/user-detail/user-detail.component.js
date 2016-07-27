@@ -10,7 +10,7 @@
 		});
 
 	function userDetailController($stateParams, api) {
-		var vm = this;
+		const vm = this;
 
 		api.user.get($stateParams.user_id).then(user => vm.user = user);
 	}
