@@ -16,14 +16,14 @@
 
 		<ul>
 			<li class="user" ng-repeat="user in roleDetail.userList">
-				<img class="user-image" ng-src="{{ user.image }}" alt="{{ user.name }}">
+				<img class="user-image" ng-src="{{ user.photo }}" alt="{{ user.full_name }}">
 
 				<a class="remove-user" ng-click="roleDetail.removeUser(user)">
 					<i class="fa fa-times"></i>
 				</a>
 
 				<div class="user-info">
-					<a ui-sref="user.detail({ user_id: user.id })">{{ user.name }}</a>
+					<a ui-sref="user.detail({ user_id: user.id })">{{ user.full_name }}</a>
 					<div class="email">{{ user.email }}</div>
 				</div>
 			</li>
