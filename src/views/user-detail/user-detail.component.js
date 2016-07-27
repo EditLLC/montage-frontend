@@ -9,7 +9,7 @@
 			controller: userDetailController
 		});
 
-	function userDetailController($stateParams, api) {
+	function userDetailController($stateParams, authService, api) {
 		const vm = this;
 
 		api.user.get($stateParams.user_id).then(user => vm.user = user);
