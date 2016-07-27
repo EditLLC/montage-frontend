@@ -9,11 +9,18 @@
 			controller: userListController
 		});
 
-	function userListController(api) {
+	function userListController($q, api) {
 		var vm = this;
+		const roleListPromise = api.role.list();
+		const userListPromise = api.user.list();
+		let userMap = {};
 
-		api.user.list().then(userList => vm.userList = userList);
-		
+		$q.all([roleListPromise, userListPromise])
+			.then(([roleList, userList]) => {
+				vm.userList = userList;
+
+			});
+
 		// TODO: implement
 		vm.deleteUser = function(user_id) {
 			console.log('deleteUser() has not yet been implemented'); // TODO: REMOVE ME
