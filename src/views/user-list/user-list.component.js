@@ -19,6 +19,23 @@
 			.then(([roleList, userList]) => {
 				vm.userList = userList;
 
+				// Create user dictionary
+				userList.forEach(user => {
+					userMap[user.id] = user;
+					user.roles = [];
+				});
+
+				// Add roles to each user
+				roleList.forEach(role => {
+					role.users.forEach(user_id => {
+						userMap[user_id].roles.push(role);
+					});
+				});
+
+				// Convert role array to a string
+				userList.forEach(user => {
+					user.roles = user.roles.map(role => role.name).join(', ');
+				});
 			});
 
 		// TODO: implement
