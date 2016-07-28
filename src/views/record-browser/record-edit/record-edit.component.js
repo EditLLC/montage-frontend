@@ -15,7 +15,7 @@
 		const getSchemaFields = api.schema.get(schemaName).then(fields => fields.fields);
 		const getActualRecord = api.document.get(schemaName, $scope.document_id).then(response => response);
 
-		const createMeta = (schemaFields, record) => {
+		const createMeta = (schemaFields, record, newDataType) => {
 			const metaDictionary = {};
 			const fieldNames = schemaFields.map(field => field.name);
 
@@ -30,7 +30,7 @@
 			    const fieldIndex = parseInt(field.replace("field", ""));
 
 			    schemaFields.splice(field - 1, 0, {
-						datatype : "text",
+						datatype : newDataType || "text",
 						index    : "",
 						required : false,
 						name     : field
@@ -95,6 +95,7 @@
       })
       .then(answer => {
         $scope.record[answer.field] = answer.value;
+				createMeta($scope.fields, $scope.record, answer.datatype);
       });
     };
 
