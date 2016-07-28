@@ -10,15 +10,33 @@
 
 	<md-input-container class="md-block">
 		<label>User Name</label>
-		<input type="text" ng-model="userCreate.user.full_name" required>
+		<input type="text"
+		       name="full_name"
+		       ng-model="userCreate.user.full_name"
+		       required>
+		<div ng-messages="userForm.full_name.$error">
+			<div ng-message="required">Name is required.</div>
+		</div>
 	</md-input-container>
 	<md-input-container class="md-block">
 		<label>E-mail</label>
-		<input type="email" ng-model="userCreate.user.email" required>
+		<input type="email"
+		       name="email"
+		       ng-model="userCreate.user.email"
+		       required>
+		<div ng-messages="userForm.email.$error">
+			<div ng-message="email">Valid email address required.</div>
+		</div>
 	</md-input-container>
 	<md-input-container class="md-block">
 		<label>Password</label>
-		<input type="password" ng-model="userCreate.user.password" required>
+		<input type="password"
+		       name="password"
+		       ng-model="userCreate.user.password"
+		       required>
+		<div ng-messages="userForm.password.$error">
+			<div ng-message="required">Password is required.</div>
+		</div>
 	</md-input-container>
 
 	<md-button
