@@ -46,9 +46,7 @@
 
 			$scope.record = record;
 			$scope.meta = metaDictionary;
-
-			return metaDictionary;
-		};
+		}
 
 		$q.all([getSchemaFields, getActualRecord])
 			.then(([fields, record]) => {
