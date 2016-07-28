@@ -7,12 +7,18 @@
 
 	function userService(montageHelper) {
 		return {
+			create,
 			get,
 			list,
 			update
 		};
 
 		////////////
+
+		function create(user) {
+			return montageHelper.getClient().users.create(user.full_name, user.email, user.password)
+				.then(montageHelper.returnData);
+		}
 
 		function get(id) {
 			return montageHelper.getClient().users.get(id)
