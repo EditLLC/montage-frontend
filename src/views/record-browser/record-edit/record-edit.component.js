@@ -83,12 +83,6 @@
       });
     };
 
-    api
-      .document
-      .get($scope.schemaName, $scope.document_id)
-      .then(response => {
-        $scope.data = response;
-      });
 
     $scope.update = () => {
       api
