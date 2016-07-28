@@ -47,6 +47,11 @@
 					metaDictionary[schemaFields[key]['name']] = schemaFields[key];
 				}
 			}
+
+			$scope.record = record;
+			$scope.fields = schemaFields;
+			$scope.meta = metaDictionary;
+
 			return metaDictionary;
 		};
 
