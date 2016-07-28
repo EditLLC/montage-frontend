@@ -101,7 +101,7 @@
         }
       })
       .then(answer => {
-        $scope.data[answer.field] = answer.value;
+        $scope.record[answer.field] = answer.value;
       });
     };
 
