@@ -62,8 +62,7 @@
     $scope.showRemoveDialog = (ev) => {
       var confirm = $mdDialog.confirm()
         .title('Would you like to delete this record?')
-        .textContent('All of the banks have agreed to forgive you your debts.')
-        .ariaLabel('Lucky day')
+        .ariaLabel('Delete record')
         .targetEvent(ev)
         .ok('Okay')
         .cancel('Cancel');
