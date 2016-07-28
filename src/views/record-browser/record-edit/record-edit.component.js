@@ -18,6 +18,14 @@
 		const schemaName = $stateParams.schemaName;
 		const getSchemaFields = api.schema.get(schemaName).then(fields => fields.fields);
 		const getActualRecord = api.document.get(schemaName, $scope.document_id).then(response => response);
+
+		const createMeta = (schemaFields, record) => {
+			const metaDictionary = {};
+			const fieldNames = schemaFields.map((field) => field.name);
+
+			return metaDictionary;
+		};
+
 		$q.all([getSchemaFields, getActualRecord])
 			.then(([fields, record]) => {
 				metaDictionary = createMeta(fields, record);
