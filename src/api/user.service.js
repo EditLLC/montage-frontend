@@ -5,7 +5,7 @@
 		.module('montage')
 		.factory('userService', userService);
 
-	function userService($q, montageHelper) {
+	function userService(montageHelper) {
 		return {
 			get,
 			list,
