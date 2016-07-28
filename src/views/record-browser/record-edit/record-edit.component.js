@@ -99,11 +99,11 @@
 
     $scope.showRemoveDialog = (ev) => {
       var confirm = $mdDialog.confirm()
-        .title('Would you like to delete this record?')
-        .ariaLabel('Delete record')
-        .targetEvent(ev)
-        .ok('Okay')
-        .cancel('Cancel');
+										         .title('Would you like to delete this record?')
+										         .ariaLabel('Delete record')
+										         .targetEvent(ev)
+										         .ok('Okay')
+										         .cancel('Cancel');
       $mdDialog.show(confirm).then(() => {
         $scope.remove();
       }, () => {
