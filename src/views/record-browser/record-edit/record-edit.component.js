@@ -41,6 +41,12 @@
 					});
 			  }
 			});
+
+			for (let key in schemaFields) {
+				if (schemaFields[key]) {
+					metaDictionary[schemaFields[key]['name']] = schemaFields[key];
+				}
+			}
 			return metaDictionary;
 		};
 
