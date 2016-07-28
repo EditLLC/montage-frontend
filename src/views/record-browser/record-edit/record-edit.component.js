@@ -10,10 +10,12 @@
 
   function recordEditController($stateParams, $state, $scope, $mdToast, $mdDialog, api, montageHelper) {
     $scope.document_id = $stateParams.document_id;
-    $scope.schemaName = $stateParams.schemaName;
     $scope.newKey = '';
     $scope.newValue = '';
 
+		const schemaName = $stateParams.schemaName;
+		const getSchemaFields = api.schema.get(schemaName).then(fields => fields.fields);
+		const getActualRecord = api.document.get(schemaName, $scope.document_id).then(response => response);
     $scope.showSuccessToast = () => {
       $mdToast.show(
         $mdToast.simple()
