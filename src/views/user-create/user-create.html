@@ -1,3 +1,30 @@
-<div class="user-create-view">
+<form name="userForm" class="user-create-view view-frame" md-whiteframe="2">
 	<h1>Create User</h1>
-</div>
+
+	<div class="message" ng-if="userCreate.status" ng-class="userCreate.status">
+		{{ userCreate.status === 'success'
+		? 'Successfully saved'
+		: 'There was an error saving your changes. Please try again.'
+		}}
+	</div>
+
+	<md-input-container class="md-block">
+		<label>User Name</label>
+		<input type="text" ng-model="userCreate.user.full_name" required>
+	</md-input-container>
+	<md-input-container class="md-block">
+		<label>E-mail</label>
+		<input type="email" ng-model="userCreate.user.email" required>
+	</md-input-container>
+	<md-input-container class="md-block">
+		<label>Password</label>
+		<input type="password" ng-model="userCreate.user.password" required>
+	</md-input-container>
+
+	<md-button
+		class="md-raised md-primary pull-right"
+		type="submit"
+		ng-click="userCreate.createUser(userCreate.user)"
+		ng-disabled="userForm.$invalid || userCreate.isSaving"
+	>{{ userCreate.isSaving ? 'Saving...' : 'Create User' }}</md-button>
+</form>
