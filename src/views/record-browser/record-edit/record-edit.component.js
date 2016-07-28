@@ -28,6 +28,19 @@
 					record[field.name] = field.name.replace("field", "value")
 				}
 			});
+
+			Object.keys(record).forEach(field => {
+			  if (fieldNames.indexOf(field) === -1 && field !== '_meta') {
+			    const fieldIndex = parseInt(field.replace("field", ""));
+
+			    schemaFields.splice(field - 1, 0, {
+						datatype : "text",
+						index    : "",
+						required : false,
+						name     : field
+					});
+			  }
+			});
 			return metaDictionary;
 		};
 
