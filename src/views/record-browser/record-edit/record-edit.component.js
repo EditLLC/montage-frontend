@@ -49,7 +49,6 @@
 			}
 
 			$scope.record = record;
-			$scope.fields = schemaFields;
 			$scope.meta = metaDictionary;
 
 			return metaDictionary;
