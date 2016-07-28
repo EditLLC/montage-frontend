@@ -10,7 +10,7 @@
 		});
 
 	function userCreateController() {
-		var vm = this;
+		const vm = this;
 
 
 	}
