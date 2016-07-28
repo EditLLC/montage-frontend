@@ -23,7 +23,7 @@
 		<div ng-repeat="(key, value) in record">
 			<md-input-container ng-hide="key === 'id' || key === '_meta'">
 				<label>{{ key }}</label>
-				<input type="meta[key].datatype" ng-model="record[key]" ng-required="meta[key].required">
+				<input type="" ng-model="record[key]" ng-required="meta[key].required">
 			</md-input-container>
 		</div>
 
