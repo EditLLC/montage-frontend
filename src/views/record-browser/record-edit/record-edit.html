@@ -52,6 +52,18 @@
             <input type="text" ng-model="newField.value">
           </md-input-container>
         </div>
+				<div>
+					<md-input-container>
+						<label>Data type</label>
+						<md-select ng-model="newField.datatype">
+							<md-option value="text">text</md-option>
+							<md-option value="number">number</md-option>
+							<md-option value="boolean">boolean</md-option>
+							<md-option value="array">array</md-option>
+							<md-option value="object">object</md-option>
+						</md-select>
+					</md-input-container>
+				</div>
 
         <md-button class="md-raised md-primary" ng-click="answer()">Add</md-button>
         <md-button class="md-raised md-secondary" ng-click="cancel()">Cancel</md-button>
