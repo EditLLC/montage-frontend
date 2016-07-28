@@ -122,7 +122,7 @@
 
     $scope.update = () => {
       api
-        .document.update($scope.schemaName, $scope.data)
+        .document.update(schemaName, $scope.record)
         .then(() => {
           $scope.showSuccessToast();
         })
@@ -133,7 +133,7 @@
 
     $scope.remove = () => {
       api
-        .document.remove($scope.schemaName, $scope.document_id)
+        .document.remove(schemaName, $scope.document_id)
         .then(response => {
           $state.go('data.list');
         });
