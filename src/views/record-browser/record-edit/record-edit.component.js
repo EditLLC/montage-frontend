@@ -21,7 +21,7 @@
 
 		const createMeta = (schemaFields, record) => {
 			const metaDictionary = {};
-			const fieldNames = schemaFields.map((field) => field.name);
+			const fieldNames = schemaFields.map(field => field.name);
 
 			schemaFields.forEach(field => {
 			  if (!record[field.name]) {
