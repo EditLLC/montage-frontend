@@ -10,10 +10,6 @@
 
   function recordEditController($stateParams, $state, $scope, $mdToast, $mdDialog, $q, api, montageHelper) {
     $scope.document_id = $stateParams.document_id;
-    $scope.newKey = '';
-    $scope.newValue = '';
-
-		let metaDictionary;
 
 		const schemaName = $stateParams.schemaName;
 		const getSchemaFields = api.schema.get(schemaName).then(fields => fields.fields);
@@ -93,10 +89,7 @@
           };
 
           $scope.answer = () => {
-            $mdDialog.hide({
-              field : $scope.newKey,
-              value : $scope.newValue,
-            });
+            $mdDialog.hide($scope.newField);
           };
         }
       })
