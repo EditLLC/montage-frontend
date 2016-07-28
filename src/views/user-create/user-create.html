@@ -21,10 +21,11 @@
 	<md-input-container class="md-block">
 		<label>E-mail</label>
 		<input type="email"
-		       name="email"
+		       name="mail"
 		       ng-model="userCreate.user.email"
 		       required>
-		<div ng-messages="userForm.email.$error">
+		<div ng-messages="userForm.mail.$error">
+			<div ng-message="required">Email is required.</div>
 			<div ng-message="email">Valid email address required.</div>
 		</div>
 	</md-input-container>
