@@ -27,18 +27,18 @@
     $scope.showSuccessToast = () => {
       $mdToast.show(
         $mdToast.simple()
-          .textContent('Changes saved')
-          .position('bottom right')
-          .hideDelay(3000)
+			          .textContent('Changes saved')
+			          .position('bottom right')
+			          .hideDelay(3000)
       );
     };
 
     $scope.showUnsuccessToast = () => {
       $mdToast.show(
-          $mdToast.simple()
-            .textContent('Changes unsuccessful')
-            .position('bottom right')
-            .hideDelay(3000)
+        $mdToast.simple()
+		            .textContent('Changes unsuccessful')
+		            .position('bottom right')
+		            .hideDelay(3000)
         );
     };
 
