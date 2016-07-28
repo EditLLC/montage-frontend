@@ -56,7 +56,7 @@
 
 		$q.all([getSchemaFields, getActualRecord])
 			.then(([fields, record]) => {
-				metaDictionary = createMeta(fields, record);
+				createMeta(fields, record);
 			});
 
 
