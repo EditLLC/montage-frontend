@@ -15,7 +15,7 @@
 		const getSchemaFields = api.schema.get(schemaName).then(fields => fields.fields);
 		const getActualRecord = api.document.get(schemaName, $scope.document_id).then(response => response);
 
-		const createMeta = (schemaFields, record, newDataType) => {
+		function createMeta(schemaFields, record, newField) {
 			const metaDictionary = {};
 			const fieldNames = schemaFields.map(field => field.name);
 
