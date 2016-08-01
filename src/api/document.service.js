@@ -5,42 +5,33 @@
 		.module('montage')
 		.factory('documentService', documentService);
 
-	function documentService($http, authService) {
-		var service = {
-			list
+	function documentService(montageHelper) {
+		return {
+			get,
+			update,
+			remove,
 		};
 
 		////////////
 
-		// TODO: reset these on login
-		var apiUri = `https://${authService.getCurrentUser().domain}.mntge.com/api/v1/schemas/`;
-		var authHeader = { Authorization: 'Token ' + authService.getCurrentUser().token };
-
-		var defaultQuery = {
-			filter: {},
-			pluck: [],
-			without: [],
-			limit: null,
-			offset: null,
-			order_by: null,
-			ordering: "asc",
-			index: null,
-			batch_size: 1000
-		};
-
-		function list(schema, query) {
-			var documentListUri = apiUri + schema + '/query/';
-
-			var config = {
-				headers: authHeader,
-				params: {
-					query: angular.extend({}, defaultQuery, query)
-				}
-			};
-
-			return $http.get(documentListUri, config).then(response => response.data.data);
+		function get(schema, document_id) {
+			return montageHelper
+				.getClient()
+				.documents.get(schema, document_id)
+				.then(montageHelper.returnData);
 		}
 
-		return service;
+		function update(schema, document) {
+			return montageHelper
+				.getClient()
+				.documents.update(schema, document)
+				.then(montageHelper.returnData);
+		}
+
+		function remove(schema, document_id) {
+			return montageHelper
+				.getClient()
+				.documents.remove(schema, document_id);
+		}
 	}
 })(angular);

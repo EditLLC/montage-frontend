@@ -1,6 +1,8 @@
 @import '../../static/styles/variables';
 
 $sidebar-width: 300px;
+$md-desktop-duration: 0.15s;
+$md-easing-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
 
 .record-browser-view {
 	query-builder {
@@ -28,7 +30,20 @@ $sidebar-width: 300px;
 	}
 
 	table {
-		margin-top: 5px
+		margin-top: 5px;
+
+		tbody {
+
+			tr {
+				-webkit-transition: $md-desktop-duration $md-easing-standard;
+				transition: $md-desktop-duration $md-easing-standard;
+
+				&:hover {
+					background: #eee;
+					cursor: pointer;
+				}
+			}
+		}
 	}
 
 
