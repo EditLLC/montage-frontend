@@ -21,7 +21,7 @@
 
 	<form name="recordForm" ng-submit="update()">
 		<div ng-repeat="(key, value) in record">
-			<md-input-container ng-hide="key === 'id' || key === '_meta'">
+			<md-input-container ng-hide="key === 'id' || key === '_meta' || meta[key].datatype === 'boolean'">
 				<label>{{ key }}</label>
 				<input type="" ng-model="record[key]" ng-required="meta[key].required">
 			</md-input-container>
