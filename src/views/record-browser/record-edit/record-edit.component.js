@@ -94,6 +94,8 @@
         scope               : $scope,
         preserveScope       : true,
         controller          : ($scope, $mdDialog) => {
+					$scope.newField = {};
+
           $scope.cancel = () => {
             $mdDialog.cancel();
           };
