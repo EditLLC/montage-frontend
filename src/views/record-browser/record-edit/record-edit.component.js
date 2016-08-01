@@ -49,6 +49,7 @@
 				}
 			}
 
+			$scope.fields = schemaFields;
 			$scope.record = record;
 			$scope.meta = metaDictionary;
 		}
