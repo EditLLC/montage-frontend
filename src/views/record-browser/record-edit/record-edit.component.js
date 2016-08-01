@@ -75,10 +75,11 @@
       );
     };
 
-    $scope.showUnsuccessToast = () => {
+    $scope.showUnsuccessToast = (message) => {
+			const response = message || 'Changes unsuccessful';
       $mdToast.show(
         $mdToast.simple()
-		            .textContent('Changes unsuccessful')
+		            .textContent(response)
 		            .position('bottom right')
 		            .hideDelay(3000)
         );
