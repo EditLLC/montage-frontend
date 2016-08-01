@@ -98,10 +98,14 @@
 
           $scope.cancel = () => {
             $mdDialog.cancel();
+						$scope.addFieldForm.$setPristine();
+						$scope.addFieldForm.$setUntouched();
           };
 
           $scope.answer = () => {
             $mdDialog.hide($scope.newField);
+						$scope.addFieldForm.$setPristine();
+						$scope.addFieldForm.$setUntouched();
           };
         }
       })
