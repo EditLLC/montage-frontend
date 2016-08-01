@@ -110,6 +110,12 @@
         }
       })
       .then(answer => {
+				if (typeof answer.value === 'string' && Number(answer.value)) {
+					answer.value = parseFloat(answer.value);
+				} else if (typeof answer.value === 'string' && Boolean(answer.value)) {
+					answer.value = answer.value === 'true';
+				}
+
         $scope.record[answer.field] = answer.value;
 				createMeta($scope.fields, $scope.record, answer);
       });
