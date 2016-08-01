@@ -111,7 +111,7 @@
       })
       .then(answer => {
         $scope.record[answer.field] = answer.value;
-				createMeta($scope.fields, $scope.record, answer.datatype);
+				createMeta($scope.fields, $scope.record, answer);
       });
     };
 
