@@ -19,6 +19,11 @@
 			const metaDictionary = {};
 			const fieldNames = schemaFields.map(field => field.name);
 
+			if (!newField) {
+				newField = {};
+				newField.datatype = "text";
+			}
+
 			schemaFields.forEach(field => {
 			  if (!record[field.name]) {
 					record[field.name] = field.name.replace("field", "value")
