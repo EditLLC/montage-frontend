@@ -58,33 +58,51 @@
       <md-dialog>
         <h2 style="padding: 25px 25px 0">Add field</h2>
 
-        <div>
-          <md-input-container>
-            <label for="">Field name</label>
-            <input type="text" ng-model="newField.field">
-          </md-input-container>
-        </div>
-        <div>
-          <md-input-container>
-            <label for="">Field value</label>
-            <input type="text" ng-model="newField.value">
-          </md-input-container>
-        </div>
-				<div>
-					<md-input-container>
-						<label>Data type</label>
-						<md-select ng-model="newField.datatype">
-							<md-option value="text">text</md-option>
-							<md-option value="number">number</md-option>
-							<md-option value="boolean">boolean</md-option>
-							<md-option value="array">array</md-option>
-							<md-option value="object">object</md-option>
-						</md-select>
-					</md-input-container>
-				</div>
+				<form name="addFieldForm" ng-submit="answer()" style="padding: 0 25px 25px">
 
-        <md-button class="md-raised md-primary" ng-click="answer()">Add</md-button>
-        <md-button class="md-raised md-secondary" ng-click="cancel()">Cancel</md-button>
+	        <div class="group">
+	          <md-input-container>
+	            <label>Field name</label>
+	            <input type="text" ng-model="newField.field" required>
+	          </md-input-container>
+	        </div>
+
+					<div class="group">
+						<md-input-container>
+							<label>Data type</label>
+							<md-select ng-model="newField.datatype" required>
+								<md-option value="text">text</md-option>
+								<md-option value="number">number</md-option>
+								<md-option value="boolean">boolean</md-option>
+								<md-option value="array">array</md-option>
+								<md-option value="object">object</md-option>
+							</md-select>
+						</md-input-container>
+					</div>
+
+	        <div class="group" ng-hide="newField.datatype === 'boolean'">
+	          <md-input-container>
+	            <label>Field value</label>
+	            <input type="{{ newField.datatype === 'number' ? 'number' : 'text' }}" ng-model="newField.value" ng-required="newField.datatype !== 'boolean'">
+	          </md-input-container>
+	        </div>
+
+					<div class="group" ng-hide="newField.datatype !== 'boolean'" id="skip-margin">
+						<md-radio-group ng-model="newField.value">
+							<md-radio-button value="true" aria-label="true">true</md-radio-button>
+							<md-radio-button value="false" aria-label="false">false</md-radio-button>
+						</md-radio-group>
+					</div>
+
+					<div style="padding: 5px; text-align: right;">
+						<md-button class="md-raised md-secondary" ng-click="cancel()">Cancel</md-button>
+						<md-button type="submit"
+											 style="margin-left: 15px;"
+											 class="md-raised md-primary"
+											 ng-disabled="addFieldForm.$invalid">Add
+						</md-button>
+					</div>
+				</form>
       </md-dialog>
     </div>
   </div>
