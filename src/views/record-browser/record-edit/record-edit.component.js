@@ -91,7 +91,6 @@
         contentElement      : '#myDialog',
         parent              : angular.element(document.body),
         targetEvent         : ev,
-        clickOutsideToClose : true,
         scope               : $scope,
         preserveScope       : true,
         controller          : ($scope, $mdDialog) => {
