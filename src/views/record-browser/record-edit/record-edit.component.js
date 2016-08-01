@@ -118,14 +118,15 @@
 
 
     $scope.update = () => {
-      api
-        .document.update(schemaName, $scope.record)
-        .then(() => {
-          $scope.showSuccessToast();
-        })
-        .catch(() => {
-          $scope.showUnsuccessToast();
-        });
+			api
+			.document.update(schemaName, $scope.record)
+			.then(() => {
+				$scope.showSuccessToast();
+				createMeta($scope.fields, $scope.record);
+			})
+			.catch((e) => {
+				$scope.showUnsuccessToast();
+			});
     };
 
     $scope.remove = () => {
