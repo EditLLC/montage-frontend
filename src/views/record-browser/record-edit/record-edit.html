@@ -31,6 +31,18 @@
 				<p style="color: #d30915;" ng-show="recordForm[key].$error.required">This field is required</p>
 				<p style="color: #d30915" ng-show="!validateJSON(record[key], false, key)">{{ e }}</p>
 			</md-input-container>
+
+			<div ng-hide="meta[key].datatype !== 'boolean'">
+				{{ key }}
+
+				<div>
+					<md-checkbox ng-model="record[key]"
+											 ng-true-value="true"
+											 ng-false-value="false">
+					</md-checkbox>
+					{{ record[key] }}
+				</div>
+			</div>
 		</div>
 
 	  <div style="text-align: right;">
