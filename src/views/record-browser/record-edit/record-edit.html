@@ -23,7 +23,13 @@
 		<div ng-repeat="(key, value) in record">
 			<md-input-container ng-hide="key === 'id' || key === '_meta' || meta[key].datatype === 'boolean'">
 				<label>{{ key }}</label>
-				<input type="" ng-model="record[key]" ng-required="meta[key].required">
+				<input type="{{ meta[key].datatype }}"
+							 name="{{ key }}"
+							 ng-model="record[key]"
+							 ng-required="meta[key].required"
+							 ng-change="validateJSON(record[key], false, key)">
+				<p style="color: #d30915;" ng-show="recordForm[key].$error.required">This field is required</p>
+				<p style="color: #d30915" ng-show="!validateJSON(record[key], false, key)">{{ e }}</p>
 			</md-input-container>
 		</div>
 
