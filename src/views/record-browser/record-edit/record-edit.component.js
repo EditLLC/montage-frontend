@@ -35,7 +35,7 @@
 			    const fieldIndex = parseInt(field.replace("field", ""));
 
 			    schemaFields.splice(field - 1, 0, {
-						datatype : newDataType || "text",
+						datatype : newField.datatype,
 						index    : "",
 						required : false,
 						name     : field
