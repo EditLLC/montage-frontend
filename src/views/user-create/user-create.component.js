@@ -15,9 +15,11 @@
 		let userPromise;
 
 		if($stateParams.user_id) {
+			vm.pageTitle = "Update User"
 			userPromise = api.user.get($stateParams.user_id);
 		}
 		else {
+			vm.pageTitle = "Create User"
 			userPromise = $q.when({});
 		}
 
