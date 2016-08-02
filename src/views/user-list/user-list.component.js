@@ -38,9 +38,13 @@
 				});
 			});
 
-		// TODO: implement
 		vm.deleteUser = function(user_id) {
-			console.log('deleteUser() has not yet been implemented'); // TODO: REMOVE ME
+			vm.isSaving = true;
+
+			api.user.remove(user_id)
+				.then(() => vm.status = 'success')
+				.catch(() => vm.status = 'error')
+				.finally(() => vm.isSaving = false);
 		};
 	}
 })(angular);
