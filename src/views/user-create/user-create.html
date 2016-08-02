@@ -43,7 +43,7 @@
 	<md-button
 		class="md-raised md-primary pull-right"
 		type="submit"
-		ng-click="userCreate.createUser(userCreate.user)"
+		ng-click="userCreate.createUser(userCreate.user, userCreate.roleList)"
 		ng-disabled="userForm.$invalid || userCreate.isSaving">
 		{{ userCreate.isSaving ? 'Saving...' : userCreate.pageTitle }}
 	</md-button>
