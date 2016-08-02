@@ -9,7 +9,7 @@
 			controller: userCreateController
 		});
 
-	function userCreateController(api) {
+	function userCreateController($q, $stateParams, api) {
 		const vm = this;
 
 		vm.createUser = function(user) {
