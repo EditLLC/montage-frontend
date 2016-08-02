@@ -11,8 +11,27 @@
 
 	function userCreateController($q, $stateParams, api) {
 		const vm = this;
+		const roleListPromise = api.role.list();
+		let userPromise;
 
-		vm.createUser = function(user) {
+		if($stateParams.user_id) {
+			userPromise = api.user.get($stateParams.user_id);
+		}
+		else {
+			userPromise = $q.when({});
+		}
+
+		$q.all([roleListPromise, userPromise])
+			.then(([roleList, user]) => {
+				vm.user = user;
+
+				vm.roleList = roleList.map((role) => {
+					return {
+						name           : role.name,
+						hasCurrentUser : role.users.indexOf(user.id) > - 1,
+					};
+				});
+			});
 			vm.isSaving = true;
 
 			api.user.create(user)
