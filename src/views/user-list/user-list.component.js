@@ -9,7 +9,7 @@
 			controller: userListController
 		});
 
-	function userListController($q, api) {
+	function userListController($q, api, modalHelper) {
 		var vm = this;
 		const roleListPromise = api.role.list();
 		const userListPromise = api.user.list();
