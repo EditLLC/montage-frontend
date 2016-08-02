@@ -41,10 +41,11 @@
 		vm.deleteUser = function(user_id) {
 			vm.isSaving = true;
 
-			api.user.remove(user_id)
-				.then(() => vm.status = 'success')
-				.catch(() => vm.status = 'error')
-				.finally(() => vm.isSaving = false);
+			modalHelper.confirmDelete('user')
+				.then(() => api.user.remove(user_id))
+					.then(() => vm.status = 'success')
+					.catch(() => vm.status = 'error')
+					.finally(() => vm.isSaving = false);
 		};
 	}
 })(angular);
