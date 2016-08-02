@@ -11,6 +11,7 @@
 			get,
 			list,
 			update
+			remove,
 		};
 
 		////////////
@@ -33,6 +34,10 @@
 		function update(id, full_name, email, password) {
 			return montageHelper.getClient().users.update(id, full_name, email, password)
 				.then(montageHelper.returnData);
+		}
+
+		function remove(id) {
+			return montageHelper.getClient().users.remove(id)
 		}
 	}
 })(angular);
