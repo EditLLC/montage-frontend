@@ -3,13 +3,13 @@
 
 	angular
 		.module('montage')
-		.component('userCreate', {
-			templateUrl: 'views/user-create/user-create.html',
-			controllerAs: 'userCreate',
-			controller: userCreateController
+		.component('userForm', {
+			templateUrl: 'views/user-form/user-form.html',
+			controllerAs: 'userForm',
+			controller: userFormController
 		});
 
-	function userCreateController($q, $stateParams, api) {
+	function userFormController($q, $stateParams, api) {
 		const vm = this;
 		const roleListPromise = api.role.list();
 		let userPromise;
@@ -35,7 +35,7 @@
 				});
 			});
 
-		vm.createUser = function(user, roles) {
+		vm.saveUser = function(user, roles) {
 			vm.isSaving = true;
 
 			if(user.id) {

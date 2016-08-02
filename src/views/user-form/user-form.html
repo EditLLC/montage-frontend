@@ -1,8 +1,8 @@
-<form name="userForm" class="user-create-view view-frame" md-whiteframe="2">
-	<h1>{{ userCreate.pageTitle }}</h1>
+<form name="userSaveForm" class="user-create-view view-frame" md-whiteframe="2">
+	<h1>{{ userForm.pageTitle }}</h1>
 
-	<div class="message" ng-if="userCreate.status" ng-class="userCreate.status">
-		{{ userCreate.status === 'success'
+	<div class="message" ng-if="userForm.status" ng-class="userForm.status">
+		{{ userForm.status === 'success'
 		? 'Successfully saved'
 		: 'There was an error saving your changes. Please try again.'
 		}}
@@ -12,9 +12,9 @@
 		<label>User Name</label>
 		<input type="text"
 		       name="full_name"
-		       ng-model="userCreate.user.full_name"
+		       ng-model="userForm.user.full_name"
 		       required>
-		<div ng-messages="userForm.full_name.$error">
+		<div ng-messages="userSaveForm.full_name.$error">
 			<div ng-message="required">Name is required.</div>
 		</div>
 	</md-input-container>
@@ -22,20 +22,20 @@
 		<label>Email</label>
 		<input type="email"
 		       name="mail"
-		       ng-model="userCreate.user.email"
+		       ng-model="userForm.user.email"
 		       required>
-		<div ng-messages="userForm.mail.$error">
+		<div ng-messages="userSaveForm.mail.$error">
 			<div ng-message="required">Email is required.</div>
 			<div ng-message="email">Valid email address required.</div>
 		</div>
 	</md-input-container>
-	<md-input-container class="md-block" ng-if="!userCreate.user.id">
+	<md-input-container class="md-block" ng-if="!userForm.user.id">
 		<label>Password</label>
 		<input type="password"
 		       name="password"
-		       ng-model="userCreate.user.password"
+		       ng-model="userForm.user.password"
 		       required>
-		<div ng-messages="userForm.password.$error">
+		<div ng-messages="userSaveForm.password.$error">
 			<div ng-message="required">Password is required.</div>
 		</div>
 	</md-input-container>
@@ -45,7 +45,7 @@
 		<br><br>
 		<ul>
 			<li>
-				<md-checkbox ng-repeat="role in userCreate.roleList" ng-model="role.hasCurrentUser">
+				<md-checkbox ng-repeat="role in userForm.roleList" ng-model="role.hasCurrentUser">
 					{{role.name}}
 				</md-checkbox>
 			</li>
@@ -55,8 +55,8 @@
 	<md-button
 		class="md-raised md-primary pull-right"
 		type="submit"
-		ng-click="userCreate.createUser(userCreate.user, userCreate.roleList)"
-		ng-disabled="userForm.$invalid || userCreate.isSaving">
-		{{ userCreate.isSaving ? 'Saving...' : userCreate.pageTitle }}
+		ng-click="userForm.saveUser(userForm.user, userForm.roleList)"
+		ng-disabled="userSaveForm.$invalid || userForm.isSaving">
+		{{ userForm.isSaving ? 'Saving...' : userForm.pageTitle }}
 	</md-button>
 </form>
