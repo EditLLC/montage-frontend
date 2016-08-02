@@ -34,12 +34,22 @@
 					};
 				});
 			});
+
+		vm.createUser = function(user, roles) {
 			vm.isSaving = true;
 
-			api.user.create(user)
-				.then(() => vm.status = 'success')
-				.catch(() => vm.status = 'error')
-				.finally(() => vm.isSaving = false);
-		}
+			if(user.id) {
+				api.user.update(user)
+					.then(() => vm.status = 'success')
+					.catch(() => vm.status = 'error')
+					.finally(() => vm.isSaving = false);
+			}
+			else {
+				api.user.create(user)
+					.then(() => vm.status = 'success')
+					.catch(() => vm.status = 'error')
+					.finally(() => vm.isSaving = false);
+			}
+		};
 	}
 })(angular);
