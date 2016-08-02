@@ -10,7 +10,7 @@
 			create,
 			get,
 			list,
-			update
+			update,
 			remove,
 		};
 
@@ -31,8 +31,8 @@
 				.then(montageHelper.returnData);
 		}
 
-		function update(id, full_name, email, password) {
-			return montageHelper.getClient().users.update(id, full_name, email, password)
+		function update(user) {
+			return montageHelper.getClient().users.update(user.id, user.full_name, user.email, user.password)
 				.then(montageHelper.returnData);
 		}
 
