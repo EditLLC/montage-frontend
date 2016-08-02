@@ -8,6 +8,13 @@
 		</md-button>
 	</div>
 
+	<div class="message" ng-if="userList.status" ng-class="userList.status">
+		{{ userList.status === 'success'
+		? 'Successfully deleted.'
+		: 'There was an error deleting the record. Please try again.'
+		}}
+	</div>
+
 	<table>
 		<thead>
 		<tr>
