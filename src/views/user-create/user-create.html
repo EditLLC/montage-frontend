@@ -40,6 +40,18 @@
 		</div>
 	</md-input-container>
 
+	<md-input-container class="md-block">
+		<label>Roles</label>
+		<br><br>
+		<ul>
+			<li>
+				<md-checkbox ng-repeat="role in userCreate.roleList" ng-model="role.hasCurrentUser">
+					{{role.name}}
+				</md-checkbox>
+			</li>
+		</ul>
+	</md-input-container>
+
 	<md-button
 		class="md-raised md-primary pull-right"
 		type="submit"
