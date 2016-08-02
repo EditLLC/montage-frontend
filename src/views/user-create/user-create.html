@@ -1,5 +1,5 @@
 <form name="userForm" class="user-create-view view-frame" md-whiteframe="2">
-	<h1>Create User</h1>
+	<h1>{{ userCreate.pageTitle }}</h1>
 
 	<div class="message" ng-if="userCreate.status" ng-class="userCreate.status">
 		{{ userCreate.status === 'success'
@@ -45,6 +45,6 @@
 		type="submit"
 		ng-click="userCreate.createUser(userCreate.user)"
 		ng-disabled="userForm.$invalid || userCreate.isSaving">
-		{{ userCreate.isSaving ? 'Saving...' : 'Create User' }}
+		{{ userCreate.isSaving ? 'Saving...' : userCreate.pageTitle }}
 	</md-button>
 </form>
