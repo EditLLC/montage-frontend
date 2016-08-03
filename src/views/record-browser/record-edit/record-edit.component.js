@@ -164,15 +164,24 @@
 
 
     $scope.update = () => {
-			api
-			.document.update(schemaName, $scope.record)
-			.then(() => {
-				$scope.showSuccessToast();
-				createMeta($scope.fields, $scope.record);
-			})
-			.catch((e) => {
-				$scope.showUnsuccessToast();
-			});
+			if ($scope.document_id === null) {
+				api.document
+					 .save(schemaName, $scope.record)
+					 .then(() => {
+						 $scope.showSuccessToast();
+						 $state.go('data.edit({ schemaName: schemaName, document_id: $scope.document_id })')
+					 })
+			} else {
+				api.document
+				.update(schemaName, $scope.record)
+				.then(() => {
+					$scope.showSuccessToast();
+					createMeta($scope.fields, $scope.record);
+				})
+				.catch((e) => {
+					$scope.showUnsuccessToast();
+				});
+			}
     };
 
     $scope.remove = () => {
