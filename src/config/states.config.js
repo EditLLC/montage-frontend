@@ -70,7 +70,7 @@
 				template: '<record-browser />'
 			})
 			.state('data.edit', {
-				url: '/data/:schemaName/:document_id',
+				url: '/data/:schemaName/edit/:document_id',
 				parent: 'data',
 				template: '<record-edit />'
 			})
