@@ -2,7 +2,9 @@
   <div class="view-header">
     <h1>{{ recordCreate ? 'Create' : 'Edit' }} Record</h1>
 
-    <md-button class="md-raised md-secondary" ng-click="showRemoveDialog($event)">
+    <md-button class="md-raised md-secondary"
+							 ng-click="showRemoveDialog($event)"
+							 ng-hide="recordCreate">
       <i class="fa fa-times"></i>
       Delete record
     </md-button>
