@@ -10,6 +10,7 @@
 			get,
 			update,
 			remove,
+			save,
 		};
 
 		////////////
@@ -32,6 +33,12 @@
 			return montageHelper
 				.getClient()
 				.documents.remove(schema, document_id);
+		}
+
+		function save(schema, documents) {
+			return montageHelper
+				.getClient()
+				.documents.save(schema, documents);
 		}
 	}
 })(angular);
