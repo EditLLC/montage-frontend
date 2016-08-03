@@ -14,8 +14,8 @@
 
 	.add-filter-button {
 		background: $blue-gray;
-		height: 22px;
-		width: 22px;
+		min-width: 22px;
+		min-height: 22px;
 		line-height: 22px;
 		text-align: center;
 		border: 0;
