@@ -9,7 +9,7 @@
     });
 
   function recordEditController($stateParams, $state, $scope, $mdToast, $mdDialog, $q, api, montageHelper) {
-    $scope.document_id = $stateParams.document_id;
+    $scope.document_id = $stateParams.document_id || null;
 
 		const schemaName = $stateParams.schemaName;
 		const getSchemaFields = api.schema.get(schemaName).then(fields => fields.fields);
