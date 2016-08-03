@@ -78,3 +78,10 @@ $md-easing-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
 		}
 	}
 }
+
+.flush-right {
+	z-index: 9999999;
+	position: fixed;
+	top: 90px;
+	right: 20px;
+}
