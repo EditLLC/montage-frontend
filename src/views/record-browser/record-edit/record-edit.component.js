@@ -81,11 +81,17 @@
 			}
 		}
 
-		$q.all([getSchemaFields, getActualRecord])
+		if ($scope.document_id === null && $scope.recordCreate) {
+			$q.all([getSchemaFields])
+				.then(([fields]) => {
+					createMeta(fields, {});
+				});
+		} else {
+			$q.all([getSchemaFields, getActualRecord])
 			.then(([fields, record]) => {
 				createMeta(fields, record);
 			});
-
+		}
 
     $scope.showSuccessToast = () => {
       $mdToast.show(
