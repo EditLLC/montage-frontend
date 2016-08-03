@@ -1,6 +1,6 @@
 <div class="record-edit-view view-frame" md-whiteframe="4">
   <div class="view-header">
-    <h1>Edit Record</h1>
+    <h1>{{ recordCreate ? 'Create' : 'Edit' }} Record</h1>
 
     <md-button class="md-raised md-secondary" ng-click="showRemoveDialog($event)">
       <i class="fa fa-times"></i>
@@ -47,7 +47,7 @@
 
 	  <div style="text-align: right;">
 	    <md-button type="submit" class="md-raised md-primary" ng-disabled="recordForm.$invalid">
-	      Save
+	      {{ recordCreate ? 'Save' : 'Update' }}
 	    </md-button>
 	  </div>
 	</form>
