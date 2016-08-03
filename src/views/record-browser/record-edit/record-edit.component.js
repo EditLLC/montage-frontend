@@ -11,6 +11,10 @@
   function recordEditController($stateParams, $state, $scope, $mdToast, $mdDialog, $q, api, montageHelper) {
     $scope.document_id = $stateParams.document_id || null;
 
+		if ($scope.document_id === null) {
+			$scope.recordCreate = true;
+		}
+
 		const schemaName = $stateParams.schemaName;
 		const getSchemaFields = api.schema.get(schemaName).then(fields => fields.fields);
 		const getActualRecord = api.document.get(schemaName, $scope.document_id).then(response => response);
