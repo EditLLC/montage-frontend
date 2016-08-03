@@ -32,6 +32,7 @@
 			}
 
 			$scope.recordForm[fieldName].$setValidity('formatting', true);
+
 			return true;
 		}
 
