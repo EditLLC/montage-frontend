@@ -74,6 +74,11 @@
 				parent: 'data',
 				template: '<record-edit />'
 			})
+			.state('data.create', {
+				url: '/data/:schemaName/create',
+				parent: 'data',
+				template: '<record-edit />'
+			})
 
 			.state('fileBrowser', {
 				url: '/files',
