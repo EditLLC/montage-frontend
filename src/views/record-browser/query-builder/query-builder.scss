@@ -10,12 +10,6 @@
 		h4 {
 			color: $secondary;
 		}
-
-		button {
-			width: 100%;
-			margin-left: 0;
-			margin-bottom: $padding;
-		}
 	}
 
 	.add-filter-button {
@@ -29,8 +23,6 @@
 		color: white;
 		float: right;
 
-		span {
-			vertical-align: 2px;
 		}
 
 		&:disabled {
