@@ -5,11 +5,11 @@
 		.module('montage')
 		.factory('montageHelper', montageHelper);
 
-	function montageHelper(montage, authService, ngProgressFactory) {
+	function montageHelper(constants, montage, authService, ngProgressFactory) {
 
 		var pendingRequestCount = 0;
 		var progressBar = ngProgressFactory.createInstance();
-		progressBar.setColor();
+		progressBar.setColor(constants.primaryColor);
 
 		var _request = montage.Client.prototype.request;
 
