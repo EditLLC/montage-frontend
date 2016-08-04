@@ -94,7 +94,7 @@
 				query.filter.apply(query, filters);
 			}
 
-			if(order) { query.order(order.field, order.direction); }
+			if (order_by && ordering) { query.orderBy(order_by, ordering); }
 			if(offset) { query.skip(parseInt(offset)); }
 			if(limit) { query.limit(parseInt(limit)); }
 
