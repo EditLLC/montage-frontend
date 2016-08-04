@@ -67,11 +67,11 @@
 		vm.removeFilter = function(field, filter) {
 
 			// Remove the filter from the filterGroup
-			vm.filterGroups[field] = vm.filterGroups[field].filter((currentFilter => currentFilter !== filter));
+			vm.query.filterGroups[field] = vm.query.filterGroups[field].filter((currentFilter => currentFilter !== filter));
 
 			// Remove the filterGroup if it is empty
-			if(!vm.filterGroups[field].length) {
-				delete vm.filterGroups[field];
+			if(!vm.query.filterGroups[field].length) {
+				delete vm.query.filterGroups[field];
 			}
 		};
 
