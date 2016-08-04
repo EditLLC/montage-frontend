@@ -7,20 +7,19 @@
 
 	function montageHelper(montage, authService, ngProgressFactory) {
 
-		var count = 0;
 		var progress = ngProgressFactory.createInstance();
 		progress.setColor('#01579B');
+		var pendingRequestCount = 0;
 
 		var _request = montage.Client.prototype.request;
 
 		montage.Client.prototype.request = function(...args) {
-			count++;
 			progress.start();
+			pendingRequestCount++;
 
 			return _request.bind(this)(...args).then(response => {
-				count--;
+				pendingRequestCount--;
 
-				if (!count) { progress.complete(); }
 
 				return response;
 			});
