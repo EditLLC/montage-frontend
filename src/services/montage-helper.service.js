@@ -20,6 +20,7 @@
 			return _request.bind(this)(...args).then(response => {
 				pendingRequestCount--;
 
+				if (!pendingRequestCount) { progressBar.complete(); }
 
 				return response;
 			});
