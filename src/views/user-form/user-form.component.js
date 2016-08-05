@@ -46,27 +46,6 @@
 			}
 		};
 
-		function createUser(user, roles) {
-			api.user.create(user)
-				.then((userPromiseResponse) => {
-					let rolePromises = [];
-
-					roles.forEach(role => {
-						if(role.hasCurrentUser) {
-							rolePromises.push(api.role.update(role.name, null, [userPromiseResponse.id]));
-						}
-						else {
-							rolePromises.push(api.role.update(role.name, null, null, [userPromiseResponse.id]));
-						}
-					});
-
-					$q.all([rolePromises]);
-				})
-				.then(() => vm.status = 'success')
-				.catch(() => vm.status = 'error')
-				.finally(() => vm.isSaving = false);
-		}
-
 		function updateUser(user, roles) {
 			api.user.update(user)
 				.then((userPromiseResponse) => {
