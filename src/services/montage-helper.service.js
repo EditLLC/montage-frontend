@@ -13,25 +13,30 @@
 
 		var _request = montage.Client.prototype.request;
 
-		montage.Client.prototype.request = function(...args) {
-			pendingRequestCount++;
-			progressBar.start();
-
-			return _request.bind(this)(...args).then(response => {
-				pendingRequestCount--;
-
-				if (!pendingRequestCount) { progressBar.complete(); }
-
-				return response;
-			});
-		};
-
 		return {
+			init,
 			getClient,
-			returnData
+			returnData,
 		};
 
 		////////////
+
+		function init() {
+			montage.Client.prototype.request = function(...args) {
+				pendingRequestCount++;
+				progressBar.start();
+
+				return _request.bind(this)(...args).then(response => {
+					pendingRequestCount--;
+					if (!pendingRequestCount) { progressBar.complete(); }
+
+					return response;
+				}).catch(err => {
+					progressBar.stop();
+					progressBar.setColor(colorDanger);
+				});
+			};
+		}
 
 		function getClient() {
 			var currentUser = authService.getCurrentUser();
