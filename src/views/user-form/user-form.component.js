@@ -53,7 +53,7 @@
 						}
 					});
 
-					$q.all([rolePromises]);
+					return $q.all([rolePromises]);
 				})
 				.then(() => vm.status = 'success')
 				.catch(() => vm.status = 'error')
