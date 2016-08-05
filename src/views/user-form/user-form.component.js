@@ -55,6 +55,9 @@
 						if(role.hasCurrentUser) {
 							rolePromises.push(api.role.update(role.name, null, [userPromiseResponse.id]));
 						}
+						else {
+							rolePromises.push(api.role.update(role.name, null, null, [userPromiseResponse.id]));
+						}
 					});
 
 					$q.all([rolePromises]);
@@ -72,6 +75,9 @@
 					roles.forEach(role => {
 						if(role.hasCurrentUser) {
 							rolePromises.push(api.role.update(role.name, null, [userPromiseResponse.id]));
+						}
+						else {
+							rolePromises.push(api.role.update(role.name, null, null, [userPromiseResponse.id]));
 						}
 					});
 
