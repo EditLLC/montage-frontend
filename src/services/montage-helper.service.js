@@ -11,8 +11,9 @@
 				progressBar.setColor(colorPrimary);
 		var _request = montage.Client.prototype.request;
 
+		init();
+
 		return {
-			init,
 			getClient,
 			returnData,
 		};
