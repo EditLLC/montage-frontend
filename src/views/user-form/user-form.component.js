@@ -46,9 +46,11 @@
 				.then((userPromiseResponse) => {
 					let rolePromises = roles.map(role => {
 						if(role.hasCurrentUser) {
+							// Add user to specified role
 							return api.role.update(role.name, null, [userPromiseResponse.id]);
 						}
 
+						// Remove user from specified role
 						return api.role.update(role.name, null, null, [userPromiseResponse.id]);
 					});
 
