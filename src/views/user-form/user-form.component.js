@@ -39,17 +39,25 @@
 			vm.isSaving = true;
 
 			if(user.id) {
-				api.user.update(user)
-					.then(() => vm.status = 'success')
-					.catch(() => vm.status = 'error')
-					.finally(() => vm.isSaving = false);
+				updateUser(user, roles);
 			}
 			else {
-				api.user.create(user)
-					.then(() => vm.status = 'success')
-					.catch(() => vm.status = 'error')
-					.finally(() => vm.isSaving = false);
+				createUser(user, roles);
 			}
 		};
+
+		function createUser(user, roles) {
+			api.user.create(user)
+				.then(() => vm.status = 'success')
+				.catch(() => vm.status = 'error')
+				.finally(() => vm.isSaving = false);
+		}
+
+		function updateUser(user, roles) {
+			api.user.update(user)
+				.then(() => vm.status = 'success')
+				.catch(() => vm.status = 'error')
+				.finally(() => vm.isSaving = false);
+		}
 	}
 })(angular);
