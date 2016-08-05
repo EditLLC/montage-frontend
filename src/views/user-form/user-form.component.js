@@ -36,13 +36,7 @@
 
 		vm.saveUser = function(user, roles) {
 			vm.isSaving = true;
-
-			if(user.id) {
-				updateUser(user, roles);
-			}
-			else {
-				createUser(user, roles);
-			}
+			updateUser(user, roles);
 		};
 
 		function updateUser(user, roles) {
