@@ -40,9 +40,7 @@
 		};
 
 		function updateUser(user, roles) {
-			api.user.update(user)
-				.then((userPromiseResponse) => {
-					let rolePromises = [];
+			let save = user.id ? api.user.update : api.user.create;
 
 					roles.forEach(role => {
 						if(role.hasCurrentUser) {
