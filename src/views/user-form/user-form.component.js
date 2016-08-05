@@ -42,13 +42,14 @@
 		function updateUser(user, roles) {
 			let save = user.id ? api.user.update : api.user.create;
 
-					roles.forEach(role => {
+			save(user)
+				.then((userPromiseResponse) => {
+					let rolePromises = roles.map(role => {
 						if(role.hasCurrentUser) {
-							rolePromises.push(api.role.update(role.name, null, [userPromiseResponse.id]));
+							return api.role.update(role.name, null, [userPromiseResponse.id]);
 						}
-						else {
-							rolePromises.push(api.role.update(role.name, null, null, [userPromiseResponse.id]));
-						}
+
+						return api.role.update(role.name, null, null, [userPromiseResponse.id]);
 					});
 
 					return $q.all([rolePromises]);
