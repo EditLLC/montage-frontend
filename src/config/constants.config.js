@@ -3,13 +3,6 @@
 
 	angular
 		.module('montage')
-		.factory('constants', constants);
-
-	function constants() {
-		const primaryColor = '#01579B';
-
-		return {
-			primaryColor,
-		}
-	}
+		.constant('colorPrimary', '#01579B')
+		.constant('colorDanger', '#B71C1C');
 })(angular);
