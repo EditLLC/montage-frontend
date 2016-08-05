@@ -9,7 +9,8 @@
 			controller: layoutController
 		});
 
-	function layoutController($state, authService) {
+	function layoutController($state, authService, montageHelper) {
+		montageHelper.init();
 		var vm = this;
 
 		vm.currentUser = authService.getCurrentUser();
