@@ -45,25 +45,11 @@
 				.then(() => api.user.remove(user_id))
 					.then(() => vm.status = 'success')
 					.then(() => {
-
-						//TODO - refactor below code
-
-						let index;
-
-						for(let i = 0; i < vm.userList.length; i++) {
-							if(vm.userList[i].id === user_id) {
-								index = i;
-								break;
+						vm.userList.some((user, index) => {
+							if(user.id === user_id) {
+								vm.userList.splice(index, 1);
 							}
-						}
-
-						// vm.userList.forEach(user_id => {}) {
-						//
-						// });
-
-						if(index) {
-							vm.userList.splice(index, 1);
-						}
+						});
 					})
 					.catch(() => vm.status = 'error')
 					.finally(() => vm.isSaving = false);
