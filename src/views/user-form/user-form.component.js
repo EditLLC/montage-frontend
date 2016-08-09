@@ -50,11 +50,9 @@
 					for(let i = 0; i < roles.length; i++) {
 						if (databaseRoleList[i].hasCurrentUser !== roles[i].hasCurrentUser) {
 							if(roles[i].hasCurrentUser) {
-								// Add user to specified role
-								rolePromises.push(api.role.update(roles[i].name, null, [user.id]));
+								addUserToRole(roles[i].name, [user.id]);
 							} else {
-								// Remove user from specified role
-								rolePromises.push(api.role.update(roles[i].name, null, null, [user.id]));
+								removeUserFromRole(roles[i].name, [user.id]);
 							}
 						}
 					}
@@ -63,6 +61,20 @@
 				.then(() => vm.status = 'success')
 				.catch(() => vm.status = 'error')
 				.finally(() => vm.isSaving = false);
+		}
+
+		function addUserToRole(roleName, user_id) {
+			let roleList = [];
+
+			roleList.push(api.role.update(roleName, null, user_id));
+			return roleList;
+		}
+
+		function removeUserFromRole(roleName, user_id) {
+			let roleList = [];
+
+			roleList.push(api.role.update(roleName, null, null, user_id));
+			return roleList;
 		}
 	}
 })(angular);
