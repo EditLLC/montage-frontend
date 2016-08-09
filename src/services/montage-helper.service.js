@@ -28,7 +28,7 @@
 				pendingRequestCount++;
 				progressBar.start();
 
-				return _request.bind(this)(...args).then(response => {
+				return _request.bind(this)(...args).finally(response => {
 					pendingRequestCount--;
 					if (!pendingRequestCount) { progressBar.complete(); }
 
