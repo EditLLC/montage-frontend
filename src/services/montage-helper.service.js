@@ -33,9 +33,6 @@
 					if (!pendingRequestCount) { progressBar.complete(); }
 
 					return response;
-				}).catch(err => {
-					progressBar.stop();
-					progressBar.setColor(colorDanger);
 				});
 			};
 		}
