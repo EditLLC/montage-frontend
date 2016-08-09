@@ -19,11 +19,6 @@
 			.then(([roleList, userList]) => {
 				vm.userList = userList;
 
-				// Create user dictionary
-				userList.forEach(user => {
-					userMap[user.id] = user;
-					user.roles = [];
-				});
 
 				// Add roles to each user
 				roleList.forEach(role => {
@@ -36,6 +31,7 @@
 				userList.forEach(user => {
 					user.roles = user.roles.map(role => role.name).join(', ');
 				});
+				createUserDictionary(userList);
 			});
 
 		vm.deleteUser = function(user_id) {
@@ -56,6 +52,12 @@
 				);
 		};
 
+		function createUserDictionary(users) {
+			users.forEach(user => {
+				userMap[user.id] = user;
+				user.roles = [];
+			});
+		}
 		function removeUserFromRoles(roleList, user_id) {
 			roleList.forEach((role) => {
 				role.users.some((roleUser) => {
