@@ -20,18 +20,12 @@
 				vm.userList = userList;
 
 
-				// Add roles to each user
-				roleList.forEach(role => {
-					role.users.forEach(user_id => {
-						userMap[user_id].roles.push(role);
-					});
-				});
-
 				// Convert role array to a string
 				userList.forEach(user => {
 					user.roles = user.roles.map(role => role.name).join(', ');
 				});
 				createUserDictionary(userList);
+				addUsersToRoles(roleList);
 			});
 
 		vm.deleteUser = function(user_id) {
@@ -56,6 +50,14 @@
 			users.forEach(user => {
 				userMap[user.id] = user;
 				user.roles = [];
+			});
+		}
+
+		function addUsersToRoles(roles) {
+			roles.forEach(role => {
+				role.users.forEach(user_id => {
+					userMap[user_id].roles.push(role);
+				});
 			});
 		}
 		function removeUserFromRoles(roleList, user_id) {
