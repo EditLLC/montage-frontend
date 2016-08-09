@@ -45,17 +45,19 @@
 			let save = user.id ? api.user.update : api.user.create;
 
 			save(user)
-				.then((userPromiseResponse) => {
-					let rolePromises = roles.map(role => {
-						if(role.hasCurrentUser) {
-							// Add user to specified role
-							return api.role.update(role.name, null, [userPromiseResponse.id]);
+				.then((user) => {
+					let rolePromises = [];
+					for(let i = 0; i < roles.length; i++) {
+						if (databaseRoleList[i].hasCurrentUser !== roles[i].hasCurrentUser) {
+							if(roles[i].hasCurrentUser) {
+								// Add user to specified role
+								rolePromises.push(api.role.update(roles[i].name, null, [user.id]));
+							} else {
+								// Remove user from specified role
+								rolePromises.push(api.role.update(roles[i].name, null, null, [user.id]));
+							}
 						}
-
-						// Remove user from specified role
-						return api.role.update(role.name, null, null, [userPromiseResponse.id]);
-					});
-
+					}
 					return $q.all([rolePromises]);
 				})
 				.then(() => vm.status = 'success')
