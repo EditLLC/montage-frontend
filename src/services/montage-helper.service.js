@@ -5,6 +5,7 @@
 		.module('montage')
 		.factory('montageHelper', montageHelper);
 
+	function montageHelper(colorPrimary, montage, authService, ngProgressFactory) {
 
 		init();
 
