@@ -40,9 +40,10 @@
 
 		vm.deleteUser = function(user_id) {
 			vm.isSaving = true;
+			const userPromise = api.user.remove(user_id);
 
 			modalHelper.confirmDelete('user')
-				.then(() => api.user.remove(user_id))
+				.then(() => $q.all([roleListPromise, userPromise])
 					.then(() => {
 						vm.userList.some((user, index) => {
 							if(user.id === user_id) {
@@ -52,7 +53,8 @@
 					})
 					.then(() => vm.status = 'success')
 					.catch(() => vm.status = 'error')
-					.finally(() => vm.isSaving = false);
+					.finally(() => vm.isSaving = false)
+				);
 		};
 	}
 })(angular);
