@@ -4,13 +4,13 @@
 	angular
 		.module('montage')
 		.component('userList', {
-			templateUrl: 'views/user-list/user-list.html',
-			controllerAs: 'userList',
-			controller: userListController
+			templateUrl  : 'views/user-list/user-list.html',
+			controllerAs : 'userList',
+			controller   : userListController,
 		});
 
 	function userListController($q, api, modalHelper) {
-		var vm = this;
+		const vm = this;
 		const roleListPromise = api.role.list();
 		const userListPromise = api.user.list();
 		let userMap = {};
