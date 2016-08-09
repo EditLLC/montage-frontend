@@ -19,13 +19,9 @@
 			.then(([roleList, userList]) => {
 				vm.userList = userList;
 
-
-				// Convert role array to a string
-				userList.forEach(user => {
-					user.roles = user.roles.map(role => role.name).join(', ');
-				});
 				createUserDictionary(userList);
 				addUsersToRoles(roleList);
+				convertRoleArrayToString(userList);
 			});
 
 		vm.deleteUser = function(user_id) {
@@ -60,6 +56,13 @@
 				});
 			});
 		}
+
+		function convertRoleArrayToString(users) {
+			users.forEach(user => {
+				user.roles = user.roles.map(role => role.name).join(', ');
+			});
+		}
+
 		function removeUserFromRoles(roleList, user_id) {
 			roleList.forEach((role) => {
 				role.users.some((roleUser) => {
