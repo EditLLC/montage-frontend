@@ -43,7 +43,6 @@
 
 			modalHelper.confirmDelete('user')
 				.then(() => api.user.remove(user_id))
-					.then(() => vm.status = 'success')
 					.then(() => {
 						vm.userList.some((user, index) => {
 							if(user.id === user_id) {
@@ -51,6 +50,7 @@
 							}
 						});
 					})
+					.then(() => vm.status = 'success')
 					.catch(() => vm.status = 'error')
 					.finally(() => vm.isSaving = false);
 		};
