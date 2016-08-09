@@ -12,6 +12,7 @@
 	function userFormController($q, $stateParams, api) {
 		const vm = this;
 		const roleListPromise = api.role.list();
+		let databaseRoleList;
 		let userPromise;
 
 		if($stateParams.user_id) {
