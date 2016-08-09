@@ -44,6 +44,16 @@
 
 			modalHelper.confirmDelete('user')
 				.then(() => $q.all([roleListPromise, userPromise])
+					.then(([roleList]) => {
+						roleList.forEach((role) => {
+							role.users.some((roleUser) => {
+								if(roleUser === user_id) {
+									api.role.update(role.name, null, null, [roleUser]);
+									return true;
+								}
+							});
+						});
+					})
 					.then(() => {
 						vm.userList.some((user, index) => {
 							if(user.id === user_id) {
