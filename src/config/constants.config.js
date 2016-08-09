@@ -3,6 +3,5 @@
 
 	angular
 		.module('montage')
-		.constant('colorPrimary', '#01579B')
-		.constant('colorDanger', '#B71C1C');
+		.constant('colorPrimary', '#01579B');
 })(angular);
