@@ -33,6 +33,7 @@
 						hasCurrentUser : role.users.indexOf(user.id) > - 1,
 					};
 				});
+				databaseRoleList = angular.copy(vm.roleList);
 			});
 
 		vm.saveUser = function(user, roles) {
