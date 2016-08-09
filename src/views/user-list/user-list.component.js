@@ -48,11 +48,7 @@
 						removeUserFromRoles(roleList, user_id);
 					})
 					.then(() => {
-						vm.userList.some((user, index) => {
-							if(user.id === user_id) {
-								vm.userList.splice(index, 1);
-							}
-						});
+						removeUserFromView(vm.userList, user_id);
 					})
 					.then(() => vm.status = 'success')
 					.catch(() => vm.status = 'error')
@@ -68,6 +64,15 @@
 						return true;
 					}
 				});
+			});
+		}
+
+		function removeUserFromView(userList, user_id) {
+			userList.some((user, index) => {
+				if(user.id === user_id) {
+					userList.splice(index, 1);
+					return true;
+				}
 			});
 		}
 	}
