@@ -14,13 +14,15 @@
 		const roleListPromise = api.role.list();
 		const userListPromise = api.user.list();
 		let userMap = {};
+		let roles;
 
 		$q.all([roleListPromise, userListPromise])
 			.then(([roleList, userList]) => {
 				vm.userList = userList;
+				roles = roleList;
 
 				createUserDictionary(userList);
-				addUsersToRoles(roleList);
+				addUsersToRoles(roles);
 				convertRoleArrayToString(userList);
 			});
 
@@ -30,8 +32,8 @@
 
 			modalHelper.confirmDelete('user')
 				.then(() => $q.all([roleListPromise, userRemovePromise])
-					.then(([roleList]) => {
-						removeUserFromRoles(roleList, user_id);
+					.then(([roles]) => {
+						removeUserFromRoles(roles, user_id);
 					})
 					.then(() => {
 						removeUserFromView(vm.userList, user_id);
@@ -64,8 +66,8 @@
 			});
 		}
 
-		function removeUserFromRoles(roleList, user_id) {
-			roleList.forEach((role) => {
+		function removeUserFromRoles(roles, user_id) {
+			roles.forEach((role) => {
 				role.users.some((roleUser) => {
 					if(roleUser === user_id) {
 						api.role.update(role.name, null, null, [roleUser]);
