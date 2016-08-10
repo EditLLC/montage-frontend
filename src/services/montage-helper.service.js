@@ -30,8 +30,10 @@
 
 				return _request.bind(this)(...args).finally(() => {
 					pendingRequestCount--;
-					if (!pendingRequestCount) { progressBar.complete(); }
 
+					if (!pendingRequestCount) {
+						progressBar.complete();
+					}
 				});
 			};
 		}
