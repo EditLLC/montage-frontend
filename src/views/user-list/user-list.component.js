@@ -53,6 +53,7 @@
 			roles.forEach(role => {
 				role.users.forEach(user_id => {
 					userMap[user_id].roles.push(role);
+					role.users = [];
 				});
 			});
 		}
