@@ -28,11 +28,10 @@
 				pendingRequestCount++;
 				progressBar.start();
 
-				return _request.bind(this)(...args).finally(response => {
+				return _request.bind(this)(...args).finally(() => {
 					pendingRequestCount--;
 					if (!pendingRequestCount) { progressBar.complete(); }
 
-					return response;
 				});
 			};
 		}
