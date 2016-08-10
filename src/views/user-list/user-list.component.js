@@ -70,8 +70,7 @@
 			roles.forEach((role) => {
 				role.users.some((roleUser) => {
 					if(roleUser === user_id) {
-						api.role.update(role.name, null, null, [roleUser]);
-						return true;
+						return api.role.update(role.name, null, null, [roleUser]);
 					}
 				});
 			});
