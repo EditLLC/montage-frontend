@@ -18,7 +18,7 @@
 		serveAddOrCreateForm();
 
 		$q.all([roleListPromise, userPromise])
-			.then(([roleList, user]) => buildRoleMembership(roleList, user));
+			.then(buildRoleMembership);
 
 		vm.saveUser = function(user, roles) {
 			vm.isSaving = true;
@@ -41,7 +41,7 @@
 			}
 		}
 
-		function buildRoleMembership(roleList, user) {
+		function buildRoleMembership([roleList, user]) {
 			vm.user = user;
 			vm.roleList = roleList.map((role) => {
 				return {
