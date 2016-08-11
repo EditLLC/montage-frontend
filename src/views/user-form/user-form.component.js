@@ -22,7 +22,7 @@
 
 		vm.saveUser = function(user, roles) {
 			vm.isSaving = true;
-			let save = user.id ? api.user.update : api.user.create;
+			const save = user.id ? api.user.update : api.user.create;
 
 			save(user)
 				.then((user) => updateUsersRoleMembership(user, roles))
@@ -32,11 +32,11 @@
 		};
 
 		function serveAddOrCreateForm() {
-			if($stateParams.user_id) {
-				vm.pageTitle = "Update User";
+			if ($stateParams.user_id) {
+				vm.pageTitle = 'Update User';
 				userPromise = api.user.get($stateParams.user_id);
 			} else {
-				vm.pageTitle = "Create User";
+				vm.pageTitle = 'Create User';
 				userPromise = $q.when({});
 			}
 		}
@@ -49,37 +49,41 @@
 					hasCurrentUser : role.users.indexOf(user.id) > - 1,
 				};
 			});
-			vm.roleLabel = vm.roleList.length > 1 ? "Roles": "Role";
+			vm.roleLabel = vm.roleList.length > 1 ? 'Roles' : 'Role';
 
 			databaseRoleList = angular.copy(vm.roleList);
 		}
 
 		function updateUsersRoleMembership(user, roles) {
-			let rolePromises = [];
-			for(let i = 0; i < roles.length; i++) {
+			const rolePromises = [];
+
+			for (let i = 0; i < roles.length; i++) {
 				if (databaseRoleList[i].hasCurrentUser
 					!== roles[i].hasCurrentUser) {
-					if(roles[i].hasCurrentUser) {
+					if (roles[i].hasCurrentUser) {
 						addUserToRole(roles[i].name, [user.id]);
 					} else {
 						removeUserFromRole(roles[i].name, [user.id]);
 					}
 				}
 			}
+
 			return $q.all([rolePromises]);
 		}
 
 		function addUserToRole(roleName, user_id) {
-			let roleList = [];
+			const roleList = [];
 
 			roleList.push(api.role.update(roleName, null, user_id));
+
 			return roleList;
 		}
 
 		function removeUserFromRole(roleName, user_id) {
-			let roleList = [];
+			const roleList = [];
 
 			roleList.push(api.role.update(roleName, null, null, user_id));
+
 			return roleList;
 		}
 	}
