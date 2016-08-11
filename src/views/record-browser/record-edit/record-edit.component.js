@@ -10,6 +10,19 @@
 
   function recordEditController($stateParams, $state, $scope, $mdToast, $mdDialog, $q, api, montageHelper) {
     $scope.document_id = $stateParams.document_id;
+    $scope.showMessage = (status, message) => {
+			if (message) {
+				$scope.followupMessage = message;
+			} else {
+				if (status === 'error') {
+					$scope.followupMessage = 'Unable to save changes. Please try again.';
+				} else if (status === 'success') {
+					$scope.followupMessage = 'Changes saved'
+				}
+			}
+
+			$scope.status = status || 'info';
+		}
 
 		const schemaName = $stateParams.schemaName;
 		const getSchemaFields = api.schema.get(schemaName).then(fields => fields.fields);
