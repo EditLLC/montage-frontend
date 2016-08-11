@@ -24,20 +24,7 @@
 		}
 
 		$q.all([roleListPromise, userPromise])
-			.then(([roleList, user]) => {
-				vm.user = user;
-
-				vm.roleList = roleList.map((role) => {
-					return {
-						name           : role.name,
-						hasCurrentUser : role.users.indexOf(user.id) > - 1,
-					};
-				});
-
-					vm.roleLabel = vm.roleList.length > 1 ? "Roles": "Role";
-
-				databaseRoleList = angular.copy(vm.roleList);
-			});
+			.then(([roleList, user]) => buildRoleMembership(roleList, user));
 
 		vm.saveUser = function(user, roles) {
 			vm.isSaving = true;
@@ -49,6 +36,19 @@
 				.catch(() => vm.status = 'error')
 				.finally(() => vm.isSaving = false);
 		};
+
+		function buildRoleMembership(roleList, user) {
+			vm.user = user;
+			vm.roleList = roleList.map((role) => {
+				return {
+					name           : role.name,
+					hasCurrentUser : role.users.indexOf(user.id) > - 1,
+				};
+			});
+			vm.roleLabel = vm.roleList.length > 1 ? "Roles": "Role";
+
+			databaseRoleList = angular.copy(vm.roleList);
+		}
 
 		function updateUsersRoleMembership(user) {
 			let rolePromises = [];
