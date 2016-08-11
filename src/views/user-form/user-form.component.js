@@ -26,7 +26,8 @@
 
 			save(user)
 				.then((user) => updateUsersRoleMembership(user, roles))
-				.catch(() => vm.status = 'error')
+				.then(() => returnSuccess())
+				.catch((err) => handleErrors(err))
 				.finally(() => vm.isSaving = false);
 		};
 
@@ -78,6 +79,29 @@
 
 			return vm.status;
 		}
+
+		function handleErrors(err) {
+			err.text().then(text => {
+				const error = JSON.parse(text).errors[0].meta.details.email[0];
+
+				if (error) {
+					vm.status = {
+						result  : 'duplicateEmail error',
+						message : 'Email address is already in use. Please use another.',
+					};
+
+					return vm.status;
+				}
+
+				vm.status = {
+					result  : 'error',
+					message : 'There was an error saving your changes. Please try again.',
+				};
+
+				return vm.status;
+			});
+		}
+
 		function addUserToRole(roleName, user_id) {
 			const roleList = [];
 
