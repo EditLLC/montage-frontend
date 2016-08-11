@@ -4,12 +4,12 @@
 	angular
 		.module('montage')
 		.component('userForm', {
-			templateUrl: 'views/user-form/user-form.html',
-			controllerAs: 'userForm',
-			controller: userFormController
+			templateUrl  : 'views/user-form/user-form.html',
+			controllerAs : 'userForm',
+			controller   : UserFormController,
 		});
 
-	function userFormController($q, $stateParams, api) {
+	function UserFormController($q, $stateParams, api) {
 		const vm = this;
 		const roleListPromise = api.role.list();
 		let databaseRoleList;
