@@ -48,23 +48,25 @@
 			let save = user.id ? api.user.update : api.user.create;
 
 			save(user)
-				.then((user) => {
-					let rolePromises = [];
-					for(let i = 0; i < roles.length; i++) {
-						if (databaseRoleList[i].hasCurrentUser
-							!== roles[i].hasCurrentUser) {
-							if(roles[i].hasCurrentUser) {
-								addUserToRole(roles[i].name, [user.id]);
-							} else {
-								removeUserFromRole(roles[i].name, [user.id]);
-							}
-						}
-					}
-					return $q.all([rolePromises]);
-				})
+				.then((user) => updateUsersRoleMembership(user))
 				.then(() => vm.status = 'success')
 				.catch(() => vm.status = 'error')
 				.finally(() => vm.isSaving = false);
+		}
+
+		function updateUsersRoleMembership(user) {
+			let rolePromises = [];
+			for(let i = 0; i < roles.length; i++) {
+				if (databaseRoleList[i].hasCurrentUser
+					!== roles[i].hasCurrentUser) {
+					if(roles[i].hasCurrentUser) {
+						addUserToRole(roles[i].name, [user.id]);
+					} else {
+						removeUserFromRole(roles[i].name, [user.id]);
+					}
+				}
+			}
+			return $q.all([rolePromises]);
 		}
 
 		function addUserToRole(roleName, user_id) {
