@@ -4,12 +4,12 @@
 	angular
 		.module('montage')
 		.component('userDetail', {
-			templateUrl: 'views/user-detail/user-detail.html',
-			controllerAs: 'userDetail',
-			controller: userDetailController
+			templateUrl  : 'views/user-detail/user-detail.html',
+			controllerAs : 'userDetail',
+			controller   : UserDetailController,
 		});
 
-	function userDetailController($stateParams, authService, api) {
+	function UserDetailController($stateParams, authService, api) {
 		const vm = this;
 
 		api.user.get($stateParams.user_id).then(user => {
