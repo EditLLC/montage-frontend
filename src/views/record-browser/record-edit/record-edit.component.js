@@ -28,7 +28,15 @@
 
 		const schemaName = $stateParams.schemaName;
 		const getSchemaFields = api.schema.get(schemaName).then(fields => fields.fields);
-		const getActualRecord = api.document.get(schemaName, $scope.document_id).then(response => response);
+		const getActualRecord = api.document.get(schemaName, $scope.document_id).then(response => {
+			$scope.response = response;
+			return response;
+		});
+
+		if (!$scope.response) {
+			console.log($scope.response);
+			$scope.showMessage('error', 'Record doesn\'t exist');
+		}
 
 		$scope.validateJSON = (snippet, fieldName) => {
 			if (snippet[0] === '{' || snippet[0] === '[') {
