@@ -1,5 +1,5 @@
 <form name="userSaveForm" class="user-create-view view-frame" md-whiteframe="2">
-	<h1>{{ userForm.pageTitle }}</h1>
+	<h1>{{ userForm.user.id ? 'Update User' : 'Create User' }}</h1>
 
 	<div class="message"
 	     ng-if="userForm.status"
