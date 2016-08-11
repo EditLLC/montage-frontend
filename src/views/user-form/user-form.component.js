@@ -13,7 +13,7 @@
 		const vm = this;
 		const roleListPromise = api.role.list();
 		let databaseRoleList;
-		let userPromise = serveAddOrCreateForm();
+		let userPromise = getUserPromise();
 
 		$q.all([roleListPromise, userPromise])
 			.then(buildRoleMembership);
@@ -29,7 +29,7 @@
 				.finally(() => vm.isSaving = false);
 		};
 
-		function serveAddOrCreateForm() {
+		function getUserPromise() {
 			if ($stateParams.user_id) {
 				return api.user.get($stateParams.user_id);
 			}
