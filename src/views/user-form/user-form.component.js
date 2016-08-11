@@ -42,7 +42,7 @@
 			vm.roleList = roleList.map((role) => {
 				return {
 					name           : role.name,
-					hasCurrentUser : role.users.indexOf(user.id) > - 1,
+					hasCurrentUser : role.users.indexOf(user.id) > -1,
 				};
 			});
 			vm.roleLabel = vm.roleList.length > 1 ? 'Roles' : 'Role';
