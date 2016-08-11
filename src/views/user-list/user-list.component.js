@@ -21,9 +21,9 @@
 				vm.userList = userList;
 				roles = roleList;
 
-				createUserDictionary(userList);
+				createUserDictionary(vm.userList);
 				addUsersToRoles(roles);
-				convertRoleArrayToString(userList);
+				convertRoleArrayToString(vm.userList);
 			});
 
 		vm.deleteUser = function(user_id) {
