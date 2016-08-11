@@ -17,6 +17,7 @@
 			<div ng-message="required">Name is required.</div>
 		</div>
 	</md-input-container>
+	
 	<md-input-container class="md-block">
 		<label>Email</label>
 		<input type="email"
@@ -28,6 +29,7 @@
 			<div ng-message="email">Valid email address required.</div>
 		</div>
 	</md-input-container>
+
 	<md-input-container class="md-block" ng-if="!userForm.user.id">
 		<label>Password</label>
 		<input type="password"
