@@ -31,7 +31,7 @@
 			let save = user.id ? api.user.update : api.user.create;
 
 			save(user)
-				.then((user) => updateUsersRoleMembership(user))
+				.then((user) => updateUsersRoleMembership(user, roles))
 				.then(() => vm.status = 'success')
 				.catch(() => vm.status = 'error')
 				.finally(() => vm.isSaving = false);
@@ -50,7 +50,7 @@
 			databaseRoleList = angular.copy(vm.roleList);
 		}
 
-		function updateUsersRoleMembership(user) {
+		function updateUsersRoleMembership(user, roles) {
 			let rolePromises = [];
 			for(let i = 0; i < roles.length; i++) {
 				if (databaseRoleList[i].hasCurrentUser
