@@ -40,7 +40,9 @@
 			<td>{{ user.roles }}</td>
 
 			<td class="actions">
-				<a ui-sref="user.edit({ user_id: user.id })"><i class="fa fa-pencil"></i></a>
+				<a ui-sref="user.edit({ user_id: user.id })">
+					<i class="fa fa-pencil"></i>
+				</a>
 				<a ng-click="userList.deleteUser(user.id)">
 					<i class="fa fa-times"></i>
 				</a>
