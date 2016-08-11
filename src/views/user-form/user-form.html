@@ -1,11 +1,8 @@
 <form name="userSaveForm" class="user-create-view view-frame" md-whiteframe="2">
 	<h1>{{ userForm.pageTitle }}</h1>
 
-	<div class="message" ng-if="userForm.status" ng-class="userForm.status">
-		{{ userForm.status === 'success'
-		? 'Successfully saved'
-		: 'There was an error saving your changes. Please try again.'
-		}}
+	<div class="message" ng-if="userForm.status" ng-class="userForm.status.result">
+		{{ userForm.status.message }}
 	</div>
 
 	<md-input-container class="md-block">
