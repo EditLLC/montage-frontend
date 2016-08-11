@@ -17,22 +17,26 @@
 		////////////
 
 		function create(user) {
-			return montageHelper.getClient().users.create(user.full_name, user.email, user.password)
+			return montageHelper.getClient()
+				.users.create(user.full_name, user.email, user.password)
 				.then(montageHelper.returnData);
 		}
 
 		function get(id) {
-			return montageHelper.getClient().users.get(id)
+			return montageHelper.getClient()
+				.users.get(id)
 				.then(montageHelper.returnData);
 		}
 
 		function list() {
-			return montageHelper.getClient().users.list()
+			return montageHelper.getClient()
+				.users.list()
 				.then(montageHelper.returnData);
 		}
 
 		function update(user) {
-			return montageHelper.getClient().users.update(user.id, user.full_name, user.email, user.password)
+			return montageHelper.getClient()
+				.users.update(user.id, user.full_name, user.email, user.password)
 				.then(montageHelper.returnData);
 		}
 
