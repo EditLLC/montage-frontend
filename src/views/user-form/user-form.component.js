@@ -45,7 +45,6 @@
 					hasCurrentUser : role.users.indexOf(user.id) > -1,
 				};
 			});
-			vm.roleLabel = vm.roleList.length > 1 ? 'Roles' : 'Role';
 
 			databaseRoleList = angular.copy(vm.roleList);
 		}
