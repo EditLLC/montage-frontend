@@ -26,7 +26,6 @@
 
 			save(user)
 				.then((user) => updateUsersRoleMembership(user, roles))
-				.then(() => vm.status = 'success')
 				.catch(() => vm.status = 'error')
 				.finally(() => vm.isSaving = false);
 		};
@@ -71,6 +70,14 @@
 			return $q.all([rolePromises]);
 		}
 
+		function returnSuccess() {
+			vm.status = {
+				result  : 'success',
+				message : 'Save successful.',
+			};
+
+			return vm.status;
+		}
 		function addUserToRole(roleName, user_id) {
 			const roleList = [];
 
