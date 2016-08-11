@@ -15,13 +15,7 @@
 		let databaseRoleList;
 		let userPromise;
 
-		if($stateParams.user_id) {
-			vm.pageTitle = "Update User";
-			userPromise = api.user.get($stateParams.user_id);
-		} else {
-			vm.pageTitle = "Create User";
-			userPromise = $q.when({});
-		}
+		serveAddOrCreateForm();
 
 		$q.all([roleListPromise, userPromise])
 			.then(([roleList, user]) => buildRoleMembership(roleList, user));
@@ -36,6 +30,16 @@
 				.catch(() => vm.status = 'error')
 				.finally(() => vm.isSaving = false);
 		};
+
+		function serveAddOrCreateForm() {
+			if($stateParams.user_id) {
+				vm.pageTitle = "Update User";
+				userPromise = api.user.get($stateParams.user_id);
+			} else {
+				vm.pageTitle = "Create User";
+				userPromise = $q.when({});
+			}
+		}
 
 		function buildRoleMembership(roleList, user) {
 			vm.user = user;
