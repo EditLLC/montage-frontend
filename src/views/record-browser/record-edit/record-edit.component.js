@@ -146,7 +146,7 @@
 										         .title('Would you like to delete this record?')
 										         .ariaLabel('Delete record')
 										         .targetEvent(ev)
-										         .ok('Okay')
+										         .ok('Delete')
 										         .cancel('Cancel');
       $mdDialog.show(confirm).then(() => {
         $scope.remove();
