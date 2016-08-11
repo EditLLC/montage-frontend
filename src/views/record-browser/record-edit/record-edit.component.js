@@ -10,6 +10,8 @@
 
   function recordEditController($stateParams, $state, $scope, $mdToast, $mdDialog, $q, api, montageHelper) {
     $scope.document_id = $stateParams.document_id;
+		$scope.saveContext = 'Save';
+
     $scope.showMessage = (status, message) => {
 			if (message) {
 				$scope.followupMessage = message;
@@ -166,11 +168,13 @@
 
 
     $scope.update = () => {
+			$scope.saveContext = 'Saving';
 			api
 			.document.update(schemaName, $scope.record)
 			.then(() => {
 				$scope.showSuccessToast();
 				createMeta($scope.fields, $scope.record);
+				$scope.saveContext = 'Save';
 			})
 			.catch((e) => {
 				$scope.showUnsuccessToast();

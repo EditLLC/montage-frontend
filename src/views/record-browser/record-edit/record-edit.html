@@ -49,9 +49,11 @@
 			</div>
 		</div>
 
-	  <div style="text-align: right;">
-	    <md-button type="submit" class="md-raised md-primary" ng-disabled="recordForm.$invalid">
-	      Save
+	  <div style="text-align: right; width: 50%;">
+	    <md-button type="submit"
+								 class="md-raised md-primary"
+								 ng-disabled="recordForm.$invalid || saveContext === 'Saving'">
+	      {{ saveContext }}
 	    </md-button>
 	  </div>
 	</form>
