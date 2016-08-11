@@ -61,9 +61,9 @@
 				if (databaseRoleList[i].hasCurrentUser
 					!== roles[i].hasCurrentUser) {
 					if (roles[i].hasCurrentUser) {
-						addUserToRole(roles[i].name, [user.id]);
+						updateRoles(roles[i].name, [user.id], 'add');
 					} else {
-						removeUserFromRole(roles[i].name, [user.id]);
+						updateRoles(roles[i].name, [user.id], 'remove');
 					}
 				}
 			}
@@ -102,16 +102,14 @@
 			});
 		}
 
-		function addUserToRole(roleName, user_id) {
+		function updateRoles(roleName, user_id, addOrRemove) {
 			const roleList = [];
 
-			roleList.push(api.role.update(roleName, null, user_id));
+			if (addOrRemove === 'add') {
+				roleList.push(api.role.update(roleName, null, user_id));
 
-			return roleList;
-		}
-
-		function removeUserFromRole(roleName, user_id) {
-			const roleList = [];
+				return roleList;
+			}
 
 			roleList.push(api.role.update(roleName, null, null, user_id));
 
