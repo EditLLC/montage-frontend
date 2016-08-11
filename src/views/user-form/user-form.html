@@ -1,7 +1,9 @@
 <form name="userSaveForm" class="user-create-view view-frame" md-whiteframe="2">
 	<h1>{{ userForm.pageTitle }}</h1>
 
-	<div class="message" ng-if="userForm.status" ng-class="userForm.status.result">
+	<div class="message"
+	     ng-if="userForm.status"
+	     ng-class="userForm.status.result">
 		{{ userForm.status.message }}
 	</div>
 
