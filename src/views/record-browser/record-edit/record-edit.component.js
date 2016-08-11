@@ -153,12 +153,12 @@
 			api
 			.document.update(schemaName, $scope.record)
 			.then(() => {
-				$scope.showSuccessToast();
+				$scope.showMessage('success');
 				createMeta($scope.fields, $scope.record);
 				$scope.saveContext = 'Save';
 			})
 			.catch((e) => {
-				$scope.showUnsuccessToast();
+				$scope.showMessage('error');
 			});
     };
 
