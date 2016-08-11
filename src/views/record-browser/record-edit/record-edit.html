@@ -23,7 +23,7 @@
     </md-input-container>
   </div>
 
-	<form name="recordForm" ng-submit="update()">
+	<form name="recordForm" ng-submit="update()" autocomplete="off">
 		<div ng-repeat="(key, value) in record">
 			<md-input-container ng-hide="key === 'id' || key === '_meta' || meta[key].datatype === 'boolean'">
 				<label>{{ key }}</label>
@@ -63,6 +63,7 @@
         <h2 style="padding: 25px 25px 0">Add field</h2>
 
 				<form name="addFieldForm" ng-submit="answer()" style="padding: 0 25px 25px">
+				<form name="addFieldForm" ng-submit="answer()" style="padding: 25px 25px 25px" autocomplete="off">
 
 	        <div class="group">
 	          <md-input-container>
