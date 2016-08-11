@@ -41,7 +41,7 @@
 		}
 
 		function remove(id) {
-			return montageHelper.getClient().users.remove(id)
+			return montageHelper.getClient().users.remove(id);
 		}
 	}
 })(angular);
