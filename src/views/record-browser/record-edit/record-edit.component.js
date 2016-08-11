@@ -141,10 +141,12 @@
         }
       })
       .then(answer => {
-				if (typeof answer.value === 'string' && Number(answer.value)) {
-					answer.value = parseFloat(answer.value);
-				} else if (typeof answer.value === 'string' && Boolean(answer.value)) {
-					answer.value = answer.value === 'true';
+				if (typeof answer.value === 'string') {
+					if (Number(answer.value)) {
+						answer.value = parseFloat(answer.value);
+					} else if (answer.value === 'true' || answer.value === 'false') {
+						answer.value = answer.value === 'true';
+					}
 				}
 
         $scope.record[answer.field] = answer.value;
