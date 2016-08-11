@@ -96,27 +96,6 @@
 				createMeta(fields, record);
 			});
 
-
-    $scope.showSuccessToast = () => {
-      $mdToast.show(
-        $mdToast.simple()
-			          .textContent('Changes saved')
-			          .position('bottom right')
-			          .hideDelay(3000)
-      );
-    };
-
-    $scope.showUnsuccessToast = (message) => {
-			const response = message || 'Changes unsuccessful';
-      $mdToast.show(
-        $mdToast.simple()
-		            .textContent(response)
-		            .position('bottom right')
-		            .hideDelay(3000)
-        );
-    };
-
-
     $scope.showAddFieldDialog = (ev) => {
       $mdDialog.show({
         contentElement      : '#myDialog',
