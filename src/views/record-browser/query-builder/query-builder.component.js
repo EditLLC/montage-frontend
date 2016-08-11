@@ -25,7 +25,6 @@
 			'>'                              : 'gt',
 			'>='                             : 'ge',
 			'in'                             : 'inSet',
-			'contains'                       : 'contains',
 			'regex'                          : 'regex',
 			'starts with'                    : 'starts',
 			'starts with (case insensitive)' : 'istarts',
