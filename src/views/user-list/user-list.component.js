@@ -13,7 +13,7 @@
 		const vm = this;
 		const roleListPromise = api.role.list();
 		const userListPromise = api.user.list();
-		let userMap = {};
+		const userMap = {};
 		let roles;
 
 		$q.all([roleListPromise, userListPromise])
@@ -64,7 +64,7 @@
 
 		function removeUserFromRoles(roles, user_id) {
 			roles.forEach((role) => {
-				if(role.users.indexOf(user_id) > - 1)
+				if (role.users.indexOf(user_id) > - 1)
 				{
 					return api.role.update(role.name, null, null, [user_id]);
 				}
@@ -74,7 +74,7 @@
 		function removeUserFromView(userList, user_id) {
 			let index = 0;
 
-			for(index; index < userList.length; index++) {
+			for (index; index < userList.length; index++) {
 				if (userList[index].id === user_id) {
 					userList.splice(index, 1);
 					break;
