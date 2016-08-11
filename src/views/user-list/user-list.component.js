@@ -31,12 +31,8 @@
 
 			modalHelper.confirmDelete('user')
 				.then(() => (roleListPromise)
-					.then((roles) => {
-						removeUserFromRoles(roles, user_id);
-					})
-					.then(() => {
-						removeUserFromView(vm.userList, user_id);
-					})
+					.then((roles) => removeUserFromRoles(roles, user_id))
+					.then(() => removeUserFromView(vm.userList, user_id))
 					.then(() => api.user.remove(user_id))
 					.then(() => vm.status = 'success')
 					.catch(() => vm.status = 'error')
