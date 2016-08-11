@@ -16,7 +16,10 @@
 		let userPromise = getUserPromise();
 
 		$q.all([roleListPromise, userPromise])
-			.then(buildRoleMembership);
+			.then(buildRoleMembership)
+			.then(roleMembership => {
+				databaseRoleList = angular.copy(roleMembership);
+			});
 
 		vm.saveUser = function(user, roles) {
 			vm.isSaving = true;
@@ -46,7 +49,7 @@
 				};
 			});
 
-			databaseRoleList = angular.copy(vm.roleList);
+			return vm.roleList;
 		}
 
 		function updateUsersRoleMembership(user, roles) {
