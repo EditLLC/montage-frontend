@@ -41,10 +41,6 @@
 
 		vm.saveUser = function(user, roles) {
 			vm.isSaving = true;
-			updateUser(user, roles);
-		};
-
-		function updateUser(user, roles) {
 			let save = user.id ? api.user.update : api.user.create;
 
 			save(user)
@@ -52,7 +48,7 @@
 				.then(() => vm.status = 'success')
 				.catch(() => vm.status = 'error')
 				.finally(() => vm.isSaving = false);
-		}
+		};
 
 		function updateUsersRoleMembership(user) {
 			let rolePromises = [];
