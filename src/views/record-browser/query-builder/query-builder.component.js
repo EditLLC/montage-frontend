@@ -8,12 +8,12 @@
 			controllerAs: 'queryBuilder',
 			controller: queryBuilderController,
 			bindings: {
-				onChange: '=',
+				onSubmit: '=',
 				schemaList: '='
 			}
 		});
 
-	function queryBuilderController($scope, montage) {
+	function queryBuilderController(montage) {
 		var vm = this;
 
 		vm.operatorDictionary = {
@@ -25,7 +25,6 @@
 			'>'                              : 'gt',
 			'>='                             : 'ge',
 			'in'                             : 'inSet',
-			'contains'                       : 'contains',
 			'regex'                          : 'regex',
 			'starts with'                    : 'starts',
 			'starts with (case insensitive)' : 'istarts',
@@ -67,21 +66,15 @@
 		vm.removeFilter = function(field, filter) {
 
 			// Remove the filter from the filterGroup
-			vm.filterGroups[field] = vm.filterGroups[field].filter((currentFilter => currentFilter !== filter));
+			vm.query.filterGroups[field] = vm.query.filterGroups[field].filter((currentFilter => currentFilter !== filter));
 
 			// Remove the filterGroup if it is empty
-			if(!vm.filterGroups[field].length) {
-				delete vm.filterGroups[field];
+			if(!vm.query.filterGroups[field].length) {
+				delete vm.query.filterGroups[field];
 			}
 		};
 
-		$scope.$watch(() => vm.query, query => {
-			if(query && query.schema) {
-				vm.onChange(buildQuery(query));
-			}
-		}, true);
-
-		function buildQuery({ schema, filterGroups, order, limit, offset }) {
+		vm.buildQuery = ({ schema, filterGroups, order_by, ordering, limit, offset }) => {
 			if(!schema) return;
 
 			var query = new montage.Query(schema);
@@ -92,7 +85,7 @@
 				for(var field in filterGroups) {
 					if(filterGroups.hasOwnProperty(field)) {
 						filterGroups[field].forEach(({operator, value}) => {
-							filters.push(new montage.Field(field)[operator](value));
+							filters.push(new montage.Field(field)[vm.operatorDictionary[operator]](value));
 						});
 					}
 				}
@@ -100,7 +93,7 @@
 				query.filter.apply(query, filters);
 			}
 
-			if(order) { query.order(order.field, order.direction); }
+			if (order_by && ordering) { query.orderBy(order_by, ordering); }
 			if(offset) { query.skip(parseInt(offset)); }
 			if(limit) { query.limit(parseInt(limit)); }
 
