@@ -34,7 +34,6 @@
 		});
 
 		if (!$scope.response) {
-			console.log($scope.response);
 			$scope.showMessage('error', 'Record doesn\'t exist');
 		}
 
