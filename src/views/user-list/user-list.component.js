@@ -28,16 +28,16 @@
 
 		vm.deleteUser = function(user_id) {
 			vm.isSaving = true;
-			const userRemovePromise = api.user.remove(user_id);
 
 			modalHelper.confirmDelete('user')
-				.then(() => $q.all([roleListPromise, userRemovePromise])
-					.then(([roles]) => {
+				.then(() => (roleListPromise)
+					.then((roles) => {
 						removeUserFromRoles(roles, user_id);
 					})
 					.then(() => {
 						removeUserFromView(vm.userList, user_id);
 					})
+					.then(() => api.user.remove(user_id))
 					.then(() => vm.status = 'success')
 					.catch(() => vm.status = 'error')
 					.finally(() => vm.isSaving = false)
