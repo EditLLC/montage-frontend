@@ -12,6 +12,10 @@
     </md-button>
   </div>
 
+	<div class="message-container" ng-if="followupMessage">
+		<p class="message {{ status }}">{{ followupMessage }}</p>
+	</div>
+
   <div>
     <md-input-container>
       <label>ID</label>
