@@ -5,13 +5,38 @@
 		.module('montage')
 		.factory('montageHelper', montageHelper);
 
-	function montageHelper(montage, authService) {
+	function montageHelper(colorPrimary, montage, authService, ngProgressFactory) {
+
+		init();
+
 		return {
 			getClient,
-			returnData
+			returnData,
 		};
 
 		////////////
+
+		function init() {
+			const progressBar = ngProgressFactory.createInstance();
+			const _request = montage.Client.prototype.request;
+
+			let pendingRequestCount = 0;
+
+			progressBar.setColor(colorPrimary);
+
+			montage.Client.prototype.request = function(...args) {
+				pendingRequestCount++;
+				progressBar.start();
+
+				return _request.bind(this)(...args).finally(() => {
+					pendingRequestCount--;
+
+					if (!pendingRequestCount) {
+						progressBar.complete();
+					}
+				});
+			};
+		}
 
 		function getClient() {
 			var currentUser = authService.getCurrentUser();
