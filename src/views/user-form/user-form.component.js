@@ -76,6 +76,14 @@
 			return $q.all([rolePromises]);
 		}
 
+		function addUserToRole(roleName, user_id) {
+			return api.role.update(roleName, null, [user_id]);
+		}
+
+		function removeUserFromRole(roleName, user_id) {
+			return api.role.update(roleName, null, null, [user_id]);
+		}
+
 		function handleSuccess() {
 			vm.status = {
 				result  : 'success',
@@ -108,14 +116,6 @@
 					};
 				}
 			});
-		}
-
-		function addUserToRole(roleName, user_id) {
-			return api.role.update(roleName, null, [user_id]);
-		}
-
-		function removeUserFromRole(roleName, user_id) {
-			return api.role.update(roleName, null, null, [user_id]);
 		}
 	}
 })(angular);
