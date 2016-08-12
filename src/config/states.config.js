@@ -84,6 +84,10 @@
 				url: '/roles/create',
 				template: '<role-form />'
 			})
+			.state('role.edit', {
+				url: '/roles/edit/:roleName',
+				template: '<role-form />'
+			})
 			.state('role.detail', {
 				url: '/roles/:roleName',
 				template: '<role-detail />'
