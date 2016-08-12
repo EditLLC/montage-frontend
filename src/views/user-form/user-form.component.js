@@ -17,7 +17,7 @@
 		const userPromise = getUserPromise();
 
 		$q.all([roleListPromise, userPromise])
-			.then(buildRoleMembership)
+			.then(buildRoleList)
 			.then(roleMembership => {
 				databaseRoleList = angular.copy(roleMembership);
 			});
@@ -41,7 +41,7 @@
 			return $q.when({});
 		}
 
-		function buildRoleMembership([roleList, user]) {
+		function buildRoleList([roleList, user]) {
 			vm.user = user;
 			vm.roleList = roleList.map((role) => {
 				return {
