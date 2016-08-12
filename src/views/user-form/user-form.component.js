@@ -55,14 +55,15 @@
 
 		function updateUsersRoleMembership(user, roles) {
 			const rolePromises = [];
+			let currentRolePromise;
 
 			for (let i = 0; i < roles.length; i++) {
 				if (databaseRoleList[i].hasCurrentUser !== roles[i].hasCurrentUser) {
-					if (roles[i].hasCurrentUser) {
-						removeUserFromRole(roles[i].name, user.id);
-					} else {
-						addUserToRole(roles[i].name, user.id);
-					}
+					currentRolePromise = roles[i].hasCurrentUser
+						? removeUserFromRole(roles[i].name, user.id)
+						: addUserToRole(roles[i].name, user.id);
+
+					rolePromises.push(currentRolePromise);
 				}
 			}
 
