@@ -36,17 +36,6 @@
 			);
 		};
 
-		function createUserDictionary(users) {
-			const dictionary = {};
-
-			users.forEach(user => {
-				dictionary[user.id] = user;
-				user.roles = [];
-			});
-
-			return dictionary;
-		}
-
 		function addUsersToRoles(users, roles) {
 			const userDictionary = createUserDictionary(users);
 
@@ -56,6 +45,17 @@
 					role.users = [];
 				});
 			});
+		}
+
+		function createUserDictionary(users) {
+			const dictionary = {};
+
+			users.forEach(user => {
+				dictionary[user.id] = user;
+				user.roles = [];
+			});
+
+			return dictionary;
 		}
 
 		function convertRoleArrayToString(users) {
