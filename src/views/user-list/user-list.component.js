@@ -13,10 +13,12 @@
 		const vm = this;
 		const roleListPromise = api.role.list();
 		const userListPromise = api.user.list();
+		let roles;
 
 		$q.all([roleListPromise, userListPromise])
 			.then(([roleList, userList]) => {
 				vm.userList = userList;
+				roles = roleList;
 
 				addUsersToRoles(userList, roleList);
 				convertRoleArrayToString(userList);
@@ -26,14 +28,12 @@
 			vm.isSaving = true;
 
 			modalHelper.confirmDelete('user')
-				.then(() => (roleListPromise)
-				.then((roles) => removeUserFromRoles(roles, user_id))
+				.then(() => removeUserFromRoles(roles, user_id))
 				.then(() => removeUserFromView(vm.userList, user_id))
 				.then(() => api.user.remove(user_id))
 				.then(() => vm.status = 'success')
 				.catch(() => vm.status = 'error')
-				.finally(() => vm.isSaving = false)
-			);
+				.finally(() => vm.isSaving = false);
 		};
 
 		function addUsersToRoles(users, roles) {
