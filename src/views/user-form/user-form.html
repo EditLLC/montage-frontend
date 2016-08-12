@@ -60,6 +60,6 @@
 		type="submit"
 		ng-click="userForm.saveUser(userForm.user, userForm.roleList)"
 		ng-disabled="userSaveForm.$invalid || userForm.isSaving">
-		{{ userForm.isSaving ? 'Saving...' : userForm.pageTitle }}
+		{{ userForm.isSaving ? 'Saving...' : userForm.formType }}
 	</md-button>
 </form>
