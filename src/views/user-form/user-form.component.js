@@ -9,7 +9,7 @@
 			controller   : UserFormController,
 		});
 
-	function UserFormController($q, $stateParams, api) {
+	function UserFormController($scope, $q, $stateParams, api) {
 		const vm = this;
 		let databaseRoleList;
 
@@ -115,6 +115,8 @@
 						message : 'There was an error saving your changes. Please try again.',
 					};
 				}
+
+				$scope.$digest();
 			});
 		}
 	}
