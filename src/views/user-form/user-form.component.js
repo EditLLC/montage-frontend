@@ -11,9 +11,10 @@
 
 	function UserFormController($q, $stateParams, api) {
 		const vm = this;
-		const roleListPromise = api.role.list();
 		let databaseRoleList;
-		let userPromise = getUserPromise();
+
+		const roleListPromise = api.role.list();
+		const userPromise = getUserPromise();
 
 		$q.all([roleListPromise, userPromise])
 			.then(buildRoleMembership)
