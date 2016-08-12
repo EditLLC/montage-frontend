@@ -3,13 +3,13 @@
 
 	angular
 		.module('montage')
-		.component('roleCreate', {
-			templateUrl: 'views/role-create/role-create.html',
-			controllerAs: 'roleCreate',
-			controller: roleCreateController
+		.component('roleForm', {
+			templateUrl: 'views/role-form/role-form.html',
+			controllerAs: 'roleForm',
+			controller: roleFormController
 		});
 
-	function roleCreateController(api) {
+	function roleFormController(api) {
 		var vm = this;
 
 		vm.createRole = function(roleName) {
