@@ -65,11 +65,16 @@
 		}
 
 		function removeUserFromRoles(roles, user_id) {
-			roles.forEach((role) => {
+			const rolePromises = roles.reduce((promises, role) => {
 				if (role.users.indexOf(user_id) > -1) {
-					return api.role.update(role.name, null, null, [user_id]);
+					let rolePromise = api.role.update(role.name, null, null, [user_id]);
+					promises.push(rolePromise);
 				}
-			});
+
+				return promises;
+			}, []);
+
+			return $q.all(rolePromises);
 		}
 
 		function removeUserFromView(userList, user_id) {
