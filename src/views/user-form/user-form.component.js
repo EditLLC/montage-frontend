@@ -79,7 +79,16 @@
 
 		function handleErrors(err) {
 			err.text().then(text => {
-				const error = JSON.parse(text).errors[0].meta.details.email[0];
+				text = JSON.parse(text);
+
+				if(!(text.errors
+					&& text.errors[0]
+					&& text.errors[0].meta
+					&& text.errors[0].meta.details
+					&& text.errors[0].meta.details.email
+				)) return;
+
+				const error = text.errors[0].meta.details.email[0];
 
 				if (error) {
 					vm.status = {
