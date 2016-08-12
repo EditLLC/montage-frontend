@@ -28,8 +28,8 @@
 
 			save(user)
 				.then((user) => updateUsersRoleMembership(user, roles))
-				.then(() => returnSuccess())
-				.catch((err) => handleErrors(err))
+				.then(returnSuccess)
+				.catch(handleErrors)
 				.finally(() => vm.isSaving = false);
 		};
 
