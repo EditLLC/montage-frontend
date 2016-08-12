@@ -28,7 +28,7 @@
 
 			save(user)
 				.then((user) => updateRoleMembership(user, roles))
-				.then(returnSuccess)
+				.then(handleSuccess)
 				.catch(handleErrors)
 				.finally(() => vm.isSaving = false);
 		};
@@ -70,7 +70,7 @@
 			return $q.all([rolePromises]);
 		}
 
-		function returnSuccess() {
+		function handleSuccess() {
 			vm.status = {
 				result  : 'success',
 				message : 'Save successful.',
