@@ -27,7 +27,7 @@
 			const save = user.id ? api.user.update : api.user.create;
 
 			save(user)
-				.then((user) => updateUsersRoleMembership(user, roles))
+				.then((user) => updateRoleMembership(user, roles))
 				.then(returnSuccess)
 				.catch(handleErrors)
 				.finally(() => vm.isSaving = false);
@@ -53,7 +53,7 @@
 			return vm.roleList;
 		}
 
-		function updateUsersRoleMembership(user, roles) {
+		function updateRoleMembership(user, roles) {
 			const rolePromises = [];
 			let currentRolePromise;
 
