@@ -13,14 +13,12 @@
 		const vm = this;
 		const roleListPromise = api.role.list();
 		const userListPromise = api.user.list();
-		let userDictionary;
 
 		$q.all([roleListPromise, userListPromise])
 			.then(([roleList, userList]) => {
 				vm.userList = userList;
 
-				userDictionary = createUserDictionary(userList);
-				addUsersToRoles(roleList);
+				addUsersToRoles(userList, roleList);
 				convertRoleArrayToString(userList);
 			});
 
@@ -49,7 +47,9 @@
 			return dictionary;
 		}
 
-		function addUsersToRoles(roles) {
+		function addUsersToRoles(users, roles) {
+			const userDictionary = createUserDictionary(users);
+
 			roles.forEach(role => {
 				role.users.forEach(user_id => {
 					userDictionary[user_id].roles.push(role);
