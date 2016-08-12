@@ -73,9 +73,7 @@
 		}
 
 		function removeUserFromView(userList, user_id) {
-			let index = 0;
-
-			for (index; index < userList.length; index++) {
+			for (let index = 0; index < userList.length; index++) {
 				if (userList[index].id === user_id) {
 					userList.splice(index, 1);
 					break;
