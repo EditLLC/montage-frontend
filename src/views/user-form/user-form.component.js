@@ -59,9 +59,9 @@
 			for (let i = 0; i < roles.length; i++) {
 				if (databaseRoleList[i].hasCurrentUser !== roles[i].hasCurrentUser) {
 					if (roles[i].hasCurrentUser) {
-						updateRoles(roles[i].name, [user.id], 'add');
+						removeUserFromRole(roles[i].name, user.id);
 					} else {
-						updateRoles(roles[i].name, [user.id], 'remove');
+						addUserToRole(roles[i].name, user.id);
 					}
 				}
 			}
@@ -100,18 +100,12 @@
 			});
 		}
 
-		function updateRoles(roleName, user_id, addOrRemove) {
-			const roleList = [];
+		function addUserToRole(roleName, user_id) {
+			return api.role.update(roleName, null, [user_id]);
+		}
 
-			if (addOrRemove === 'add') {
-				roleList.push(api.role.update(roleName, null, user_id));
-
-				return roleList;
-			}
-
-			roleList.push(api.role.update(roleName, null, null, user_id));
-
-			return roleList;
+		function removeUserFromRole(roleName, user_id) {
+			return api.role.update(roleName, null, null, [user_id]);
 		}
 	}
 })(angular);
