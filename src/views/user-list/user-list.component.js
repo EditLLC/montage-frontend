@@ -66,7 +66,7 @@
 
 		function removeUserFromRoles(roles, user_id) {
 			roles.forEach((role) => {
-				if (role.users.indexOf(user_id) > - 1) {
+				if (role.users.indexOf(user_id) > -1) {
 					return api.role.update(role.name, null, null, [user_id]);
 				}
 			});
