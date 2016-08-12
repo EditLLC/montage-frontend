@@ -86,16 +86,12 @@
 						result  : 'duplicateEmail error',
 						message : 'Email address is already in use. Please use another.',
 					};
-
-					return vm.status;
+				} else {
+					vm.status = {
+						result  : 'error',
+						message : 'There was an error saving your changes. Please try again.',
+					};
 				}
-
-				vm.status = {
-					result  : 'error',
-					message : 'There was an error saving your changes. Please try again.',
-				};
-
-				return vm.status;
 			});
 		}
 
