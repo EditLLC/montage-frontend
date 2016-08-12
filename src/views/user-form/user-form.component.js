@@ -75,8 +75,6 @@
 				result  : 'success',
 				message : 'Save successful.',
 			};
-
-			return vm.status;
 		}
 
 		function handleErrors(err) {
