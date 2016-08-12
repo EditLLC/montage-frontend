@@ -13,6 +13,8 @@
 		const vm = this;
 		let databaseRoleList;
 
+		vm.formType = getFormType();
+
 		const roleListPromise = api.role.list();
 		const userPromise = getUserPromise();
 
@@ -39,6 +41,10 @@
 			}
 
 			return $q.when({});
+		}
+
+		function getFormType() {
+			return $stateParams.user_id ? 'Update' : 'Create';
 		}
 
 		function buildRoleList([roleList, user]) {
