@@ -19,9 +19,9 @@
 			.then(([roleList, userList]) => {
 				vm.userList = userList;
 
-				createUserDictionary(vm.userList);
+				createUserDictionary(userList);
 				addUsersToRoles(roleList);
-				convertRoleArrayToString(vm.userList);
+				convertRoleArrayToString(userList);
 			});
 
 		vm.deleteUser = function(user_id) {
