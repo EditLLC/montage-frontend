@@ -14,15 +14,13 @@
 		const roleListPromise = api.role.list();
 		const userListPromise = api.user.list();
 		const userDictionary = {};
-		let roles;
 
 		$q.all([roleListPromise, userListPromise])
 			.then(([roleList, userList]) => {
 				vm.userList = userList;
-				roles = roleList;
 
 				createUserDictionary(vm.userList);
-				addUsersToRoles(roles);
+				addUsersToRoles(roleList);
 				convertRoleArrayToString(vm.userList);
 			});
 
