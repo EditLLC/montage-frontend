@@ -57,8 +57,7 @@
 			const rolePromises = [];
 
 			for (let i = 0; i < roles.length; i++) {
-				if (databaseRoleList[i].hasCurrentUser
-					!== roles[i].hasCurrentUser) {
+				if (databaseRoleList[i].hasCurrentUser !== roles[i].hasCurrentUser) {
 					if (roles[i].hasCurrentUser) {
 						updateRoles(roles[i].name, [user.id], 'add');
 					} else {
