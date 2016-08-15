@@ -89,7 +89,7 @@
 			err.text().then(text => {
 				text = JSON.parse(text);
 
-				if(!(text.errors
+				if (!(text.errors
 					&& text.errors[0]
 					&& text.errors[0].meta
 					&& text.errors[0].meta.details
