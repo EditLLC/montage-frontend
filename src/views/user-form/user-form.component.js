@@ -66,8 +66,8 @@
 			for (let i = 0; i < roles.length; i++) {
 				if (databaseRoleList[i].hasCurrentUser !== roles[i].hasCurrentUser) {
 					currentRolePromise = roles[i].hasCurrentUser
-						? removeUserFromRole(roles[i].name, user.id)
-						: addUserToRole(roles[i].name, user.id);
+						? addUserToRole(roles[i].name, user.id)
+						: removeUserFromRole(roles[i].name, user.id);
 
 					rolePromises.push(currentRolePromise);
 				}
