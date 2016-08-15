@@ -30,7 +30,6 @@
 
 			save(user)
 				.then((user) => updateRoleMembership(user, roles))
-				.then(handleSuccess)
 				.then(() => $state.go('user.list'))
 				.then(() => toast.success('Successfully saved.'))
 				.catch(handleErrors)
@@ -84,13 +83,6 @@
 
 		function removeUserFromRole(roleName, user_id) {
 			return api.role.update(roleName, null, null, [user_id]);
-		}
-
-		function handleSuccess() {
-			vm.status = {
-				result  : 'success',
-				message : 'Save successful.',
-			};
 		}
 
 		function handleErrors(err) {
