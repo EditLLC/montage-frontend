@@ -45,9 +45,8 @@
 		<label>{{ userForm.roleList.length > 1 ? 'Roles' : 'Role' }}</label>
 		<br><br>
 		<ul>
-			<li>
+			<li ng-repeat="role in userForm.roleList | orderBy:'name'">
 				<md-checkbox
-					ng-repeat="role in userForm.roleList | orderBy:'name'"
 					ng-model="role.hasCurrentUser">
 					{{role.name}}
 				</md-checkbox>
