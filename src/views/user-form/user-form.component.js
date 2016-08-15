@@ -9,7 +9,7 @@
 			controller   : UserFormController,
 		});
 
-	function UserFormController($scope, $q, $stateParams, api) {
+	function UserFormController($scope, $q, $stateParams, api, toast) {
 		const vm = this;
 		let databaseRoleList;
 
@@ -31,6 +31,7 @@
 			save(user)
 				.then((user) => updateRoleMembership(user, roles))
 				.then(handleSuccess)
+				.then(() => toast.success('Successfully saved.'))
 				.catch(handleErrors)
 				.finally(() => vm.isSaving = false);
 		};
