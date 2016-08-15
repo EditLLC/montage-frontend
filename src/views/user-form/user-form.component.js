@@ -74,7 +74,7 @@
 				}
 			}
 
-			return $q.all([rolePromises]);
+			return $q.all(rolePromises);
 		}
 
 		function addUserToRole(roleName, user_id) {
