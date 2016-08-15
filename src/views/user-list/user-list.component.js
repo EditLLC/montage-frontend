@@ -28,12 +28,15 @@
 			vm.isSaving = true;
 
 			modalHelper.confirmDelete('user')
-				.then(() => removeUserFromRoles(roles, user_id))
-				.then(() => api.user.remove(user_id))
-				.then(() => removeUserFromView(vm.userList, user_id))
-				.then(() => vm.status = 'success')
-				.catch(() => vm.status = 'error')
-				.finally(() => vm.isSaving = false);
+				.then(() => {
+					removeUserFromRoles(roles, user_id)
+						.then(() => api.user.remove(user_id))
+						.then(() => {
+							removeUserFromView(vm.userList, user_id);
+							vm.status = 'success';
+						})
+						.catch(() => vm.status = 'error');
+				});
 		};
 
 		function addUsersToRoles(users, roles) {
