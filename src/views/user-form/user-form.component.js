@@ -101,7 +101,7 @@
 				if (error) {
 					vm.status = {
 						result  : 'duplicateEmail error',
-						message : 'Email address is already in use. Please use another.',
+						message : error,
 					};
 				} else {
 					vm.status = {
