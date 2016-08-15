@@ -45,6 +45,9 @@
 		}
 
 		function getFormType() {
+			if (!$stateParams.user_id) {
+				vm.isCreateForm = true;
+			}
 			return $stateParams.user_id ? 'Update' : 'Create';
 		}
 
