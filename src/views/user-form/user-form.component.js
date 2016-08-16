@@ -23,6 +23,7 @@
 			.then(roleMembership => {
 				databaseRoleList = angular.copy(roleMembership);
 			})
+			.then(() => vm.isFound = true)
 			.catch(error => {
 				checkNotFound(error);
 			});
