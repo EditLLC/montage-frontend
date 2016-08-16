@@ -22,9 +22,7 @@
 				}
 			})
 			.then(() => vm.isFound = true)
-			.catch(error => {
-				checkNotFound(error);
-			});
+			.catch(error => checkNotFound(error));
 
 		function checkNotFound(error) {
 			if (error.status === 404) {
