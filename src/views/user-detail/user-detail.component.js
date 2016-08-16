@@ -27,13 +27,13 @@
 		function checkNotFound(error) {
 			if (error.status === 404) {
 				vm.isNotFound = true;
-				vm.notFoundObject = {
 					param      : 'user id',
+				vm.params = {
 					returnPage : 'user.list',
 					pageName   : 'Users',
 				};
 
-				return vm.notFoundObject;
+				return vm.params;
 			}
 		}
 	}
