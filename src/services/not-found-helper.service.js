@@ -23,10 +23,10 @@
 
 		function buildUserObject() {
 			const params = {
-				param_id   : 'user id',
-				returnPage : 'user.list',
-				pageName   : 'Users',
-				isNotFound : true,
+				param_id     : 'user id',
+				redirectLink : 'user.list',
+				redirectName : 'Users',
+				isNotFound   : true,
 			};
 
 			return params;
