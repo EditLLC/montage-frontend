@@ -1,5 +1,8 @@
 <div class="not-found-view view-frame" md-whiteframe="2">
-	No {{ notFound.paramName }} of {{ notFound.param }} found.
-	Click <a ui-sref="{{ notFound.returnPage }}">here</a>
-	to return to the {{ notFound.pageName }} page.
+	That {{ notFound.paramName }} was not found.
+	<p>
+		<a ui-sref="{{ notFound.returnPage }}">
+			Return to the {{ notFound.pageName }} page.
+		</a>
+	</p>
 </div>
