@@ -20,6 +20,23 @@
 				if (currentUser.id === vm.user.id) {
 					vm.user.token = currentUser.token;
 				}
+			})
+			.catch(error => {
+				checkNotFound(error);
 			});
+
+		function checkNotFound(error) {
+			if (error.status === 404) {
+				vm.isNotFound = true;
+				vm.notFoundObject = {
+					paramName  : 'user id',
+					param      : $stateParams.user_id,
+					returnPage : 'user.list',
+					pageName   : 'Users',
+				};
+
+				return vm.notFoundObject;
+			}
 		}
+	}
 })(angular);
