@@ -18,8 +18,5 @@
 </div>
 
 <div ng-if="userDetail.isNotFound">
-	<not-found
-		param="userDetail.notFoundObject.param"
-		return-page="userDetail.notFoundObject.returnPage"
-		page-name="userDetail.notFoundObject.pageName"></not-found>
+	<not-found params="userDetail.params"></not-found>
 </div>

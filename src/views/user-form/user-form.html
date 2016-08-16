@@ -63,8 +63,5 @@
 </form>
 
 <div ng-if="userForm.isNotFound">
-	<not-found
-		param="userForm.notFoundObject.param"
-		return-page="userForm.notFoundObject.returnPage"
-		page-name="userForm.notFoundObject.pageName"></not-found>
+	<not-found params="userForm.params""></not-found>
 </div>

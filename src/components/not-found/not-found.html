@@ -1,8 +1,8 @@
 <div class="not-found-view view-frame" md-whiteframe="2">
-	That {{ notFound.param }} was not found.
+	That {{ notFound.params.param_id }} was not found.
 	<p>
-		<a ui-sref="{{ notFound.returnPage }}">
-			Return to the {{ notFound.pageName }} page.
+		<a ui-sref="{{ notFound.params.returnPage }}">
+			Return to the {{ notFound.params.pageName }} page.
 		</a>
 	</p>
 </div>
