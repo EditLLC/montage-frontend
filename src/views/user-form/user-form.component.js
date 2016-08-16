@@ -70,19 +70,6 @@
 			return vm.roleList;
 		}
 
-		function checkNotFound(error) {
-			if (error.status === 404) {
-				vm.params = {
-					param_id   : 'user id',
-					returnPage : 'user.list',
-					pageName   : 'Users',
-					isNotFound : true,
-				};
-
-				return vm.params;
-			}
-		}
-
 		function updateRoleMembership(user, roles) {
 			const rolePromises = [];
 			let currentRolePromise;
