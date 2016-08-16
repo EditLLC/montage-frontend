@@ -21,6 +21,7 @@
 					vm.user.token = currentUser.token;
 				}
 			})
+			.then(() => vm.isFound = true)
 			.catch(error => {
 				checkNotFound(error);
 			});
