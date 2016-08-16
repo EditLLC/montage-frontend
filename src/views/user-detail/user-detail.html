@@ -16,3 +16,11 @@
 	<h2>Permissions</h2>
 	<permissions-table permissions="userDetail.user.permissions"></permissions-table>
 </div>
+
+<div ng-if="userDetail.isNotFound">
+	<not-found
+		param-name="userDetail.notFoundObject.paramName"
+		param="userDetail.notFoundObject.param"
+		return-page="userDetail.notFoundObject.returnPage"
+		page-name="userDetail.notFoundObject.pageName"></not-found>
+</div>
