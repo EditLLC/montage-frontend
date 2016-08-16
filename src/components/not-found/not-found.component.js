@@ -8,7 +8,6 @@
 			controllerAs : 'notFound',
 			controller   : notFoundController,
 			bindings     : {
-				paramName  : '=',
 				param      : '=',
 				returnPage : '=',
 				pageName   : '=',
