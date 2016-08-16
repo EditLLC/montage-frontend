@@ -62,3 +62,11 @@
 		{{ userForm.isSaving ? 'Saving...' : userForm.formType }}
 	</md-button>
 </form>
+
+<div ng-if="userForm.isNotFound">
+	<not-found
+		param-name="userForm.notFoundObject.paramName"
+		param="userForm.notFoundObject.param"
+		return-page="userForm.notFoundObject.returnPage"
+		page-name="userForm.notFoundObject.pageName"></not-found>
+</div>
