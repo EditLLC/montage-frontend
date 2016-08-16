@@ -70,8 +70,7 @@
 			if (error.status === 404) {
 				vm.isNotFound = true;
 				vm.notFoundObject = {
-					paramName  : 'user id',
-					param      : $stateParams.user_id,
+					param      : 'user id',
 					returnPage : 'user.list',
 					pageName   : 'Users',
 				};
