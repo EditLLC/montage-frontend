@@ -26,11 +26,11 @@
 
 		function checkNotFound(error) {
 			if (error.status === 404) {
-				vm.isNotFound = true;
 				vm.params = {
 					param_id   : 'user id',
 					returnPage : 'user.list',
 					pageName   : 'Users',
+					isNotFound : true,
 				};
 
 				return vm.params;
