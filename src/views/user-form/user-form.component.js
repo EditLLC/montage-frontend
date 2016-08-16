@@ -24,7 +24,11 @@
 				databaseRoleList = angular.copy(roleMembership);
 			})
 			.then(() => vm.isFound = true)
-			.catch(error => checkNotFound(error));
+			.catch(error => {
+				if (notFoundHelper.checkNotFound(error)) {
+					vm.params = notFoundHelper.buildUserObject();
+				}
+			});
 
 		vm.saveUser = function(user, roles) {
 			vm.isSaving = true;
