@@ -5,7 +5,7 @@
 		.module('montage')
 		.factory('notFoundHelper', notFoundHelper);
 
-	function notFoundHelper($stateParams) {
+	function notFoundHelper() {
 		const service = {
 			checkNotFound,
 			buildUserObject,
