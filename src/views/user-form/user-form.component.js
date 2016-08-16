@@ -9,7 +9,7 @@
 			controller   : UserFormController,
 		});
 
-	function UserFormController($scope, $state, $q, $stateParams, api, toast) {
+	function UserFormController($scope, $state, $q, $stateParams, api, toast, notFoundHelper) {
 		const vm = this;
 		let databaseRoleList;
 
