@@ -22,8 +22,6 @@
 				}
 			})
 			.then(() => vm.isFound = true)
-			.catch(error => checkNotFound(error));
-
 		function checkNotFound(error) {
 			if (error.status === 404) {
 				vm.params = {
@@ -36,5 +34,10 @@
 				return vm.params;
 			}
 		}
+			.catch(error => {
+				if (notFoundHelper.checkNotFound(error)) {
+					vm.params = notFoundHelper.buildUserObject();
+				}
+			});
 	}
 })(angular);
