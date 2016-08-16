@@ -22,6 +22,9 @@
 			.then(buildRoleList)
 			.then(roleMembership => {
 				databaseRoleList = angular.copy(roleMembership);
+			})
+			.catch(error => {
+				checkNotFound(error);
 			});
 
 		vm.saveUser = function(user, roles) {
@@ -61,6 +64,20 @@
 			});
 
 			return vm.roleList;
+		}
+
+		function checkNotFound(error) {
+			if (error.status === 404) {
+				vm.isNotFound = true;
+				vm.notFoundObject = {
+					paramName  : 'user id',
+					param      : $stateParams.user_id,
+					returnPage : 'user.list',
+					pageName   : 'Users',
+				};
+
+				return vm.notFoundObject;
+			}
 		}
 
 		function updateRoleMembership(user, roles) {
