@@ -18,6 +18,7 @@
 
 		$scope.saveContext = 'Save';
 		$scope.deleteRecord = deleteRecord;
+		$scope.updateRecord = updateRecord;
 
     $scope.showMessage = (status, message) => {
 			if (message) {
@@ -155,19 +156,10 @@
     };
 
 
-    $scope.update = () => {
-			$scope.saveContext = 'Saving';
-			api
-			.document.update(schemaName, $scope.record)
-			.then(() => {
-				$scope.showMessage('success');
-				createMeta($scope.fields, $scope.record);
-				$scope.saveContext = 'Save';
-			})
-			.catch((e) => {
-				$scope.showMessage('error');
+				if ($scope.schemaFields.includes(field) && field !== '_meta') {
+					$scope.schemaFields.splice(field - 1, 0, fieldTemplate);
+				}
 			});
-    };
 
   }
 		function deleteRecord() {
@@ -177,4 +169,15 @@
 					 $state.go('data.list');
 				 });
 		}
+
+		function updateRecord() {
+			toggleIsSaving();
+
+			api.documents
+				 .update(schemaName, $scope.record)
+				 .then(showSuccessMessage)
+				 .catch(showErrorMessage)
+				 .finally(toggleIsSaving);
+		}
+
 })(angular);
