@@ -76,6 +76,12 @@
 				return validateJSON(fieldObject.value, fieldObject.name, form);
 			}
 
+			if (typeof fieldObject.value === 'object' && form.datatype === 'object') {
+				if (fieldObject.value[0] !== '{') {
+					return false;
+				}
+				return validateJSON(fieldObject.value, fieldObject.name, form);
+			}
 
 		function createMeta(schemaFields, record, newField) {
 			const metaDictionary = {};
