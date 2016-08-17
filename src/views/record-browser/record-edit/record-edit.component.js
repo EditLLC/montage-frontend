@@ -88,6 +88,7 @@
 
 
 		function createMeta(newField) {
+			$scope.newField = $scope.newField || newField || {};
 
 			Object.keys(record).forEach(field => {
 			  if (fieldNames.indexOf(field) === -1 && field !== '_meta') {
