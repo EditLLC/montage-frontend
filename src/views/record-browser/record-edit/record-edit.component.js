@@ -30,21 +30,11 @@
 			$scope.addFieldForm.$setUntouched();
 		};
 
-		$scope.validateJSON = (snippet, fieldName) => {
-			if (snippet[0] === '{' || snippet[0] === '[') {
-				try {
-					JSON.parse(snippet);
-				} catch (e) {
-					$scope.e = e.toString();
-					$scope.recordForm[fieldName].$setValidity('formatting', false);
 
 					return false;
 				}
 			}
 
-			$scope.recordForm[fieldName].$setValidity('formatting', true);
-			return true;
-		}
 
 		function createMeta(schemaFields, record, newField) {
 			const metaDictionary = {};
@@ -170,7 +160,6 @@
 			}
 		};
 
-  }
 		function showSuccessMessage(message) {
 			$scope.status = 'success';
 
