@@ -24,9 +24,6 @@
 
 		////////////
 
-		if (!$scope.response) {
-			$scope.showMessage('error', 'Record doesn\'t exist');
-		}
 		$scope.resetForm = () => {
 			$scope.addFieldForm.$setPristine();
 			$scope.addFieldForm.$setUntouched();
