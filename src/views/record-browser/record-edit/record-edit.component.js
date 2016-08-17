@@ -90,11 +90,6 @@
 			}
 		}
 
-		$q.all([getSchemaFields, getActualRecord])
-			.then(([fields, record]) => {
-				createMeta(fields, record);
-			});
-
     $scope.showAddFieldDialog = (ev) => {
       $mdDialog.show({
         contentElement      : '#myDialog',
