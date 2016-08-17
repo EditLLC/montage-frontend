@@ -83,7 +83,6 @@
 				return validateJSON(fieldObject.value, fieldObject.name, form);
 			}
 
-		function createMeta(schemaFields, record, newField) {
 			const metaDictionary = {};
 			const fieldNames = schemaFields.map(field => field.name);
 
@@ -97,6 +96,7 @@
 					record[field.name] = field.name.replace("field", "value")
 				}
 			});
+		function createMeta(newField) {
 
 			Object.keys(record).forEach(field => {
 			  if (fieldNames.indexOf(field) === -1 && field !== '_meta') {
