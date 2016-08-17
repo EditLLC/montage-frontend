@@ -10,6 +10,7 @@
 			checkNotFound,
 			buildUserObject,
 			buildRoleObject,
+			buildSchemaObject,
 		};
 
 		return service;
@@ -38,6 +39,17 @@
 				param_id     : 'role',
 				redirectLink : 'role.list',
 				redirectName : 'Roles',
+				isNotFound   : true,
+			};
+
+			return params;
+		}
+
+		function buildSchemaObject() {
+			const params = {
+				param_id     : 'schema',
+				redirectLink : 'schema.list',
+				redirectName : 'Schemas',
 				isNotFound   : true,
 			};
 
