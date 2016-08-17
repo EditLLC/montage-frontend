@@ -94,10 +94,6 @@
 				}
 			}
 
-			$scope.fields = schemaFields;
-			$scope.record = record;
-			$scope.meta = metaDictionary;
-
 			for (let key in $scope.record) {
 				if ($scope.record[key] instanceof Object) {
 					$scope.record[key] = JSON.stringify($scope.record[key]);
