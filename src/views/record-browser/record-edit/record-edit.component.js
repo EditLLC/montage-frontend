@@ -203,4 +203,17 @@
 
 			return value;
 		}
+
+		function validateJSON(snippet, fieldName, form) {
+			try {
+				JSON.parse(snippet);
+			} catch(error) {
+				$scope.JSONParseError = error.toString();
+
+				return false;
+			}
+
+			return true;
+		}
+	}
 })(angular);
