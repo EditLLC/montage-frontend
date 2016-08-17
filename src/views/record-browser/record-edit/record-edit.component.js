@@ -118,20 +118,6 @@
       });
     };
 
-    $scope.showRemoveDialog = (ev) => {
-      var confirm = $mdDialog.confirm()
-										         .title('Would you like to delete this record?')
-										         .ariaLabel('Delete record')
-										         .targetEvent(ev)
-										         .ok('Delete')
-										         .cancel('Cancel');
-      $mdDialog.show(confirm).then(() => {
-        $scope.remove();
-      }, () => {
-        $mdDialog.cancel();
-      });
-    };
-
 
 				if ($scope.schemaFields.includes(field) && field !== '_meta') {
 					$scope.schemaFields.splice(field - 1, 0, fieldTemplate);
