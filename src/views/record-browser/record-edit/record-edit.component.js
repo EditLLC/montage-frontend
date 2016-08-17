@@ -31,6 +31,17 @@
 		};
 
 
+		$scope.showDeleteRecordDialog = (event) => {
+			confirmDialog = $mdDialog.confirm()
+				.title('Would you like to delete this record?')
+				.ariaLabel('Delete record')
+				.targetEvent(event)
+				.ok('Delete')
+				.cancel('Cancel');
+			$mdDialog.show(confirmDialog).then(deleteRecord, () => {
+				$mdDialog.cancel();
+			});
+		};
 					return false;
 				}
 			}
