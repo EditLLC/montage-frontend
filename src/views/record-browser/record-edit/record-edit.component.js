@@ -8,8 +8,8 @@
 			controller	: recordEditController,
 		});
 
-  function recordEditController($stateParams, $state, $scope, $mdToast, $mdDialog, $q, api, montageHelper) {
     $scope.document_id = $stateParams.document_id;
+	function recordEditController($stateParams, $state, $scope, $mdDialog, $q, api) {
 		$scope.saveContext = 'Save';
 
     $scope.showMessage = (status, message) => {
