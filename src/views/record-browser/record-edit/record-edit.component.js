@@ -49,6 +49,12 @@
 					};
 				}
 			})
+			.then(answer => {
+				answer = coerceType(answer);
+				$scope.record[answer.field] = answer.value;
+				createMeta($scope.fields, $scope.record, answer);
+			});
+		};
 
 		$scope.showDeleteRecordDialog = (event) => {
 			confirmDialog = $mdDialog.confirm()
