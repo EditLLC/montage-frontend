@@ -21,6 +21,7 @@
 		$scope.updateRecord = updateRecord;
 		$scope.metaDictionary = {};
 
+		resolvePromises();
 
 		////////////
 
