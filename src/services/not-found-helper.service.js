@@ -9,6 +9,7 @@
 		const service = {
 			checkNotFound,
 			buildUserObject,
+			buildRoleObject,
 		};
 
 		return service;
@@ -26,6 +27,17 @@
 				param_id     : 'user id',
 				redirectLink : 'user.list',
 				redirectName : 'Users',
+				isNotFound   : true,
+			};
+
+			return params;
+		}
+
+		function buildRoleObject() {
+			const params = {
+				param_id     : 'role',
+				redirectLink : 'role.list',
+				redirectName : 'Roles',
 				isNotFound   : true,
 			};
 
