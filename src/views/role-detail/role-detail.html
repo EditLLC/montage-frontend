@@ -35,3 +35,7 @@
 		<permissions-table permissions="roleDetail.role.permissions"></permissions-table>
 	</section>
 </div>
+
+<div ng-if="roleDetail.params.isNotFound">
+	<not-found params="roleDetail.params"></not-found>
+</div>
