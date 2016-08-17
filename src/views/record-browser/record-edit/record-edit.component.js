@@ -117,13 +117,26 @@
 			}
 		}
 
+		function extendFields() {
+			$scope.schemaFields.forEach(field => {
+				if (!$scope.record[field.name]) {
+					$scope.record[field.name] = field.name.replace("field", "value");;
 				}
+			});
 
+			Object.keys($scope.record).forEach(field => {
+				const fieldTemplate = {
+					datatype : $scope.newField.datatype,
+					index		 : '',
+					required : false,
+					name		 : field,
+				};
 
 				if ($scope.schemaFields.includes(field) && field !== '_meta') {
 					$scope.schemaFields.splice(field - 1, 0, fieldTemplate);
 				}
 			});
+		}
 
 		function resolvePromises() {
 			$q.all([schemaFieldsPromise, recordPromise])
