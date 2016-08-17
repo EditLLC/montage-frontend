@@ -19,6 +19,11 @@
 			.then(([role, userList]) => {
 				vm.role = role;
 				vm.userList = userList.filter(user => role.users.indexOf(user.id) !== -1);
+			})
+			.catch(error => {
+				if (notFoundHelper.checkNotFound(error)) {
+					vm.params = notFoundHelper.buildRoleObject();
+				}
 			});
 
 		// todo: implement
