@@ -164,6 +164,16 @@
 		};
 
   }
+		function showSuccessMessage(message) {
+			$scope.status = 'success';
+
+			if (message) {
+				$scope.followUpMessage = message;
+			} else {
+				$scope.followUpMessage = 'Changes saved';
+			}
+		}
+
 		function deleteRecord() {
 			api.document
 				 .remove(schemaName, document_id)
