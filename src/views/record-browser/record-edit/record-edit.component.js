@@ -67,6 +67,8 @@
 				$mdDialog.cancel();
 			});
 		};
+
+		$scope.validateField = (fieldObject, form) => {
 					return false;
 				}
 			}
