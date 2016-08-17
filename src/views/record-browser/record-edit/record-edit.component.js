@@ -151,6 +151,19 @@
 					$scope.schemaFields.splice(field - 1, 0, fieldTemplate);
 				}
 			});
+
+		function resolvePromises() {
+			$q.all([schemaFieldsPromise, recordPromise])
+				.then(([fields, record]) => {
+					$scope.schemaFields = fields;
+					$scope.record = record;
+
+					createMeta();
+				}, () => {
+					showErrorMessage('Record doesn\'t exist');
+				});
+		}
+
 		function showErrorMessage(message) {
 			$scope.status = 'error';
 
