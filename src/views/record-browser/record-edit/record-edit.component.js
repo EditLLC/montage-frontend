@@ -83,6 +83,8 @@
 				return validateJSON(fieldObject.value, fieldObject.name, form);
 			}
 
+			return true;
+		};
 
 			if (!newField) {
 				newField = {};
