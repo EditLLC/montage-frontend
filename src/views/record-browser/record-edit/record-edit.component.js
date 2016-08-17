@@ -90,7 +90,11 @@
 		function createMeta(newField) {
 			$scope.newField = $scope.newField || newField || {};
 
+			extendFields();
 
+			for (let key in $scope.schemaFields) {
+				if ($scope.schemaFields[key]) {
+					$scope.metaDictionary[$scope.schemaFields[key]['name']] = $scope.schemaFields[key];
 				}
 			}
 
