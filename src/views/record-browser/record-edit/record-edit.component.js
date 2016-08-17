@@ -153,6 +153,15 @@
 					$scope.schemaFields.splice(field - 1, 0, fieldTemplate);
 				}
 			});
+		function showErrorMessage(message) {
+			$scope.status = 'error';
+
+			if (message) {
+				$scope.followUpMessage = message;
+			} else {
+				$scope.followUpMessage = 'Unable to save changes. Please try again.';
+			}
+		};
 
   }
 		function deleteRecord() {
