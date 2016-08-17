@@ -170,6 +170,10 @@
 			}
 		}
 
+		function toggleIsSaving() {
+			$scope.isSaving = !$scope.isSaving;
+		}
+
 		function deleteRecord() {
 			api.document
 				 .remove(schemaName, document_id)
