@@ -86,10 +86,6 @@
 			return true;
 		};
 
-			if (!newField) {
-				newField = {};
-				newField.datatype = "text";
-			}
 
 			schemaFields.forEach(field => {
 			  if (!record[field.name]) {
