@@ -1,12 +1,12 @@
 (angular => {
-  'use strict';
+	'use strict';
 
-  angular
-    .module('montage')
-    .component('recordEdit', {
-      templateUrl : 'views/record-browser/record-edit/record-edit.html',
-      controller  : recordEditController
-    });
+	angular
+		.module('montage')
+		.component('recordEdit', {
+			templateUrl : 'views/record-browser/record-edit/record-edit.html',
+			controller	: recordEditController,
+		});
 
   function recordEditController($stateParams, $state, $scope, $mdToast, $mdDialog, $q, api, montageHelper) {
     $scope.document_id = $stateParams.document_id;
