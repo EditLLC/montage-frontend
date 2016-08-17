@@ -10,6 +10,7 @@
 
 	function recordEditController($stateParams, $state, $scope, $mdDialog, $q, api) {
 		const document_id = $stateParams.document_id;
+		const schemaName = $stateParams.schemaName;
 		$scope.saveContext = 'Save';
 
     $scope.showMessage = (status, message) => {
