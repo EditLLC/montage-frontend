@@ -90,18 +90,6 @@
 		function createMeta(newField) {
 			$scope.newField = $scope.newField || newField || {};
 
-			Object.keys(record).forEach(field => {
-			  if (fieldNames.indexOf(field) === -1 && field !== '_meta') {
-			    const fieldIndex = parseInt(field.replace("field", ""));
-
-			    schemaFields.splice(field - 1, 0, {
-						datatype : newField.datatype,
-						index    : "",
-						required : false,
-						name     : field
-					});
-			  }
-			});
 
 			for (let key in schemaFields) {
 				if (schemaFields[key]) {
