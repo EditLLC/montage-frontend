@@ -83,7 +83,6 @@
 				return validateJSON(fieldObject.value, fieldObject.name, form);
 			}
 
-			const metaDictionary = {};
 			const fieldNames = schemaFields.map(field => field.name);
 
 			if (!newField) {
