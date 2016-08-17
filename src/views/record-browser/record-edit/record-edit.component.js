@@ -30,6 +30,25 @@
 			$scope.addFieldForm.$setUntouched();
 		};
 
+		$scope.showAddFieldDialog = (event) => {
+			$mdDialog.show({
+				contentElement : '#myDialog',
+				parent				 : angular.element(document.body),
+				targetEvent		 : event,
+				scope					 : $scope,
+				preserveScope	 : true,
+				controller		 : ($scope, $mdDialog) => {
+					$scope.cancel = () => {
+						$mdDialog.cancel();
+						$scope.resetInput();
+					};
+
+					$scope.answer = () => {
+						$mdDialog.hide($scope.addFieldForm);
+						$scope.resetInput();
+					};
+				}
+			})
 
 		$scope.showDeleteRecordDialog = (event) => {
 			confirmDialog = $mdDialog.confirm()
