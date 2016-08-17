@@ -37,17 +37,7 @@
 				targetEvent		 : event,
 				scope					 : $scope,
 				preserveScope	 : true,
-				controller		 : ($scope, $mdDialog) => {
-					$scope.cancel = () => {
-						$mdDialog.cancel();
-						$scope.resetInput();
-					};
-
-					$scope.answer = () => {
-						$mdDialog.hide($scope.addFieldForm);
-						$scope.resetInput();
-					};
-				}
+				controller		 : addFieldDialogController,
 			})
 			.then(answer => {
 				answer = coerceType(answer);
@@ -203,5 +193,18 @@
 
 			return true;
 		}
+
+		function addFieldDialogController($scope, $mdDialog) {
+			$scope.cancel = () => {
+				$mdDialog.cancel();
+				$scope.resetInput();
+			};
+
+			$scope.answer = () => {
+				$mdDialog.hide($scope.addFieldForm);
+				$scope.resetInput();
+			};
+		}
+
 	}
 })(angular);
