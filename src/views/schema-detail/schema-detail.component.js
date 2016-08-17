@@ -15,7 +15,8 @@
 		if($stateParams.schemaName) {
 			vm.isUpdate = true;
 
-			api.schema.get($stateParams.schemaName).then(setSchema);
+			api.schema.get($stateParams.schemaName)
+				.then(setSchema)
 		} else {
 			setSchema({ fields: [{}] });
 		}
