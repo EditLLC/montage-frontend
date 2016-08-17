@@ -22,8 +22,6 @@
 		$scope.metaDictionary = {};
 
 
-			$scope.status = status || 'info';
-		}
 
 		if (!$scope.response) {
 			$scope.showMessage('error', 'Record doesn\'t exist');
