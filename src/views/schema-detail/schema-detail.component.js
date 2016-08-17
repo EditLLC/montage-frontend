@@ -9,7 +9,7 @@
 			controller: schemaDetailController
 		});
 
-	function schemaDetailController($scope, api, $stateParams, $state, modalHelper) {
+	function schemaDetailController($scope, api, $stateParams, $state, modalHelper, notFoundHelper) {
 		var vm = this;
 
 		if($stateParams.schemaName) {
