@@ -87,11 +87,6 @@
 		};
 
 
-			schemaFields.forEach(field => {
-			  if (!record[field.name]) {
-					record[field.name] = field.name.replace("field", "value")
-				}
-			});
 		function createMeta(newField) {
 
 			Object.keys(record).forEach(field => {
