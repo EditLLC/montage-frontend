@@ -21,8 +21,6 @@
 		$scope.updateRecord = updateRecord;
 		$scope.metaDictionary = {};
 
-				}
-			}
 
 			$scope.status = status || 'info';
 		}
