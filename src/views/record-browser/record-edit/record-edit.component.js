@@ -92,42 +92,7 @@
 			}
 		}
 
-    $scope.showAddFieldDialog = (ev) => {
-      $mdDialog.show({
-        contentElement      : '#myDialog',
-        parent              : angular.element(document.body),
-        targetEvent         : ev,
-        scope               : $scope,
-        preserveScope       : true,
-        controller          : ($scope, $mdDialog) => {
-					$scope.newField = {};
-
-          $scope.cancel = () => {
-            $mdDialog.cancel();
-						$scope.addFieldForm.$setPristine();
-						$scope.addFieldForm.$setUntouched();
-          };
-
-          $scope.answer = () => {
-            $mdDialog.hide($scope.newField);
-						$scope.addFieldForm.$setPristine();
-						$scope.addFieldForm.$setUntouched();
-          };
-        }
-      })
-      .then(answer => {
-				if (typeof answer.value === 'string') {
-					if (Number(answer.value)) {
-						answer.value = parseFloat(answer.value);
-					} else if (answer.value === 'true' || answer.value === 'false') {
-						answer.value = answer.value === 'true';
-					}
 				}
-
-        $scope.record[answer.field] = answer.value;
-				createMeta($scope.fields, $scope.record, answer);
-      });
-    };
 
 
 				if ($scope.schemaFields.includes(field) && field !== '_meta') {
