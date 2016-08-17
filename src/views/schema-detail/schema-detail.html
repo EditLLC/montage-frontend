@@ -70,3 +70,7 @@
 		ng-disabled="schemaDetail.isSaving"
 	>{{ schemaDetail.isSaving ? 'Saving...' : schemaDetail.isUpdate ? 'Update Schema' : 'Create Schema' }}</md-button>
 </form>
+
+<div ng-if="schemaDetail.params.isNotFound">
+	<not-found params="schemaDetail.params"></not-found>
+</div>
