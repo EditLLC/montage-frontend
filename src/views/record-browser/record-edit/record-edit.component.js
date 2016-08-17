@@ -13,6 +13,9 @@
 		const schemaName = $stateParams.schemaName;
 		const schemaFieldsPromise = api.schema.get(schemaName).then(response => response.fields);
 		const recordPromise = api.document.get(schemaName, document_id).then(response => response);
+
+		let confirmDialog;
+
 		$scope.saveContext = 'Save';
 
     $scope.showMessage = (status, message) => {
