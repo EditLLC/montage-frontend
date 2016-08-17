@@ -11,6 +11,8 @@
 	function recordEditController($stateParams, $state, $scope, $mdDialog, $q, api) {
 		const document_id = $stateParams.document_id;
 		const schemaName = $stateParams.schemaName;
+		const schemaFieldsPromise = api.schema.get(schemaName).then(response => response.fields);
+		const recordPromise = api.document.get(schemaName, document_id).then(response => response);
 		$scope.saveContext = 'Save';
 
     $scope.showMessage = (status, message) => {
@@ -26,13 +28,6 @@
 
 			$scope.status = status || 'info';
 		}
-
-		const schemaName = $stateParams.schemaName;
-		const getSchemaFields = api.schema.get(schemaName).then(fields => fields.fields);
-		const getActualRecord = api.document.get(schemaName, $scope.document_id).then(response => {
-			$scope.response = response;
-			return response;
-		});
 
 		if (!$scope.response) {
 			$scope.showMessage('error', 'Record doesn\'t exist');
