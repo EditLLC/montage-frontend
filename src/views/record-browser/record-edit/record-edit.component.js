@@ -17,6 +17,7 @@
 		let confirmDialog;
 
 		$scope.saveContext = 'Save';
+		$scope.deleteRecord = deleteRecord;
 
     $scope.showMessage = (status, message) => {
 			if (message) {
@@ -168,12 +169,12 @@
 			});
     };
 
-    $scope.remove = () => {
-      api
-        .document.remove(schemaName, $scope.document_id)
-        .then(response => {
-          $state.go('data.list');
-        });
-    };
   }
+		function deleteRecord() {
+			api.document
+				 .remove(schemaName, document_id)
+				 .then(() => {
+					 $state.go('data.list');
+				 });
+		}
 })(angular);
