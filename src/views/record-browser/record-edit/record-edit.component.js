@@ -192,4 +192,15 @@
 				 .finally(toggleIsSaving);
 		}
 
+		function coerceType(value) {
+			if (["true", "false"].includes(value)) {
+				return Boolean(value);
+			}
+
+			if (parseFloat(value) !== NaN) {
+				return parseFloat(value);
+			}
+
+			return value;
+		}
 })(angular);
