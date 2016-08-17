@@ -9,7 +9,7 @@
 			controller: roleCreateController
 		});
 
-	function roleCreateController(api) {
+	function roleCreateController(api, notFoundHelper) {
 		var vm = this;
 
 		vm.createRole = function(roleName) {
