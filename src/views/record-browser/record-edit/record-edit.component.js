@@ -69,8 +69,11 @@
 		};
 
 		$scope.validateField = (fieldObject, form) => {
+			if (typeof fieldObject.value === 'array' && form.datatype === 'array') {
+				if (fieldObject.value[0] !== '[') {
 					return false;
 				}
+				return validateJSON(fieldObject.value, fieldObject.name, form);
 			}
 
 
