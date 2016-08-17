@@ -19,6 +19,7 @@
 		$scope.saveContext = 'Save';
 		$scope.deleteRecord = deleteRecord;
 		$scope.updateRecord = updateRecord;
+		$scope.metaDictionary = {};
 
     $scope.showMessage = (status, message) => {
 			if (message) {
