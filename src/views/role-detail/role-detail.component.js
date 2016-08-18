@@ -4,16 +4,16 @@
 	angular
 		.module('montage')
 		.component('roleDetail', {
-			templateUrl: 'views/role-detail/role-detail.html',
-			controllerAs: 'roleDetail',
-			controller: roleDetailController
+			templateUrl  : 'views/role-detail/role-detail.html',
+			controllerAs : 'roleDetail',
+			controller   : RoleDetailController,
 		});
 
-	function roleDetailController($q, $stateParams, api) {
-		var vm = this;
+	function RoleDetailController($q, $stateParams, api) {
+		const vm = this;
 
-		var rolePromise = api.role.get($stateParams.roleName);
-		var userListPromise = api.user.list();
+		const rolePromise = api.role.get($stateParams.roleName);
+		const userListPromise = api.user.list();
 
 		$q.all([rolePromise, userListPromise])
 			.then(([role, userList]) => {
