@@ -18,11 +18,11 @@
 			api.schema.get($stateParams.schemaName)
 				.then(setSchema)
 				.then(() => vm.isFound = true)
-			.catch(error => {
-				if (notFoundHelper.checkNotFound(error)) {
-					vm.params = notFoundHelper.buildSchemaObject();
-				}
-			});
+				.catch(error => {
+					if (notFoundHelper.checkNotFound(error)) {
+						vm.params = notFoundHelper.buildSchemaObject();
+					}
+				});
 		} else {
 			vm.isFound = true;
 			setSchema({ fields: [{}] });
