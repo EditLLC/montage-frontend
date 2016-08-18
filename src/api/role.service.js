@@ -11,7 +11,7 @@
 			get,
 			list,
 			update,
-			remove
+			remove,
 		};
 
 		////////////
