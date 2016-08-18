@@ -21,8 +21,8 @@
 				.then(montageHelper.returnData);
 		}
 
-		function get(roleName) {
-			return montageHelper.getClient().roles.get(roleName)
+		function get(role) {
+			return montageHelper.getClient().roles.get(role)
 				.then(montageHelper.returnData);
 		}
 
