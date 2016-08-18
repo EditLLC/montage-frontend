@@ -9,7 +9,7 @@
 			controller   : RoleFormController,
 		});
 
-	function RoleFormController(api) {
+	function RoleFormController($stateParams, api) {
 		const vm = this;
 
 		vm.createRole = function(roleName) {
