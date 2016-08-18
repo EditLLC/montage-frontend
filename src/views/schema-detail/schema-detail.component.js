@@ -26,6 +26,7 @@
 				});
 		} else {
 			vm.isFound = true;
+
 			setSchema({ fields: [{}] });
 		}
 
