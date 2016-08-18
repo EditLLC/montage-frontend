@@ -4,13 +4,13 @@
 	angular
 		.module('montage')
 		.component('roleList', {
-			templateUrl: 'views/role-list/role-list.html',
-			controllerAs: 'roleList',
-			controller: roleListController
+			templateUrl  : 'views/role-list/role-list.html',
+			controllerAs : 'roleList',
+			controller   : RoleListController,
 		});
 
-	function roleListController(api, modalHelper) {
-		var vm = this;
+	function RoleListController(api, modalHelper) {
+		const vm = this;
 
 		api.role.list().then(roleList => vm.roleList = roleList);
 
@@ -18,16 +18,16 @@
 			modalHelper.confirmDelete('role')
 				.then(() => api.role.remove(roleName))
 				.then(() => {
-					var index;
+					let index;
 
-					for(var i = 0; i < vm.roleList.length; i++) {
-						if(vm.roleList[i].name === roleName) {
+					for (let i = 0; i < vm.roleList.length; i++) {
+						if (vm.roleList[i].name === roleName) {
 							index = i;
 							break;
 						}
 					}
 
-					if(index) {
+					if (index) {
 						vm.roleList.splice(index, 1);
 					}
 				});
