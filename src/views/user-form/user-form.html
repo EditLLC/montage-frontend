@@ -1,0 +1,67 @@
+<form name="userSaveForm" class="user-form-view view-frame" md-whiteframe="2" autocomplete="off" ng-if="userForm.isFound">
+	<h1>{{ userForm.formType + ' User' }}</h1>
+
+	<div class="message"
+	     ng-if="userForm.status"
+	     ng-class="userForm.status.result">
+		{{ userForm.status.message }}
+	</div>
+
+	<md-input-container class="md-block">
+		<label>User Name</label>
+		<input type="text"
+		       name="full_name"
+		       ng-model="userForm.user.full_name"
+		       required>
+		<div ng-messages="userSaveForm.full_name.$error">
+			<div ng-message="required">Name is required.</div>
+		</div>
+	</md-input-container>
+
+	<md-input-container class="md-block">
+		<label>Email</label>
+		<input type="email"
+		       name="mail"
+		       ng-model="userForm.user.email"
+		       required>
+		<div ng-messages="userSaveForm.mail.$error">
+			<div ng-message="required">Email is required.</div>
+			<div ng-message="email">Valid email address required.</div>
+		</div>
+	</md-input-container>
+
+	<md-input-container class="md-block" ng-if="userForm.isCreateForm">
+		<label>Password</label>
+		<input type="password"
+		       name="password"
+		       ng-model="userForm.user.password"
+		       required>
+		<div ng-messages="userSaveForm.password.$error">
+			<div ng-message="required">Password is required.</div>
+		</div>
+	</md-input-container>
+
+	<md-input-container class="md-block">
+		<label class="role">{{ userForm.roleList.length > 1 ? 'Roles' : 'Role' }}</label>
+		<ul>
+			<li ng-repeat="role in userForm.roleList | orderBy:'name'">
+				<md-checkbox
+					ng-model="role.hasCurrentUser">
+					{{role.name}}
+				</md-checkbox>
+			</li>
+		</ul>
+	</md-input-container>
+
+	<md-button
+		class="md-raised md-primary pull-right"
+		type="submit"
+		ng-click="userForm.saveUser(userForm.user, userForm.roleList)"
+		ng-disabled="userSaveForm.$invalid || userForm.isSaving">
+		{{ userForm.isSaving ? 'Saving...' : userForm.formType }}
+	</md-button>
+</form>
+
+<div ng-if="userForm.params.isNotFound">
+	<not-found params="userForm.params""></not-found>
+</div>

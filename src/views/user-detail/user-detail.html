@@ -1,4 +1,4 @@
-<div class="user-detail-view view-frame" md-whiteframe="2">
+<div class="user-detail-view view-frame" md-whiteframe="2" ng-if="userDetail.isFound">
 	<div class="header">
 		<img ng-src="{{ userDetail.user.photo }}">
 
@@ -8,9 +8,15 @@
 		</h1>
 	</div>
 
-	<h2>Your API Token</h2>
-	<div class="token">{{ userDetail.user.token }}</div>
+	<div ng-if="userDetail.user.token">
+		<h2>Your API Token</h2>
+		<div class="token">{{ userDetail.user.token }}</div>
+	</div>
 
 	<h2>Permissions</h2>
 	<permissions-table permissions="userDetail.user.permissions"></permissions-table>
+</div>
+
+<div ng-if="userDetail.params.isNotFound">
+	<not-found params="userDetail.params"></not-found>
 </div>

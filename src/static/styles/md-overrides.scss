@@ -22,3 +22,8 @@
 md-checkbox {
 	margin-bottom: 0;
 }
+
+md-dialog .md-button:not([disabled]):hover {
+	color: $white !important;
+	background-color: $blue !important;
+}

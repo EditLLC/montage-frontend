@@ -4,43 +4,89 @@
 	angular
 		.module('montage')
 		.component('userList', {
-			templateUrl: 'views/user-list/user-list.html',
-			controllerAs: 'userList',
-			controller: userListController
+			templateUrl  : 'views/user-list/user-list.html',
+			controllerAs : 'userList',
+			controller   : UserListController,
 		});
 
-	function userListController($q, api) {
-		var vm = this;
+	function UserListController($q, api, modalHelper) {
+		const vm = this;
 		const roleListPromise = api.role.list();
 		const userListPromise = api.user.list();
-		let userMap = {};
+		let roles;
 
 		$q.all([roleListPromise, userListPromise])
 			.then(([roleList, userList]) => {
 				vm.userList = userList;
+				roles = roleList;
 
-				// Create user dictionary
-				userList.forEach(user => {
-					userMap[user.id] = user;
-					user.roles = [];
-				});
-
-				// Add roles to each user
-				roleList.forEach(role => {
-					role.users.forEach(user_id => {
-						userMap[user_id].roles.push(role);
-					});
-				});
-
-				// Convert role array to a string
-				userList.forEach(user => {
-					user.roles = user.roles.map(role => role.name).join(', ');
-				});
+				addUsersToRoles(userList, roleList);
+				convertRoleArrayToString(userList);
 			});
 
-		// TODO: implement
 		vm.deleteUser = function(user_id) {
-			console.log('deleteUser() has not yet been implemented'); // TODO: REMOVE ME
+			vm.isSaving = true;
+
+			modalHelper.confirmDelete('user')
+				.then(() => {
+					removeUserFromRoles(roles, user_id)
+						.then(() => api.user.remove(user_id))
+						.then(() => {
+							removeUserFromView(vm.userList, user_id);
+							vm.status = 'success';
+						})
+						.catch(() => vm.status = 'error');
+				});
 		};
+
+		function addUsersToRoles(users, roles) {
+			const userDictionary = createUserDictionary(users);
+
+			roles.forEach(role => {
+				role.users.forEach(user_id => {
+					userDictionary[user_id].roles.push(role);
+					role.users = [];
+				});
+			});
+		}
+
+		function createUserDictionary(users) {
+			const dictionary = {};
+
+			users.forEach(user => {
+				dictionary[user.id] = user;
+				user.roles = [];
+			});
+
+			return dictionary;
+		}
+
+		function convertRoleArrayToString(users) {
+			users.forEach(user => {
+				user.roles = user.roles.map(role => role.name).join(', ');
+			});
+		}
+
+		function removeUserFromRoles(roles, user_id) {
+			const rolePromises = roles.reduce((promises, role) => {
+				if (role.users.indexOf(user_id) > -1) {
+					let rolePromise = api.role.update(role.name, null, null, [user_id]);
+					promises.push(rolePromise);
+				}
+
+				return promises;
+			}, []);
+
+			return $q.all(rolePromises);
+		}
+
+		function removeUserFromView(userList, user_id) {
+			for (let index = 0; index < userList.length; index++) {
+				if (userList[index].id === user_id) {
+					userList.splice(index, 1);
+					break;
+				}
+			}
+		}
 	}
 })(angular);
