@@ -36,8 +36,8 @@
 				.then(montageHelper.returnData);
 		}
 
-		function remove(roleName) {
-			return montageHelper.getClient().roles.remove(roleName);
+		function remove(role) {
+			return montageHelper.getClient().roles.remove(role);
 		}
 	}
 })(angular);
