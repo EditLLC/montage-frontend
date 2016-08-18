@@ -12,7 +12,8 @@
 	function schemaDetailController($scope, api, $stateParams, $state, modalHelper, notFoundHelper) {
 		var vm = this;
 
-		if($stateParams.schemaName) {
+		// Check if parameter is not undefined to catch all 404s in not-found service
+		if($stateParams.schemaName !== undefined) {
 			vm.isUpdate = true;
 
 			api.schema.get($stateParams.schemaName)
