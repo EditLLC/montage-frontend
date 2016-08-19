@@ -14,6 +14,10 @@
 
 		vm.formType = getFormType();
 
+		const rolePromise = getRolePromise();
+		const userListPromise = api.user.list();
+
+		$q.all([rolePromise, userListPromise]);
 		vm.saveRole = function(roleName) {
 			vm.isSaving = true;
 
@@ -22,6 +26,14 @@
 				.catch(() => vm.status = 'error')
 				.finally(() => vm.isSaving = false);
 		};
+
+		function getRolePromise() {
+			if ($stateParams.roleName) {
+				return api.role.get($stateParams.roleName);
+			}
+
+			return $q.when({});
+		}
 
 		function getFormType() {
 			if (!$stateParams.roleName) {
