@@ -70,7 +70,7 @@
 				return validateJSON(fieldObject.value, fieldObject.name, form);
 			}
 
-			if (typeof fieldObject.value === 'object' && form.datatype === 'object') {
+			if (typeof fieldObject.value === "object" && !Array.isArray(fieldObject.value) && fieldObject.value !== null) {
 				if (fieldObject.value[0] !== '{') {
 					return false;
 				}
