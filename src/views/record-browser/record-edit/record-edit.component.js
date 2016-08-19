@@ -108,6 +108,9 @@
 			});
 
 			Object.keys($scope.record).forEach(field => {
+				if (!$scope.newField.datatype) { $scope.newField.datatype = 'text'; }
+
+				const fieldNames = $scope.schemaFields.map(field => field.name)
 				const fieldTemplate = {
 					datatype : $scope.newField.datatype,
 					index		 : '',
