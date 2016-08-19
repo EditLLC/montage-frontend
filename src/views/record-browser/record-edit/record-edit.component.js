@@ -118,7 +118,7 @@
 					name		 : field,
 				};
 
-				if ($scope.schemaFields.includes(field) && field !== '_meta') {
+				if (!fieldNames.includes(field) && field !== '_meta') {
 					$scope.schemaFields.splice(field - 1, 0, fieldTemplate);
 				}
 			});
