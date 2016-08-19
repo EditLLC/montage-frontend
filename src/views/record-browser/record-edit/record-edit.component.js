@@ -44,7 +44,7 @@
 				controller		 : addFieldDialogController,
 			})
 			.then(answer => {
-				answer = coerceType(answer);
+				answer.value = coerceType(answer.datatype, answer.value);
 				$scope.record[answer.field] = answer.value;
 				createMeta($scope.fields, $scope.record, answer);
 			});
