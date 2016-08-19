@@ -201,6 +201,20 @@
 		}
 
 		function addFieldDialogController($scope, $mdDialog) {
+
+			$scope.updateMeta = (key, datatype) => {
+				$scope.addFormMetaDictionary = {};
+
+				$scope.addFormMetaDictionary[key] = {
+					datatype : datatype,
+					index		 : '',
+					required : false,
+					name		 : key,
+				};
+
+				$scope.validateField($scope.addFormMetaDictionary, $scope.addFieldForm);
+			}
+
 			$scope.cancel = () => {
 				$mdDialog.cancel();
 				$scope.resetInput();
