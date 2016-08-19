@@ -103,7 +103,7 @@
 		function extendFields() {
 			$scope.schemaFields.forEach(field => {
 				if (!$scope.record[field.name]) {
-					$scope.record[field.name] = field.name.replace("field", "value");;
+					$scope.record[field.name] = field.name.replace("field", "value");
 				}
 			});
 
