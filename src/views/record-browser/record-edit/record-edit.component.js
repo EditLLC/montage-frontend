@@ -27,6 +27,8 @@
 
 		$scope.excludeRecordProperty = key => ['id', '_meta'].includes(key) || $scope.metaDictionary[key].datatype === 'boolean';
 
+		$scope.aliasInputType = datatype => datatype === 'number' ? 'number' : 'text';
+
 		$scope.resetForm = () => {
 			$scope.addFieldForm.$setPristine();
 			$scope.addFieldForm.$setUntouched();
