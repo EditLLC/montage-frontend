@@ -12,10 +12,10 @@
 	function RoleFormController($stateParams, api) {
 		const vm = this;
 
+		vm.formType = getFormType();
+
 		vm.createRole = function(roleName) {
 			vm.isSaving = true;
-
-			vm.formType = getFormType();
 
 			api.role.create(roleName)
 				.then(() => vm.status = 'success')
