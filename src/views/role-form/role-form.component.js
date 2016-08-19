@@ -14,7 +14,7 @@
 
 		vm.formType = getFormType();
 
-		vm.createRole = function(roleName) {
+		vm.saveRole = function(roleName) {
 			vm.isSaving = true;
 
 			api.role.create(roleName)
