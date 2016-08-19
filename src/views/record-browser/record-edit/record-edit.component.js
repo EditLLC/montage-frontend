@@ -217,12 +217,12 @@
 
 			$scope.cancel = () => {
 				$mdDialog.cancel();
-				$scope.resetInput();
+				$scope.resetForm();
 			};
 
 			$scope.answer = () => {
-				$mdDialog.hide($scope.addFieldForm);
-				$scope.resetInput();
+				$mdDialog.hide($scope.newField);
+				$scope.resetForm();
 			};
 		}
 
