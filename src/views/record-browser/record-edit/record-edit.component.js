@@ -19,7 +19,6 @@
 		$scope.saveContext = 'Save';
 		$scope.deleteRecord = deleteRecord;
 		$scope.updateRecord = updateRecord;
-		$scope.metaDictionary = {};
 
 		resolvePromises();
 
@@ -85,6 +84,8 @@
 			$scope.newField = $scope.newField || newField || {};
 
 			extendFields();
+
+			$scope.metaDictionary = {};
 
 			for (let key in $scope.schemaFields) {
 				if ($scope.schemaFields[key]) {
