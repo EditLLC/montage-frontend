@@ -2,7 +2,7 @@
 	<div class="view-header">
 		<h1>{{ roleDetail.role.name }} <small>Role</small></h1>
 
-		<md-button class="md-raised md-primary" ng-click="roleDetail.editRole()">
+		<md-button class="md-raised md-primary" ui-sref="role.edit({ roleName: roleDetail.role.name })">
 			<i class="fa fa-pencil"></i> Edit Role
 		</md-button>
 
