@@ -176,12 +176,12 @@
 				 .finally(toggleIsSaving);
 		}
 
-		function coerceType(value) {
-			if (["true", "false"].includes(value)) {
+		function coerceType(type, value) {
+			if (['true', 'false'].includes(value) && type === 'boolean') {
 				return Boolean(value);
 			}
 
-			if (parseFloat(value) !== NaN) {
+			if (parseFloat(value) !== NaN && type === 'number') {
 				return parseFloat(value);
 			}
 
