@@ -163,9 +163,7 @@
 		function deleteRecord() {
 			api.document
 				 .remove(schemaName, document_id)
-				 .then(() => {
-					 $state.go('data.list');
-				 });
+				 .then(() => { $state.go('data.list') });
 		}
 
 		function updateRecord() {
