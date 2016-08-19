@@ -1,5 +1,5 @@
-<form name="roleForm" class="role-create-view view-frame" md-whiteframe="2">
-	<h1>Create Role</h1>
+<form name="roleSaveForm" class="role-create-view view-frame" md-whiteframe="2">
+	<h1>{{ roleForm.formType + ' Role' }}</h1>
 
 	<div class="message" ng-if="roleForm.status" ng-class="roleForm.status">
 		{{ roleForm.status === 'success'
@@ -62,6 +62,6 @@
 		class="md-raised md-primary pull-right"
 		type="submit"
 		ng-click="roleForm.createRole(roleForm.role.name)"
-		ng-disabled="roleForm.$invalid || roleForm.isSaving"
-	>{{ roleForm.isSaving ? 'Saving...' : 'Create Role' }}</md-button>
+		ng-disabled="roleSaveForm.$invalid || roleForm.isSaving"
+	>{{ roleForm.isSaving ? 'Saving...' : roleForm.formType }}</md-button>
 </form>
