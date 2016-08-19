@@ -18,13 +18,13 @@
 			modalHelper.confirmDelete('role')
 				.then(() => api.role.remove(roleName))
 				.then(() => {
-					removeUserFromView(vm.roleList, user_id);
+					removeRoleFromView(vm.roleList, roleName);
 				})
 		};
 
 		function removeRoleFromView(roleList, roleName) {
 			for (let index = 0; index < roleList.length; index++) {
-				if (roleList[index].id === roleName) {
+				if (roleList[index].name === roleName) {
 					roleList.splice(index, 1);
 					break;
 				}
