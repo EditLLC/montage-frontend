@@ -17,7 +17,9 @@
 		const rolePromise = getRolePromise();
 		const userListPromise = api.user.list();
 
-		$q.all([rolePromise, userListPromise]);
+		$q.all([rolePromise, userListPromise])
+			.then(buildUserList);
+
 		vm.saveRole = function(roleName) {
 			vm.isSaving = true;
 
@@ -42,5 +44,12 @@
 
 			return $stateParams.roleName ? 'Update' : 'Create';
 		 }
+
+		function buildUserList([role, users]) {
+			vm.users = users;
+			vm.role = role;
+
+			return vm.role;
+		}
 	}
 })(angular);
