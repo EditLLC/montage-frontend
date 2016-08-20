@@ -20,10 +20,11 @@
 		$q.all([rolePromise, userListPromise])
 			.then(buildUserList);
 
-		vm.saveRole = function(roleName) {
+		vm.saveRole = function(role, users) {
 			vm.isSaving = true;
+			const save = role.name ? api.role.update : api.role.create;
 
-			api.role.create(roleName)
+			save(role)
 				.then(() => vm.status = 'success')
 				.catch(() => vm.status = 'error')
 				.finally(() => vm.isSaving = false);
