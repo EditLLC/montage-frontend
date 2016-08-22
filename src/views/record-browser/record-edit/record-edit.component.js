@@ -152,10 +152,6 @@
 			$scope.followUpMessage = message;
 		}
 
-		function toggleIsSaving() {
-			$scope.isSaving = !$scope.isSaving;
-		}
-
 		function deleteRecord() {
 			api.document
 				 .remove(schemaName, document_id)
@@ -163,13 +159,15 @@
 		}
 
 		function updateRecord() {
-			toggleIsSaving();
+			$scope.isSaving = true;
 
 			api.documents
 				 .update(schemaName, $scope.record)
 				 .then(showSuccessMessage)
 				 .catch(showErrorMessage)
-				 .finally(toggleIsSaving);
+				 .finally(() => {
+					 $scope.isSaving = false
+				 });
 		}
 
 		function coerceType(type, value) {
