@@ -28,6 +28,7 @@
 				.then(() => vm.status = 'success')
 				.catch(() => vm.status = 'error')
 				.then(() => $state.go('role.list'))
+				.then(() => toast.success('Successfully saved.'))
 				.finally(() => vm.isSaving = false);
 		};
 
