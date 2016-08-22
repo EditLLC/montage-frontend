@@ -147,14 +147,9 @@
 			$scope.followUpMessage = message;
 		};
 
-		function showSuccessMessage(message) {
+		function showSuccessMessage(message = 'Changes saved') {
 			$scope.status = 'success';
-
-			if (message) {
-				$scope.followUpMessage = message;
-			} else {
-				$scope.followUpMessage = 'Changes saved';
-			}
+			$scope.followUpMessage = message;
 		}
 
 		function toggleIsSaving() {
