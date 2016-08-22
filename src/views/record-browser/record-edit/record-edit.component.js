@@ -31,9 +31,9 @@
 			return datatype === 'number' ? 'number' : 'text';
 		};
 
-		$scope.resetForm = function() {
-			$scope.addFieldForm.$setPristine();
-			$scope.addFieldForm.$setUntouched();
+		$scope.resetForm = function(form) {
+			form.$setPristine();
+			form.$setUntouched();
 		};
 
 		$scope.showAddFieldDialog = function(event) {
