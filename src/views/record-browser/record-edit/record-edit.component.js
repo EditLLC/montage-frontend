@@ -22,7 +22,12 @@
 
 		////////////
 
-		$scope.excludeRecordProperty = key => ['id', '_meta'].includes(key) || $scope.metaDictionary[key].datatype === 'boolean';
+		$scope.excludeRecordProperty = function(key) {
+			const isPrivateField = ['id', '_meta'].includes(key);
+			const isBoolean = $scope.metaDictionary[key].datatype === 'boolean';
+
+			return isPrivateField || isBoolean;
+		};
 
 		$scope.aliasInputType = datatype => datatype === 'number' ? 'number' : 'text';
 
