@@ -11,8 +11,6 @@
 	function recordEditController($stateParams, $state, $scope, $mdDialog, $q, api) {
 		const document_id = $stateParams.document_id;
 		const schemaName = $stateParams.schemaName;
-		const schemaFieldsPromise = api.schema.get(schemaName).then(schema => schema.fields);
-		const recordPromise = api.document.get(schemaName, document_id);
 
 		let confirmDialog;
 
@@ -125,6 +123,9 @@
 		}
 
 		function resolvePromises() {
+			const schemaFieldsPromise = api.schema.get(schemaName).then(schema => schema.fields);
+			const recordPromise = api.document.get(schemaName, document_id);
+
 			$q.all([schemaFieldsPromise, recordPromise])
 				.then(([fields, record]) => {
 					$scope.schemaFields = fields;
