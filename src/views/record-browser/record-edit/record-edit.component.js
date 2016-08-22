@@ -201,9 +201,9 @@
 
 				$scope.addFormMetaDictionary[key] = {
 					datatype : datatype,
-					index		 : '',
+					index    : '',
 					required : false,
-					name		 : key,
+					name     : key,
 				};
 
 				$scope.validateField($scope.addFormMetaDictionary, $scope.addFieldForm);
