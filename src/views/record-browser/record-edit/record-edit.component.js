@@ -20,8 +20,6 @@
 
 		resolvePromises();
 
-		////////////
-
 		$scope.excludeRecordProperty = function(key) {
 			const isPrivateField = ['id', '_meta'].includes(key);
 			const isBoolean = $scope.metaDictionary[key].datatype === 'boolean';
