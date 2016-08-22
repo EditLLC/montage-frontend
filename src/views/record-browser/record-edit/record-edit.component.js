@@ -142,9 +142,9 @@
 				});
 		}
 
-		function showErrorMessage(message) {
+		function showErrorMessage(message = 'Unable to save changes. Please try again.') {
 			$scope.status = 'error';
-			$scope.followUpMessage = message || 'Unable to save changes. Please try again.';
+			$scope.followUpMessage = message;
 		};
 
 		function showSuccessMessage(message) {
