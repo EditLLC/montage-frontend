@@ -207,7 +207,7 @@
 				};
 
 				$scope.validateField($scope.addFormMetaDictionary, $scope.addFieldForm);
-			}
+			};
 
 			$scope.cancel = function() {
 				$mdDialog.cancel();
