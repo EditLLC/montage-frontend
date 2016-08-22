@@ -22,11 +22,6 @@
 			});
 
 		// todo: implement
-		vm.editRole = function() {
-			console.log('editRole() is not implemented')
-		};
-
-		// todo: implement
 		vm.deleteRole = function() {
 			console.log('deleteRole() is not implemented')
 		};
