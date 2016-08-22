@@ -145,7 +145,7 @@
 		function showErrorMessage(message = 'Unable to save changes. Please try again.') {
 			$scope.status = 'error';
 			$scope.followUpMessage = message;
-		};
+		}
 
 		function showSuccessMessage(message = 'Changes saved') {
 			$scope.status = 'success';
