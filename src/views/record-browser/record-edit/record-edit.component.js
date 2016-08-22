@@ -132,7 +132,8 @@
 					$scope.record = record;
 
 					createMeta();
-				}, () => {
+				})
+				.catch(() => {
 					showErrorMessage('Record doesn\'t exist');
 				});
 		}
