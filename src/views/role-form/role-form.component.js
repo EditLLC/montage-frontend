@@ -25,10 +25,9 @@
 			const save = role.name ? api.role.update : api.role.create;
 
 			save(role)
-				.then(() => vm.status = 'success')
-				.catch(() => vm.status = 'error')
 				.then(() => $state.go('role.list'))
 				.then(() => toast.success('Successfully saved.'))
+				.catch(handleErrors)
 				.finally(() => vm.isSaving = false);
 		};
 
@@ -53,6 +52,35 @@
 			vm.role = role;
 
 			return vm.role;
+		}
+
+		function handleErrors(err) {
+			err.text().then(text => {
+				text = JSON.parse(text);
+
+				if (!(text.errors
+					&& text.errors[0]
+					&& text.errors[0].meta
+					&& text.errors[0].meta.details
+					&& text.errors[0].meta.details.name
+				)) return;
+
+				const error = text.errors[0].meta.details.name[0];
+
+				if (error) {
+					vm.status = {
+						result  : 'duplicateRole error',
+						message : error,
+					};
+				} else {
+					vm.status = {
+						result  : 'error',
+						message : 'There was an error saving your changes. Please try again.',
+					};
+				}
+
+				$scope.$digest();
+			});
 		}
 	}
 })(angular);
