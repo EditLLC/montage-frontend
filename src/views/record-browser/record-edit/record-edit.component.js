@@ -57,9 +57,10 @@
 				.targetEvent(event)
 				.ok('Delete')
 				.cancel('Cancel');
-			$mdDialog.show(confirmDialog).then(deleteRecord, () => {
-				$mdDialog.cancel();
-			});
+
+			$mdDialog.show(confirmDialog)
+				.then(deleteRecord)
+				.catch($mdDialog.cancel);
 		};
 
 		$scope.validateField = function(fieldObject, form) {
