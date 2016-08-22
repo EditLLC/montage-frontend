@@ -27,6 +27,7 @@
 			save(role)
 				.then(() => vm.status = 'success')
 				.catch(() => vm.status = 'error')
+				.then(() => $state.go('role.list'))
 				.finally(() => vm.isSaving = false);
 		};
 
