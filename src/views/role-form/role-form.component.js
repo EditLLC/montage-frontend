@@ -9,7 +9,7 @@
 			controller   : RoleFormController,
 		});
 
-	function RoleFormController($q, $stateParams, api) {
+	function RoleFormController($state, $q, $stateParams, api) {
 		const vm = this;
 
 		vm.formType = getFormType();
