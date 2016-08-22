@@ -12,8 +12,6 @@
 		const document_id = $stateParams.document_id;
 		const schemaName = $stateParams.schemaName;
 
-		let confirmDialog;
-
 		$scope.saveContext = 'Save';
 		$scope.deleteRecord = deleteRecord;
 		$scope.updateRecord = updateRecord;
@@ -53,7 +51,7 @@
 		};
 
 		$scope.showDeleteRecordDialog = function(event) {
-			confirmDialog = $mdDialog.confirm()
+			const confirmDialog = $mdDialog.confirm()
 				.title('Would you like to delete this record?')
 				.ariaLabel('Delete record')
 				.targetEvent(event)
