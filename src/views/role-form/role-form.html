@@ -1,11 +1,10 @@
 <form name="roleSaveForm" class="role-create-view view-frame" md-whiteframe="2" autocomplete="off" >
 	<h1>{{ roleForm.formType + ' Role' }}</h1>
 
-	<div class="message" ng-if="roleForm.status" ng-class="roleForm.status">
-		{{ roleForm.status === 'success'
-		? 'Successfully saved'
-		: 'There was an error saving your changes. Please try again.'
-		}}
+	<div class="message"
+	     ng-if="roleForm.status"
+	     ng-class="roleForm.status.result">
+		{{ roleForm.status.message }}
 	</div>
 
 	<md-input-container class="md-block">
