@@ -39,11 +39,11 @@
 		$scope.showAddFieldDialog = function(event) {
 			$mdDialog.show({
 				contentElement : '#myDialog',
-				parent				 : angular.element(document.body),
-				targetEvent		 : event,
-				scope					 : $scope,
-				preserveScope	 : true,
-				controller		 : addFieldDialogController,
+				parent         : angular.element(document.body),
+				targetEvent    : event,
+				scope          : $scope,
+				preserveScope  : true,
+				controller     : addFieldDialogController,
 			})
 			.then(function(answer) {
 				answer.value = coerceType(answer.datatype, answer.value);
