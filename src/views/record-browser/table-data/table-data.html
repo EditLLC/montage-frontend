@@ -9,8 +9,7 @@
 	</thead>
 	<tbody>
 		<tr ng-repeat="row in tableData.rows"
-				ui-sref="data.edit({ schemaName  : tableData.schemaName,
-														 document_id : tableData.data[$index].id })">
+		    ui-sref="data.edit({ schemaName  : tableData.schemaName, document_id : tableData.data[$index].id })">
 			<td ng-repeat="cell in ::row track by $index">
 				<div class="ellipsis" ng-if="!tableData.isJson(cell)">
 					{{ ::cell }}
