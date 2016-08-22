@@ -15,11 +15,16 @@
 		api.role.list().then(roleList => vm.roleList = roleList);
 
 		vm.delete = function(roleName) {
+			vm.isSaving = true;
+
 			modalHelper.confirmDelete('role')
 				.then(() => api.role.remove(roleName))
 				.then(() => {
 					removeRoleFromView(vm.roleList, roleName);
+					vm.status = 'success';
 				})
+				.catch(() => vm.status = 'error')
+				.finally(() => vm.isSaving = false);
 		};
 
 		function removeRoleFromView(roleList, roleName) {
