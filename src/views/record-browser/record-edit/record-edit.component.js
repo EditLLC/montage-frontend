@@ -196,7 +196,7 @@
 
 		function addFieldDialogController($scope, $mdDialog) {
 
-			$scope.updateMeta = (key, datatype) => {
+			$scope.updateMeta = function(key, datatype) {
 				$scope.addFormMetaDictionary = {};
 
 				$scope.addFormMetaDictionary[key] = {
