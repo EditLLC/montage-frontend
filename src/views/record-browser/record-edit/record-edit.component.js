@@ -211,12 +211,12 @@
 
 			$scope.cancel = function() {
 				$mdDialog.cancel();
-				$scope.resetForm();
+				$scope.resetForm($scope.addFieldForm);
 			};
 
 			$scope.answer = function() {
 				$mdDialog.hide($scope.newField);
-				$scope.resetForm();
+				$scope.resetForm($scope.addFieldForm);
 			};
 		}
 
