@@ -27,14 +27,16 @@
 			return isPrivateField || isBoolean;
 		};
 
-		$scope.aliasInputType = datatype => datatype === 'number' ? 'number' : 'text';
+		$scope.aliasInputType = function(datatype) {
+			return datatype === 'number' ? 'number' : 'text';
+		};
 
-		$scope.resetForm = () => {
+		$scope.resetForm = function() {
 			$scope.addFieldForm.$setPristine();
 			$scope.addFieldForm.$setUntouched();
 		};
 
-		$scope.showAddFieldDialog = (event) => {
+		$scope.showAddFieldDialog = function(event) {
 			$mdDialog.show({
 				contentElement : '#myDialog',
 				parent				 : angular.element(document.body),
@@ -43,14 +45,14 @@
 				preserveScope	 : true,
 				controller		 : addFieldDialogController,
 			})
-			.then(answer => {
+			.then(function(answer) {
 				answer.value = coerceType(answer.datatype, answer.value);
 				$scope.record[answer.field] = answer.value;
 				createMeta($scope.fields, $scope.record, answer);
 			});
 		};
 
-		$scope.showDeleteRecordDialog = (event) => {
+		$scope.showDeleteRecordDialog = function(event) {
 			confirmDialog = $mdDialog.confirm()
 				.title('Would you like to delete this record?')
 				.ariaLabel('Delete record')
@@ -62,7 +64,7 @@
 			});
 		};
 
-		$scope.validateField = (fieldObject, form) => {
+		$scope.validateField = function(fieldObject, form) {
 			if (Array.isArray(fieldObject.value) && form.datatype === 'array') {
 				if (fieldObject.value[0] !== '[') {
 					return false;
@@ -220,12 +222,12 @@
 				$scope.validateField($scope.addFormMetaDictionary, $scope.addFieldForm);
 			}
 
-			$scope.cancel = () => {
+			$scope.cancel = function() {
 				$mdDialog.cancel();
 				$scope.resetForm();
 			};
 
-			$scope.answer = () => {
+			$scope.answer = function() {
 				$mdDialog.hide($scope.newField);
 				$scope.resetForm();
 			};
