@@ -25,6 +25,7 @@
 			modalHelper.confirmDelete('role')
 				.then(() => {
 					api.role.remove(role)
+						.then(() => $state.go('role.list'))
 						.catch(() => vm.status = 'error')
 				});
 		};
