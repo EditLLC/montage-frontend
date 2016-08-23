@@ -11,6 +11,10 @@
 		</md-button>
 	</div>
 
+	<div class="message" ng-if="roleDetail.status" ng-class="roleDetail.status">
+		There was an error deleting the record. Please try again.
+	</div>
+
 	<section class="members">
 		<h2>Team Members</h2>
 
