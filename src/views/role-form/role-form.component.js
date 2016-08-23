@@ -12,6 +12,9 @@
 	function RoleFormController($scope, $state, $q, $stateParams, api, toast, notFoundHelper) {
 		const vm = this;
 
+		let newUsers = [];
+		let deletedUsers = [];
+
 		vm.formType = getFormType();
 
 		const rolePromise = getRolePromise();
