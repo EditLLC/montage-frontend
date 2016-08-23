@@ -20,6 +20,10 @@
 		$q.all([rolePromise, userListPromise])
 			.then(buildUserList)
 			.then(() => vm.isFound = true)
+			.catch(error => {
+				if (notFoundHelper.checkNotFound(error)) {
+					vm.params = notFoundHelper.buildRoleObject();
+				}
 			});
 
 		vm.saveRole = function(role, users) {
