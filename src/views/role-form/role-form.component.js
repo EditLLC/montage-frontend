@@ -18,7 +18,9 @@
 		const userListPromise = api.user.list();
 
 		$q.all([rolePromise, userListPromise])
-			.then(buildUserList);
+			.then(buildUserList)
+			.then(() => vm.isFound = true)
+			});
 
 		vm.saveRole = function(role, users) {
 			vm.isSaving = true;
