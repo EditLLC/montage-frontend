@@ -1,37 +1,37 @@
 <div class="record-edit-view view-frame" md-whiteframe="4">
-  <div class="view-header">
-    <h1>Edit Record</h1>
+	<div class="view-header">
+		<h1>Edit Record</h1>
 
-    <md-button class="md-raised md-secondary" ng-click="showRemoveDialog($event)">
-      <i class="fa fa-times"></i>
-      Delete record
-    </md-button>
-    <md-button class="md-raised md-primary" ng-click="showAddFieldDialog($event)">
-      <i class="fa fa-plus"></i>
-      Add field
-    </md-button>
-  </div>
+		<md-button class="md-raised md-secondary" ng-click="showRemoveDialog($event)">
+			<i class="fa fa-times"></i>
+			Delete record
+		</md-button>
+		<md-button class="md-raised md-primary" ng-click="showAddFieldDialog($event)">
+			<i class="fa fa-plus"></i>
+			Add field
+		</md-button>
+	</div>
 
 	<div class="message-container" ng-if="followupMessage">
 		<p class="message {{ status }}">{{ followupMessage }}</p>
 	</div>
 
-  <div>
-    <md-input-container>
-      <label>id</label>
-      <input type="text" disabled ng-model="document_id">
-    </md-input-container>
-  </div>
+	<div>
+		<md-input-container>
+			<label>id</label>
+			<input type="text" disabled ng-model="document_id">
+		</md-input-container>
+	</div>
 
 	<form name="recordForm" ng-submit="update()" autocomplete="off">
 		<div ng-repeat="field in record.fields">
 			<md-input-container ng-hide="field.name === 'id' || field.datatype === 'boolean'">
 				<label>{{ field.name }}</label>
 				<input type="{{ field.datatype }}"
-							 name="{{ field.name }}"
-							 ng-model="field.value"
-							 ng-required="field.required"
-							 ng-change="validateJSON(record[key], key)">
+				       name="{{ field.name }}"
+				       ng-model="field.value"
+				       ng-required="field.required"
+				       ng-change="validateJSON(record[key], key)">
 				<p style="color: #d30915;" ng-show="recordForm[field.name].$error.required">This field is required</p>
 				<p style="color: #d30915" ng-show="!validateJSON(record[key], key)">{{ e }}</p>
 			</md-input-container>
@@ -41,37 +41,37 @@
 
 				<div>
 					<md-checkbox ng-model="field.value"
-											 ng-true-value="true"
-											 ng-false-value="false">
+					             ng-true-value="true"
+					             ng-false-value="false">
 					</md-checkbox>
 					{{ field.value }}
 				</div>
 			</div>
 		</div>
 
-	  <div style="text-align: right; width: 50%;">
-	    <md-button type="submit"
-								 class="md-raised md-primary"
-								 ng-disabled="recordForm.$invalid || saveContext === 'Saving'">
-	      {{ saveContext }}
-	    </md-button>
-	  </div>
+		<div style="text-align: right; width: 50%;">
+			<md-button type="submit"
+			           class="md-raised md-primary"
+			           ng-disabled="recordForm.$invalid || saveContext === 'Saving'">
+				{{ saveContext }}
+			</md-button>
+		</div>
 	</form>
 
 
-  <div style="visibility: hidden">
-    <div class="md-dialog-container" id="myDialog">
-      <md-dialog>
-        <h2 style="padding: 25px 25px 0">Add field</h2>
+	<div style="visibility: hidden">
+		<div class="md-dialog-container" id="myDialog">
+			<md-dialog>
+				<h2 style="padding: 25px 25px 0">Add field</h2>
 
 				<form name="addFieldForm" ng-submit="answer()" style="padding: 25px" autocomplete="off">
 
-	        <div class="group">
-	          <md-input-container>
-	            <label>Field name</label>
-	            <input type="text" ng-model="newField.field" required>
-	          </md-input-container>
-	        </div>
+					<div class="group">
+						<md-input-container>
+							<label>Field name</label>
+							<input type="text" ng-model="newField.field" required>
+						</md-input-container>
+					</div>
 
 					<div class="group">
 						<md-input-container>
@@ -86,12 +86,13 @@
 						</md-input-container>
 					</div>
 
-	        <div class="group" ng-hide="newField.datatype === 'boolean'">
-	          <md-input-container>
-	            <label>Field value</label>
-	            <input type="{{ newField.datatype === 'number' ? 'number' : 'text' }}" ng-model="newField.value" ng-required="newField.datatype !== 'boolean'">
-	          </md-input-container>
-	        </div>
+					<div class="group" ng-hide="newField.datatype === 'boolean'">
+						<md-input-container>
+							<label>Field value</label>
+							<input type="{{ newField.datatype === 'number' ? 'number' : 'text' }}"
+							       ng-model="newField.value" ng-required="newField.datatype !== 'boolean'">
+						</md-input-container>
+					</div>
 
 					<div class="group" ng-hide="newField.datatype !== 'boolean'" id="skip-margin">
 						<md-radio-group ng-model="newField.value">
@@ -103,13 +104,13 @@
 					<div style="padding: 5px; text-align: right;">
 						<md-button class="md-raised md-secondary" ng-click="cancel()">Cancel</md-button>
 						<md-button type="submit"
-											 style="margin-left: 15px;"
-											 class="md-raised md-primary"
-											 ng-disabled="addFieldForm.$invalid">Add
+						           style="margin-left: 15px;"
+						           class="md-raised md-primary"
+						           ng-disabled="addFieldForm.$invalid">Add
 						</md-button>
 					</div>
 				</form>
-      </md-dialog>
-    </div>
-  </div>
+			</md-dialog>
+		</div>
+	</div>
 </div>
