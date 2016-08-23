@@ -26,6 +26,7 @@
 				.then(() => {
 					api.role.remove(role)
 						.then(() => $state.go('role.list'))
+						.then(() => toast.success('Successfully deleted.'))
 						.catch(() => vm.status = 'error')
 				});
 		};
