@@ -24,27 +24,27 @@
   </div>
 
 	<form name="recordForm" ng-submit="update()" autocomplete="off">
-		<div ng-repeat="(key, value) in record">
-			<md-input-container ng-hide="key === 'id' || key === '_meta' || meta[key].datatype === 'boolean'">
-				<label>{{ key }}</label>
-				<input type="{{ meta[key].datatype }}"
-							 name="{{ key }}"
-							 ng-model="record[key]"
-							 ng-required="meta[key].required"
+		<div ng-repeat="field in record.fields">
+			<md-input-container ng-hide="field.name === 'id' || field.datatype === 'boolean'">
+				<label>{{ field.name }}</label>
+				<input type="{{ field.datatype }}"
+							 name="{{ field.name }}"
+							 ng-model="field.value"
+							 ng-required="field.required"
 							 ng-change="validateJSON(record[key], key)">
-				<p style="color: #d30915;" ng-show="recordForm[key].$error.required">This field is required</p>
+				<p style="color: #d30915;" ng-show="recordForm[field.name].$error.required">This field is required</p>
 				<p style="color: #d30915" ng-show="!validateJSON(record[key], key)">{{ e }}</p>
 			</md-input-container>
 
-			<div ng-hide="meta[key].datatype !== 'boolean'">
-				{{ key }}
+			<div ng-hide="field.datatype !== 'boolean'">
+				{{ field.name }}
 
 				<div>
-					<md-checkbox ng-model="record[key]"
+					<md-checkbox ng-model="field.value"
 											 ng-true-value="true"
 											 ng-false-value="false">
 					</md-checkbox>
-					{{ record[key] }}
+					{{ field.value }}
 				</div>
 			</div>
 		</div>

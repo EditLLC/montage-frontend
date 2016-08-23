@@ -8,15 +8,16 @@
 			controller	: recordEditController,
 		});
 
-	function recordEditController($stateParams, $state, $scope, $mdDialog, $q, api) {
-		const document_id = $stateParams.document_id;
-		const schemaName = $stateParams.schemaName;
+	function recordEditController($stateParams, $state, $scope, $mdDialog, api, Record) {
+		$scope.document_id = $stateParams.document_id;
+
+		Record.get($stateParams.schemaName, $stateParams.document_id)
+			.then(record => $scope.record = record)
+			.then(record => console.log('record', record))
 
 		$scope.saveContext = 'Save';
 		$scope.deleteRecord = deleteRecord;
 		$scope.updateRecord = updateRecord;
-
-		resolvePromises();
 
 		$scope.excludeRecordProperty = function(key) {
 			const isPrivateField = ['id', '_meta'].includes(key);
@@ -124,22 +125,6 @@
 					$scope.schemaFields.splice(field - 1, 0, fieldTemplate);
 				}
 			});
-		}
-
-		function resolvePromises() {
-			const schemaFieldsPromise = api.schema.get(schemaName).then(schema => schema.fields);
-			const recordPromise = api.document.get(schemaName, document_id);
-
-			$q.all([schemaFieldsPromise, recordPromise])
-				.then(([fields, record]) => {
-					$scope.schemaFields = fields;
-					$scope.record = record;
-
-					createMeta();
-				})
-				.catch(() => {
-					showErrorMessage('Record doesn\'t exist');
-				});
 		}
 
 		function showErrorMessage(message = 'Unable to save changes. Please try again.') {
