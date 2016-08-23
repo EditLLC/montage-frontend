@@ -28,9 +28,15 @@
 
 		vm.saveRole = function(role, users) {
 			vm.isSaving = true;
-			const save = role.name ? api.role.update : api.role.create;
 
-			save(role)
+			const usersToAdd = newUsers.map(user => user.id);
+			const usersToRemove = deletedUsers.map(user => user.id);
+
+			const savePromise = $stateParams.roleName
+				? api.role.update($stateParams.roleName, role.name, usersToAdd, usersToRemove)
+				: api.role.create(role.name, usersToAdd);
+
+			savePromise
 				.then(() => $state.go('role.list'))
 				.then(() => toast.success('Successfully saved.'))
 				.catch(handleErrors)
