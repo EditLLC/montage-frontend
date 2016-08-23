@@ -21,9 +21,11 @@
 				vm.userList = userList.filter(user => role.users.indexOf(user.id) !== -1);
 			});
 
-		// todo: implement
-		vm.deleteRole = function() {
-			console.log('deleteRole() is not implemented')
+		vm.deleteRole = function(role) {
+			modalHelper.confirmDelete('role')
+				.then(() => {
+					api.role.remove(role)
+				});
 		};
 	}
 })(angular);
