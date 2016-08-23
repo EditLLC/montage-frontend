@@ -19,3 +19,7 @@
 		ng-disabled="roleSaveForm.$invalid || roleForm.isSaving"
 	>{{ roleForm.isSaving ? 'Saving...' : roleForm.formType }}</md-button>
 </form>
+
+<div ng-if="roleForm.params.isNotFound">
+	<not-found params="roleForm.params"></not-found>
+</div>
