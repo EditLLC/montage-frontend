@@ -25,6 +25,7 @@
 			modalHelper.confirmDelete('role')
 				.then(() => {
 					api.role.remove(role)
+						.catch(() => vm.status = 'error')
 				});
 		};
 	}
