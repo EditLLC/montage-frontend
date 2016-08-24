@@ -88,6 +88,10 @@
 				url: '/policy/edit/:policy_id',
 				template: '<policy-form />'
 			})
+			.state('policy.list', {
+				url: '/policy',
+				template: '<policy-list />'
+			})
 
 
 			/************
