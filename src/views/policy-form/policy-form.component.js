@@ -16,6 +16,11 @@
 
 		const policyPromise = getPolicyPromise();
 
+		policyPromise
+			.then(policy => {
+				vm.policy = policy;
+			});
+
 		function getFormType() {
 			if (!$stateParams.policy_id) {
 				vm.isCreateForm = true;
