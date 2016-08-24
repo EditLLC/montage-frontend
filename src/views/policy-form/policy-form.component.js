@@ -10,6 +10,16 @@
 		});
 
 	function PolicyFormController($stateParams) {
+		const vm = this;
 
+		vm.formType = getFormType();
+
+		function getFormType() {
+			if (!$stateParams.policy_id) {
+				vm.isCreateForm = true;
+			}
+
+			return $stateParams.policy_id ? 'Update' : 'Create';
+		 }
 	}
 })(angular);
