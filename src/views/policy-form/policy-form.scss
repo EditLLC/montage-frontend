@@ -1,0 +1,18 @@
+@import '../../static/styles/variables';
+
+.policy-form-view {
+	width: 600px;
+
+	table {
+		margin-bottom: $padding-medium;
+	}
+
+	li {
+		display: block;
+		padding-bottom: 10px;
+	}
+}
+
+.policy {
+	padding: 28px;
+}
