@@ -1,0 +1,17 @@
+@import '../../static/styles/variables';
+
+.policy-list-view {
+	td {
+		padding: 15px;
+		width: 50%;
+	}
+
+	.policy-info {
+		float: left;
+		width: 280px;
+
+		a, div {
+			line-height: 24px;
+		}
+	}
+}
