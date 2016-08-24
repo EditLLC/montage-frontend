@@ -18,7 +18,7 @@
 
 		policyPromise
 			.then(policy => {
-				vm.policy = policy;
+				vm.policy = JSON.stringify(policy);
 			});
 
 		function getFormType() {
