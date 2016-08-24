@@ -29,12 +29,12 @@
 			return $stateParams.policy_id ? 'Update' : 'Create';
 		 }
 
-		 function getPolicyPromise() {
-			 if ($stateParams.policy_id) {
-				 return api.policy.get($stateParams.policy_id);
-			 }
+		function getPolicyPromise() {
+			if ($stateParams.policy_id) {
+				return api.policy.get($stateParams.policy_id);
+			}
 
-			 return $q.when({});
-		 }
+			return $q.when({});
+		}
 	}
 })(angular);
