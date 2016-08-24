@@ -9,7 +9,7 @@
 			controller   : PolicyFormController,
 		});
 
-	function PolicyFormController() {
+	function PolicyFormController($stateParams) {
 
 	}
 })(angular);
