@@ -14,12 +14,22 @@
 
 		vm.formType = getFormType();
 
+		const policyPromise = getPolicyPromise();
+
 		function getFormType() {
 			if (!$stateParams.policy_id) {
 				vm.isCreateForm = true;
 			}
 
 			return $stateParams.policy_id ? 'Update' : 'Create';
+		 }
+
+		 function getPolicyPromise() {
+			 if ($stateParams.policy_id) {
+				 return api.policy.get($stateParams.policy_id);
+			 }
+
+			 return $q.when({});
 		 }
 	}
 })(angular);
