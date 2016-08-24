@@ -1,0 +1,28 @@
+<div class="policy-list-view view-frame" md-whiteframe="2">
+	<div class="view-header">
+		<h1>Policy</h1>
+
+		<md-button class="md-primary md-raised" ui-sref="policy.create">
+			<i class="fa fa-plus"></i>
+			Create Policy
+		</md-button>
+	</div>
+
+	<table>
+		<thead>
+		<tr>
+			<th>Policy</th>
+			<th class="actions"></th>
+		</tr>
+		</thead>
+
+		<tbody>
+		<tr ng-repeat="policy in policyList.policyList">
+			<td>
+				<div class="policy-info">
+				</div>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+</div>
