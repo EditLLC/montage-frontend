@@ -72,6 +72,25 @@
 
 
 			/************
+			 * Policies
+			 ************/
+
+			.state('policy', {
+				abstract: true,
+				parent: 'layout',
+				template: '<empty-parent />'
+			})
+			.state('policy.create', {
+				url: '/policy/create',
+				template: '<policy-form />'
+			})
+			.state('policy.edit', {
+				url: '/policy/edit/:policy_id',
+				template: '<policy-form />'
+			})
+
+
+			/************
 			 * Roles
 			 ************/
 
