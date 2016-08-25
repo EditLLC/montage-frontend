@@ -30,6 +30,7 @@
 				: api.policy.create(policy.description, policy.policy);
 
 			savePromise
+				.then(() => $state.go('policy.list'));
 		};
 
 		function getFormType() {
