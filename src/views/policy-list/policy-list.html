@@ -20,6 +20,9 @@
 		<tr ng-repeat="policy in policyList.policyList">
 			<td>
 				<div class="policy-info">
+					<a ui-sref="policy.detail({ policy_id: policy.id })">
+						{{ policy.description }}
+					</a>
 				</div>
 			</td>
 		</tr>
