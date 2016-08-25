@@ -9,7 +9,10 @@
 			controller   : PolicyListController,
 		});
 
-	function PolicyListController() {
+	function PolicyListController(api) {
 		const vm = this;
+
+		api.policy.list()
+			.then(policyList => vm.policyList = policyList);
 	}
 })(angular);
