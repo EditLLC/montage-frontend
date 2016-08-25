@@ -26,7 +26,8 @@
 				.then(() => {
 					api.policy.remove(policy)
 						.then(() => $state.go('policy.list'))
-						.then(() => toast.success('Successfully deleted.'));
+						.then(() => toast.success('Successfully deleted.'))
+						.catch(() => vm.status = 'error');
 				});
 		};
 	}
