@@ -9,7 +9,7 @@
 			controller   : PolicyDetailController,
 		});
 
-	function PolicyDetailController($stateParams, api, modalHelper, notFoundHelper) {
+	function PolicyDetailController($state, $stateParams, api, modalHelper, notFoundHelper) {
 		const vm = this;
 
 		api.policy.get($stateParams.policy_id)
