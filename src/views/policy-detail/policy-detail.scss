@@ -1,0 +1,16 @@
+@import '../../static/styles/variables';
+
+$member-width: 35%;
+$section-gutter: 7%;
+
+.policy-detail-view {
+	small {
+		color: $gray-mid;
+		font-size: .72em;
+	}
+
+	.policies {
+		width: $member-width;
+		margin-right: $section-gutter;
+	}
+}
