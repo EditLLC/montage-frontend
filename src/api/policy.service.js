@@ -12,7 +12,6 @@
 			list,
 			update,
 			remove,
-			checkPermission,
 		};
 
 		////////////
@@ -39,11 +38,6 @@
 
 		function remove(policy) {
 			return montageHelper.getClient().policy.remove(policy);
-		}
-
-		function checkPermission(action, resource) {
-			return montageHelper.getClient().policy.checkPermission(action, resource)
-				.then(montageHelper.returnData);
 		}
 	}
 })(angular);
