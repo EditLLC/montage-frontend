@@ -25,7 +25,8 @@
 			modalHelper.confirmDelete('policy')
 				.then(() => {
 					api.policy.remove(policy)
-						.then(() => $state.go('policy.list'));
+						.then(() => $state.go('policy.list'))
+						.then(() => toast.success('Successfully deleted.'));
 				});
 		};
 	}
