@@ -9,7 +9,7 @@
 			controller   : PolicyFormController,
 		});
 
-	function PolicyFormController($state, $q, $stateParams, api) {
+	function PolicyFormController($state, $q, $stateParams, api, toast) {
 		const vm = this;
 
 		vm.formType = getFormType();
