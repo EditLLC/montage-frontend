@@ -14,6 +14,11 @@
 
 		api.policy.get($stateParams.policy_id)
 			.then(policy => vm.policy = policy)
-			.then(() => vm.isFound = true);
+			.then(() => vm.isFound = true)
+			.catch(error => {
+				if (notFoundHelper.checkNotFound(error)) {
+					vm.params = notFoundHelper.buildPolicyObject();
+				}
+			});
 	}
 })(angular);
