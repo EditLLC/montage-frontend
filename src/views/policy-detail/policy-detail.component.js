@@ -11,5 +11,8 @@
 
 	function PolicyDetailController($stateParams, api) {
 		const vm = this;
+
+		api.policy.get($stateParams.policy_id)
+			.then(policy => vm.policy = policy);
 	}
 })(angular);
