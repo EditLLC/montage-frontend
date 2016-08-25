@@ -11,6 +11,10 @@
 		</md-button>
 	</div>
 
+	<div class="message" ng-if="policyDetail.status" ng-class="policyDetail.status">
+		There was an error deleting the policy. Please try again.
+	</div>
+
 	<div>
 		<pre pretty-json="policyDetail.policy" />
 	</div>
