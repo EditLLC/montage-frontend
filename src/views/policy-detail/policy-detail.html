@@ -1,0 +1,13 @@
+<div class="policy-detail-view view-frame" md-whiteframe="2">
+	<div class="view-header">
+		<h1>{{ policyDetail.policy.description }} <small>Policy</small></h1>
+
+		<md-button class="md-raised md-primary" ui-sref="policy.edit({ policyName: policyDetail.policy.id })">
+			<i class="fa fa-pencil"></i> Edit Policy
+		</md-button>
+
+		<md-button class="md-raised" ng-click="policyDetail.deletepolicy(policyDetail.policy.id)">
+			<i class="fa fa-times"></i> Delete Policy
+		</md-button>
+	</div>
+</div>
