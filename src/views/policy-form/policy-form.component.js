@@ -30,7 +30,8 @@
 				: api.policy.create(policy.description, policy.policy);
 
 			savePromise
-				.then(() => $state.go('policy.list'));
+				.then(() => $state.go('policy.list'))
+				.then(() => toast.success('Successfully saved.'));
 		};
 
 		function getFormType() {
