@@ -15,3 +15,7 @@
 		<pre pretty-json="policyDetail.policy" />
 	</div>
 </div>
+
+<div ng-if="policyDetail.params.isNotFound">
+	<not-found params="policyDetail.params"></not-found>
+</div>
