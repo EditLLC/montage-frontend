@@ -14,3 +14,7 @@
 		aria-label="Policy save button"
 	>{{ policyForm.isSaving ? 'Saving...' : policyForm.formType }}</md-button>
 </form>
+
+<div ng-if="policyForm.params.isNotFound">
+	<not-found params="policyForm.params"></not-found>
+</div>
