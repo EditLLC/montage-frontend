@@ -21,6 +21,17 @@
 				vm.policy = JSON.stringify(policy, null, '  ');
 			});
 
+		vm.savePolicy = function(policy) {
+			policy = JSON.parse(policy);
+			vm.isSaving = true;
+
+			const savePromise = policy.id
+				? api.policy.update(policy.id, policy.description, policy.policy)
+				: api.policy.create(policy.description, policy.policy);
+
+			savePromise
+		};
+
 		function getFormType() {
 			if (!$stateParams.policy_id) {
 				vm.isCreateForm = true;
