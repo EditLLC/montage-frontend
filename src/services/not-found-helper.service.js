@@ -9,6 +9,7 @@
 		const service = {
 			checkNotFound,
 			buildUserObject,
+			buildPolicyObject,
 		};
 
 		return service;
@@ -26,6 +27,17 @@
 				param_id     : 'user id',
 				redirectLink : 'user.list',
 				redirectName : 'Users',
+				isNotFound   : true,
+			};
+
+			return params;
+		}
+
+		function buildPolicyObject() {
+			const params = {
+				param_id     : 'policy',
+				redirectLink : 'policy.list',
+				redirectName : 'Policy',
 				isNotFound   : true,
 			};
 
