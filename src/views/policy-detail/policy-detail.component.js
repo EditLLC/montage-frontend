@@ -25,6 +25,7 @@
 			modalHelper.confirmDelete('policy')
 				.then(() => {
 					api.policy.remove(policy)
+						.then(() => $state.go('policy.list'));
 				});
 		};
 	}
