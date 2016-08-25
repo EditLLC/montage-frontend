@@ -18,7 +18,12 @@
 
 		policyPromise
 			.then(policy => vm.policy = JSON.stringify(policy, null, '  '))
-			.then(() => vm.isFound = true);
+			.then(() => vm.isFound = true)
+			.catch(error => {
+				if (notFoundHelper.checkNotFound(error)) {
+					vm.params = notFoundHelper.buildPolicyObject();
+				}
+			});
 
 		vm.savePolicy = function(policy) {
 			policy = JSON.parse(policy);
