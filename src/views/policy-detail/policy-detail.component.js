@@ -9,7 +9,7 @@
 			controller   : PolicyDetailController,
 		});
 
-	function PolicyDetailController($stateParams) {
+	function PolicyDetailController($stateParams, api) {
 		const vm = this;
 	}
 })(angular);
