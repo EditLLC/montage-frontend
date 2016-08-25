@@ -13,6 +13,7 @@
 		const vm = this;
 
 		api.policy.get($stateParams.policy_id)
-			.then(policy => vm.policy = policy);
+			.then(policy => vm.policy = policy)
+			.then(() => vm.isFound = true);
 	}
 })(angular);
