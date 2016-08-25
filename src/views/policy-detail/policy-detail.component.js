@@ -20,5 +20,12 @@
 					vm.params = notFoundHelper.buildPolicyObject();
 				}
 			});
+
+		vm.deletePolicy = function(policy) {
+			modalHelper.confirmDelete('policy')
+				.then(() => {
+					api.policy.remove(policy)
+				});
+		};
 	}
 })(angular);
