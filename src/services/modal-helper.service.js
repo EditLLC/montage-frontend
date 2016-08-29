@@ -14,7 +14,7 @@
 
 		////////////
 
-		function confirmDelete(recordType = 'item') {
+		function confirmDelete(recordType = 'item', roles) {
 			const confirm = $mdDialog.confirm()
 				.title('Delete Confirmation')
 				.textContent(`Are you sure you want to delete this ${recordType}?`)
