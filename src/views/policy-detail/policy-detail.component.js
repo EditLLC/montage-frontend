@@ -42,6 +42,10 @@
 				});
 			});
 
+			if (roles.length === 0) {
+				return false;
+			}
+
 			return roles;
 		}
 	}
