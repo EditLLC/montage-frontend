@@ -22,7 +22,9 @@
 			});
 
 		vm.deletePolicy = function(policy) {
-			modalHelper.confirmDelete('policy')
+			const roles = getRolesInPolicy(vm.policy);
+
+			modalHelper.confirmDelete('policy', roles)
 				.then(() => {
 					api.policy.remove(policy)
 						.then(() => $state.go('policy.list'))
