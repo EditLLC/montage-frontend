@@ -30,5 +30,19 @@
 						.catch(() => vm.status = 'error');
 				});
 		};
+
+		function getRolesInPolicy(policy) {
+			const roles = [];
+
+			policy.policy.statements.forEach(statement => {
+				statement.principal.forEach(principal => {
+					if (principal.indexOf('montage:role:') === 0) {
+						roles.push(principal.substr(13));
+					}
+				});
+			});
+
+			return roles;
+		}
 	}
 })(angular);
