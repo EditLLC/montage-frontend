@@ -7,13 +7,13 @@
 
 	function modalHelper($mdDialog) {
 		return {
-			confirmDelete
+			confirmDelete,
 		};
 
 		////////////
 
 		function confirmDelete(recordType = 'item') {
-			var confirm = $mdDialog.confirm()
+			const confirm = $mdDialog.confirm()
 				.title('Delete Confirmation')
 				.textContent(`Are you sure you want to delete this ${recordType}?`)
 				.ariaLabel('Delete confirmation')
