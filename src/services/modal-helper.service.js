@@ -15,9 +15,13 @@
 		////////////
 
 		function confirmDelete(recordType = 'item', roles) {
+			const record = roles
+			? formatString(recordType, roles)
+			: `${recordType}?`;
+
 			const confirm = $mdDialog.confirm()
 				.title('Delete Confirmation')
-				.textContent(`Are you sure you want to delete this ${recordType}?`)
+				.textContent(`Are you sure you want to delete this ${record}`)
 				.ariaLabel('Delete confirmation')
 				.ok('Delete')
 				.cancel('Cancel');
