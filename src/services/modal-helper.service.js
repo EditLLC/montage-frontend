@@ -27,6 +27,10 @@
 
 		function formatString(recordType, roles) {
 			let roleName = 'roles';
+
+			if (roles.length < 2) {
+				roleName = 'role';
+			}
 			const formattedString = `${recordType}? It is used by the ${roles} ${roleName}.`;
 
 			return formattedString;
