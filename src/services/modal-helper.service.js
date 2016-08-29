@@ -24,5 +24,12 @@
 
 			return $mdDialog.show(confirm);
 		}
+
+		function formatString(recordType, roles) {
+			let roleName = 'roles';
+			const formattedString = `${recordType}? It is used by the ${roles} ${roleName}.`;
+
+			return formattedString;
+		}
 	}
 })(angular);
