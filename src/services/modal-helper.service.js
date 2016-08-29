@@ -6,9 +6,11 @@
 		.factory('modalHelper', modalHelper);
 
 	function modalHelper($mdDialog) {
-		return {
+		const service = {
 			confirmDelete,
 		};
+
+		return service;
 
 		////////////
 
