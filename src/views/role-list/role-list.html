@@ -20,7 +20,6 @@
 			<tr>
 				<th>Role</th>
 				<th>Members</th>
-				<th class="actions"></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -31,14 +30,6 @@
 					</a>
 				</td>
 				<td>{{ role.users.length }}</td>
-				<td class="actions">
-					<a ui-sref="role.edit({ roleName: role.name })">
-						<i class="fa fa-pencil"></i>
-					</a>
-					<a ng-click="roleList.delete(role.name)">
-						<i class="fa fa-times"></i>
-					</a>
-				</td>
 			</tr>
 		</tbody>
 	</table>
