@@ -17,7 +17,10 @@
 		const policyPromise = getPolicyPromise();
 
 		policyPromise
-			.then(policy => vm.policy = JSON.stringify(policy, null, '  '))
+			.then(policy => {
+				delete policy.id;
+				vm.policy = JSON.stringify(policy, null, '  ');
+			})
 			.then(() => vm.isFound = true)
 			.catch(error => {
 				if (notFoundHelper.checkNotFound(error)) {
