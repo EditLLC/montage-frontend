@@ -15,7 +15,7 @@
 		////////////
 
 		function confirmDelete(recordType = 'item', roles) {
-			const record = roles
+			const record = roles.length
 			? formatString(recordType, roles)
 			: `${recordType}?`;
 
