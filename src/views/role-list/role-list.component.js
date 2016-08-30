@@ -9,7 +9,7 @@
 			controller   : RoleListController,
 		});
 
-	function RoleListController(api, modalHelper) {
+	function RoleListController(api) {
 		const vm = this;
 
 		api.role.list().then(roleList => vm.roleList = roleList);
