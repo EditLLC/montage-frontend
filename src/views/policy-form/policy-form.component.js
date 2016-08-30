@@ -30,10 +30,15 @@
 
 		vm.savePolicy = function(policy) {
 			policy = JSON.parse(policy);
-			vm.isSaving = true;
+			const newPolicy = policy;
 
-			const savePromise = policy.id
-				? api.policy.update(policy.id, policy.description, policy.policy)
+			vm.isSaving = true;
+			if ($stateParams.policy_id) {
+				newPolicy.id = $stateParams.policy_id;
+			}
+
+			const savePromise = $stateParams.policy_id
+				? api.policy.update(newPolicy.id, newPolicy.description, newPolicy.policy)
 				: api.policy.create(policy.description, policy.policy);
 
 			savePromise
