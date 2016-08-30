@@ -34,8 +34,7 @@
 
 			if (roles.length < 2) {
 				roleName = 'role';
-			}
-			if (roles.length === 2) {
+			} else if (roles.length === 2) {
 				roles = roles.join(' and ');
 			} else if (roles.length > 2) {
 				roles = `${roles.slice(0, -1).join(', ')}, and ${roles.slice(-1)}`;
