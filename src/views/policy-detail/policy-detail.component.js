@@ -13,7 +13,11 @@
 		const vm = this;
 
 		api.policy.get($stateParams.policy_id)
-			.then(policy => vm.policy = policy)
+			.then(policy => {
+				vm.policy = policy;
+				vm.policy_id = policy.id;
+				delete vm.policy.id;
+			})
 			.then(() => vm.isFound = true)
 			.catch(error => {
 				if (notFoundHelper.checkNotFound(error)) {
