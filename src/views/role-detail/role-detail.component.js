@@ -33,10 +33,20 @@
 		vm.deleteUser = function(user) {
 			modalHelper.confirmDelete('user from this role')
 				.then(() => removeUserFromRole($stateParams.roleName, user.id))
+				.then(() => removeUserFromView(vm.userList, user.id))
 		};
 
 		function removeUserFromRole(roleName, user_id) {
 			return api.role.update(roleName, null, null, [user_id]);
+		}
+
+		function removeUserFromView(userList, user) {
+			for (let index = 0; index < userList.length; index++) {
+				if (userList[index].id === user) {
+					userList.splice(index, 1);
+					break;
+				}
+			}
 		}
 	}
 })(angular);
