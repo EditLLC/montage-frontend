@@ -30,5 +30,13 @@
 						.catch(() => vm.status = 'error')
 				});
 		};
+		vm.deleteUser = function(user) {
+			modalHelper.confirmDelete('user from this role')
+				.then(() => removeUserFromRole($stateParams.roleName, user.id))
+		};
+
+		function removeUserFromRole(roleName, user_id) {
+			return api.role.update(roleName, null, null, [user_id]);
+		}
 	}
 })(angular);
