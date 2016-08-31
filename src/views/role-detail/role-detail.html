@@ -12,7 +12,10 @@
 	</div>
 
 	<div class="message" ng-if="roleDetail.status" ng-class="roleDetail.status">
-		There was an error deleting the record. Please try again.
+		{{ roleDetail.status === 'success'
+		? 'Successfully deleted.'
+		: 'There was an error deleting the record. Please try again.'
+		}}
 	</div>
 
 	<section class="members">
