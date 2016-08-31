@@ -32,10 +32,12 @@
 		};
 		vm.deleteUser = function(user) {
 			modalHelper.confirmDelete('user from this role')
-				.then(() => removeUserFromRole($stateParams.roleName, user.id))
-				.then(() => removeUserFromView(vm.userList, user.id))
-				.then(() => vm.status = 'success')
-				.catch(() => vm.status = 'error')
+				.then(() => {
+					removeUserFromRole($stateParams.roleName, user.id)
+						.then(() => removeUserFromView(vm.userList, user.id))
+						.then(() => vm.status = 'success')
+						.catch(() => vm.status = 'error')
+				});
 		};
 
 		function removeUserFromRole(roleName, user_id) {
