@@ -111,6 +111,12 @@
 				$scope.$digest();
 			});
 		}
+
+		vm.addUserToRole = function(user) {
+			vm.usersInRole.push(user);
+			removeUser(vm.usersNotInRole, user);
+		}
+
 		function removeUser(users, user) {
 			const index = users.indexOf(user);
 
