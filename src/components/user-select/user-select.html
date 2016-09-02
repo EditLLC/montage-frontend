@@ -1,0 +1,19 @@
+<md-menu class="user-select-view">
+	<md-button aria-label="User Select Menu" class="md-icon-button" ng-click="userSelect.controllerName.openMenu($mdOpenMenu, $event)">
+		<i class="fa fa-plus"></i>
+	</md-button>
+	<md-menu-content width="4">
+		<md-input-container>
+			<md-icon md-svg-src="static/images/icons/magnify.svg"></md-icon>
+			<input
+				autocomplete="off"
+				aria-label="User Search"
+				ng-model="searchUsers">
+		</md-input-container>
+		<md-menu-item ng-repeat="user in userSelect.users | orderBy: 'full_name' | filter: searchUsers">
+			<md-button ng-click="userSelect.controllerName.addUserToRole(user)">
+				<span md-menu-align-target="">{{ user.full_name }}</span>
+		</md-button>
+		</md-menu-item>
+	</md-menu-content>
+</md-menu>
