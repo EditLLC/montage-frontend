@@ -14,6 +14,25 @@
 		       required>
 	</md-input-container>
 
+	<section class="users">
+		<h2>Team Members</h2>
+
+		<ul>
+			<li class="user" ng-repeat="user in roleForm.usersInRole | orderBy: 'full_name'">
+
+				<a class="remove-user" ng-click="roleForm.deleteUser(user)">
+					<i class="fa fa-times"></i>
+				</a>
+
+				<div class="user-info">
+					<div class="ellipsis">
+						{{ user.full_name }}
+					</div>
+				</div>
+			</li>
+		</ul>
+	</section>
+
 	<md-button
 		class="md-raised md-primary pull-right"
 		type="submit"
