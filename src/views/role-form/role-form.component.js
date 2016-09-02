@@ -11,7 +11,6 @@
 
 	function RoleFormController($scope, $state, $q, $stateParams, api, toast, modalHelper, notFoundHelper) {
 		const vm = this;
-
 		let originatorEv;
 
 		vm.formType = getFormType();
