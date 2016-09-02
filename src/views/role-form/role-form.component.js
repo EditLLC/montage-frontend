@@ -39,6 +39,7 @@
 				: api.role.create(role.name, usersToAdd);
 
 			savePromise
+				.then(role => api.role.update(role.name, role.name, usersToAdd, usersToRemove))
 				.then(() => $state.go('role.list'))
 				.then(() => toast.success('Successfully saved.'))
 				.catch(handleErrors)
