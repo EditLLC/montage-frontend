@@ -59,6 +59,11 @@
 			$mdOpenMenu(ev);
 		};
 
+		vm.addUserToRole = function(user) {
+			vm.usersInRole.push(user);
+			removeUser(vm.usersNotInRole, user);
+		}
+
 		function getRolePromise() {
 			if ($stateParams.roleName) {
 				return api.role.get($stateParams.roleName);
@@ -119,11 +124,6 @@
 
 				$scope.$digest();
 			});
-		}
-
-		vm.addUserToRole = function(user) {
-			vm.usersInRole.push(user);
-			removeUser(vm.usersNotInRole, user);
 		}
 
 		function removeUserFromRole(user) {
