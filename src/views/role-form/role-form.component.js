@@ -112,6 +112,15 @@
 			});
 		}
 
+		vm.deleteUser = function(user) {
+			modalHelper.confirmDelete('user from this role')
+				.then(() => {
+					removeUserFromRole(user)
+						.catch(() => vm.status = 'error')
+				}
+			);
+		};
+
 		vm.addUserToRole = function(user) {
 			vm.usersInRole.push(user);
 			removeUser(vm.usersNotInRole, user);
