@@ -8,7 +8,7 @@
 			<input
 				autocomplete="off"
 				aria-label="User Search"
-				ng-model="searchUsers">
+				ng-model="searchUsers.full_name">
 		</md-input-container>
 		<md-menu-item ng-repeat="user in userSelect.users | orderBy: 'full_name' | filter: searchUsers">
 			<md-button ng-click="userSelect.controllerName.addUserToRole(user)">
