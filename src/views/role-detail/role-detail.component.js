@@ -51,8 +51,10 @@
 				});
 		};
 
-		function removeUserFromRole(roleName, user_id) {
-			return api.role.update(roleName, null, null, [user_id]);
+		function removeUserFromRole(roleName, user) {
+			vm.userListNotInRole.push(user);
+
+			return api.role.update(roleName, null, null, [user.id]);
 		}
 
 		function removeUserFromView(userList, user) {
