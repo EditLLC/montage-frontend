@@ -117,6 +117,13 @@
 			removeUser(vm.usersNotInRole, user);
 		}
 
+		function removeUserFromRole(user) {
+			vm.usersNotInRole.push(user);
+			removeUser(vm.usersInRole, user);
+
+			return $q.when({});
+		}
+
 		function removeUser(users, user) {
 			const index = users.indexOf(user);
 
