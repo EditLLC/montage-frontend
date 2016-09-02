@@ -40,8 +40,4 @@ $section-gutter: 7%;
 		width: $member-width;
 		margin-right: $section-gutter;
 	}
-
-	.permissions {
-		width: 100 - $member-width - $section-gutter;
-	}
 }
