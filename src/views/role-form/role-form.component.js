@@ -45,6 +45,15 @@
 				.finally(() => vm.isSaving = false);
 		};
 
+		vm.deleteUser = function(user) {
+			modalHelper.confirmDelete('user from this role')
+				.then(() => {
+					removeUserFromRole(user)
+						.catch(() => vm.status = 'error')
+				}
+			);
+		};
+
 		function getRolePromise() {
 			if ($stateParams.roleName) {
 				return api.role.get($stateParams.roleName);
@@ -111,15 +120,6 @@
 				$scope.$digest();
 			});
 		}
-
-		vm.deleteUser = function(user) {
-			modalHelper.confirmDelete('user from this role')
-				.then(() => {
-					removeUserFromRole(user)
-						.catch(() => vm.status = 'error')
-				}
-			);
-		};
 
 		vm.addUserToRole = function(user) {
 			vm.usersInRole.push(user);
