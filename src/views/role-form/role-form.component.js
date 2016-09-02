@@ -64,20 +64,20 @@
 			removeUser(vm.usersNotInRole, user);
 		}
 
-		function getRolePromise() {
-			if ($stateParams.roleName) {
-				return api.role.get($stateParams.roleName);
-			}
-
-			return $q.when({});
-		}
-
 		function getFormType() {
 			if (!$stateParams.roleName) {
 				vm.isCreateForm = true;
 			}
 
 			return $stateParams.roleName ? 'Update' : 'Create';
+		}
+
+		function getRolePromise() {
+			if ($stateParams.roleName) {
+				return api.role.get($stateParams.roleName);
+			}
+
+			return $q.when({});
 		}
 
 		function buildusers([role, users]) {
