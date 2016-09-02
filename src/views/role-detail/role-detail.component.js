@@ -61,6 +61,7 @@
 
 		function removeUserFromRole(roleName, user) {
 			vm.userListNotInRole.push(user);
+			removeUser(vm.userListInRole, user);
 
 			return api.role.update(roleName, null, null, [user.id]);
 		}
