@@ -16,6 +16,8 @@
 		const userListPromise = api.user.list();
 		let originatorEv;
 
+		vm.controllerName = 'roleDetail';
+
 		$q.all([rolePromise, userListPromise])
 			.then(([role, userList]) => {
 				vm.role = role;
