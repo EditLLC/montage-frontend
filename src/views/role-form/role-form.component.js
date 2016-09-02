@@ -33,8 +33,8 @@
 		vm.saveRole = function(role, users) {
 			vm.isSaving = true;
 
-			const usersToAdd = newUsers.map(user => user.id);
-			const usersToRemove = deletedUsers.map(user => user.id);
+			const usersToAdd = vm.usersInRole.map(user => user.id);
+			const usersToRemove = vm.usersNotInRole.map(user => user.id);
 
 			const savePromise = $stateParams.roleName
 				? api.role.update($stateParams.roleName, role.name, usersToAdd, usersToRemove)
