@@ -70,6 +70,16 @@
 			vm.users = users;
 			vm.role = role;
 
+			if (Object.keys(vm.role).length) {
+				vm.usersInRole = users.filter(user =>
+					role.users.indexOf(user.id) !== -1);
+				vm.usersNotInRole = users.filter(user =>
+					role.users.indexOf(user.id) === -1);
+			} else {
+				vm.usersInRole = [];
+				vm.usersNotInRole = users;
+			}
+
 			return vm.role;
 		}
 
