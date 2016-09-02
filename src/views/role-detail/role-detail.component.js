@@ -51,6 +51,14 @@
 				});
 		};
 
+		function removeUser(users, user) {
+			const index = users.indexOf(user);
+
+			if (index !== -1) {
+				users.splice(index, 1);
+			}
+		}
+
 		function removeUserFromRole(roleName, user) {
 			vm.userListNotInRole.push(user);
 
