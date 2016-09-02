@@ -18,10 +18,10 @@
 		vm.formType = getFormType();
 
 		const rolePromise = getRolePromise();
-		const userListPromise = api.user.list();
+		const usersPromise = api.user.list();
 
-		$q.all([rolePromise, userListPromise])
-			.then(buildUserList)
+		$q.all([rolePromise, usersPromise])
+			.then(buildusers)
 			.then(() => vm.isFound = true)
 			.catch(error => {
 				if (notFoundHelper.checkNotFound(error)) {
