@@ -27,3 +27,7 @@ md-dialog .md-button:not([disabled]):hover {
 	color: $white !important;
 	background-color: $blue !important;
 }
+
+md-input-container {
+	margin: 0 !important;
+}
