@@ -14,6 +14,7 @@
 
 		let newUsers = [];
 		let deletedUsers = [];
+		let originatorEv;
 
 		vm.formType = getFormType();
 
@@ -53,6 +54,11 @@
 
 			return $q.when({});
 		}
+
+		vm.openMenu = function($mdOpenMenu, ev) {
+			originatorEv = ev;
+			$mdOpenMenu(ev);
+		};
 
 		function getFormType() {
 			if (!$stateParams.roleName) {
