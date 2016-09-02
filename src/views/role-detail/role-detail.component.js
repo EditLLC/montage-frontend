@@ -14,6 +14,7 @@
 
 		const rolePromise = api.role.get($stateParams.roleName);
 		const userListPromise = api.user.list();
+		let originatorEv;
 
 		$q.all([rolePromise, userListPromise])
 			.then(([role, userList]) => {
@@ -33,6 +34,12 @@
 						.catch(() => vm.status = 'error')
 				});
 		};
+
+		vm.openMenu = function($mdOpenMenu, ev) {
+			originatorEv = ev;
+			$mdOpenMenu(ev);
+		};
+
 		vm.deleteUser = function(user) {
 			modalHelper.confirmDelete('user from this role')
 				.then(() => {
