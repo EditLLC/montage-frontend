@@ -64,7 +64,7 @@
 			}
 
 			return $stateParams.roleName ? 'Update' : 'Create';
-		 }
+		}
 
 		function buildusers([role, users]) {
 			vm.users = users;
