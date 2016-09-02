@@ -59,6 +59,13 @@
 			}
 		}
 
+		vm.addUserToRole = function(user) {
+			vm.userListInRole.push(user);
+			removeUser(vm.userListNotInRole, user);
+
+			return api.role.update($stateParams.roleName, null, [user.id], null);
+		}
+
 		function removeUserFromRole(roleName, user) {
 			vm.userListNotInRole.push(user);
 			removeUser(vm.userListInRole, user);
