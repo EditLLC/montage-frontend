@@ -9,7 +9,7 @@
 			controller   : RoleFormController,
 		});
 
-	function RoleFormController($scope, $state, $q, $stateParams, api, toast, notFoundHelper) {
+	function RoleFormController($scope, $state, $q, $stateParams, api, toast, modalHelper, notFoundHelper) {
 		const vm = this;
 
 		let newUsers = [];
