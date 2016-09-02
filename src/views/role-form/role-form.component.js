@@ -54,6 +54,11 @@
 			);
 		};
 
+		vm.openMenu = function($mdOpenMenu, ev) {
+			originatorEv = ev;
+			$mdOpenMenu(ev);
+		};
+
 		function getRolePromise() {
 			if ($stateParams.roleName) {
 				return api.role.get($stateParams.roleName);
@@ -61,11 +66,6 @@
 
 			return $q.when({});
 		}
-
-		vm.openMenu = function($mdOpenMenu, ev) {
-			originatorEv = ev;
-			$mdOpenMenu(ev);
-		};
 
 		function getFormType() {
 			if (!$stateParams.roleName) {
