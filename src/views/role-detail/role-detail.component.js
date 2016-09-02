@@ -18,7 +18,8 @@
 		$q.all([rolePromise, userListPromise])
 			.then(([role, userList]) => {
 				vm.role = role;
-				vm.userList = userList.filter(user => role.users.indexOf(user.id) !== -1);
+				vm.userListInRole = userList.filter(user =>
+					role.users.indexOf(user.id) !== -1);
 			});
 
 		vm.deleteRole = function(role) {
