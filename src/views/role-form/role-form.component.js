@@ -33,11 +33,11 @@
 			const usersToAdd = vm.usersInRole.map(user => user.id);
 			const usersToRemove = vm.usersNotInRole.map(user => user.id);
 
-			const savePromise = $stateParams.roleName
+			const saveRolePromise = $stateParams.roleName
 				? api.role.update($stateParams.roleName, role.name, usersToAdd, usersToRemove)
 				: api.role.create(role.name, usersToAdd);
 
-			savePromise
+			saveRolePromise
 				.then(role => api.role.update(role.name, role.name, usersToAdd, usersToRemove))
 				.then(() => $state.go('role.list'))
 				.then(() => toast.success('Successfully saved.'))
