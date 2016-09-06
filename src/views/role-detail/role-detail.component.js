@@ -32,7 +32,7 @@
 					api.role.remove(role)
 						.then(() => $state.go('role.list'))
 						.then(() => toast.success('Successfully deleted.'))
-						.catch(() => vm.status = 'error')
+						.catch(() => vm.status = 'error');
 				});
 		};
 
@@ -47,7 +47,7 @@
 					removeUserFromRole($stateParams.roleName, user)
 						.then(() => removeUserFromView(vm.userListInRole, user.id))
 						.then(() => vm.status = 'success')
-						.catch(() => vm.status = 'error')
+						.catch(() => vm.status = 'error');
 				});
 		};
 
@@ -64,7 +64,7 @@
 			removeUser(vm.userListNotInRole, user);
 
 			return api.role.update($stateParams.roleName, null, [user.id], null);
-		}
+		};
 
 		function removeUserFromRole(roleName, user) {
 			vm.userListNotInRole.push(user);
