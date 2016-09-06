@@ -60,9 +60,8 @@
 		};
 
 		vm.addUserToRole = function(user) {
-			vm.usersInRole.push(user);
-			removeUser(vm.usersNotInRole, user);
-		}
+			roleView.updateView(vm.usersInRole, vm.usersNotInRole, user);
+		};
 
 		function getFormType() {
 			if (!$stateParams.roleName) {
@@ -127,8 +126,7 @@
 		}
 
 		function removeUserFromRole(user) {
-			vm.usersNotInRole.push(user);
-			removeUser(vm.usersInRole, user);
+			roleView.updateView(vm.usersNotInRole, vm.usersInRole, user);
 
 			return $q.when({});
 		}
