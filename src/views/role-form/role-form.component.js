@@ -49,7 +49,7 @@
 			modalHelper.confirmDelete('user from this role')
 				.then(() => {
 					removeUserFromRole(user)
-						.catch(() => vm.status = 'error')
+						.catch(() => vm.status = 'error');
 				}
 			);
 		};
