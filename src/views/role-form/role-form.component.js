@@ -9,7 +9,7 @@
 			controller   : RoleFormController,
 		});
 
-	function RoleFormController($scope, $state, $q, $stateParams, api, toast, modalHelper, notFoundHelper) {
+	function RoleFormController($scope, $state, $q, $stateParams, api, toast, modalHelper, notFoundHelper, roleView) {
 		const vm = this;
 		let originatorEv;
 
