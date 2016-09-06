@@ -8,6 +8,7 @@
 	function roleView() {
 		const service = {
 			removeUserFromView,
+			updateView,
 		};
 
 		return service;
@@ -20,6 +21,11 @@
 			if (index !== -1) {
 				users.splice(index, 1);
 			}
+		}
+
+		function updateView(addRecord, deleteRecord, record) {
+			addRecord.push(record);
+			removeUserFromView(deleteRecord, record);
 		}
 	}
 })(angular);
