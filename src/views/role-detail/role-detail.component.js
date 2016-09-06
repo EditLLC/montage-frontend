@@ -60,15 +60,13 @@
 		}
 
 		vm.addUserToRole = function(user) {
-			vm.userListInRole.push(user);
-			removeUser(vm.userListNotInRole, user);
+			roleView.updateView(vm.userListInRole, vm.userListNotInRole, user);
 
 			return api.role.update($stateParams.roleName, null, [user.id], null);
 		};
 
 		function removeUserFromRole(roleName, user) {
-			vm.userListNotInRole.push(user);
-			removeUser(vm.userListInRole, user);
+			roleView.updateView(vm.userListNotInRole, vm.userListInRole, user);
 
 			return api.role.update(roleName, null, null, [user.id]);
 		}
