@@ -51,14 +51,6 @@
 				});
 		};
 
-		function removeUser(users, user) {
-			const index = users.indexOf(user);
-
-			if (index !== -1) {
-				users.splice(index, 1);
-			}
-		}
-
 		vm.addUserToRole = function(user) {
 			roleView.updateView(vm.userListInRole, vm.userListNotInRole, user);
 
