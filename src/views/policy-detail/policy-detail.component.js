@@ -39,11 +39,12 @@
 
 		function getRolesInPolicy(policy) {
 			const roles = [];
+			const roleStartIndex = 'montage:role:';
 
 			policy.policy.statements.forEach(statement => {
 				statement.principal.forEach(principal => {
-					if (principal.indexOf('montage:role:') === 0) {
-						roles.push(principal.substr(13));
+					if (principal.indexOf(roleStartIndex) === 0) {
+						roles.push(principal.substr(roleStartIndex.length));
 					}
 				});
 			});
