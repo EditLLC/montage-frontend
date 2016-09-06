@@ -15,9 +15,7 @@
 		////////////
 
 		function confirmDelete(recordType = 'item', roles) {
-			const record = roles
-			? formatString(recordType, roles)
-			: `${recordType}?`;
+			const record = checkInput(recordType, roles);
 
 			const confirm = $mdDialog.confirm()
 				.title('Delete Confirmation')
@@ -27,6 +25,18 @@
 				.cancel('Cancel');
 
 			return $mdDialog.show(confirm);
+		}
+
+		function checkInput(recordType, roles) {
+			let record;
+
+			if (roles) {
+				return record = roles.length
+					? formatString(recordType, roles)
+					: `${recordType}?`;
+			}
+
+			return record = `${recordType}?`;
 		}
 
 		function formatString(recordType, roles) {
