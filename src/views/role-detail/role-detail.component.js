@@ -72,14 +72,5 @@
 
 			return api.role.update(roleName, null, null, [user.id]);
 		}
-
-		function removeUserFromView(userList, user) {
-			for (let index = 0; index < userList.length; index++) {
-				if (userList[index].id === user) {
-					userList.splice(index, 1);
-					break;
-				}
-			}
-		}
 	}
 })(angular);
