@@ -45,7 +45,7 @@
 			modalHelper.confirmDelete('user from this role')
 				.then(() => {
 					removeUserFromRole($stateParams.roleName, user)
-						.then(() => removeUserFromView(vm.userListInRole, user.id))
+						.then(() => roleView.removeUserFromView(vm.userListInRole, user.id))
 						.then(() => vm.status = 'success')
 						.catch(() => vm.status = 'error');
 				});
