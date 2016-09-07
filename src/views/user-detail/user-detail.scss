@@ -23,6 +23,11 @@
 		font-size: 65%;
 	}
 
+	li {
+		margin-bottom: 15px;
+		margin-left: $padding;
+	}
+
 	.token {
 		padding: $padding $padding;
 		margin-bottom: $padding-medium;
