@@ -21,6 +21,19 @@
 				}
 			});
 
+		function addUsersToRoles(user, roles) {
+			user.roles = [];
+
+			roles.forEach(role => {
+				role.users.forEach(user_id => {
+					if (user_id === user.id) {
+						user.roles.push(role);
+						role.users = [];
+					}
+				});
+			});
+		}
+
 		function checkIfCurrentUser(user) {
 			vm.user = user;
 			const currentUser = authService.getCurrentUser();
