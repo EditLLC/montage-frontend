@@ -9,7 +9,7 @@
 			controller   : UserDetailController,
 		});
 
-	function UserDetailController($stateParams, authService, api, notFoundHelper) {
+	function UserDetailController($q, $stateParams, authService, api, notFoundHelper) {
 		const vm = this;
 
 		api.user.get($stateParams.user_id)
