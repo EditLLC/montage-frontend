@@ -21,7 +21,7 @@
 		<div class="token">{{ userDetail.user.token }}</div>
 	</div>
 
-	<div>
+	<div ng-if="userDetail.user.roles.length">
 		<h2>Roles</h2>
 		<ul ng-repeat="roles in userDetail.user.roles">
 			<li>{{ roles.name }}</li>
