@@ -9,7 +9,7 @@
 			controller   : UserDetailController,
 		});
 
-	function UserDetailController($state, $q, $stateParams, authService, api, modalHelper, notFoundHelper) {
+	function UserDetailController($state, $q, $stateParams, authService, api, toast, modalHelper, notFoundHelper) {
 		const vm = this;
 		const roleListPromise = api.role.list();
 		const userListPromise = api.user.get($stateParams.user_id);
