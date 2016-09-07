@@ -35,6 +35,7 @@
 				.then(() => {
 					removeUserFromRoles(roles, user_id)
 						.then(() => api.user.remove(user_id))
+						.then(() => $state.go('user.list'))
 						.catch(() => vm.status = 'error');
 				});
 		};
