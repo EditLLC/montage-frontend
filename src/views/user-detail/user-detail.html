@@ -16,6 +16,10 @@
 		</md-button>
 	</div>
 
+	<div class="message" ng-if="userDetail.status" ng-class="userDetail.status">
+		There was an error deleting the user. Please try again.
+	</div>
+
 	<div ng-if="userDetail.user.token">
 		<h2>Your API Token</h2>
 		<div class="token">{{ userDetail.user.token }}</div>
