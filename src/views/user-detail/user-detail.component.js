@@ -36,6 +36,7 @@
 					removeUserFromRoles(roles, user_id)
 						.then(() => api.user.remove(user_id))
 						.then(() => $state.go('user.list'))
+						.then(() => toast.success('Successfully deleted.'))
 						.catch(() => vm.status = 'error');
 				});
 		};
