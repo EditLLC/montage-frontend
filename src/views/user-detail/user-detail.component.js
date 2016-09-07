@@ -11,6 +11,9 @@
 
 	function UserDetailController($q, $stateParams, authService, api, notFoundHelper) {
 		const vm = this;
+		const roleListPromise = api.role.list();
+		const userListPromise = api.user.get($stateParams.user_id);
+		let roles;
 
 		api.user.get($stateParams.user_id)
 			.then(user => checkIfCurrentUser(user))
