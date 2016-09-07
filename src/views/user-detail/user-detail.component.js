@@ -44,7 +44,6 @@
 		}
 
 		function checkIfCurrentUser(user) {
-			vm.user = user;
 			const currentUser = authService.getCurrentUser();
 
 			if (currentUser.id === vm.user.id) {
