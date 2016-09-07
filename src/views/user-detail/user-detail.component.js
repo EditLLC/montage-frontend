@@ -42,5 +42,19 @@
 				vm.user.token = currentUser.token;
 			}
 		}
+
+		function removeUserFromRoles(roles, user_id) {
+			const rolePromises = roles.reduce((promises, role) => {
+				if (role.users.indexOf(user_id) > -1) {
+					const rolePromise = api.role.update(role.name, null, null, [user_id]);
+
+					promises.push(rolePromise);
+				}
+
+				return promises;
+			}, []);
+
+			return $q.all(rolePromises);
+		}
 	}
 })(angular);
