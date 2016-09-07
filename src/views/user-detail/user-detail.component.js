@@ -19,6 +19,8 @@
 			.then(([roleList, user]) => {
 				vm.user = user;
 				roles = roleList;
+
+				addUsersToRoles(user, roleList);
 			})
 			.then(() => checkIfCurrentUser(vm.user))
 			.then(() => vm.isFound = true)
