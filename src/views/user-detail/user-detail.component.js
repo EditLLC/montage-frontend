@@ -15,8 +15,12 @@
 		const userListPromise = api.user.get($stateParams.user_id);
 		let roles;
 
-			.then(user => checkIfCurrentUser(user))
 		$q.all([roleListPromise, userListPromise])
+			.then(([roleList, user]) => {
+				vm.user = user;
+				roles = roleList;
+			})
+			.then(() => checkIfCurrentUser(vm.user))
 			.then(() => vm.isFound = true)
 			.catch(error => {
 				if (notFoundHelper.checkNotFound(error)) {
