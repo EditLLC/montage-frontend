@@ -20,6 +20,13 @@
 		<h2>Your API Token</h2>
 		<div class="token">{{ userDetail.user.token }}</div>
 	</div>
+
+	<div>
+		<h2>Roles</h2>
+		<ul ng-repeat="roles in userDetail.user.roles">
+			<li>{{ roles.name }}</li>
+		</ul>
+	</div>
 </div>
 
 <div ng-if="userDetail.params.isNotFound">
