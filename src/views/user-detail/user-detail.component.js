@@ -32,6 +32,11 @@
 
 		vm.deleteUser = function(user_id) {
 			modalHelper.confirmDelete('user')
+				.then(() => {
+					removeUserFromRoles(roles, user_id)
+						.then(() => api.user.remove(user_id))
+						.catch(() => vm.status = 'error');
+				});
 		};
 
 		function addUsersToRoles(user, roles) {
