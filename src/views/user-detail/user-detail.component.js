@@ -30,6 +30,10 @@
 				}
 			});
 
+		vm.deleteUser = function(user_id) {
+			modalHelper.confirmDelete('user')
+		};
+
 		function addUsersToRoles(user, roles) {
 			user.roles = [];
 
