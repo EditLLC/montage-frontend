@@ -6,6 +6,14 @@
 		width: 50%;
 	}
 
+	.row {
+		cursor: pointer;
+	}
+
+	.row:hover {
+		background: darken($gray-lightest, 5%);
+	}
+
 	.policy-info {
 		float: left;
 		width: 280px;
