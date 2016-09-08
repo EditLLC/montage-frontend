@@ -24,14 +24,12 @@
 		</thead>
 
 		<tbody>
-		<tr ng-repeat="user in userList.userList">
+		<tr ui-sref="user.detail({ user_id: user.id })" ng-repeat="user in userList.userList">
 			<td>
 				<img ng-src="{{ user.photo }}" alt="{{ user.full_name }}">
 				<div class="user-info">
 					<div class="ellipsis">
-						<a ui-sref="user.detail({ user_id: user.id })">
-							{{ user.full_name }}
-						</a>
+						{{ user.full_name }}
 					</div>
 					<div class="email ellipsis">{{ user.email }}</div>
 				</div>
