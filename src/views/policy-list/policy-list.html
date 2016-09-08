@@ -16,12 +16,10 @@
 		</thead>
 
 		<tbody>
-		<tr ng-repeat="policy in policyList.policyList">
+		<tr ui-sref="policy.detail({ policy_id: policy.id })" ng-repeat="policy in policyList.policyList">
 			<td>
 				<div class="policy-info">
-					<a ui-sref="policy.detail({ policy_id: policy.id })">
-						{{ policy.description }}
-					</a>
+					{{ policy.description }}
 				</div>
 			</td>
 		</tr>
