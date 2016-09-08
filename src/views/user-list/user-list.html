@@ -24,7 +24,7 @@
 		</thead>
 
 		<tbody>
-		<tr ui-sref="user.detail({ user_id: user.id })" ng-repeat="user in userList.userList">
+		<tr class="row" ui-sref="user.detail({ user_id: user.id })" ng-repeat="user in userList.userList">
 			<td>
 				<img ng-src="{{ user.photo }}" alt="{{ user.full_name }}">
 				<div class="user-info">
