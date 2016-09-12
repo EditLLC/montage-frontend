@@ -1,22 +1,25 @@
-<table>
-	<thead>
-		<tr>
-			<th ng-repeat="column in tableData.columns"
-			    ng-class="{ secondary : column.nonSchema }">
-				{{ ::column.name }}
-			</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr ng-repeat="row in tableData.rows">
-			<td ng-repeat="cell in ::row track by $index">
-				<div class="ellipsis" ng-if="!tableData.isJson(cell)">
-					{{ ::cell }}
-				</div>
-				<div ng-if="tableData.isJson(cell)">
-					<json-formatter json="cell"></json-formatter>
-				</div>
-			</td>
-		</tr>
-	</tbody>
-</table>
+<div class="scroll-table">
+	<div class="table-padding">
+		<table>
+			<thead>
+				<tr>
+					<th ng-repeat="column in tableData.columns" ng-class="{ secondary : column.nonSchema }">
+						{{ ::column.name }}
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="row in tableData.rows">
+					<td ng-repeat="cell in ::row track by $index">
+						<div class="ellipsis" ng-if="!tableData.isJson(cell)">
+							{{ ::cell }}
+						</div>
+						<div ng-if="tableData.isJson(cell)">
+							<json-formatter json="cell"></json-formatter>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
