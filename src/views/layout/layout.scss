@@ -102,12 +102,11 @@
 }
 
 .view-header {
-	overflow: hidden;
 	margin-bottom: $padding-medium;
 
 	h1 {
-		float: left;
-		margin: 0 0 6px 0;
+		display: inline-block;
+		margin: 0;
 	}
 
 	.md-button {
