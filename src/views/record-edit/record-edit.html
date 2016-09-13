@@ -16,12 +16,10 @@
 		<p class="message {{ status }}">{{ followupMessage }}</p>
 	</div>
 
-	<div>
-		<md-input-container>
-			<label>id</label>
-			<input type="text" disabled ng-model="document_id">
-		</md-input-container>
-	</div>
+	<md-input-container>
+		<label>id</label>
+		<input type="text" disabled ng-model="document_id">
+	</md-input-container>
 
 	<form name="recordForm" ng-submit="saveRecord(record)" autocomplete="off">
 		<div ng-repeat="field in record.fields">
