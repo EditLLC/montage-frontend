@@ -4,7 +4,8 @@
 		.factory('Record', function(api, $q, utils, Field) {
 
 			class Record {
-				constructor(fields) {
+				constructor(schemaName, fields) {
+					this.schemaName = schemaName;
 					this.fields = fields;
 				}
 
@@ -29,7 +30,7 @@
 								required : schemaFieldsByName[fieldName].required,
 							}));
 
-							return new Record(fields);
+							return new Record(schemaName, fields);
 						});
 				}
 			}
