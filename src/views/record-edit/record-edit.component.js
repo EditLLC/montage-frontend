@@ -30,11 +30,6 @@
 			return datatype === 'number' ? 'number' : 'text';
 		};
 
-		$scope.resetForm = function(form) {
-			form.$setPristine();
-			form.$setUntouched();
-		};
-
 		$scope.showAddFieldDialog = function(event) {
 			$mdDialog.show({
 				contentElement : '#myDialog',
@@ -196,14 +191,18 @@
 
 			$scope.cancel = function() {
 				$mdDialog.cancel();
-				$scope.resetForm($scope.addFieldForm);
+				resetForm($scope.addFieldForm);
 			};
 
 			$scope.answer = function() {
 				$mdDialog.hide($scope.newField);
-				$scope.resetForm($scope.addFieldForm);
+				resetForm($scope.addFieldForm);
 			};
 		}
 
+		function resetForm(form) {
+			form.$setPristine();
+			form.$setUntouched();
+		};
 	}
 })(angular);
