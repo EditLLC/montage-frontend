@@ -8,7 +8,7 @@
 	function documentService(montageHelper) {
 		return {
 			get,
-			update,
+			save,
 			remove,
 		};
 
@@ -21,10 +21,10 @@
 				.then(montageHelper.returnData);
 		}
 
-		function update(schema, document) {
+		function save(schema, documents) {
 			return montageHelper
 				.getClient()
-				.documents.update(schema, document)
+				.documents.save(schema, documents)
 				.then(montageHelper.returnData);
 		}
 
