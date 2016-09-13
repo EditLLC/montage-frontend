@@ -33,6 +33,20 @@
 							return new Record(schemaName, fields);
 						});
 				}
+
+				save() {
+					return api.document.save(this.schemaName, this._getDto());
+				}
+
+				_getDto() {
+					const dto = {};
+
+					this.fields.forEach(field => {
+						dto[field.name] = field.value;
+					});
+
+					return dto;
+				}
 			}
 
 			return Record;
