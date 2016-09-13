@@ -31,7 +31,7 @@ $sidebar-width: 300px;
 		margin-top: 5px;
 
 		tbody {
-			tr &:hover {
+			tr:hover {
 				background: #eee;
 				cursor: pointer;
 			}
