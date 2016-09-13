@@ -23,7 +23,7 @@
 		</md-input-container>
 	</div>
 
-	<form name="recordForm" ng-submit="update()" autocomplete="off">
+	<form name="recordForm" ng-submit="saveRecord(record)" autocomplete="off">
 		<div ng-repeat="field in record.fields">
 			<md-input-container ng-hide="field.name === 'id' || field.datatype === 'boolean'">
 				<label>{{ field.name }}</label>

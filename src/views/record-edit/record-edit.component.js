@@ -76,6 +76,9 @@
 			return true;
 		};
 
+		$scope.saveRecord = function (record) {
+			record.save();
+		};
 
 		function createMeta(newField) {
 			$scope.newField = $scope.newField || newField || {};
