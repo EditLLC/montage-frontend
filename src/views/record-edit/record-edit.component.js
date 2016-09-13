@@ -12,8 +12,7 @@
 		$scope.document_id = $stateParams.document_id;
 
 		Record.get($stateParams.schemaName, $stateParams.document_id)
-			.then(record => $scope.record = record)
-			.then(record => console.log('record', record))
+			.then(record => $scope.record = record);
 
 		$scope.saveContext = 'Save';
 		$scope.deleteRecord = deleteRecord;
