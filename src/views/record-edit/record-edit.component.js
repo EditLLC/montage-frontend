@@ -4,7 +4,7 @@
 	angular
 		.module('montage')
 		.component('recordEdit', {
-			templateUrl : 'views/record-browser/record-edit/record-edit.html',
+			templateUrl : 'views/record-edit/record-edit.html',
 			controller	: recordEditController,
 		});
 
