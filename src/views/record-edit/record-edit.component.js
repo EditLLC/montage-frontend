@@ -55,24 +55,6 @@
 				.then(deleteRecord);
 		};
 
-		$scope.validateField = function(fieldObject, form) {
-			if (Array.isArray(fieldObject.value) && form.datatype === 'array') {
-				if (fieldObject.value[0] !== '[') {
-					return false;
-				}
-				return validateJSON(fieldObject.value, fieldObject.name, form);
-			}
-
-			if (typeof fieldObject.value === "object" && !Array.isArray(fieldObject.value) && fieldObject.value !== null) {
-				if (fieldObject.value[0] !== '{') {
-					return false;
-				}
-				return validateJSON(fieldObject.value, fieldObject.name, form);
-			}
-
-			return true;
-		};
-
 		$scope.saveRecord = function (record) {
 			record.save();
 		};
@@ -197,6 +179,24 @@
 				$mdDialog.hide($scope.newField);
 				resetForm($scope.addFieldForm);
 			};
+		}
+
+		function validateField(fieldObject, form) {
+			if (Array.isArray(fieldObject.value) && form.datatype === 'array') {
+				if (fieldObject.value[0] !== '[') {
+					return false;
+				}
+				return validateJSON(fieldObject.value, fieldObject.name, form);
+			}
+
+			if (typeof fieldObject.value === "object" && !Array.isArray(fieldObject.value) && fieldObject.value !== null) {
+				if (fieldObject.value[0] !== '{') {
+					return false;
+				}
+				return validateJSON(fieldObject.value, fieldObject.name, form);
+			}
+
+			return true;
 		}
 
 		function resetForm(form) {
