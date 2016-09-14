@@ -9,7 +9,16 @@
 		<h1>Use the Query Builder to the left to retrieve your data.</h1>
 	</div>
 
-	<md-tabs md-dynamic-height ng-show="recordBrowser.results">
+	<div class="help-text" ng-show="recordBrowser.results && !recordBrowser.dataExists && !recordBrowser.err">
+		<h1 class="info">No results to display</h1>
+	</div>
+
+	<div class="help-text error" ng-show="recordBrowser.err">
+		<i class="fa fa-exclamation-circle"></i>
+		<h2>There was an error processing your request.</h2>
+	</div>
+
+	<md-tabs md-dynamic-height ng-show="recordBrowser.results && !recordBrowser.err && recordBrowser.dataExists">
 		<md-tab label="Table">
 			<table-data
 				schema-fields="recordBrowser.results.schema.fields"
