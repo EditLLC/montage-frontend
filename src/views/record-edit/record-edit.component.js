@@ -202,6 +202,6 @@
 		function resetForm(form) {
 			form.$setPristine();
 			form.$setUntouched();
-		};
+		}
 	}
 })(angular);
