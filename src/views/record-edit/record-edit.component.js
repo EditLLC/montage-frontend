@@ -47,7 +47,7 @@
 
 		$scope.showDeleteRecordDialog = function(event) {
 			const confirmDialog = $mdDialog.confirm()
-				.title('Would you like to delete this record?')
+				.title('Are you sure you want to delete this record?')
 				.ariaLabel('Delete record')
 				.targetEvent(event)
 				.ok('Delete')
