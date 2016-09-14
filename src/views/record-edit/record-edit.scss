@@ -1,0 +1,32 @@
+@import '../../static/styles/variables';
+
+.record-edit-view {
+
+	md-input-container {
+		width: 50%;
+	}
+
+	p.error {
+		color: $red
+	}
+
+}
+
+#addFieldDialog {
+	md-dialog {
+		width: 350px;
+
+		md-input-container, md-radio-group {
+			width: 100%;
+			margin: 0;
+		}
+
+		md-select {
+			margin-bottom: 24px;
+		}
+
+		.group:not(#skip-margin) {
+			margin: 10px 0;
+		}
+	}
+}
