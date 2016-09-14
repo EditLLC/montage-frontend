@@ -15,8 +15,6 @@
 			.then(record => $scope.record = record);
 
 		$scope.saveContext = 'Save';
-		$scope.deleteRecord = deleteRecord;
-		$scope.updateRecord = updateRecord;
 
 		$scope.excludeRecordProperty = function(key) {
 			const isPrivateField = ['id', '_meta'].includes(key);
