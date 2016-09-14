@@ -102,11 +102,10 @@
 }
 
 .view-header {
-	overflow: hidden;
 	margin-bottom: $padding-medium;
 
 	h1 {
-		float: left;
+		display: inline-block;
 		margin: 0;
 	}
 
