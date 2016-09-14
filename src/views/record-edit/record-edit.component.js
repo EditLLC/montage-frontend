@@ -133,7 +133,7 @@
 
 		function deleteRecord() {
 			api.document
-				 .remove(schemaName, document_id)
+				 .remove($stateParams.schemaName, $stateParams.document_id)
 				 .then(() => { $state.go('data.browser') });
 		}
 
