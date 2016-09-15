@@ -12,8 +12,9 @@
 			type="submit"
 			ng-click="policyForm.savePolicy(policyForm.policy)"
 			ng-disabled="policySaveForm.$invalid || policyForm.isSaving"
-			aria-label="Policy save button"
-		>{{ policyForm.isSaving ? 'Saving...' : policyForm.formType }}</md-button>
+			aria-label="Policy save button">
+			{{ policyForm.isSaving ? 'Saving...' : policyForm.formType }}
+		</md-button>
 	</div>
 </form>
 
