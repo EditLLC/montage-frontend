@@ -23,7 +23,7 @@
 
 		function buildUserObject() {
 			const params = {
-				param_id     : 'user id',
+				recordType   : 'user',
 				redirectLink : 'user.list',
 				redirectName : 'Users',
 				isNotFound   : true,
