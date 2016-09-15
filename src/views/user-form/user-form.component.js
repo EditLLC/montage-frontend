@@ -42,6 +42,10 @@
 				.finally(() => vm.isSaving = false);
 		};
 
+		vm.cancel = function() {
+			$state.go('user.list');
+		};
+
 		function getUserPromise() {
 			if ($stateParams.user_id) {
 				return api.user.get($stateParams.user_id);
