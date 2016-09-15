@@ -19,7 +19,7 @@
 				.execute({ query })
 				.then(response => {
 					const res = response.data.query;
-					vm.err = res.error;
+					vm.error = res.error;
 					vm.dataExists = !!res.length;
 
 					return vm.results = {
