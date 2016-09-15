@@ -40,7 +40,12 @@ $sidebar-width: 300px;
 			& > .fa {
 				color: $white;
 				display: inline;
-				font-size: 32px;
+				font-size: 24px;
+				font-weight: normal;
+			}
+
+			& > .fa {
+				margin-right: 10px;
 			}
 		}
 
