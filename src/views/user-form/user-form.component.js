@@ -36,14 +36,14 @@
 
 			save(user)
 				.then((user) => updateRoleMembership(user, roles))
-				.then(() => $state.go('user.list'))
+				.then(() => $state.go('user.detail', {user_id: $stateParams.user_id}))
 				.then(() => toast.success('Successfully saved.'))
 				.catch(handleErrors)
 				.finally(() => vm.isSaving = false);
 		};
 
 		vm.cancel = function() {
-			$state.go('user.list');
+			$state.go('user.detail', {user_id: $stateParams.user_id})
 		};
 
 		function getUserPromise() {
