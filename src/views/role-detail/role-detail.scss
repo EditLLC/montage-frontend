@@ -5,9 +5,15 @@ $member-width: 35%;
 $section-gutter: 7%;
 
 .role-detail-view {
+	h1 {
+		width: 545px;
+	}
+
 	small {
 		color: $gray-mid;
 		font-size: .72em;
+		display: block;
+		margin: 5px;
 	}
 
 	.user {
