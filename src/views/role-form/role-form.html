@@ -39,8 +39,9 @@
 			class="md-raised md-primary"
 			type="submit"
 			ng-click="roleForm.saveRole(roleForm.role, roleForm.users)"
-			ng-disabled="roleSaveForm.$invalid || roleForm.isSaving"
-		>{{ roleForm.isSaving ? 'Saving...' : roleForm.formType }}</md-button>
+			ng-disabled="roleSaveForm.$invalid || roleForm.isSaving">
+			{{ roleForm.isSaving ? 'Saving...' : roleForm.formType }}
+		</md-button>
 	</div>
 </form>
 
