@@ -46,6 +46,10 @@
 				.then(() => toast.success('Successfully saved.'));
 		};
 
+		vm.cancel = function() {
+			$state.go('policy.list');
+		};
+
 		function getFormType() {
 			if (!$stateParams.policy_id) {
 				vm.isCreateForm = true;
