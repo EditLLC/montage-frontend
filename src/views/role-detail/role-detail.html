@@ -1,7 +1,5 @@
 <div class="role-detail-view view-frame" md-whiteframe="2">
 	<div class="view-header">
-		<h1>{{ roleDetail.role.name }} <small>Role</small></h1>
-
 		<md-button class="md-raised md-primary" ui-sref="role.edit({ roleName: roleDetail.role.name })">
 			<i class="fa fa-pencil"></i> Edit Role
 		</md-button>
@@ -9,6 +7,8 @@
 		<md-button class="md-raised" ng-click="roleDetail.deleteRole(roleDetail.role.name)">
 			<i class="fa fa-times"></i> Delete Role
 		</md-button>
+
+		<h1>{{ roleDetail.role.name }} <small>Role</small></h1>
 	</div>
 
 	<div class="message" ng-if="roleDetail.status" ng-class="roleDetail.status">
