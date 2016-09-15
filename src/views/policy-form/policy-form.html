@@ -6,13 +6,15 @@
 		<textarea ng-model="policyForm.policy" required></textarea>
 	</md-input-container>
 
-	<md-button
-		class="md-raised md-primary pull-right"
-		type="submit"
-		ng-click="policyForm.savePolicy(policyForm.policy)"
-		ng-disabled="policySaveForm.$invalid || policyForm.isSaving"
-		aria-label="Policy save button"
-	>{{ policyForm.isSaving ? 'Saving...' : policyForm.formType }}</md-button>
+	<div class="pull-right">
+		<md-button
+			class="md-raised md-primary"
+			type="submit"
+			ng-click="policyForm.savePolicy(policyForm.policy)"
+			ng-disabled="policySaveForm.$invalid || policyForm.isSaving"
+			aria-label="Policy save button"
+		>{{ policyForm.isSaving ? 'Saving...' : policyForm.formType }}</md-button>
+	</div>
 </form>
 
 <div ng-if="policyForm.params.isNotFound">
