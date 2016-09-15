@@ -34,18 +34,21 @@ $sidebar-width: 300px;
 			}
 		}
 
-		.info {
+		&.info {
 			color: $blue;
 		}
 	}
 
-	.help-text h1 {
-		display: block;
-		text-align: center;
+	.help-text {
 		color: $gray-mid-light;
-		max-width: 750px;
-		margin: auto;
-		padding: $padding-large $padding-medium 0;
+
+		h1 {
+			display: block;
+			text-align: center;
+			max-width: 750px;
+			margin: auto;
+			padding: $padding-large $padding-medium 0;
+		}
 	}
 
 	table {
