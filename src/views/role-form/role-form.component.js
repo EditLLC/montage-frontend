@@ -63,6 +63,10 @@
 			roleView.updateView(vm.usersInRole, vm.usersNotInRole, user);
 		};
 
+		vm.cancel = function() {
+			$state.go('role.list');
+		};
+
 		function getFormType() {
 			if (!$stateParams.roleName) {
 				vm.isCreateForm = true;
