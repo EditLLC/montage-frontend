@@ -8,7 +8,7 @@
 	function notFoundHelper() {
 		const service = {
 			checkNotFound,
-			buildUserObject,
+			getUserOptions,
 		};
 
 		return service;
@@ -21,7 +21,7 @@
 			return errorStatus;
 		}
 
-		function buildUserObject() {
+		function getUserOptions() {
 			const options = {
 				recordType   : 'user',
 				redirectLink : 'user.list',

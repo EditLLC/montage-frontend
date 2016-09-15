@@ -26,7 +26,7 @@
 			.then(() => vm.isFound = true)
 			.catch(error => {
 				if (notFoundHelper.checkNotFound(error)) {
-					vm.notFoundOptions = notFoundHelper.buildUserObject();
+					vm.notFoundOptions = notFoundHelper.getUserOptions();
 				}
 			});
 
