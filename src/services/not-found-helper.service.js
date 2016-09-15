@@ -22,14 +22,14 @@
 		}
 
 		function buildUserObject() {
-			const params = {
+			const options = {
 				recordType   : 'user',
 				redirectLink : 'user.list',
 				redirectName : 'Users',
 				isNotFound   : true,
 			};
 
-			return params;
+			return options;
 		}
 	}
 })(angular);
