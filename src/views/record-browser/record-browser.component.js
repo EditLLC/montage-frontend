@@ -18,9 +18,13 @@
 			montageHelper.getClient()
 				.execute({ query })
 				.then(response => {
+					const queryResults = response.data.query;
+					vm.error = queryResults.error;
+					vm.dataExists = !!queryResults.length;
+
 					return vm.results = {
 						schema: getSchema(query.schema),
-						documentList: response.data.query
+						documentList: queryResults
 					};
 				});
 		};
