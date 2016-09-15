@@ -12,12 +12,15 @@
 		height: 86px;
 		width: 86px;
 	}
+	h1 {
+		width: 400px;
+	}
 
 	small {
 		display: block;
 		color: $gray-mid;
 		font-size: 65%;
-		margin-top: 5px;
+		margin: 5px;
 	}
 
 	li {
