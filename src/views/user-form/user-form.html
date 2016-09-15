@@ -53,13 +53,15 @@
 		</ul>
 	</md-input-container>
 
-	<md-button
-		class="md-raised md-primary pull-right"
-		type="submit"
-		ng-click="userForm.saveUser(userForm.user, userForm.roleList)"
-		ng-disabled="userSaveForm.$invalid || userForm.isSaving">
-		{{ userForm.isSaving ? 'Saving...' : userForm.formType }}
-	</md-button>
+	<div class="pull-right">
+		<md-button
+			class="md-raised md-primary"
+			type="submit"
+			ng-click="userForm.saveUser(userForm.user, userForm.roleList)"
+			ng-disabled="userSaveForm.$invalid || userForm.isSaving">
+			{{ userForm.isSaving ? 'Saving...' : userForm.formType }}
+		</md-button>
+	</div>
 </form>
 
 <div ng-if="userForm.params.isNotFound">
