@@ -1,7 +1,5 @@
 <div class="policy-detail-view view-frame" md-whiteframe="2" ng-if="policyDetail.isFound">
 	<div class="view-header">
-		<h1>{{ policyDetail.policy.description }} <small>Policy</small></h1>
-
 		<md-button class="md-raised md-primary" ui-sref="policy.edit({ policy_id: policyDetail.policy_id })">
 			<i class="fa fa-pencil"></i> Edit Policy
 		</md-button>
@@ -9,6 +7,8 @@
 		<md-button class="md-raised" ng-click="policyDetail.deletePolicy(policyDetail.policy_id)">
 			<i class="fa fa-times"></i> Delete Policy
 		</md-button>
+
+		<h1>{{ policyDetail.policy.description }} <small>Policy</small></h1>
 	</div>
 
 	<div class="message" ng-if="policyDetail.status" ng-class="policyDetail.status">
