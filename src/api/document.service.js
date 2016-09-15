@@ -8,9 +8,8 @@
 	function documentService(montageHelper) {
 		return {
 			get,
-			update,
-			remove,
 			save,
+			remove,
 		};
 
 		////////////
@@ -22,10 +21,10 @@
 				.then(montageHelper.returnData);
 		}
 
-		function update(schema, document) {
+		function save(schema, documents) {
 			return montageHelper
 				.getClient()
-				.documents.update(schema, document)
+				.documents.save(schema, documents)
 				.then(montageHelper.returnData);
 		}
 
@@ -33,12 +32,6 @@
 			return montageHelper
 				.getClient()
 				.documents.remove(schema, document_id);
-		}
-
-		function save(schema, documents) {
-			return montageHelper
-				.getClient()
-				.documents.save(schema, documents);
 		}
 	}
 })(angular);

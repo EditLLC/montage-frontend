@@ -41,3 +41,7 @@
 		background: $danger !important;
 	}
 }
+
+#ngProgress-container {
+	top: $header-height !important;
+}

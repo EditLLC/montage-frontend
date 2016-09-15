@@ -64,7 +64,7 @@
 				parent: 'layout',
 				template: '<empty-parent />'
 			})
-			.state('data.list', {
+			.state('data.browser', {
 				url: '/data',
 				parent: 'data',
 				template: '<record-browser />'
@@ -79,7 +79,6 @@
 				parent: 'data',
 				template: '<record-edit />'
 			})
-
 			.state('fileBrowser', {
 				url: '/files',
 				parent: 'layout',

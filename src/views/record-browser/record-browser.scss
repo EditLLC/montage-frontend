@@ -33,15 +33,9 @@ $md-easing-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
 		margin-top: 5px;
 
 		tbody {
-
-			tr {
-				-webkit-transition: $md-desktop-duration $md-easing-standard;
-				transition: $md-desktop-duration $md-easing-standard;
-
-				&:hover {
-					background: #eee;
-					cursor: pointer;
-				}
+			tr:hover {
+				background: #eee;
+				cursor: pointer;
 			}
 		}
 	}
