@@ -42,12 +42,16 @@
 				: api.policy.create(policy.description, policy.policy);
 
 			savePromise
-				.then(() => $state.go('policy.list'))
+				.then(() => $state.go('policy.detail', { policy_id: $stateParams.policy_id }))
 				.then(() => toast.success('Successfully saved.'));
 		};
 
 		vm.cancel = function() {
-			$state.go('policy.list');
+			if ($stateParams.policy_id) {
+				$state.go('policy.detail', { policy_id: $stateParams.policy_id });
+			} else {
+				$state.go('policy.list');
+			}
 		};
 
 		function getFormType() {
