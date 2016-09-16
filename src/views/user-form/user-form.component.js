@@ -26,7 +26,7 @@
 			.then(() => vm.isFound = true)
 			.catch(error => {
 				if (notFoundHelper.checkNotFound(error)) {
-					vm.params = notFoundHelper.buildUserObject();
+					vm.notFoundOptions = notFoundHelper.getUserOptions();
 				}
 			});
 
@@ -36,10 +36,14 @@
 
 			save(user)
 				.then((user) => updateRoleMembership(user, roles))
-				.then(() => $state.go('user.list'))
+				.then(() => $state.go('user.detail', {user_id: $stateParams.user_id}))
 				.then(() => toast.success('Successfully saved.'))
 				.catch(handleErrors)
 				.finally(() => vm.isSaving = false);
+		};
+
+		vm.cancel = function() {
+			$state.go('user.detail', {user_id: $stateParams.user_id})
 		};
 
 		function getUserPromise() {

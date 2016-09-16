@@ -8,7 +8,7 @@
 	function notFoundHelper() {
 		const service = {
 			checkNotFound,
-			buildUserObject,
+			getUserOptions,
 			buildPolicyObject,
 		};
 
@@ -22,15 +22,15 @@
 			return errorStatus;
 		}
 
-		function buildUserObject() {
-			const params = {
-				param_id     : 'user id',
+		function getUserOptions() {
+			const options = {
+				recordType   : 'user',
 				redirectLink : 'user.list',
 				redirectName : 'Users',
 				isNotFound   : true,
 			};
 
-			return params;
+			return options;
 		}
 
 		function buildPolicyObject() {
