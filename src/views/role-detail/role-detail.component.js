@@ -9,7 +9,7 @@
 			controller   : RoleDetailController,
 		});
 
-	function RoleDetailController($state, $q, $stateParams, api, toast, modalHelper, roleView) {
+	function RoleDetailController($state, $q, $stateParams, api, toast, modalHelper, notFoundHelper, roleView) {
 		const vm = this;
 		const rolePromise = api.role.get($stateParams.roleName);
 		const userListPromise = api.user.list();
