@@ -9,7 +9,7 @@
 		const service = {
 			checkNotFound,
 			getUserOptions,
-			buildPolicyObject,
+			getPolicyOptions,
 		};
 
 		return service;
@@ -33,15 +33,15 @@
 			return options;
 		}
 
-		function buildPolicyObject() {
-			const params = {
-				param_id     : 'policy',
+		function getPolicyOptions() {
+			const options = {
+				recordType   : 'policy',
 				redirectLink : 'policy.list',
 				redirectName : 'Policy',
 				isNotFound   : true,
 			};
 
-			return params;
+			return options;
 		}
 	}
 })(angular);
