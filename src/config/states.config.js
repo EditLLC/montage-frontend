@@ -139,7 +139,11 @@
 			})
 			.state('user.create', {
 				url: '/users/create',
-				template: '<user-create />'
+				template: '<user-form />'
+			})
+			.state('user.edit', {
+				url: '/users/edit/:user_id',
+				template: '<user-form />'
 			})
 			.state('user.detail', {
 				url: '/users/:user_id',

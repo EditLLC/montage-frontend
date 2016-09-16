@@ -7,24 +7,31 @@
 		margin-top: $padding;
 	}
 
-	h1, img {
-		float: left;
-	}
-
 	img {
 		margin-right: $padding-medium;
 		height: 86px;
 		width: 86px;
 	}
 
+	h1 {
+		width: 400px;
+	}
+
 	small {
 		display: block;
 		color: $gray-mid;
+		font-size: 65%;
+		margin: 5px;
+	}
+
+	li {
+		margin-bottom: 15px;
+		margin-left: $padding;
 	}
 
 	.token {
 		padding: $padding $padding;
-		margin-bottom: $padding-medium;
+		margin-bottom: $padding;
 		color: $gray-medium;
 	}
 }
