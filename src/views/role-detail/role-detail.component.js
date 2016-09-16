@@ -24,6 +24,8 @@
 					role.users.indexOf(user.id) !== -1);
 				vm.userListNotInRole = userList.filter(user =>
 					role.users.indexOf(user.id) === -1);
+			})
+			.then(() => vm.isFound = true)
 			});
 
 		vm.deleteRole = function(role) {
