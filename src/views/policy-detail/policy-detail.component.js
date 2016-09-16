@@ -21,7 +21,7 @@
 			.then(() => vm.isFound = true)
 			.catch(error => {
 				if (notFoundHelper.checkNotFound(error)) {
-					vm.params = notFoundHelper.buildPolicyObject();
+					vm.notFoundOptions = notFoundHelper.getPolicyOptions();
 				}
 			});
 
