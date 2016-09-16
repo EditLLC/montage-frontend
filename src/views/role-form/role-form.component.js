@@ -23,7 +23,7 @@
 			.then(() => vm.isFound = true)
 			.catch(error => {
 				if (notFoundHelper.checkNotFound(error)) {
-					vm.params = notFoundHelper.buildRoleObject();
+					vm.notFoundOptions = notFoundHelper.getRoleOptions();
 				}
 			});
 
