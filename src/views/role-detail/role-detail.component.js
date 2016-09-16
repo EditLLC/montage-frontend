@@ -26,6 +26,10 @@
 					role.users.indexOf(user.id) === -1);
 			})
 			.then(() => vm.isFound = true)
+			.catch(error => {
+				if (notFoundHelper.checkNotFound(error)) {
+					vm.notFoundOptions = notFoundHelper.getRoleOptions();
+				}
 			});
 
 		vm.deleteRole = function(role) {
