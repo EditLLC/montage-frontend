@@ -35,15 +35,21 @@
 			const save = user.id ? api.user.update : api.user.create;
 
 			save(user)
-				.then((user) => updateRoleMembership(user, roles))
-				.then(() => $state.go('user.detail', {user_id: $stateParams.user_id}))
+				.then((user) => {
+					updateRoleMembership(user, roles);
+					$state.go('user.detail', {user_id: user.id});
+				})
 				.then(() => toast.success('Successfully saved.'))
 				.catch(handleErrors)
 				.finally(() => vm.isSaving = false);
 		};
 
 		vm.cancel = function() {
-			$state.go('user.detail', {user_id: $stateParams.user_id})
+			if($stateParams.user_id) {
+				$state.go('user.detail', {user_id: $stateParams.user_id});
+			} else {
+				$state.go('user.list');
+			}
 		};
 
 		function getUserPromise() {
