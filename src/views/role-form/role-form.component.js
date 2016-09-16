@@ -39,7 +39,7 @@
 
 			saveRolePromise
 				.then(role => api.role.update(role.name, role.name, usersToAdd, usersToRemove))
-				.then(() => $state.go('role.list'))
+				.then(() => $state.go('role.detail', { roleName: $stateParams.roleName }))
 				.then(() => toast.success('Successfully saved.'))
 				.catch(handleErrors)
 				.finally(() => vm.isSaving = false);
@@ -64,7 +64,11 @@
 		};
 
 		vm.cancel = function() {
-			$state.go('role.list');
+			if ($stateParams.roleName) {
+				$state.go('role.detail', { roleName: $stateParams.roleName });
+			} else {
+				$state.go('role.list');
+			}
 		};
 
 		function getFormType() {
