@@ -41,10 +41,6 @@
 				});
 		};
 
-		vm.roleRedirect = function(roleName) {
-			$state.go('role.detail', { roleName: roleName });
-		}
-
 		function addUsersToRoles(user, roles) {
 			user.roles = [];
 
