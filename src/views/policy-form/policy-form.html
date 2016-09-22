@@ -3,7 +3,10 @@
 
 	<md-input-container class="md-block">
 		<label>Policy</label>
-		<textarea ng-model="policyForm.policy" required></textarea>
+		<textarea name="policy" ng-model="policyForm.policy" required></textarea>
+		<div ng-messages="policySaveForm.policy.$error">
+			<div ng-message="required">Policy is required.</div>
+		</div>
 	</md-input-container>
 
 	<div class="pull-right">
