@@ -42,7 +42,7 @@
 				: api.policy.create(policy.description, policy.policy);
 
 			savePromise
-				.then(() => $state.go('policy.detail', { policy_id: $stateParams.policy_id }))
+				.then(policy => $state.go('policy.detail', { policy_id: policy.id }))
 				.then(() => toast.success('Successfully saved.'));
 		};
 
