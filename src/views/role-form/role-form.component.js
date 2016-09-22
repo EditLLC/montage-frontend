@@ -19,7 +19,7 @@
 		const usersPromise = api.user.list();
 
 		$q.all([rolePromise, usersPromise])
-			.then(buildusers)
+			.then(buildUsers)
 			.then(() => vm.isFound = true)
 			.catch(error => {
 				if (notFoundHelper.checkNotFound(error)) {
@@ -87,7 +87,7 @@
 			return $q.when({});
 		}
 
-		function buildusers([role, users]) {
+		function buildUsers([role, users]) {
 			vm.users = users;
 			vm.role = role;
 
