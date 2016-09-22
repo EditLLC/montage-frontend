@@ -39,7 +39,7 @@
 
 			saveRolePromise
 				.then(role => api.role.update(role.name, role.name, usersToAdd, usersToRemove))
-				.then(() => $state.go('role.detail', { roleName: $stateParams.roleName }))
+				.then(() => $state.go('role.detail', { roleName: role.name }))
 				.then(() => toast.success('Successfully saved.'))
 				.catch(handleErrors)
 				.finally(() => vm.isSaving = false);
