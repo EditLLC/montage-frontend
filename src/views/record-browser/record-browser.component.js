@@ -22,6 +22,11 @@
 						schema       : getSchema(query.schema),
 						documentList : response.data.query,
 					};
+				})
+				.then(() => {
+					if (!$state.params.schema) {
+						$state.go('data.browser', query, { location: 'replace' } );
+					}
 				});
 		};
 
