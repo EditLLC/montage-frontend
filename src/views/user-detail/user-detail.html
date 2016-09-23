@@ -1,16 +1,38 @@
-<div class="user-detail-view view-frame" md-whiteframe="2">
-	<div class="header">
-		<img ng-src="{{ userDetail.user.image }}">
+<div class="user-detail-view view-frame" md-whiteframe="2" ng-if="userDetail.isFound">
+	<div class="view-header">
+		<md-button class="md-raised md-primary" ui-sref="user.edit({ user_id: userDetail.user.id })">
+			<i class="fa fa-pencil"></i> Edit User
+		</md-button>
 
-		<h1>
-			{{ userDetail.user.name }}
+		<md-button class="md-raised" ng-click="userDetail.deleteUser(userDetail.user.id)">
+			<i class="fa fa-times"></i> Delete User
+		</md-button>
+
+		<img ng-src="{{ userDetail.user.photo }}">
+
+		<h1 class="ellipsis">
+			{{ userDetail.user.full_name }}
 			<small>{{ userDetail.user.email }}</small>
 		</h1>
 	</div>
 
-	<h2>Your API Token</h2>
-	<div class="token">{{ userDetail.user.token }}</div>
+	<div class="message" ng-if="userDetail.status" ng-class="userDetail.status">
+		There was an error deleting the user. Please try again.
+	</div>
 
-	<h2>Permissions</h2>
-	<permissions-table permissions="userDetail.user.permissions"></permissions-table>
+	<div ng-if="userDetail.user.token">
+		<h2>Your API Token</h2>
+		<div class="token">{{ userDetail.user.token }}</div>
+	</div>
+
+	<div ng-if="userDetail.user.roles.length">
+		<h2>Roles</h2>
+		<ul ng-repeat="roles in userDetail.user.roles">
+			<li>{{ roles.name }}</li>
+		</ul>
+	</div>
+</div>
+
+<div ng-if="userDetail.notFoundOptions.isNotFound">
+	<not-found options="userDetail.notFoundOptions"></not-found>
 </div>

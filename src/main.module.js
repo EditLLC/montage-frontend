@@ -6,6 +6,7 @@
 			'jsonFormatter',
 			'ngCookies',
 			'ngFileUpload',
+			'ngMessages',
 			'ngMontage',
 			'ngMaterial',
 			'ngPrettyJson',

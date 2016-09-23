@@ -1,0 +1,18 @@
+@import '../../static/styles/variables';
+
+.user-form-view {
+	width: 600px;
+
+	table {
+		margin-bottom: $padding-medium;
+	}
+
+	li {
+		display: block;
+		padding-bottom: 10px;
+	}
+}
+
+.role {
+	padding: 28px;
+}

@@ -8,31 +8,34 @@
 		</md-button>
 	</div>
 
+	<div class="message" ng-if="userList.status" ng-class="userList.status">
+		{{ userList.status === 'success'
+		? 'Successfully deleted.'
+		: 'There was an error deleting the record. Please try again.'
+		}}
+	</div>
+
 	<table>
 		<thead>
 		<tr>
 			<th>Name</th>
 			<th>Role</th>
-			<th class="actions"></th>
 		</tr>
 		</thead>
+
 		<tbody>
-		<tr ng-repeat="user in userList.userList">
+		<tr class="row" ui-sref="user.detail({ user_id: user.id })" ng-repeat="user in userList.userList">
 			<td>
-				<img ng-src="{{ user.image }}" alt="{{ user.name }}">
+				<img ng-src="{{ user.photo }}" alt="{{ user.full_name }}">
 				<div class="user-info">
-					<div><a ui-sref="user.detail({ user_id: user.id })">{{ user.name }}</a></div>
-					<div class="email">{{ user.email }}</div>
+					<div class="ellipsis">
+						{{ user.full_name }}
+					</div>
+					<div class="email ellipsis">{{ user.email }}</div>
 				</div>
 			</td>
 
-			<td>{{ user.role }}</td>
-
-			<td class="actions">
-				<a ng-click="userList.deleteUser(user.id)">
-					<i class="fa fa-times"></i>
-				</a>
-			</td>
+			<td>{{ user.roles }}</td>
 		</tr>
 		</tbody>
 	</table>
