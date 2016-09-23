@@ -47,11 +47,11 @@
 		vm.cancelFilter = () => vm.isAddingFilter = false;
 
 		vm.applyFilter = function(pendingFilter) {
-			if(!vm.query.filterGroups) {
+			if (!vm.query.filterGroups) {
 				vm.query.filterGroups = {};
 			}
 
-			if(!vm.query.filterGroups[pendingFilter.field]) {
+			if (!vm.query.filterGroups[pendingFilter.field]) {
 				vm.query.filterGroups[pendingFilter.field] = [];
 			}
 
@@ -69,22 +69,22 @@
 			vm.query.filterGroups[field] = vm.query.filterGroups[field].filter((currentFilter => currentFilter !== filter));
 
 			// Remove the filterGroup if it is empty
-			if(!vm.query.filterGroups[field].length) {
+			if (!vm.query.filterGroups[field].length) {
 				delete vm.query.filterGroups[field];
 			}
 		};
 
 		vm.buildQuery = ({ schema, filterGroups, order_by, ordering, limit, offset }) => {
-			if(!schema) return;
+			if (!schema) { return; }
 
 			const query = new montage.Query(schema);
 
-			if(filterGroups) {
+			if (filterGroups) {
 				let filters = [];
 
-				for(var field in filterGroups) {
-					if(filterGroups.hasOwnProperty(field)) {
 						filterGroups[field].forEach(({operator, value}) => {
+				for (var field in filterGroups) {
+					if (filterGroups.hasOwnProperty(field)) {
 							filters.push(new montage.Field(field)[vm.operatorDictionary[operator]](value));
 						});
 					}
@@ -94,8 +94,8 @@
 			}
 
 			if (order_by && ordering) { query.orderBy(order_by, ordering); }
-			if(offset) { query.skip(parseInt(offset)); }
-			if(limit) { query.limit(parseInt(limit)); }
+			if (offset) { query.skip(parseInt(offset)); }
+			if (limit) { query.limit(parseInt(limit)); }
 
 			return query;
 		}
