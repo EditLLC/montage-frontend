@@ -14,7 +14,7 @@
 		});
 
 	function queryBuilderController(montage) {
-		var vm = this;
+		const vm = this;
 
 		vm.operatorDictionary = {
 			'='                              : 'eq',
@@ -35,7 +35,7 @@
 		};
 
 		vm.getSchemaDetails = function(schemaName) {
-			var schema = vm.schemaList.filter(schema => schema.name === schemaName)[0];
+			const schema = vm.schemaList.filter(schema => schema.name === schemaName)[0];
 
 			vm.schemaDetails = {
 				fields: schema.fields,
@@ -77,7 +77,7 @@
 		vm.buildQuery = ({ schema, filterGroups, order_by, ordering, limit, offset }) => {
 			if(!schema) return;
 
-			var query = new montage.Query(schema);
+			const query = new montage.Query(schema);
 
 			if(filterGroups) {
 				let filters = [];
