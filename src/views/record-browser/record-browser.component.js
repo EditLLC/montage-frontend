@@ -14,7 +14,7 @@
 
 		api.schema.list().then(schemaList => vm.schemaList = schemaList);
 
-		vm.executeQuery = function(query) {
+		vm.executeQuery = query => {
 			montageHelper.getClient()
 				.execute({ query })
 				.then(response => {
