@@ -10,8 +10,12 @@
 	<md-input-container class="md-block">
 		<label>Role Name</label>
 		<input type="text"
+			   name="name"
 		       ng-model="roleForm.role.name"
 		       required>
+		<div ng-messages="roleSaveForm.name.$error">
+			<div ng-message="required">Role Name is required.</div>
+		</div>
 	</md-input-container>
 
 	<section class="users">
