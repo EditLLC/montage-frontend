@@ -23,13 +23,8 @@
 					vm.dataExists = !!queryResults.length;
 
 					return vm.results = {
-<<<<<<< HEAD
 						schema       : getSchema(query.schema),
 						documentList : response.data.query,
-=======
-						schema: getSchema(query.schema),
-						documentList: queryResults
->>>>>>> develop
 					};
 				})
 				.then(() => {
