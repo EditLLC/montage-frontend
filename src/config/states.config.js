@@ -65,7 +65,9 @@
 				template: '<empty-parent />'
 			})
 			.state('data.browser', {
-				url: '/data',
+				url: '/data?schema&{terms: json}',
+				params: {},
+				reloadOnSearch: false,
 				parent: 'data',
 				template: '<record-browser />'
 			})
