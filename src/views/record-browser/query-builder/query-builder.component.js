@@ -38,8 +38,8 @@
 			const schema = vm.schemaList.filter(schema => schema.name === schemaName)[0];
 
 			vm.schemaDetails = {
-				fields: schema.fields,
-				indices: schema.fields.filter(field => field.index)
+				fields  : schema.fields,
+				indices : schema.fields.filter(field => field.index)
 			};
 		};
 
@@ -56,8 +56,8 @@
 			}
 
 			vm.query.filterGroups[pendingFilter.field].push({
-				operator: pendingFilter.operator,
-				value: pendingFilter.value
+				operator : pendingFilter.operator,
+				value    : pendingFilter.value,
 			});
 
 			vm.isAddingFilter = false;
