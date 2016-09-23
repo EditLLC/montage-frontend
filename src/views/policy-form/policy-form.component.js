@@ -43,7 +43,11 @@
 
 			savePromise
 				.then(policy => $state.go('policy.detail', { policy_id: policy.id }))
-				.then(() => toast.success('Successfully saved.'));
+				.then(() => toast.success('Successfully saved.'))
+				.catch(() => {
+					vm.isSaving = false;
+					vm.status = 'error';
+				});
 		};
 
 		vm.cancel = function() {
