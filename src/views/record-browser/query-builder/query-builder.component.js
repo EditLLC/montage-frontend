@@ -82,9 +82,9 @@
 			if (filterGroups) {
 				let filters = [];
 
-						filterGroups[field].forEach(({operator, value}) => {
 				for (var field in filterGroups) {
 					if (filterGroups.hasOwnProperty(field)) {
+						filterGroups[field].forEach(({ operator, value }) => {
 							filters.push(new montage.Field(field)[vm.operatorDictionary[operator]](value));
 						});
 					}
