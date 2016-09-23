@@ -39,6 +39,15 @@
 				});
 		};
 
+		if ($state.params.schema) {
+			const queryFromUrl = new montage.Query($state.params);
+
+			queryFromUrl.terms = $state.params.terms;
+			queryFromUrl.schema = $state.params.schema;
+
+			vm.executeQuery(queryFromUrl);
+		}
+
 		function getSchema(schemaName) {
 			return vm.schemaList.filter(schema => schema.name === schemaName)[0];
 		}
