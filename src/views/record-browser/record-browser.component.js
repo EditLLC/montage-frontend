@@ -4,9 +4,9 @@
 	angular
 		.module('montage')
 		.component('recordBrowser', {
-			templateUrl: 'views/record-browser/record-browser.html',
-			controllerAs: 'recordBrowser',
-			controller: recordBrowserController
+			templateUrl  : 'views/record-browser/record-browser.html',
+			controllerAs : 'recordBrowser',
+			controller   : recordBrowserController
 		});
 
 	function recordBrowserController(api, montageHelper) {
@@ -19,8 +19,8 @@
 				.execute({ query })
 				.then(response => {
 					return vm.results = {
-						schema: getSchema(query.schema),
-						documentList: response.data.query
+						schema       : getSchema(query.schema),
+						documentList : response.data.query,
 					};
 				});
 		};
