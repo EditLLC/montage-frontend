@@ -31,7 +31,7 @@
 			'ends with'                      : 'ends',
 			'ends with (case insensitive)'   : 'iends',
 			'intersects (geometry)'          : 'intersects',
-			'includes (geometry)'            : 'includes'
+			'includes (geometry)'            : 'includes',
 		};
 
 		vm.getSchemaDetails = function(schemaName) {
