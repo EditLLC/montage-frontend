@@ -13,7 +13,7 @@
 			}
 		});
 
-	function queryBuilderController(montage) {
+	function queryBuilderController(montage, $stateParams) {
 		const vm = this;
 
 		vm.operatorDictionary = {
