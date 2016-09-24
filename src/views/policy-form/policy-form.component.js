@@ -74,6 +74,17 @@
 			return $q.when({});
 		}
 
+		function validateJSON(policy) {
+			let parsedPolicy;
+
+			try {
+				parsedPolicy = JSON.parse(policy);
+			} catch(error) {
+			}
+
+			return handleErrors(parsedPolicy);
+		}
+
 		function handleErrors(policy) {
 			if (!policy) {
 				vm.isSaving = false;
