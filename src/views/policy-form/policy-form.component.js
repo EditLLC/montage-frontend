@@ -85,6 +85,17 @@
 			return handleErrors(parsedPolicy);
 		}
 
+		function updatePolicy(policy) {
+			let updatedPolicy;
+
+			try {
+				updatedPolicy = api.policy.update(policy.id, policy.description, policy.policy);
+			} catch(error) {
+			}
+
+			return handleErrors(updatedPolicy);
+		}
+
 		function handleErrors(policy) {
 			if (!policy) {
 				vm.isSaving = false;
