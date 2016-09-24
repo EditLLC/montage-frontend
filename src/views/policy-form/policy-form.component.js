@@ -37,7 +37,7 @@
 			}
 
 			const savePromise = $stateParams.policy_id
-				? api.policy.update(newPolicy.id, newPolicy.description, newPolicy.policy)
+				? updatePolicy(newPolicy)
 				: api.policy.create(newPolicy.description, newPolicy.policy);
 
 			savePromise
