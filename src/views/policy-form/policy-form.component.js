@@ -73,5 +73,14 @@
 
 			return $q.when({});
 		}
+
+		function handleErrors(policy) {
+			if (!policy) {
+				vm.isSaving = false;
+				vm.status = 'error';
+			}
+
+			return policy;
+		}
 	}
 })(angular);
