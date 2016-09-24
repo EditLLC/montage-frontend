@@ -29,8 +29,7 @@
 			});
 
 		vm.savePolicy = function(policy) {
-			policy = JSON.parse(policy);
-			const newPolicy = policy;
+			const newPolicy = validateJSON(policy);
 
 			vm.isSaving = true;
 			if ($stateParams.policy_id) {
@@ -39,7 +38,7 @@
 
 			const savePromise = $stateParams.policy_id
 				? api.policy.update(newPolicy.id, newPolicy.description, newPolicy.policy)
-				: api.policy.create(policy.description, policy.policy);
+				: api.policy.create(newPolicy.description, newPolicy.policy);
 
 			savePromise
 				.then(policy => $state.go('policy.detail', { policy_id: policy.id }))
