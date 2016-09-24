@@ -31,22 +31,26 @@
 		vm.savePolicy = function(policy) {
 			const newPolicy = validateJSON(policy);
 
-			vm.isSaving = true;
-			if ($stateParams.policy_id) {
-				newPolicy.id = $stateParams.policy_id;
+			if (newPolicy) {
+				vm.isSaving = true;
+				if ($stateParams.policy_id) {
+					newPolicy.id = $stateParams.policy_id;
+				}
+
+				const savePromise = $stateParams.policy_id
+					? updatePolicy(newPolicy)
+					: api.policy.create(newPolicy.description, newPolicy.policy);
+
+				if(savePromise) {
+					savePromise
+						.then(policy => $state.go('policy.detail', { policy_id: policy.id }))
+						.then(() => toast.success('Successfully saved.'))
+						.catch(() => {
+							vm.isSaving = false;
+							vm.status = 'error';
+						});
+				}
 			}
-
-			const savePromise = $stateParams.policy_id
-				? updatePolicy(newPolicy)
-				: api.policy.create(newPolicy.description, newPolicy.policy);
-
-			savePromise
-				.then(policy => $state.go('policy.detail', { policy_id: policy.id }))
-				.then(() => toast.success('Successfully saved.'))
-				.catch(() => {
-					vm.isSaving = false;
-					vm.status = 'error';
-				});
 		};
 
 		vm.cancel = function() {
