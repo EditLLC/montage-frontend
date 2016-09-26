@@ -96,5 +96,16 @@
 
 			return query;
 		}
+
+		vm.redirectUser = function() {
+			if (!$state.params.schema) {
+				$state.go('data.browser', vm.query);
+			}
+		}
+
+		if ($state.params.schema) {
+			vm.query = $state.params;
+			vm.onSubmit(vm.buildQuery(vm.query));
+		}
 	}
 })(angular);
