@@ -65,7 +65,7 @@
 				template: '<empty-parent />'
 			})
 			.state('data.browser', {
-				url: '/data?schema&{terms: json}',
+				url: '/data?schema&ordering&offset&limit&{filterGroups: json}',
 				params: {},
 				reloadOnSearch: false,
 				parent: 'data',
