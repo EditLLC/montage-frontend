@@ -9,7 +9,7 @@
 			controller   : recordBrowserController,
 		});
 
-	function recordBrowserController(api, montage, montageHelper, $state) {
+	function recordBrowserController(api, montage, montageHelper) {
 		var vm = this;
 
 		api.schema.list().then(schemaList => vm.schemaList = schemaList);
