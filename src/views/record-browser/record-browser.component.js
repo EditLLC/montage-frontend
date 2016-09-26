@@ -6,7 +6,7 @@
 		.component('recordBrowser', {
 			templateUrl  : 'views/record-browser/record-browser.html',
 			controllerAs : 'recordBrowser',
-			controller   : recordBrowserController
+			controller   : recordBrowserController,
 		});
 
 	function recordBrowserController(api, montage, montageHelper, $state) {
@@ -24,7 +24,7 @@
 
 					return vm.results = {
 						schema       : getSchema(query.schema),
-						documentList : response.data.query,
+						documentList : queryResults,
 					};
 				})
 				.then(() => {
