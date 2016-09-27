@@ -100,9 +100,7 @@
 		}
 
 		vm.redirectUser = function() {
-			if (!$state.params.schema) {
-				$state.go('data.browser', vm.query);
-			}
+			$state.go('data.browser', vm.query, { location: 'replace', reload: true });
 		}
 
 		if ($state.params.schema) {
