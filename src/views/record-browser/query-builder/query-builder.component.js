@@ -35,6 +35,8 @@
 		};
 
 		vm.getSchemaDetails = function(schemaName) {
+			if ($state.params.schema) { vm.schemaList = $state.params.schema; }
+
 			const schema = vm.schemaList.filter(schema => schema.name === schemaName)[0];
 
 			vm.schemaDetails = {
