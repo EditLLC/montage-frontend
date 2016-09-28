@@ -23,7 +23,7 @@
 					vm.dataExists = !!queryResults.length;
 
 					return vm.results = {
-						schema       : getSchema(query.schema),
+						schema       : getSchema(query.schema) || getSchema($state.params.schema),
 						documentList : queryResults,
 					};
 				});
