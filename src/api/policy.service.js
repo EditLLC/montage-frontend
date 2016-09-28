@@ -21,8 +21,8 @@
 				.then(montageHelper.returnData);
 		}
 
-		function get(policy) {
-			return montageHelper.getClient().policy.get(policy)
+		function get(policy_id) {
+			return montageHelper.getClient().policy.get(policy_id)
 				.then(montageHelper.returnData);
 		}
 
@@ -36,8 +36,8 @@
 				.then(montageHelper.returnData);
 		}
 
-		function remove(policy) {
-			return montageHelper.getClient().policy.remove(policy);
+		function remove(policy_id) {
+			return montageHelper.getClient().policy.remove(policy_id);
 		}
 	}
 })(angular);
