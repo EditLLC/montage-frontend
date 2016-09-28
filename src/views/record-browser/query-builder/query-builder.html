@@ -9,10 +9,7 @@
 	<md-input-container class="md-block">
 		<label>Schema</label>
 
-		<md-select
-			ng-model="queryBuilder.query.schema"
-			ng-change="queryBuilder.getSchemaDetails(queryBuilder.query.schema)"
-		>
+		<md-select ng-model="queryBuilder.query.schema">
 			<md-option ng-repeat="schema in queryBuilder.schemaList" value="{{ schema.name }}">
 				{{ schema.name }}
 			</md-option>
