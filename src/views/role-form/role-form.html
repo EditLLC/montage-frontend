@@ -1,0 +1,57 @@
+<form name="roleSaveForm" class="role-create-view view-frame" md-whiteframe="2" autocomplete="off" ng-if="roleForm.isFound">
+	<h1>{{ roleForm.formType + ' Role' }}</h1>
+
+	<div class="message"
+	     ng-if="roleForm.status"
+	     ng-class="roleForm.status.result">
+		{{ roleForm.status.message }}
+	</div>
+
+	<md-input-container class="md-block">
+		<label>Role Name</label>
+		<input type="text"
+			   name="name"
+		       ng-model="roleForm.role.name"
+		       required>
+		<div ng-messages="roleSaveForm.name.$error">
+			<div ng-message="required">Role Name is required.</div>
+		</div>
+	</md-input-container>
+
+	<section class="users">
+		<user-select users="roleForm.usersNotInRole" controller-name="roleForm"></user-select>
+		<h2>Team Members</h2>
+
+		<ul>
+			<li class="user" ng-repeat="user in roleForm.usersInRole | orderBy: 'full_name'">
+
+				<a class="remove-user" ng-click="roleForm.deleteUser(user)">
+					<i class="fa fa-times"></i>
+				</a>
+
+				<div class="user-info">
+					<div class="ellipsis">
+						{{ user.full_name }}
+					</div>
+				</div>
+			</li>
+		</ul>
+	</section>
+
+	<div class="pull-right">
+		<md-button type="button" ng-click="roleForm.cancel()">
+			Cancel
+		</md-button>
+		<md-button
+			class="md-raised md-primary"
+			type="submit"
+			ng-click="roleForm.saveRole(roleForm.role, roleForm.users)"
+			ng-disabled="roleSaveForm.$invalid || roleForm.isSaving">
+			{{ roleForm.isSaving ? 'Saving...' : roleForm.formType }}
+		</md-button>
+	</div>
+</form>
+
+<div ng-if="roleForm.notFoundOptions.isNotFound">
+	<not-found options="roleForm.notFoundOptions"></not-found>
+</div>

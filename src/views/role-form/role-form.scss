@@ -1,0 +1,32 @@
+@import '../../static/styles/variables';
+
+.role-create-view {
+	width: 600px;
+
+	.remove-user {
+		text-align: center;
+		float: right;
+	}
+
+	user-select {
+		float: right;
+	}
+
+	.md-button.md-icon-button {
+		padding: 0 !important;
+		margin: 0 !important;
+		width: 12px !important;
+	}
+
+	.md-button .fa {
+		color: #888888;
+	}
+
+	button {
+		margin-top: 20px;
+	}
+
+	table {
+		margin-bottom: $padding-medium;
+	}
+}

@@ -1,0 +1,36 @@
+<form name="policySaveForm" class="policy-form-view view-frame" md-whiteframe="2" autocomplete="off" ng-if="policyForm.isFound">
+	<h1>{{ policyForm.formType + ' Policy' }}</h1>
+
+	<div class="message" ng-if="policyForm.status" ng-class="policyForm.status">
+		{{ policyForm.status === 'success'
+		? 'Successfully deleted.'
+		: 'There was an error saving the policy. Please check the formatting and try again.'
+		}}
+	</div>
+
+	<md-input-container class="md-block">
+		<label>Policy</label>
+		<textarea name="policy" ng-model="policyForm.policy" required></textarea>
+		<div ng-messages="policySaveForm.policy.$error">
+			<div ng-message="required">Policy is required.</div>
+		</div>
+	</md-input-container>
+
+	<div class="pull-right">
+		<md-button type="button" ng-click="policyForm.cancel()">
+			Cancel
+		</md-button>
+		<md-button
+			class="md-raised md-primary"
+			type="submit"
+			ng-click="policyForm.savePolicy(policyForm.policy)"
+			ng-disabled="policySaveForm.$invalid || policyForm.isSaving"
+			aria-label="Policy save button">
+			{{ policyForm.isSaving ? 'Saving...' : policyForm.formType }}
+		</md-button>
+	</div>
+</form>
+
+<div ng-if="policyForm.notFoundOptions.isNotFound">
+	<not-found options="policyForm.notFoundOptions"></not-found>
+</div>

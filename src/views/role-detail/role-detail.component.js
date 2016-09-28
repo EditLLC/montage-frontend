@@ -4,31 +4,69 @@
 	angular
 		.module('montage')
 		.component('roleDetail', {
-			templateUrl: 'views/role-detail/role-detail.html',
-			controllerAs: 'roleDetail',
-			controller: roleDetailController
+			templateUrl  : 'views/role-detail/role-detail.html',
+			controllerAs : 'roleDetail',
+			controller   : RoleDetailController,
 		});
 
-	function roleDetailController($q, $stateParams, api) {
-		var vm = this;
+	function RoleDetailController($state, $q, $stateParams, api, toast, modalHelper, notFoundHelper, roleView) {
+		const vm = this;
+		const rolePromise = api.role.get($stateParams.roleName);
+		const userListPromise = api.user.list();
+		let originatorEv;
 
-		var rolePromise = api.role.get($stateParams.roleName);
-		var userListPromise = api.user.list();
+		vm.controllerName = 'roleDetail';
 
 		$q.all([rolePromise, userListPromise])
 			.then(([role, userList]) => {
 				vm.role = role;
-				vm.userList = userList.filter(user => role.users.indexOf(user.id) !== -1);
+				vm.userListInRole = userList.filter(user =>
+					role.users.indexOf(user.id) !== -1);
+				vm.userListNotInRole = userList.filter(user =>
+					role.users.indexOf(user.id) === -1);
+			})
+			.then(() => vm.isFound = true)
+			.catch(error => {
+				if (notFoundHelper.checkNotFound(error)) {
+					vm.notFoundOptions = notFoundHelper.getRoleOptions();
+				}
 			});
 
-		// todo: implement
-		vm.editRole = function() {
-			console.log('editRole() is not implemented')
+		vm.deleteRole = function(role) {
+			modalHelper.confirmDelete('role')
+				.then(() => {
+					api.role.remove(role)
+						.then(() => $state.go('role.list'))
+						.then(() => toast.success('Successfully deleted.'))
+						.catch(() => vm.status = 'error');
+				});
 		};
 
-		// todo: implement
-		vm.deleteRole = function() {
-			console.log('deleteRole() is not implemented')
+		vm.openMenu = function($mdOpenMenu, ev) {
+			originatorEv = ev;
+			$mdOpenMenu(ev);
 		};
+
+		vm.deleteUser = function(user) {
+			modalHelper.confirmDelete('user from this role')
+				.then(() => {
+					removeUserFromRole($stateParams.roleName, user)
+						.then(() => roleView.removeUserFromView(vm.userListInRole, user.id))
+						.then(() => vm.status = 'success')
+						.catch(() => vm.status = 'error');
+				});
+		};
+
+		vm.addUserToRole = function(user) {
+			roleView.updateView(vm.userListInRole, vm.userListNotInRole, user);
+
+			return api.role.update($stateParams.roleName, null, [user.id], null);
+		};
+
+		function removeUserFromRole(roleName, user) {
+			roleView.updateView(vm.userListNotInRole, vm.userListInRole, user);
+
+			return api.role.update(roleName, null, null, [user.id]);
+		}
 	}
 })(angular);

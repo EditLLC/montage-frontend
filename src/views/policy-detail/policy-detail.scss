@@ -1,0 +1,17 @@
+@import '../../static/styles/variables';
+
+$member-width: 35%;
+$section-gutter: 7%;
+
+.policy-detail-view {
+	h1 {
+		width: 525px;
+	}
+
+	small {
+		color: $gray-mid;
+		font-size: .72em;
+		display: block;
+		margin: 5px;
+	}
+}
