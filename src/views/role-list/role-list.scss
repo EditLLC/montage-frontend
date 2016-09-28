@@ -1,0 +1,16 @@
+@import '../../static/styles/variables';
+
+.role-list-view {
+	td {
+		padding: 15px;
+		width: 50%;
+	}
+
+	.row {
+		cursor: pointer;
+	}
+
+	.row:hover {
+		background: darken($gray-lightest, 5%);
+	}
+}

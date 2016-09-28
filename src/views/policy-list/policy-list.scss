@@ -1,0 +1,25 @@
+@import '../../static/styles/variables';
+
+.policy-list-view {
+	td {
+		padding: 15px;
+		width: 50%;
+	}
+
+	.row {
+		cursor: pointer;
+	}
+
+	.row:hover {
+		background: darken($gray-lightest, 5%);
+	}
+
+	.policy-info {
+		float: left;
+		width: 280px;
+
+		a, div {
+			line-height: 24px;
+		}
+	}
+}

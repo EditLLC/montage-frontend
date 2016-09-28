@@ -9,6 +9,8 @@
 		const service = {
 			checkNotFound,
 			getUserOptions,
+			getRoleOptions,
+			getPolicyOptions,
 		};
 
 		return service;
@@ -26,6 +28,28 @@
 				recordType   : 'user',
 				redirectLink : 'user.list',
 				redirectName : 'Users',
+				isNotFound   : true,
+			};
+
+			return options;
+		}
+
+		function getRoleOptions() {
+			const options = {
+				recordType   : 'role',
+				redirectLink : 'role.list',
+				redirectName : 'Roles',
+				isNotFound   : true,
+			};
+
+			return options;
+		}
+
+		function getPolicyOptions() {
+			const options = {
+				recordType   : 'policy',
+				redirectLink : 'policy.list',
+				redirectName : 'Policy',
 				isNotFound   : true,
 			};
 

@@ -13,17 +13,14 @@
 			<tr>
 				<th>Role</th>
 				<th>Members</th>
-				<th class="actions"></th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="role in roleList.roleList">
-				<td><a ui-sref="role.detail({ roleName: role.name })">{{ role.name }}</a></td>
-				<td>{{ role.users.length }}</td>
-				<td class="actions">
-					<a ui-sref="role.edit({ roleName: role.name })"><i class="fa fa-pencil"></i></a>
-					<a ng-click="roleList.delete(role.name)"><i class="fa fa-times"></i></a>
+			<tr class="row" ui-sref="role.detail({ roleName: role.name })" ng-repeat="role in roleList.roleList">
+				<td>
+					{{ role.name }}
 				</td>
+				<td>{{ role.users.length }}</td>
 			</tr>
 		</tbody>
 	</table>
