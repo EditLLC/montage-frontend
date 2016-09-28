@@ -16,13 +16,13 @@
 
 		////////////
 
-		function create(role, users) {
-			return montageHelper.getClient().roles.create(role, users)
+		function create(roleName, users) {
+			return montageHelper.getClient().roles.create(roleName, users)
 				.then(montageHelper.returnData);
 		}
 
-		function get(role) {
-			return montageHelper.getClient().roles.get(role)
+		function get(roleName) {
+			return montageHelper.getClient().roles.get(roleName)
 				.then(montageHelper.returnData);
 		}
 
@@ -31,13 +31,13 @@
 				.then(montageHelper.returnData);
 		}
 
-		function update(role, name, addUsers, removeUsers) {
-			return montageHelper.getClient().roles.update(role, name, addUsers, removeUsers)
+		function update(roleName, name, addUsers, removeUsers) {
+			return montageHelper.getClient().roles.update(roleName, name, addUsers, removeUsers)
 				.then(montageHelper.returnData);
 		}
 
-		function remove(role) {
-			return montageHelper.getClient().roles.remove(role);
+		function remove(roleName) {
+			return montageHelper.getClient().roles.remove(roleName);
 		}
 	}
 })(angular);
