@@ -35,11 +35,11 @@
 			const save = user.id ? api.user.update : api.user.create;
 
 			save(user)
-				.then((user) => {
-					updateRoleMembership(user, roles);
+				.then(user => updateRoleMembership(user, roles)) // block redirect until all roles have been updated
+				.then(() => {
 					$state.go('user.detail', {user_id: user.id});
+					toast.success('Successfully saved.');
 				})
-				.then(() => toast.success('Successfully saved.'))
 				.catch(handleErrors)
 				.finally(() => vm.isSaving = false);
 		};

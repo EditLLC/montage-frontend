@@ -9,6 +9,7 @@
 		documentService,
 		fileService,
 		repoService,
+		policyService,
 		roleService,
 		schemaService,
 		userService
@@ -16,6 +17,7 @@
 		return {
 			document : documentService,
 			file     : fileService,
+			policy   : policyService,
 			repo     : repoService,
 			role     : roleService,
 			schema   : schemaService,

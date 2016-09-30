@@ -11,13 +11,13 @@
 			get,
 			list,
 			update,
-			remove
+			remove,
 		};
 
 		////////////
 
-		function create(role, users) {
-			return montageHelper.getClient().roles.create(role, users)
+		function create(roleName, users) {
+			return montageHelper.getClient().roles.create(roleName, users)
 				.then(montageHelper.returnData);
 		}
 
@@ -31,8 +31,8 @@
 				.then(montageHelper.returnData);
 		}
 
-		function update(role, name, addUsers, removeUsers) {
-			return montageHelper.getClient().roles.update(role, name, addUsers, removeUsers)
+		function update(roleName, name, addUsers, removeUsers) {
+			return montageHelper.getClient().roles.update(roleName, name, addUsers, removeUsers)
 				.then(montageHelper.returnData);
 		}
 
