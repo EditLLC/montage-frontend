@@ -14,12 +14,12 @@
 		userService
 	) {
 		return {
-			document: documentService,
-			file: fileService,
-			repo: repoService,
-			role: roleService,
-			schema: schemaService,
-			user: userService,
+			document : documentService,
+			file     : fileService,
+			repo     : repoService,
+			role     : roleService,
+			schema   : schemaService,
+			user     : userService,
 		};
 	}
 })(angular);
