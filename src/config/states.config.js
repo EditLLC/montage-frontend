@@ -81,6 +81,32 @@
 				template: '<file-browser />'
 			})
 
+			.state('repo', {
+				abstract: true,
+				parent: 'layout',
+				template: '<empty-parent />'
+			})
+			.state('repo.browser', {
+				url: '/repo',
+				parent: 'repo',
+				template: '<repo/>'
+			})
+			.state('tree.root', {
+				url: '/repo',
+				parent: 'repo',
+				template: '<tree-root />'
+			})
+			.state('tree.detail', {
+				url: '/repo/:pathName',
+				parent: 'repo',
+				template: '<tree-detail />'
+			})
+			.state('file.detail', {
+				url: '/repo/:pathName/:fileName',
+				parent: 'repo',
+				template: '<file-detail />'
+			})
+
 
 			/************
 			 * Roles
