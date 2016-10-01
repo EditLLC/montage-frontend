@@ -45,3 +45,32 @@
 #ngProgress-container {
 	top: $header-height !important;
 }
+
+// JSON
+
+pre.pretty-json {
+	outline: 0;
+
+	span {
+		$pink: #E91E63;
+		$red: #F44336;
+		$purple: #9C27B0;
+		$deep-purple: #673AB7;
+		$teal: #00897B;
+		$cyan: #00838F;
+		$green: #2E7D32;
+		$amber: #FFC107;
+		$orange: #EF6C00;
+		$deep-orange: #D84315;
+		$yellow: #F9A825;
+		$indigo: #283593;
+		$lime: #AFB42B;
+
+		&.number { color: $teal; }
+		&.boolean { color: $deep-orange; }
+		&.key { color: $primary; }
+		&.string { color: $green; }
+		&.null { color: $lime; }
+		&.sep { color: $gray-medium; }
+	}
+}

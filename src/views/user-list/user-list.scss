@@ -13,8 +13,15 @@
 		width: 50px;
 	}
 
+	.row {
+		cursor: pointer;
+	}
+
+	.row:hover {
+		background: darken($gray-lightest, 5%);
+	}
+
 	.user-info {
-		float: left;
 		width: 280px;
 
 		a, div {

@@ -9,6 +9,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Stoke' rel='stylesheet' type='text/css'>
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="icon" href="static/images/favicon.png" />
 
 	<!-- build:css static/lib.css -->
 	<link rel="stylesheet" href="libs/normalize-css/normalize.css" />
@@ -24,9 +25,9 @@
 
 	<!-- build:remove -->
 	<script>
-		const DEV_PROTOCOL = 'http';
+		const DEV_PROTOCOL = 'https';
 		const DEV_PROJECT = 'testco';
-		const DEV_HOST = 'dev.montagehot.club';
+		const DEV_HOST = 'mntge.com';
 	</script>
 	<!-- endbuild -->
 
@@ -69,19 +70,25 @@
 	<script src="scripts/api/api.service.js"></script>
 	<script src="scripts/api/document.service.js"></script>
 	<script src="scripts/api/file.service.js"></script>
+	<script src="scripts/api/policy.service.js"></script>
 	<script src="scripts/api/role.service.js"></script>
 	<script src="scripts/api/schema.service.js"></script>
 	<script src="scripts/api/user.service.js"></script>
 	<script src="scripts/components/not-found/not-found.component.js"></script>
 	<script src="scripts/components/permissions-table/permissions-table.component.js"></script>
+	<script src="scripts/components/user-select/user-select.component.js"></script>
 	<script src="scripts/config/constants.config.js"></script>
 	<script src="scripts/config/states.config.js"></script>
 	<script src="scripts/config/theme.config.js"></script>
+	<script src="scripts/models/field.model.js"></script>
+	<script src="scripts/models/record.model.js"></script>
 	<script src="scripts/services/auth.service.js"></script>
 	<script src="scripts/services/modal-helper.service.js"></script>
 	<script src="scripts/services/montage-helper.service.js"></script>
 	<script src="scripts/services/not-found-helper.service.js"></script>
+	<script src="scripts/services/role-view.service.js"></script>
 	<script src="scripts/services/toast.service.js"></script>
+	<script src="scripts/services/utils.service.js"></script>
 	<script src="scripts/views/account/account.component.js"></script>
 	<script src="scripts/views/account-password/account-password.component.js"></script>
 	<script src="scripts/views/account-profile/account-profile.component.js"></script>
@@ -89,11 +96,15 @@
 	<script src="scripts/views/file-browser/file-browser.component.js"></script>
 	<script src="scripts/views/layout/layout.component.js"></script>
 	<script src="scripts/views/login/login.component.js"></script>
+	<script src="scripts/views/policy-detail/policy-detail.component.js"></script>
+	<script src="scripts/views/policy-form/policy-form.component.js"></script>
+	<script src="scripts/views/policy-list/policy-list.component.js"></script>
 	<script src="scripts/views/record-browser/query-builder/query-builder.component.js"></script>
 	<script src="scripts/views/record-browser/record-browser.component.js"></script>
 	<script src="scripts/views/record-browser/table-data/table-data.component.js"></script>
-	<script src="scripts/views/role-create/role-create.component.js"></script>
+	<script src="scripts/views/record-edit/record-edit.component.js"></script>
 	<script src="scripts/views/role-detail/role-detail.component.js"></script>
+	<script src="scripts/views/role-form/role-form.component.js"></script>
 	<script src="scripts/views/role-list/role-list.component.js"></script>
 	<script src="scripts/views/schema-detail/schema-detail.component.js"></script>
 	<script src="scripts/views/schema-list/schema-list.component.js"></script>

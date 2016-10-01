@@ -8,9 +8,10 @@
 	function notFoundHelper() {
 		const service = {
 			checkNotFound,
-			buildUserObject,
-			buildRoleObject,
-			buildSchemaObject,
+			getUserOptions,
+			getRoleOptions,
+			getPolicyOptions,
+			getSchemaOptions,
 		};
 
 		return service;
@@ -23,37 +24,48 @@
 			return errorStatus;
 		}
 
-		function buildUserObject() {
-			const params = {
-				param_id     : 'user id',
+		function getUserOptions() {
+			const options = {
+				recordType   : 'user',
 				redirectLink : 'user.list',
 				redirectName : 'Users',
 				isNotFound   : true,
 			};
 
-			return params;
+			return options;
 		}
 
-		function buildRoleObject() {
-			const params = {
-				param_id     : 'role',
+		function getRoleOptions() {
+			const options = {
+				recordType   : 'role',
 				redirectLink : 'role.list',
 				redirectName : 'Roles',
 				isNotFound   : true,
 			};
 
-			return params;
+			return options;
 		}
 
-		function buildSchemaObject() {
-			const params = {
-				param_id     : 'schema',
+		function getSchemaOptions() {
+			const options = {
+				schemaType   : 'schema',
 				redirectLink : 'schema.list',
 				redirectName : 'Schemas',
 				isNotFound   : true,
 			};
 
-			return params;
+			return options;
+		}
+
+		function getPolicyOptions() {
+			const options = {
+				recordType   : 'policy',
+				redirectLink : 'policy.list',
+				redirectName : 'Policy',
+				isNotFound   : true,
+			};
+
+			return options;
 		}
 	}
 })(angular);

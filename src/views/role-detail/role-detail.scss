@@ -5,9 +5,15 @@ $member-width: 35%;
 $section-gutter: 7%;
 
 .role-detail-view {
+	h1 {
+		width: 545px;
+	}
+
 	small {
 		color: $gray-mid;
 		font-size: .72em;
+		display: block;
+		margin: 5px;
 	}
 
 	.user {
@@ -32,6 +38,14 @@ $section-gutter: 7%;
 		float: right;
 	}
 
+	user-select {
+		float: right;
+	}
+
+	.md-button.md-icon-button {
+		padding: 0px 20px !important;
+	}
+
 	section {
 		float: left;
 	}
@@ -39,9 +53,5 @@ $section-gutter: 7%;
 	.members {
 		width: $member-width;
 		margin-right: $section-gutter;
-	}
-
-	.permissions {
-		width: 100 - $member-width - $section-gutter;
 	}
 }

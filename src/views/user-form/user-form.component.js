@@ -26,7 +26,7 @@
 			.then(() => vm.isFound = true)
 			.catch(error => {
 				if (notFoundHelper.checkNotFound(error)) {
-					vm.params = notFoundHelper.buildUserObject();
+					vm.notFoundOptions = notFoundHelper.getUserOptions();
 				}
 			});
 
@@ -35,11 +35,21 @@
 			const save = user.id ? api.user.update : api.user.create;
 
 			save(user)
-				.then((user) => updateRoleMembership(user, roles))
-				.then(() => $state.go('user.list'))
-				.then(() => toast.success('Successfully saved.'))
+				.then(user => updateRoleMembership(user, roles)) // block redirect until all roles have been updated
+				.then(() => {
+					$state.go('user.detail', {user_id: user.id});
+					toast.success('Successfully saved.');
+				})
 				.catch(handleErrors)
 				.finally(() => vm.isSaving = false);
+		};
+
+		vm.cancel = function() {
+			if($stateParams.user_id) {
+				$state.go('user.detail', {user_id: $stateParams.user_id});
+			} else {
+				$state.go('user.list');
+			}
 		};
 
 		function getUserPromise() {

@@ -9,7 +9,7 @@
 			controller   : UserListController,
 		});
 
-	function UserListController($q, api, modalHelper) {
+	function UserListController($q, api) {
 		const vm = this;
 		const roleListPromise = api.role.list();
 		const userListPromise = api.user.list();
@@ -23,21 +23,6 @@
 				addUsersToRoles(userList, roleList);
 				convertRoleArrayToString(userList);
 			});
-
-		vm.deleteUser = function(user_id) {
-			vm.isSaving = true;
-
-			modalHelper.confirmDelete('user')
-				.then(() => {
-					removeUserFromRoles(roles, user_id)
-						.then(() => api.user.remove(user_id))
-						.then(() => {
-							removeUserFromView(vm.userList, user_id);
-							vm.status = 'success';
-						})
-						.catch(() => vm.status = 'error');
-				});
-		};
 
 		function addUsersToRoles(users, roles) {
 			const userDictionary = createUserDictionary(users);
@@ -65,28 +50,6 @@
 			users.forEach(user => {
 				user.roles = user.roles.map(role => role.name).join(', ');
 			});
-		}
-
-		function removeUserFromRoles(roles, user_id) {
-			const rolePromises = roles.reduce((promises, role) => {
-				if (role.users.indexOf(user_id) > -1) {
-					let rolePromise = api.role.update(role.name, null, null, [user_id]);
-					promises.push(rolePromise);
-				}
-
-				return promises;
-			}, []);
-
-			return $q.all(rolePromises);
-		}
-
-		function removeUserFromView(userList, user_id) {
-			for (let index = 0; index < userList.length; index++) {
-				if (userList[index].id === user_id) {
-					userList.splice(index, 1);
-					break;
-				}
-			}
 		}
 	}
 })(angular);

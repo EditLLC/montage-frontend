@@ -20,12 +20,11 @@
 		<tr>
 			<th>Name</th>
 			<th>Role</th>
-			<th class="actions"></th>
 		</tr>
 		</thead>
-		
+
 		<tbody>
-		<tr ng-repeat="user in userList.userList">
+		<tr class="row" ui-sref="user.detail({ user_id: user.id })" ng-repeat="user in userList.userList">
 			<td>
 				<img ng-src="{{ user.photo }}" alt="{{ user.full_name }}">
 				<div class="user-info">
@@ -39,15 +38,6 @@
 			</td>
 
 			<td>{{ user.roles }}</td>
-
-			<td class="actions">
-				<a ui-sref="user.edit({ user_id: user.id })">
-					<i class="fa fa-pencil"></i>
-				</a>
-				<a ng-click="userList.deleteUser(user.id)">
-					<i class="fa fa-times"></i>
-				</a>
-			</td>
 		</tr>
 		</tbody>
 	</table>

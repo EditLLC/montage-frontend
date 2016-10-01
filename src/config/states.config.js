@@ -59,15 +59,53 @@
 			 * Browsers
 			 ************/
 
-			.state('recordBrowser', {
-				url: '/data',
+			.state('data', {
+				abstract: true,
 				parent: 'layout',
+				template: '<empty-parent />'
+			})
+			.state('data.browser', {
+				url: '/data',
+				parent: 'data',
 				template: '<record-browser />'
 			})
+			.state('data.edit', {
+				url: '/data/:schemaName/:document_id',
+				parent: 'data',
+				template: '<record-edit />'
+			})
+
 			.state('fileBrowser', {
 				url: '/files',
 				parent: 'layout',
 				template: '<file-browser />'
+			})
+
+
+			/************
+			 * Policies
+			 ************/
+
+			.state('policy', {
+				abstract: true,
+				parent: 'layout',
+				template: '<empty-parent />'
+			})
+			.state('policy.create', {
+				url: '/policy/create',
+				template: '<policy-form />'
+			})
+			.state('policy.edit', {
+				url: '/policy/edit/:policy_id',
+				template: '<policy-form />'
+			})
+			.state('policy.detail', {
+				url: '/policy/:policy_id',
+				template: '<policy-detail />'
+			})
+			.state('policy.list', {
+				url: '/policy',
+				template: '<policy-list />'
 			})
 
 
@@ -82,7 +120,11 @@
 			})
 			.state('role.create', {
 				url: '/roles/create',
-				template: '<role-create />'
+				template: '<role-form />'
+			})
+			.state('role.edit', {
+				url: '/roles/edit/:roleName',
+				template: '<role-form />'
 			})
 			.state('role.detail', {
 				url: '/roles/:roleName',
