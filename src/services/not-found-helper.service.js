@@ -48,7 +48,7 @@
 
 		function getSchemaOptions() {
 			const options = {
-				schemaType   : 'schema',
+				recordType   : 'schema',
 				redirectLink : 'schema.list',
 				redirectName : 'Schemas',
 				isNotFound   : true,
