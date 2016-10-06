@@ -21,7 +21,7 @@
 				.then(() => vm.isFound = true)
 				.catch(error => {
 					if (notFoundHelper.checkNotFound(error)) {
-						vm.params = notFoundHelper.buildSchemaObject();
+						vm.params = notFoundHelper.getSchemaOptions();
 					}
 				});
 		} else {
