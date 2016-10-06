@@ -11,6 +11,7 @@
 			getUserOptions,
 			getRoleOptions,
 			getPolicyOptions,
+			getSchemaOptions,
 		};
 
 		return service;
@@ -39,6 +40,17 @@
 				recordType   : 'role',
 				redirectLink : 'role.list',
 				redirectName : 'Roles',
+				isNotFound   : true,
+			};
+
+			return options;
+		}
+
+		function getSchemaOptions() {
+			const options = {
+				recordType   : 'schema',
+				redirectLink : 'schema.list',
+				redirectName : 'Schemas',
 				isNotFound   : true,
 			};
 

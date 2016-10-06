@@ -9,15 +9,23 @@
 			controller: schemaDetailController
 		});
 
-	function schemaDetailController($scope, api, $stateParams, $state, modalHelper) {
+	function schemaDetailController($scope, api, $stateParams, $state, modalHelper, notFoundHelper) {
 		var vm = this;
 
-		if($stateParams.schemaName) {
+		if($state.current.name === 'schema.create') {
+			vm.isFound = true;
+			setSchema({ fields: [{}] });
+		} else {
 			vm.isUpdate = true;
 
-			api.schema.get($stateParams.schemaName).then(setSchema);
-		} else {
-			setSchema({ fields: [{}] });
+			api.schema.get($stateParams.schemaName)
+				.then(setSchema)
+				.then(() => vm.isFound = true)
+				.catch(error => {
+					if (notFoundHelper.checkNotFound(error)) {
+						vm.options = notFoundHelper.getSchemaOptions();
+					}
+				});
 		}
 
 		function setSchema(schema) {
