@@ -12,8 +12,10 @@
 	function schemaDetailController($scope, api, $stateParams, $state, modalHelper, notFoundHelper) {
 		var vm = this;
 
-		// Check if parameter is not undefined to catch all 404s in not-found service
-		if($stateParams.schemaName !== undefined) {
+		if($state.current.name === 'schema.create') {
+			vm.isFound = true;
+			setSchema({ fields: [{}] });
+		} else {
 			vm.isUpdate = true;
 
 			api.schema.get($stateParams.schemaName)
@@ -24,10 +26,6 @@
 						vm.params = notFoundHelper.getSchemaOptions();
 					}
 				});
-		} else {
-			vm.isFound = true;
-
-			setSchema({ fields: [{}] });
 		}
 
 		function setSchema(schema) {
