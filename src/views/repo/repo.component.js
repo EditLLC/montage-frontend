@@ -5,7 +5,7 @@
 		.module('montage')
 		.component('repo', {
 			templateUrl  : 'views/repo/repo.html',
-			controllerAs : 'repoBrowser',
+			controllerAs : 'repo',
 			controller   : RepoController,
 		});
 
