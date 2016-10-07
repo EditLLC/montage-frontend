@@ -15,10 +15,9 @@
 		////////////
 
 		function getTreeRoot() {
-			const treeRoot = montageHelper.getClient().request('repo/')
-				.then(what => console.log('what', what));
+			return montageHelper.getClient().request('repo/');
+		}
 
-			return treeRoot;
 		}
 	}
 })(angular);
