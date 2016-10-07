@@ -1,6 +1,6 @@
 <div class="file-detail-view view-frame" md-whiteframe="2">
 	<div>
-		{{ fileDetail.file.size }}
+		{{ fileDetail.getFileSize(fileDetail.file.size) }}
 		<pre>
 			<code>
 				{{ fileDetail.fileContents }}
