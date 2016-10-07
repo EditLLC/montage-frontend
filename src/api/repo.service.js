@@ -6,9 +6,11 @@
 		.factory('repoService', repoService);
 
 	function repoService(montageHelper) {
-		return {
+		const service =  {
 			getTreeRoot,
 		};
+
+		return service;
 
 		////////////
 
