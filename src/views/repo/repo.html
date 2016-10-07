@@ -18,12 +18,18 @@
 				<td>
 					<i class="fa fa-folder-o"></i>
 					{{ folder }}
+					<a ng-click="repo.folderPath(folder)">
+						{{ folder }}
+					</a>
 				</td>
 			</tr>
 			<tr class="row" ng-repeat="file in repo.fileList">
 				<td>
 					<i class="fa fa-file-text-o"></i>
 					{{ file }}
+					<a ng-click="repo.filePath(file)">
+						{{ file }}
+					</a>
 				</td>
 			</tr>
 		</tbody>
