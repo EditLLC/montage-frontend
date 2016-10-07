@@ -13,6 +13,15 @@
 	</div>
 
 	<table>
+		<thead ng-if="repo.repoList.head">
+			<tr>
+				<th>
+					{{ repo.repoList.head.commit.committer.name }}:
+					{{ repo.repoList.head.commit.message }}
+				</th>
+			</tr>
+		</thead>
+
 		<tbody>
 			<tr class="row" ng-repeat="folder in repo.folderList">
 				<td>
