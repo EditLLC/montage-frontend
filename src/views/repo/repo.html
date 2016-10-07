@@ -4,4 +4,11 @@
 	</div>
 
 	<h2>Breadcrumb path</h2>
+
+	<div ng-if="repo.isRoot">
+		{{ repo.repoList.number_of_commits }}
+		{{ repo.repoList.number_of_commits > 1 ? 'Commits' : 'Commit' }}
+		{{ repo.repoList.branches.length }}
+		{{ repo.repoList.branches.length > 1 ? 'Branches' : 'Branch' }}
+	</div>
 </div>
