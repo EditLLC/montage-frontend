@@ -11,5 +11,14 @@
 
 	function RepoController($q, api, $stateParams) {
 		const vm = this;
+		const repoPromise = getRepoPromise();
+
+		function getRepoPromise() {
+			if ($stateParams.path) {
+				return api.repo.getTreeDetail($stateParams.path);
+			}
+
+			return api.repo.getTreeRoot();
+		}
 	}
 })(angular);
