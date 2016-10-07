@@ -88,22 +88,14 @@
 			})
 			.state('repo.browser', {
 				url: '/repo',
-				parent: 'repo',
 				template: '<repo/>'
 			})
-			.state('tree.root', {
-				url: '/repo',
-				parent: 'repo',
-				template: '<tree-root />'
+			.state('repo.detail', {
+				url: '/repo/tree/master/:path',
+				template: '<repo />'
 			})
-			.state('tree.detail', {
-				url: '/repo/:pathName',
-				parent: 'repo',
-				template: '<tree-detail />'
-			})
-			.state('file.detail', {
-				url: '/repo/:pathName/:fileName',
-				parent: 'repo',
+			.state('repo.file', {
+				url: '/repo/blob/master/:path',
 				template: '<file-detail />'
 			})
 
