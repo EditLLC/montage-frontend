@@ -16,6 +16,7 @@
 			.then(file => {
 				vm.file = file.data;
 				vm.fileContents = atob(file.data.contents);
+				vm.isResolved = true;
 			});
 
 		vm.getFileSize = function(bytes) {
