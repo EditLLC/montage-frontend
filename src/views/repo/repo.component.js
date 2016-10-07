@@ -20,10 +20,21 @@
 
 		function getRepoPromise() {
 			if ($stateParams.path) {
+				vm.isRoot = false;
+
 				return api.repo.getTreeDetail($stateParams.path);
 			}
+			vm.isRoot = true;
 
 			return api.repo.getTreeRoot();
+		}
+
+		function getFilePath(repo) {
+			if (vm.isRoot) {
+				return repo = repo.head.tree.entries;
+			}
+
+			return repo = repo.entries;
 		}
 	}
 })(angular);
