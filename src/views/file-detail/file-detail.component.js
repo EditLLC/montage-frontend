@@ -12,6 +12,10 @@
 	function FileDetailController(api, $stateParams) {
 		const vm = this;
 
-		api.repo.getFileDetail($stateParams.path);
+		api.repo.getFileDetail($stateParams.path)
+			.then(file => {
+				vm.file = file.data;
+				vm.fileContents = atob(file.data.contents);
+			});
 	}
 })(angular);
