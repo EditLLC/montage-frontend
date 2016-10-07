@@ -11,4 +11,15 @@
 		{{ repo.repoList.branches.length }}
 		{{ repo.repoList.branches.length > 1 ? 'Branches' : 'Branch' }}
 	</div>
+
+	<table>
+		<tbody>
+			<tr class="row" ng-repeat="folder in repo.folderList">
+				<td>
+					<i class="fa fa-folder-o"></i>
+					{{ folder }}
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
