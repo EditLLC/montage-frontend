@@ -17,6 +17,7 @@
 			.then(repoList => {
 				vm.repoList = repoList.data;
 				addFoldersToView(vm.repoList);
+				addFilesToView(vm.repoList);
 			});
 
 		function getRepoPromise() {
@@ -42,6 +43,20 @@
 			vm.folderList = folderList;
 
 			return vm.folderList;
+		}
+
+		function addFilesToView(repoList) {
+			const fileList = [];
+			const treeList = getFilePath(repoList);
+
+			treeList.forEach(file => {
+				if (file.type === 'blob') {
+					fileList.push(file.name);
+				}
+			});
+			vm.fileList = fileList;
+
+			return vm.fileList;
 		}
 
 		function getFilePath(repo) {
