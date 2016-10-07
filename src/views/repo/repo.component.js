@@ -9,7 +9,7 @@
 			controller   : RepoController,
 		});
 
-	function RepoController(api, $stateParams) {
+	function RepoController(api, $stateParams, $state) {
 		const vm = this;
 		const repoPromise = getRepoPromise();
 
