@@ -11,5 +11,7 @@
 
 	function FileDetailController(api, $stateParams) {
 		const vm = this;
+
+		api.repo.getFileDetail($stateParams.path);
 	}
 })(angular);
