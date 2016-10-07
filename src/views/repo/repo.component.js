@@ -16,6 +16,7 @@
 		repoPromise
 			.then(repoList => {
 				vm.repoList = repoList.data;
+				addFoldersToView(vm.repoList);
 			});
 
 		function getRepoPromise() {
@@ -27,6 +28,20 @@
 			vm.isRoot = true;
 
 			return api.repo.getTreeRoot();
+		}
+
+		function addFoldersToView(repoList) {
+			const folderList = [];
+			const treeList = getFilePath(repoList);
+
+			treeList.forEach(folder => {
+				if (folder.type === 'tree') {
+					folderList.push(folder.name);
+				}
+			});
+			vm.folderList = folderList;
+
+			return vm.folderList;
 		}
 
 		function getFilePath(repo) {
