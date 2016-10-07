@@ -28,6 +28,15 @@
 
 			$state.go('repo.detail', { path: pathName });
 		};
+
+		vm.filePath = function(path) {
+			const pathName = $stateParams.path
+				? `${$stateParams.path}/${path}`
+				: path;
+
+			$state.go('repo.file', { path: pathName });
+		};
+
 		function getRepoPromise() {
 			if ($stateParams.path) {
 				vm.isRoot = false;
