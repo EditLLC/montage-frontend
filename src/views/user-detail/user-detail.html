@@ -28,7 +28,11 @@
 	<div ng-if="userDetail.user.roles.length">
 		<h2>Roles</h2>
 		<ul ng-repeat="roles in userDetail.user.roles">
-			<li>{{ roles.name }}</li>
+			<li>
+				<a ui-sref="role.detail({ roleName: roles.name })">
+					{{ roles.name }}
+				</a>
+			</li>
 		</ul>
 	</div>
 </div>
