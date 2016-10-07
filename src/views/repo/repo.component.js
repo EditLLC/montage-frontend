@@ -77,11 +77,11 @@
 		}
 
 		function getFilePath(repo) {
-			if (vm.isRoot) {
-				return repo = repo.head.tree.entries;
-			}
+			const filePath = vm.isRoot
+			? repo = repo.head.tree.entries
+			: repo = repo.entries;
 
-			return repo = repo.entries;
+			return filePath;
 		}
 	}
 })(angular);
