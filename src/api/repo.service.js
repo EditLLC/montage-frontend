@@ -8,7 +8,6 @@
 	function repoService(montageHelper) {
 		return {
 			getTreeRoot,
-			getPath,
 		};
 
 		////////////
@@ -18,9 +17,6 @@
 				.then(what => console.log('what', what));
 
 			return treeRoot;
-		}
-
-		function getPath() {
 		}
 	}
 })(angular);
