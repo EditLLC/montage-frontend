@@ -9,7 +9,7 @@
 			controller   : FileDetailController,
 		});
 
-	function FileDetailController(api) {
+	function FileDetailController(api, $stateParams) {
 		const vm = this;
 	}
 })(angular);
