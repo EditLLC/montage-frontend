@@ -13,6 +13,11 @@
 		const vm = this;
 		const repoPromise = getRepoPromise();
 
+		repoPromise
+			.then(repoList => {
+				vm.repoList = repoList.data;
+			});
+
 		function getRepoPromise() {
 			if ($stateParams.path) {
 				return api.repo.getTreeDetail($stateParams.path);
