@@ -9,7 +9,7 @@
 			controller   : RepoWrapperController,
 		});
 
-	function RepoWrapperController() {
+	function RepoWrapperController(api) {
 
 	}
 })(angular);
