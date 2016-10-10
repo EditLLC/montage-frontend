@@ -21,20 +21,13 @@
 			});
 
 
-		vm.folderPath = function(path) {
+
+		vm.getPath = function(path, route) {
 			const pathName = $stateParams.path
 				? `${$stateParams.path}/${path}`
 				: path;
 
-			$state.go('repo.detail', { path: pathName });
-		};
-
-		vm.filePath = function(path) {
-			const pathName = $stateParams.path
-				? `${$stateParams.path}/${path}`
-				: path;
-
-			$state.go('repo.file', { path: pathName });
+			$state.go(route, { path: pathName });
 		};
 
 		function getRepoPromise() {
