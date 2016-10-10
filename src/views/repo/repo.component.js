@@ -49,17 +49,11 @@
 		}
 
 		function addFoldersToView(repoList) {
-			const folderList = [];
 			const treeList = getFilePath(repoList);
 
-			treeList.forEach(folder => {
-				if (folder.type === 'tree') {
-					folderList.push(folder.name);
-				}
-			});
-			vm.folderList = folderList;
+			vm.folderList = treeList.filter(folder => folder.type === 'tree');
 
-			return vm.folderList;
+			return;
 		}
 
 		function addFilesToView(repoList) {
