@@ -1,12 +1,10 @@
 <div class="file-detail-view view-frame" md-whiteframe="2">
 	<div>
-		<span ng-if="fileDetail.isResolved">
-			{{ fileDetail.getFileSize(fileDetail.file.size) }}
-		</span>
 		<pre>
 			<code>
 				{{ fileDetail.fileContents }}
 			</code>
 		</pre>
+		{{ fileDetail.getFileSize(fileDetail.file.size) }}
 	</div>
 </div>

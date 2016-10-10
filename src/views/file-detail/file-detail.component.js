@@ -16,10 +16,11 @@
 			.then(file => {
 				vm.file = file.data;
 				vm.fileContents = atob(file.data.contents);
-				vm.isResolved = true;
 			});
 
 		vm.getFileSize = function(bytes) {
+			if(bytes === undefined) return;
+
 			const gigabyte = 1024 * 1024 * 1024;
 			const megabyte = 1024 * 1024;
 			const kilobyte = 1024;

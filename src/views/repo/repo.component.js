@@ -39,8 +39,6 @@
 
 		function getRepoPromise() {
 			if ($stateParams.path) {
-				vm.isRoot = false;
-
 				return api.repo.getTreeDetail($stateParams.path);
 			}
 			vm.isRoot = true;
