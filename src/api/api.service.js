@@ -10,6 +10,7 @@
 		fileService,
 		repoService,
 		policyService,
+		projectService,
 		roleService,
 		schemaService,
 		userService
@@ -18,6 +19,7 @@
 			document : documentService,
 			file     : fileService,
 			policy   : policyService,
+			project  : projectService,
 			repo     : repoService,
 			role     : roleService,
 			schema   : schemaService,
