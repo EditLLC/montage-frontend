@@ -81,6 +81,11 @@
 				template: '<file-browser />'
 			})
 
+
+			/************
+			 * Repo
+			 ************/
+
 			.state('repo', {
 				abstract: true,
 				parent: 'layout',
