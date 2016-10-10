@@ -57,17 +57,11 @@
 		}
 
 		function addFilesToView(repoList) {
-			const fileList = [];
 			const treeList = getFilePath(repoList);
 
-			treeList.forEach(file => {
-				if (file.type === 'blob') {
-					fileList.push(file.name);
-				}
-			});
-			vm.fileList = fileList;
+			vm.fileList = treeList.filter(file => file.type === 'blob');
 
-			return vm.fileList;
+			return;
 		}
 
 		function getFilePath(repo) {
