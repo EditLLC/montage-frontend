@@ -70,11 +70,15 @@
 				template: '<record-browser />'
 			})
 			.state('data.edit', {
-				url: '/data/:schemaName/:document_id',
+				url: '/data/:schemaName/edit/:document_id',
 				parent: 'data',
 				template: '<record-edit />'
 			})
-
+			.state('data.create', {
+				url: '/data/:schemaName/create',
+				parent: 'data',
+				template: '<record-edit />'
+			})
 			.state('fileBrowser', {
 				url: '/files',
 				parent: 'layout',
