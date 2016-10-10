@@ -10,6 +10,9 @@
 		});
 
 	function RepoWrapperController(api) {
+		const vm = this;
 
+		api.project.get()
+			.then(project => vm.project = project.data);
 	}
 })(angular);
