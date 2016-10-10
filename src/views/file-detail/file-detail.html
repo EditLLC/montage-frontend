@@ -1,10 +1,7 @@
 <div class="file-detail-view view-frame" md-whiteframe="2">
 	<div>
-		<pre>
-			<code>
-				{{ fileDetail.fileContents }}
-			</code>
-		</pre>
 		{{ fileDetail.getFileSize(fileDetail.file.size) }}
+<!-- Line not indented to prevent indentation from affecting pre text -->
+<pre><code>{{ fileDetail.fileContents }}</code></pre>
 	</div>
 </div>
