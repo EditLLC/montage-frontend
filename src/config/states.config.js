@@ -89,7 +89,7 @@
 			.state('repo', {
 				abstract: true,
 				parent: 'layout',
-				template: '<empty-parent />'
+				template: '<repo-wrapper />'
 			})
 			.state('repo.browser', {
 				url: '/repo',
