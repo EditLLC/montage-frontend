@@ -4,3 +4,7 @@
 		<pre><code>{{ fileDetail.fileContents }}</code></pre>
 	</div>
 </div>
+
+<div ng-if="fileDetail.notFoundOptions.isNotFound">
+	<not-found options="fileDetail.notFoundOptions"></not-found>
+</div>
