@@ -9,7 +9,7 @@
 			controller   : FileDetailController,
 		});
 
-	function FileDetailController(api, $stateParams) {
+	function FileDetailController(api, $stateParams, notFoundHelper) {
 		const vm = this;
 
 		api.repo.getFileDetail($stateParams.path)
