@@ -12,6 +12,7 @@
 			getRoleOptions,
 			getPolicyOptions,
 			getSchemaOptions,
+			getRepoOptions,
 		};
 
 		return service;
@@ -62,6 +63,17 @@
 				recordType   : 'policy',
 				redirectLink : 'policy.list',
 				redirectName : 'Policy',
+				isNotFound   : true,
+			};
+
+			return options;
+		}
+
+		function getRepoOptions() {
+			const options = {
+				recordType   : 'repo page',
+				redirectLink : 'repo.browser',
+				redirectName : 'Repo',
 				isNotFound   : true,
 			};
 
