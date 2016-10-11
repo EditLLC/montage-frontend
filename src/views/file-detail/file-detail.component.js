@@ -15,7 +15,9 @@
 		api.repo.getFileDetail($stateParams.path)
 			.then(file => {
 				vm.file = file.data;
-				vm.fileContents = atob(file.data.contents);
+				if (!file.data.is_binary) {
+					vm.fileContents = atob(file.data.contents);
+				}
 			})
 			.then(() => vm.isFound = true)
 			.catch(error => {
