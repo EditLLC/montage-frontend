@@ -17,6 +17,7 @@
 				vm.file = file.data;
 				vm.fileContents = atob(file.data.contents);
 			})
+			.then(() => vm.isFound = true)
 			.catch(error => {
 				if (notFoundHelper.checkNotFound(error)) {
 					vm.notFoundOptions = notFoundHelper.getUserOptions();
