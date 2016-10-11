@@ -18,6 +18,11 @@
 				vm.repoList = repoList.data;
 				addFoldersToView(vm.repoList);
 				addFilesToView(vm.repoList);
+			})
+			.catch(error => {
+				if (notFoundHelper.checkNotFound(error)) {
+					vm.notFoundOptions = notFoundHelper.getRepoOptions();
+				}
 			});
 
 
