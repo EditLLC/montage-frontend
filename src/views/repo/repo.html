@@ -26,7 +26,7 @@
 			<tr class="row" ng-repeat="folder in repo.folderList">
 				<td>
 					<i class="fa fa-folder-o"></i>
-					<a ng-click="repo.getPath(folder.name, 'repo.detail')">
+					<a ng-click="repo.getPath('repo.detail', folder.name)">
 						{{ folder.name }}
 					</a>
 				</td>
@@ -34,7 +34,7 @@
 			<tr class="row" ng-repeat="file in repo.fileList">
 				<td>
 					<i class="fa fa-file-text-o"></i>
-					<a ng-click="repo.getPath(file.name, 'repo.file')">
+					<a ng-click="repo.getPath('repo.file', file.name)">
 						{{ file.name }}
 					</a>
 				</td>

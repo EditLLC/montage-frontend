@@ -22,7 +22,7 @@
 
 
 
-		vm.getPath = function(path, route) {
+		vm.getPath = function(route, path) {
 			const pathName = $stateParams.path
 				? `${$stateParams.path}/${path}`
 				: path;
