@@ -16,6 +16,11 @@
 			.then(file => {
 				vm.file = file.data;
 				vm.fileContents = atob(file.data.contents);
+			})
+			.catch(error => {
+				if (notFoundHelper.checkNotFound(error)) {
+					vm.notFoundOptions = notFoundHelper.getUserOptions();
+				}
 			});
 
 		vm.getFileSize = function(bytes) {
