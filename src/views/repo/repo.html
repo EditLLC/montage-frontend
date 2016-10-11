@@ -1,4 +1,4 @@
-<div class="repo-view">
+<div class="repo-view" ng-if="repo.isFound">
 	<div ng-if="repo.isRoot">
 		{{ repo.repoList.number_of_commits }}
 		{{ repo.repoList.number_of_commits > 1 ? 'Commits' : 'Commit' }}

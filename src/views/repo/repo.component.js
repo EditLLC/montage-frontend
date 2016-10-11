@@ -19,6 +19,7 @@
 				addFoldersToView(vm.repoList);
 				addFilesToView(vm.repoList);
 			})
+			.then(() => vm.isFound = true)
 			.catch(error => {
 				if (notFoundHelper.checkNotFound(error)) {
 					vm.notFoundOptions = notFoundHelper.getRepoOptions();
