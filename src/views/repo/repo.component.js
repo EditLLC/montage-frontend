@@ -79,7 +79,7 @@
 
 				breadcrumbsList.push({ name: pathNameList[i] });
 
-				for (let j = 0; j < i + 1; j++) {
+				for (let j = 0; j <= i; j++) {
 					pathName = `${pathName}/${pathNameList[j]}`;
 				}
 				pathName = pathName.substring(1, pathName.length);
