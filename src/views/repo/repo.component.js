@@ -69,7 +69,7 @@
 		}
 
 		function makeBreadcrumbs(path) {
-			if (path === undefined) return;
+			if (!path) return;
 
 			const breadcrumbsList = [];
 			const pathNameList = path.split('/');
