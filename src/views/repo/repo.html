@@ -1,4 +1,13 @@
 <div class="repo-view" ng-if="repo.isFound">
+	<div>
+		<ul>
+			<li ng-repeat="breadcrumb in repo.breadcrumbs">
+				<a ui-sref="repo.detail({ path: breadcrumb.path })">
+					{{ breadcrumb.name }}
+				</a>
+			</li>
+		</ul>
+	</div>
 	<div ng-if="repo.isRoot">
 		{{ repo.repoList.number_of_commits }}
 		{{ repo.repoList.number_of_commits > 1 ? 'Commits' : 'Commit' }}
