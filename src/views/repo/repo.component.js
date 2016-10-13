@@ -16,6 +16,7 @@
 		repoPromise
 			.then(repoList => {
 				vm.repoList = repoList.data;
+				addCommitInfoToView(vm.repoList);
 				addFoldersToView(vm.repoList);
 				addFilesToView(vm.repoList);
 			})
@@ -43,6 +44,11 @@
 			vm.isRoot = true;
 
 			return api.repo.getTreeRoot();
+		}
+
+		function addCommitInfoToView(repoList) {
+			vm.commitHash = repoList.head.commit.hash.substring(0, 7);
+			vm.commitTimestamp = new timeago().format(repoList.head.commit.timestamp);
 		}
 
 		function addFoldersToView(repoList) {
