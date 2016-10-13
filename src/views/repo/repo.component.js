@@ -19,6 +19,7 @@
 				addCommitInfoToView(vm.repoList);
 				addFoldersToView(vm.repoList);
 				addFilesToView(vm.repoList);
+				makeBreadcrumbs($stateParams.path);
 			})
 			.then(() => vm.isFound = true)
 			.catch(error => {
@@ -67,6 +68,27 @@
 			vm.fileList = treeList.filter(file => file.type === 'blob');
 
 			return;
+		}
+
+		function makeBreadcrumbs(path) {
+			if (path === undefined) return;
+
+			const breadcrumbsList = [];
+			const pathNameList = path.split('/');
+
+			for (let i = 0; i < pathNameList.length; i++) {
+				let pathName = '';
+
+				breadcrumbsList.push({ name: pathNameList[i] });
+
+				for (let j = 0; j < i + 1; j++) {
+					pathName = `${pathName}/${pathNameList[j]}`;
+				}
+				pathName = pathName.substring(1, pathName.length);
+				breadcrumbsList[i].path = pathName;
+			}
+
+			vm.breadcrumbs = breadcrumbsList;
 		}
 
 		function getFilePath(repo) {
