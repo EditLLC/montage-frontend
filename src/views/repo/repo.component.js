@@ -47,6 +47,8 @@
 		}
 
 		function addCommitInfoToView(repoList) {
+			if (repoList.head === undefined) return;
+
 			vm.commitHash = repoList.head.commit.hash.substring(0, 7);
 			vm.commitTimestamp = new timeago().format(repoList.head.commit.timestamp);
 		}
