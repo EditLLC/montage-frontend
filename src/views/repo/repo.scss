@@ -13,4 +13,8 @@
 	.row:hover {
 		background: darken($gray-lightest, 5%);
 	}
+
+	.commit-info {
+		float: right;
+	}
 }

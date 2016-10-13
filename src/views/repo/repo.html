@@ -12,8 +12,10 @@
 				<th>
 					{{ repo.repoList.head.commit.committer.name }}:
 					{{ repo.repoList.head.commit.message }}
-					<code>{{ repo.commitHash }}</code>
-					{{ repo.commitTimestamp }}
+					<span class="commit-info">
+						<code>{{ repo.commitHash }}</code>
+						{{ repo.commitTimestamp }}
+					</span>
 				</th>
 			</tr>
 		</thead>
