@@ -28,8 +28,6 @@
 				}
 			});
 
-
-
 		vm.getPath = function(route, path) {
 			const pathName = $stateParams.path
 				? `${$stateParams.path}/${path}`
