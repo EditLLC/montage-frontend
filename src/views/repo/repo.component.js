@@ -71,23 +71,16 @@
 		function makeBreadcrumbs(path) {
 			if (!path) return;
 
-			const breadcrumbsList = [];
 			const pathNameList = path.split('/');
 
-			for (let i = 0; i < pathNameList.length; i++) {
-				let pathName = '';
+			vm.breadcrumbs = pathNameList.map((name, index) => {
+				path = pathNameList.slice(0, index + 1).join('/');
 
-				for (let j = 0; j <= i; j++) {
-					pathName = `${pathName}/${pathNameList[j]}`;
-				}
-				pathName = pathName.substring(1, pathName.length);
-				breadcrumbsList.push({
-					name : pathNameList[i],
-					path : pathName,
-				});
-			}
-
-			vm.breadcrumbs = breadcrumbsList;
+				return {
+					name,
+					path,
+				};
+			});
 		}
 
 		function getFilePath(repo) {
