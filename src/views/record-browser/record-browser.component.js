@@ -4,17 +4,17 @@
 	angular
 		.module('montage')
 		.component('recordBrowser', {
-			templateUrl: 'views/record-browser/record-browser.html',
-			controllerAs: 'recordBrowser',
-			controller: recordBrowserController
+			templateUrl  : 'views/record-browser/record-browser.html',
+			controllerAs : 'recordBrowser',
+			controller   : recordBrowserController,
 		});
 
-	function recordBrowserController(api, montageHelper) {
+	function recordBrowserController(api, montage, montageHelper, $state) {
 		var vm = this;
 
 		api.schema.list().then(schemaList => vm.schemaList = schemaList);
 
-		vm.executeQuery = function(query) {
+		vm.executeQuery = query => {
 			montageHelper.getClient()
 				.execute({ query })
 				.then(response => {
@@ -23,8 +23,8 @@
 					vm.dataExists = !!queryResults.length;
 
 					return vm.results = {
-						schema: getSchema(query.schema),
-						documentList: queryResults
+						schema       : getSchema(query.schema) || getSchema($state.params.schema),
+						documentList : queryResults,
 					};
 				});
 		};

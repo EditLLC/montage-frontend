@@ -4,17 +4,17 @@
 	angular
 		.module('montage')
 		.component('queryBuilder', {
-			templateUrl: 'views/record-browser/query-builder/query-builder.html',
-			controllerAs: 'queryBuilder',
-			controller: queryBuilderController,
-			bindings: {
-				onSubmit: '=',
-				schemaList: '='
+			templateUrl  : 'views/record-browser/query-builder/query-builder.html',
+			controllerAs : 'queryBuilder',
+			controller   : queryBuilderController,
+			bindings     : {
+				onSubmit   : '=',
+				schemaList : '=',
 			}
 		});
 
-	function queryBuilderController(montage) {
-		var vm = this;
+	function queryBuilderController(montage, $state) {
+		const vm = this;
 
 		vm.operatorDictionary = {
 			'='                              : 'eq',
@@ -31,15 +31,17 @@
 			'ends with'                      : 'ends',
 			'ends with (case insensitive)'   : 'iends',
 			'intersects (geometry)'          : 'intersects',
-			'includes (geometry)'            : 'includes'
+			'includes (geometry)'            : 'includes',
 		};
 
 		vm.getSchemaDetails = function(schemaName) {
-			var schema = vm.schemaList.filter(schema => schema.name === schemaName)[0];
+			if ($state.params.schema) { vm.schemaList = $state.params.schema; }
+
+			const schema = vm.schemaList.filter(schema => schema.name === schemaName)[0];
 
 			vm.schemaDetails = {
-				fields: schema.fields,
-				indices: schema.fields.filter(field => field.index)
+				fields  : schema.fields,
+				indices : schema.fields.filter(field => field.index)
 			};
 		};
 
@@ -47,44 +49,41 @@
 		vm.cancelFilter = () => vm.isAddingFilter = false;
 
 		vm.applyFilter = function(pendingFilter) {
-			if(!vm.query.filterGroups) {
+			if (!vm.query.filterGroups) {
 				vm.query.filterGroups = {};
 			}
 
-			if(!vm.query.filterGroups[pendingFilter.field]) {
+			if (!vm.query.filterGroups[pendingFilter.field]) {
 				vm.query.filterGroups[pendingFilter.field] = [];
 			}
 
 			vm.query.filterGroups[pendingFilter.field].push({
-				operator: pendingFilter.operator,
-				value: pendingFilter.value
+				operator : pendingFilter.operator,
+				value    : pendingFilter.value,
 			});
 
 			vm.isAddingFilter = false;
 		};
 
 		vm.removeFilter = function(field, filter) {
+			vm.query.filterGroups[field] = vm.query.filterGroups[field].filter(currentFilter => currentFilter !== filter);
 
-			// Remove the filter from the filterGroup
-			vm.query.filterGroups[field] = vm.query.filterGroups[field].filter((currentFilter => currentFilter !== filter));
-
-			// Remove the filterGroup if it is empty
-			if(!vm.query.filterGroups[field].length) {
+			if (!vm.query.filterGroups[field].length) {
 				delete vm.query.filterGroups[field];
 			}
 		};
 
 		vm.buildQuery = ({ schema, filterGroups, order_by, ordering, limit, offset }) => {
-			if(!schema) return;
+			if (!schema) { return; }
 
-			var query = new montage.Query(schema);
+			const query = new montage.Query(schema);
 
-			if(filterGroups) {
+			if (filterGroups) {
 				let filters = [];
 
-				for(var field in filterGroups) {
-					if(filterGroups.hasOwnProperty(field)) {
-						filterGroups[field].forEach(({operator, value}) => {
+				for (var field in filterGroups) {
+					if (filterGroups.hasOwnProperty(field)) {
+						filterGroups[field].forEach(({ operator, value }) => {
 							filters.push(new montage.Field(field)[vm.operatorDictionary[operator]](value));
 						});
 					}
@@ -94,10 +93,19 @@
 			}
 
 			if (order_by && ordering) { query.orderBy(order_by, ordering); }
-			if(offset) { query.skip(parseInt(offset)); }
-			if(limit) { query.limit(parseInt(limit)); }
+			if (offset) { query.skip(parseInt(offset)); }
+			if (limit) { query.limit(parseInt(limit)); }
 
 			return query;
+		}
+
+		vm.redirectUser = function() {
+			$state.go('data.browser', vm.query, { location: 'replace', reload: true });
+		}
+
+		if ($state.params.schema) {
+			vm.query = $state.params;
+			vm.onSubmit(vm.buildQuery(vm.query));
 		}
 	}
 })(angular);
