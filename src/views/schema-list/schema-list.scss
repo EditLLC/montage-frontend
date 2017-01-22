@@ -1,28 +1,53 @@
 @import '../../static/styles/variables';
 
 .schema-list-view {
-	.fa-search {
-		line-height: 26px;
-		padding-top: 2px;
-		margin-left: 8px;
+	$sidenav-toolbar-height: 64px;
 
-		&.md-input-focused {
-			color: $primary;
-		}
+	margin-left: $sidebar-width;
+
+	.sidenav-left {
+		width: $sidebar-width;
+		top: 60px;
+		bottom: 0;
+		left: 0;
+		position: fixed;
+		overflow: hidden;
 	}
 
-	.schema-name {
-		a {
-			text-decoration: none;
-		}
+	.sidenav-toolbar {
+		overflow: hidden;
+		width: 100%;
+		background: $blue;
+		color: #fff;
+		height: $sidenav-toolbar-height;
+		line-height: $sidenav-toolbar-height;
+		margin: 0;
+		padding: 0 20px;
+	}
 
-		.fa {
-			font-size: 18px;
-			vertical-align: middle;
+	.schema-list {
+		position: absolute;
+		top: $sidenav-toolbar-height;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		overflow: auto;
+	}
+
+	.schema {
+		line-height: 40px;
+		height: 40px;
+		text-align: left;
+		width: 100%;
+		border-radius: 0;
+
+		&.active {
+			background-color: rgba(158, 158, 158, 0.2);
 		}
 	}
 
 	table {
 		margin-bottom: 60px;
+		width: 960px;
 	}
 }

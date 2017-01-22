@@ -1,8 +1,6 @@
 @import '../../static/styles/variables';
 @import '../../static/styles/mixins';
 
-$sidebar-width: 300px;
-
 .record-browser-view {
 	query-builder {
 		@include scrollable();

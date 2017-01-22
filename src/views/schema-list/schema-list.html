@@ -1,47 +1,51 @@
-<div class="schema-list-view view-frame" md-whiteframe="2">
-	<div class="view-header">
-		<h1>Schemas</h1>
+<div class="schema-list-view">
 
+	<div class="sidenav-left" md-whiteframe="4">
+		<h2 class="sidenav-toolbar">
+			Schemas
+		</h2>
+		<ul class="schema-list">
+			<li ng-repeat="schema in schemaList">
+				<a class="schema md-button md-ink-ripple ellipsis"
+				   aria-label="{{ schema.name }}"
+				   ng-class="{ 'active': schema === selectedSchema }"
+				   ng-click="selectSchema(schema)">
+					{{ schema.name }}
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<div class="view-header">
+		<h1>{{ selectedSchema.name }}</h1>
+
+		<md-button class="md-secondary md-raised" ui-sref="schema.detail({ schemaName: selectedSchema.name })">
+			<i class="fa fa-pencil"></i>
+			Edit Schema
+		</md-button>
 		<md-button class="md-primary md-raised" ui-sref="schema.create">
 			<i class="fa fa-plus"></i>
 			Create Schema
 		</md-button>
 	</div>
 
-	<md-input-container class="md-icon-float md-block">
-		<label>Search</label>
-		<md-icon md-font-icon="fa fa-search"></md-icon>
-		<input type="text" ng-model="schemaList.searchTerm">
-	</md-input-container>
-
-	<div ng-repeat="schema in schemaList.schemaList | filter:{ name: schemaList.searchTerm }">
-		<div class="schema-name">
-			<a ui-sref="schema.detail({ schemaName: schema.name })">
-				<h2>
-					{{ schema.name }}
-					<i class="fa fa-pencil"></i>
-				</h2>
-			</a>
-		</div>
-
-		<table>
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Type</th>
-					<th>Indexed</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="field in schema.fields">
-					<td>{{ field.name }}</td>
-					<td>{{ field.datatype }}</td>
-					<td>
-						<i ng-if="field.index" class="fa fa-check"></i>
-						<i ng-if="!field.index" class="fa fa-times"></i>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Type</th>
+				<th>Indexed</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="field in selectedSchema.fields">
+				<td>{{ field.name }}</td>
+				<td>{{ field.datatype }}</td>
+				<td>
+					<i ng-if="field.index" class="fa fa-check"></i>
+					<i ng-if="!field.index" class="fa fa-times"></i>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
